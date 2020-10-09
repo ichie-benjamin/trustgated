@@ -108,122 +108,430 @@
 
     <!-- HEADER -->
 
-   @include('temp.layouts.header')
-    <!-- HEADER -->
+    <div id="header-top" >
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!-- LOGO -->
+                    <a id="logo" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">
+                        <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="enterprenuer.com">
+                    </a>
+                </div><!-- col -->
+                <div class="col-sm-4">
+                </div><!-- col -->
+
+                <div class="col-sm-5 logme">
+                    <div class="widget widget-pages">
+                        <ul>
+                            <li>
+                                <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsseeker-login.html">
+                                    <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/login-icon.png" />
+                                    Login
+                                </a>
+                            </li>
+                            <li>
+                                <!--<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-login.html">-->
+                                <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-registration.html">
+                                    <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/register-icon.png" />
+                                    <!--<i class="fa fa-lock"></i>-->
+                                    Register
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div><!-- widget-pages -->
+
+
+                </div><!-- col -->
+
+
+                <!-- <div class="text-right botlink5"><a href="#">Job Seeker? Click here</a>  |  Report a Problem</div>-->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- header-top -->
+    <div id="header" >
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- MENU -->
+                    <nav>
+                        <a id="mobile-menu-button" href="#"><i class="mt-icons-menu"></i></a>
+                        <ul class="menu clearfix" id="menu">
+                            <li><a href="{{ route('welcome') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/home.png" /> Home</a></li>
+                            <li><a href="{{ route('jobseeker-profile') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/job-seeker-icon.png" /> Jobseekers</a></li>
+                            <li  ><a href="{{ route('searchall') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-icon.png" /> Jobs</a></li>
+                            <li ><a href="{{ route('jobsearch_all') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/govt-jobs-icon.png" /> IIT/IIM jobs</a></li>
+                            <li ><a href="{{ route('govt_job') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/govt-jobs-icon.png" /> Govt.jobs</a></li>
+                            <li ><a href="{{ route('oversea_jobs') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/oversea-jobs-icon.png" /> Oversea jobs</a></li>
+                            <li ><a href="{{ route('recruiters') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/recruiters-icon.png" /> Recruiters</a></li>
+                            {{--                                <li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/employers-icon.png" /> Employers</a></li>--}}
+                            <li ><a href="{{ route('contactus') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/services-icon.png" /> Contact us</a></li>
+
+                        </ul>
+                    </nav>
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div>
+    <!-- header -->
+    <!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+
+    <script type="text/javascript">
+        function Captcha(){
+            var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+            var i;
+            for (i=0;i<6;i++){
+                var a = alpha[Math.floor(Math.random() * alpha.length)];
+                var b = alpha[Math.floor(Math.random() * alpha.length)];
+                var c = alpha[Math.floor(Math.random() * alpha.length)];
+                var d = alpha[Math.floor(Math.random() * alpha.length)];
+                var e = alpha[Math.floor(Math.random() * alpha.length)];
+                var f = alpha[Math.floor(Math.random() * alpha.length)];
+                var g = alpha[Math.floor(Math.random() * alpha.length)];
+            }
+            var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+            document.getElementById("mainCaptcha").value = code
+        }
+        function ValidCaptcha(){
+            var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+            var string2 = removeSpaces(document.getElementById('txtInput').value);
+            var maincaptcha=$('#mainCaptcha').val();
+            if(maincaptcha!=""){
+                if (string1 == string2){
+                    document.getElementById('id5').innerHTML='<span style="color:#DE1616;">Verification success</span>';
+                    return true;
+                }
+                else{
+                    document.getElementById('id5').innerHTML='<span style="color:#DE1616;">Enter the correct captcha</span>';
+                    return false;
+                }
+            }
+        }
+        function removeSpaces(string){
+            return string.split(' ').join('');
+        }
+    </script>
+
+
+
 
 
 
     <!-- CONTENT -->
     <div id="content">
         <div class="container">
+
+
+
+            <ol  class="breadcrumb">
+                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">Home</a></li>
+                <li class="active">Contact Us</li>
+            </ol>
+
             <div class="row">
-                <div class="col-md-0"></div>
-                <div class="col-md-11">
-                    <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#"> Category</a></li>
-                        <li class="active">Search</li>
-                    </ol>
-                </div>
-                <!--col-md-2-->
-
-                <!--col-md-7-->
-
-                <div class="col-md-9"><br />
-                    <div class="col-md-9">
-                        <div style="color:rgb(56, 112, 159)">
-                            <table class="table table-striped">
-                                <tr>
-                                    <th>S.No</th>
-                                    <th>Category</th>
-                                    <th></th>
-                                </tr>
-
-                                <tr><td>1</td><td>IT-ERP-Oracle</td><td><a href='jobsearch.html?category=50' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>2</td><td>Others</td><td><a href='jobsearch.html?category=45' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>3</td><td>IT - BPO</td><td><a href='jobsearch.html?category=53' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>4</td><td>KPO/Technical Support</td><td><a href='jobsearch.html?category=42' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>5</td><td>Law Enforcement/Security</td><td><a href='jobsearch.html?category=34' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>6</td><td>Legal/Law</td><td><a href='jobsearch.html?category=35' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>7</td><td>Marketing/Sales</td><td><a href='jobsearch.html?category=36' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>8</td><td>Media </td><td><a href='jobsearch.html?category=51' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>9</td><td>Media/Journalism</td><td><a href='jobsearch.html?category=37' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>10</td><td>Production/Manufacturing/Maintenance</td><td><a href='jobsearch.html?category=38' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>11</td><td>Strategy / Management Consulting Firms</td><td><a href='jobsearch.html?category=44' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>12</td><td>Tours And Travel/Airline</td><td><a href='jobsearch.html?category=40' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>13</td><td>Transportation/Logistics</td><td><a href='jobsearch.html?category=41' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>14</td><td>NGO/Social Services</td><td><a href='jobsearch.html?category=54' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr><tr><td>15</td><td>Management</td><td><a href='jobsearch.html?category=55' style='color:rgb(56, 112, 159)'>Clickhere</a></td></tr>
-                            </table>
-                        </div>
+                <div class="col-sm-9" >
+                    <div class="top-emp-center p5">
+                        <h4>Contact Us</h4>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="create-job">
-                        <div class="create-job-head">
-                            <h3> Create Your Job Alert</h3>
-                        </div>
-                        <div class="create-job-content">
-                            <p>
-                                Specify your criteria and Regularly receive jobs of your choice
-                                Be the first to apply for these jobs Stay updated about the job market.</p>
-                            <div class="ali-right"><input class="btn-blue btn" data-toggle="modal" data-target="#createjob" value="Create Now" type="button"></div>
-                        </div>
-                    </div><!--create-job-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <div class="all-catehead blue">Employers contact us at</div><br>
+                                <address>
+                                    <div class="enq"> For Sales Enquiries</div>
+                                    <strong class="enq">Toll Free Nuber:</strong>98767876565 <br>
+                                    <strong class="enq">Mobile:</strong>  8787678765<br>
+                                    <strong class="enq">Email: </strong><span class="add"> <a href="mailto:employer@gmail.com">employer@gmail.com</a></span><br>
+                                    <!-- <div class="add"><a href="#">Click here</a>  to request information</div>	-->
+                                </address>
+                            </div><!--col-sm-6-->
+
+                            <div class="col-sm-6">
+                                <div class="all-catehead blue">Job Seekers contact us at</div><br>
+                                <address>
+                                    <strong class="enq">Toll Free Nuber:</strong> 987987987<br>
+                                    Enterprenuer Services<br>
+                                    <strong class="enq">Email: </strong><span class="add"> <a href="mailto:info@gmail.com">info@gmail.com</a></span><br>
+                                    <!--<div class="add"><a href="#">Click here</a>  for My Enterprenuer Services </div>-->
+                                </address>
+                            </div><!--col-sm-6-->
+                        </div><!--col-sm-12-->
+                    </div>
+
+                    <div class="top-emp-center p5 mtop40">
+                        <h4>Our Management Team</h4>
+                    </div>
+                    <div class="contact row mtop40 ">
+                        <div class="col-sm-4">
+                            <div class="manage-bg ">
+                                <div class="manage-title"> Mr. Haruto Shimabukuro</div>
+                                <div class="manage">
+                                    <ul>
+                                        <li>Chief Operating Officer</li>
+                                        <li>Enterprenuer Services</li>
+                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!--col-sm-4-->
+
+                        <div class="col-sm-4">
+                            <div class="manage-bg ">
+                                <div class="manage-title"> Mr. Yamato Chinen</div>
+                                <div class="manage">
+                                    <ul>
+                                        <li>Product & Marketing Head</li>
+                                        <li>Enterprenuer Services</li>
+                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!--col-sm-4-->
+
+                        <div class="col-sm-4">
+                            <div class="manage-bg ">
+                                <div class="manage-title">  Mr. Kosuke Higa </div>
+                                <div class="manage">
+                                    <ul>
+                                        <li>Customer Care Manager</li>
+                                        <li>Enterprenuer Services</li>
+                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!--col-sm-4-->
+                    </div><!--contact -->
+
+
+                </div><!--col-sm-9-->
+
+                <div class="col-sm-3" >
 
                     <div class="create-job">
                         <div class="create-job-head">
-                            <h3> Recruiters </h3>
+                            <h3> Enquiry Form </h3>
                         </div>
                         <div class="create-job-content">
-                            <p> Connect to recruiters directly. More than 50,000 Recruiter across Industries.</p>
-                            <div class="ali-right">  <a href="recruiter-listing.html" class="btn-blue btn" >View All<a></div>
+
+                            <p ></p>
+                            <form  action="" name="formreg" id="formreg" method="post" onsubmit="return ChkContact()">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="fullname" name="fullname" value="" placeholder="*Name"><div id='id1'></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email"  placeholder="Email"><div id='id2'></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="mobile" name="mobile" maxlength="10" placeholder="*Phone"><div id='id3'></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" name="message" rows="3" placeholder="*Message"></textarea><div id='id4'></div>
+                                </div>
+                                <div class="form-group">
+
+
+                                    <input type="text" id="mainCaptcha"/>
+                                    <script>Captcha();</script>
+
+                                    <input type="text" id="txtInput" placeholder="Enter above code"/>
+                                    <!--<input id="Button1" type="button" value="Check" onclick="alert(ValidCaptcha());"/>-->
+
+
+                                    <div id='id5'></div>
+                                </div>
+                                <!--<div class="g-recaptcha" data-sitekey="6LdwJCMUAAAAAENeQP_xGsG-VFH4vNd1OGHGs8Wy"></div>-->
+                                <div class="ali-right">
+                                    <input  type="hidden" id="formsubmit" name="formsubmit" value="add">
+                                    <input class="btn-blue btn" type="submit" name="Submits"  value="Submit" onclick="return ValidCaptcha();" >
+                                </div>
+                            </form>
                         </div>
                     </div><!--create-job-->
 
+                    <div class="press-banner img-responsive"><img src="images/agency.jpg"  alt="agency"></div>
 
-                    <!--<div class="career-services">
-                       <div class="career-services-head">
-                         <h3>Career Services</h3>
-                       </div>
-                        <div class="all-category">
-                            <ul>
-                             <li><a href="">Featured Service</a></li>
-                             <li><a href="">Speak to HR Expert</a></li>
-                             <li><a href="">Resume Spotlight</a></li>
-                             <li><a href="">Career Guidence</a></li>
-                             <li><a href="">Salary Negotiator</a></li>
-                             <li><a href="">Interview Skills </a></li>
-                            </ul>
-                         </div>
-                     </div>--><!--career-services-->
-
-                    <!-- <div class="career-services">
-                        <div class="career-services-head">
-                          <h3>Premium Service</h3>
-                        </div>
-                         <div class="all-category">
-                             <ul>
-                              <li><a href="">Resume Writing</a></li>
-                              <li><a href="">Background Verification</a></li>
-                              <li><a href="">Aptitude Test</a></li>
-                              <li><a href="">Jobs for You</a></li>
-
-                             </ul>
-                          </div>
-                      </div>-->
-
-
-                    <div class="create-job">
-                        <div class="create-job-head">
-                            <h3> Featured Companies </h3>
-                        </div>
-                        <div class="create-job-content">
-                            <div class="fea-compa"><a href="#"> <img src="images/featured-companie-1.jpg" alt="featured-companie"></a></div>
-                            <div class="fea-compa"><a href="#"> <img src="images/featured-companie-2.jpg" alt="featured-companie"></a></div>
-                            <div class="fea-compa"><a href="#"> <img src="images/featured-companie-3.jpg" alt="featured-companie"></a></div>
-                            <div class="fea-compa"><a href="#"> <img src="images/featured-companie-4.jpg" alt="featured-companie"></a></div>
-                            <div class="fea-compa"><a href="#"> <img src="images/featured-companie-5.jpg" alt="featured-companie"></a></div>
-                            <div class="fea-compa"><a href="#"> <img src="images/featured-companie-6.jpg" alt="featured-companie"></a></div>
-                        </div>
-                    </div><!--create-job-->
-
-                    <div class="openings">
-                        <a href="#"><img src="images/mg-group.jpg" alt="ads"></a>
-                    </div><!--openings-->
-
-                </div><!--col-md-3-->
+                </div><!--col-sm-3-->
 
             </div><!--row-->
         </div><!-- container -->
 
     </div><!-- CONTENT -->
+
+    <script type="text/javascript">
+
+        /*  function DrawCaptcha()
+            {
+                var a = Math.ceil(Math.random() * 10)+ '';
+                var b = Math.ceil(Math.random() * 10)+ '';
+                var code = a + ' + ' + b+ ' = ';
+                document.getElementById("txtCaptcha").value = code;
+                document.getElementById("total").value = parseInt(a)+parseInt(b);
+            } */
+
+        function ChkContact()
+        {
+
+//tinyMCE.triggerSave();
+            if(document.getElementById('fullname').value=='')
+            {
+
+                document.getElementById('id1').innerHTML='<span style="color:#DE1616;">Enter the Name</span>';
+                document.getElementById('fullname').focus();
+                return false;
+            }
+            var noalpha = /^[a-zA-Z ]*$/;
+
+            if (!noalpha.test(document.getElementById('fullname').value)) {
+                /*alert("Special characters are not allowed in companyname field.");
+                document.form1.companyname.value="";*/
+                document.getElementById('id1').innerHTML='<span style="color:#DE1616;">Enter the Name in Alphabets Only</span>';
+                document.getElementById('fullname').focus();
+                return false;
+            }
+            if(document.getElementById('email').value=='')
+            {
+                document.getElementById('id1').innerHTML='';
+                document.getElementById('id2').innerHTML='<span style="color:#DE1616;">Enter the Email-Id</span>';
+                document.getElementById('email').focus();
+                return false;
+            }
+            if(echeck(document.getElementById('email').value)==false)
+            {
+                document.getElementById('id2').innerHTML=''
+                document.getElementById('id2').innerHTML='<span style="color:#DE1616;">Check your Email ID</span>';
+                document.getElementById('email').focus();
+                return false;
+            }
+            if(document.getElementById('mobile').value=='')
+            {
+                document.getElementById('id1').innerHTML='';
+                document.getElementById('id2').innerHTML='';
+                document.getElementById('id3').innerHTML='<span style="color:#DE1616; ">Enter your mobile number</span>';
+                document.getElementById('mobile').focus();
+                return false;
+            }
+            /*else if(!numberReg.test($("#mobile").val())){
+             document.getElementById('id1').innerHTML='';
+                document.getElementById('id2').innerHTML='';
+                document.getElementById('id3').innerHTML='<span style="color:#DE1616; font-family: monospace;">Enter Valid Mobile Number</span>';
+                document.getElementById('mobile').focus();
+                return false;
+            //$('#mobileLabel').html('<span class="error"> Numbers only</span>');clr=1;
+            }*/
+            if(document.getElementById('message').value=='')
+            {
+                document.getElementById('id1').innerHTML='';
+                document.getElementById('id2').innerHTML='';
+                document.getElementById('id3').innerHTML='';
+                document.getElementById('id4').innerHTML='<span style="color:#DE1616;">Enter the Message</span>';
+                document.getElementById('message').focus();
+                return false;
+            }
+            if(document.getElementById('message').value.length <=10)
+            {
+                document.getElementById('id1').innerHTML='';
+                document.getElementById('id2').innerHTML='';
+                document.getElementById('id3').innerHTML='';
+                document.getElementById('id4').innerHTML='<span style="color:#DE1616;">Enter the Message in atleast 10 Characters</span>';
+                document.getElementById('message').focus();
+                return false;
+            }
+            if(document.getElementById('txtInput').value=="")
+            {
+
+                document.getElementById('id5').innerHTML='<span style="color:#DE1616;">Enter the Captcha</span>';
+                document.getElementById('txtInput').focus();
+                return false;
+            }
+            else
+            {
+                document.getElementById('id1').innerHTML='';
+                document.getElementById('id2').innerHTML='';
+                document.getElementById('id3').innerHTML='';
+                document.getElementById('id4').innerHTML='';
+                document.getElementById('id5').innerHTML='';
+                document.getElementById("formreg").submit();
+
+                return true;
+            }
+
+
+            /*	var captcha=ValidBotBoot();
+
+                if(captcha==false) {
+                    alert("Please enter valid captcha code");
+                    document.getElementById('BotBootInput').focus();
+                    return false;
+                }*/
+
+            /*if(document.getElementById('reg_answer').value=='')
+                {
+                alert("Please enter the captcha code");
+                document.getElementById('reg_answer').focus();
+                return false;
+                }
+                if(document.getElementById('reg_answer').value!='')
+                {
+                if(document.getElementById('reg_answer').value!=document.getElementById('total').value)
+                {
+                alert("Please enter the valid captcha code");
+                document.getElementById('reg_answer').focus();
+                return false;
+                }
+                }*/
+
+        }
+
+        function echeck(str)
+        {
+
+            var at="@";
+            var dot=".";
+            var lat=str.indexOf(at);
+            var lstr=str.length;
+            var ldot=str.indexOf(dot);
+            if (str.indexOf(at)==-1){
+
+                return false;
+            }
+
+            if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+
+                return false;
+            }
+
+            if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+
+                return false;
+            }
+
+            if (str.indexOf(at,(lat+1))!=-1){
+
+                return false;
+            }
+
+            if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+
+                return false;
+            }
+
+            if (str.indexOf(dot,(lat+2))==-1){
+
+                return false;
+            }
+
+            if (str.indexOf(" ")!=-1){
+
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+    <!--<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.2.6.min.js"></script>-->
     <!--ADVANCED SEARCH POPUP-->
 
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -1056,7 +1364,10 @@
         }
     });
 </script>
+
+<!--jQUERY-->
 @include('temp.layouts.scripts')
+
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript">
     function onSignIn(googleUser) {
@@ -1456,17 +1767,26 @@
 <style>
     .error,.redstar{ color:#F00;   font-size: 12px;}
 </style>
-<script language="javascript">
-    function refine1validate() {
 
-        var refkeyword=document.getElementById('refkeyword').value;
-        var reflocation=document.getElementById('reflocation').value;
-//alert(reflocation);
-        if(refkeyword=='' && reflocation=='')
-        {
-            alert("Enter your detaile to search");
-            document.getElementById('refkeyword').focus();
-            return false;
-        }
-    }
+<script type="text/javascript">
+    $(function () {
+//alert('ddfds');
+        $('#mobile').keydown(function (e) {
+            if (e.shiftKey || e.ctrlKey || e.altKey) {
+                e.preventDefault();
+            } else {
+                var key = e.keyCode;
+                if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105))) {
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+
+
+
 </script>
+
+
+
+

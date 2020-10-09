@@ -3,41 +3,40 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobseekerController;
 use App\Http\Controllers\TempController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[TempController::class, 'index'])->name('home');
 
-
-Route::get('/',[TempController::class, 'index'])->name('welcome');
+Route::get('/home',[TempController::class, 'index'])->name('auth.home');
 
 Route::resources([
     'users' => UsersController::class,
 ]);
 
-//
-//
-//Route::get('/home', [HomeController::class, 'dashboard'])->name('home');
-
 
 
 Route::get('/jobseeker-registeration', [UsersController::class,'jobseekerReg'])->name('jobseeker.reg');
 
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/jobseeker/register', [UsersController::class, 'jobseekerReg'])->name('jobseeker.register');
+    Route::get('/jobseeker/login', [UsersController::class, 'jobseekerLogin'])->name('jobseeker.login');
+
+    Route::get('/employer/register', [UsersController::class,'employerReg'])->name('employer.register');
+    Route::get('/employer/login', [UsersController::class,'employerLogin'])->name('employer.login');
+
+});
 
 Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth']], function () {
+
+    Route::get('/profile', [JobseekerController::class, 'profile'])->name('jobseeker.profile');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
+
+Route::group(['prefix' => 'employer','middleware' => ['verified','auth']], function () {
+
 
     Route::get('/profile', [JobseekerController::class, 'profile'])->name('jobseeker.profile');
     Route::get('/home', [HomeController::class, 'index'])->name('home');

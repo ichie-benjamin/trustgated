@@ -20,6 +20,18 @@ class UsersController extends Controller
 
     }
 
+    public function employerReg(){
+        return view('auth.jobseeker-reg');
+
+    }
+
+    public function employerLogin(){
+        return view('auth.employer.login');
+    }
+    public function jobseekerLogin(){
+        return view('auth.jobseeker.login');
+    }
+
     public function save(Request $request){
         return $request;
     }

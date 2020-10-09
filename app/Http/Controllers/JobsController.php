@@ -19,6 +19,41 @@ use Exception;
 class JobsController extends Controller
 {
 
+
+
+    public function allJobs(){
+        return view('pages.all_jobs');
+    }
+
+    public function recruiters(){
+        return view('pages.recruiter-listing');
+    }
+
+    public function jobByCat(){
+//        $q = $request->get('type');
+        return view('pages.job_by_category');
+    }
+
+    public function jobAgentView(){
+
+    }
+    public function jobByCompany(){
+        return view('pages.job-by-company');
+    }
+     public function overSeasJobs(){
+         return view('temp.overseas_jobs');
+    }
+
+    public function jobByArea(){
+        return view('pages.job_by_area');
+    }
+
+    public function searchAll(){
+        return view('pages.searchall');
+    }
+
+
+
     public function appliedJobs(){
         $jobs = AppliedJob::where('user_id',auth()->user()->id)->get();
         return view('jobs.applied',compact('jobs'));

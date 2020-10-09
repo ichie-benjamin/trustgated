@@ -1,10 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from 74.124.215.220/~demolin/demo/entrepreneur_job_portal/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Oct 2020 12:57:19 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,10 +23,6 @@
 	<!-- MOBILE SPECIFIC -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!--[if lt IE 9]>
-	<script src="http://job-board.dexignzone.com/xhtml/js/html5shiv.min.js"></script>
-	<script src="http://job-board.dexignzone.com/xhtml/js/respond.min.js"></script>
-	<![endif]-->
 
 	<!-- STYLESHEETS -->
 	<!-- STYLESHEETS -->
@@ -38,6 +30,9 @@
 	<link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/css/style.css">
 	<link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/css/templete.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/css/skin/skin-1.css">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 
 	<style>
 [aria-expanded="false"] > .expanded,
@@ -57,8 +52,8 @@
                 <div class="container clearfix">
                     <!-- website logo -->
                     <div class="logo-header mostion">
-						<a href="index.html">
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="enterprenuer.com" class="logo" ></a>
+						<a href="{{ route('home') }}">
+												<img src="{{ asset('assets/images/logo-1565092795.png') }}" alt="{{ env('APP_URL') }}" class="logo" ></a>
 											</div>
                     <!-- nav toggle button -->
                     <!-- nav toggle button -->
@@ -71,15 +66,15 @@
                     <div class="extra-nav">
                         <div class="extra-cell">
 
-                            <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsseeker-login.html" class="site-button"><i class="fa fa-user"></i>Login</a>
-                            <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-registration.html" title="READ MORE" rel="bookmark" class="site-button"><i class="fa fa-lock"></i> Register </a>
+                            <a href="{{ route('jobseeker.login') }}" class="site-button"><i class="fa fa-user"></i>Login</a>
+                            <a href="{{ route('jobseeker.register') }}" title="READ MORE" rel="bookmark" class="site-button"><i class="fa fa-lock"></i> Register </a>
 
                         </div>
                     </div>
                     <!-- main nav -->
                     <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
                         <ul class="nav navbar-nav">
-							<li class="active" ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsseeker-login.html">Jobseekers</a></li>
+							<li class="active" ><a href="{{ route('jobseeker.login') }}">Jobseekers</a></li>
 							<li ><a href="{{ route('searchall') }}">Jobs </a></li>
 							<li ><a href="{{ route('jobsearch_all') }}">IIT/IIM Jobs </a></li>
 							<li ><a href="{{ route('govt_job') }}">Govt.Jobs </a></li>

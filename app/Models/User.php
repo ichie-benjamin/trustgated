@@ -65,9 +65,12 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
 
-    protected $appends = ['name','skill','profile_complete','exp'];
+    protected $appends = ['name','skill','profile_complete','exp','role'];
 
 
+    public function getRoleAttribute(){
+        return optional($this->roles->first())->name;
+    }
 
 //    protected $casts = [
 //        'email_verified_at' => 'datetime',

@@ -59,7 +59,7 @@
                                 <li><a style="font-size: 15px" href="{{ route('welcome') }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                                 <li><a style="font-size: 15px" href="{{ route('jobseeker-profile') }}"><i class="fa fa-user" aria-hidden="true"></i> Jobseekers</a></li>
                                 <li><a style="font-size: 15px" href="{{ route('searchall') }}"><i class="fa fa-briefcase" aria-hidden="true"></i> Jobs</a></li>
-                                <li><a style="font-size: 15px" href="{{ route('jobsearch_all') }}"><i class="fa fa-university" aria-hidden="true"></i> IIT/IIM jobs</a></li>
+                                <li><a style="font-size: 15px" href="{{ route('searchall') }}"><i class="fa fa-university" aria-hidden="true"></i> IIT/IIM jobs</a></li>
                                 <li ><a style="font-size: 15px" href="{{ route('govt_job') }}"><i class="fa fa-university" aria-hidden="true"></i> Govt.jobs</a></li>
                                 <li ><a style="font-size: 15px" href="{{ route('oversea_jobs') }}"><i class="fa fa-globe" aria-hidden="true"></i> Oversea jobs</a></li>
                                 <li ><a style="font-size: 15px" href="{{ route('recruiters') }}"><i class="fa fa-users" aria-hidden="true"></i> Recruiters</a></li>

@@ -1,6 +1,28 @@
 <?php
 
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobsController;
+
+
+Route::get('/all-jobs', [JobsController::class, 'allJobs'])->name('all_jobs');
+
+Route::get('/jobs-by-area', [JobsController::class,'jobByArea'])->name('job_by_area');
+Route::get('/jobs-by-category', [JobsController::class,'jobByCat'])->name('category_job');
+Route::get('/jobs-by-companies', [JobsController::class,'jobByCompany'])->name('company_job');
+Route::get('/searchall', [JobsController::class,'searchAll'])->name('searchall');
+Route::get('/recruiters', [JobsController::class,'recruiters'])->name('recruiters');
+Route::get('/contact-us', [HomeController::class,'contactus'])->name('contactus');
+
+
+
+
+
+Route::get('/recruiters', function (){
+    return view('temp.recruiter-listing');
+})->name('recruiters');
+
+
 Route::group(['prefix' => 'temp'], function () {
 
 
@@ -10,13 +32,13 @@ Route::group(['prefix' => 'temp'], function () {
        return view('temp.jobseeker-profile');
     })->name('jobseeker-profile');
 
-    Route::get('/searchall', function (){
-        return view('temp.searchall');
-    })->name('searchall');
+//    Route::get('/searchall', function (){
+//        return view('temp.searchall');
+//    })->name('searchall');
 
-    Route::get('/jobsearch_all', function (){
-        return view('temp.jobsearch_all');
-    })->name('jobsearch_all');
+//    Route::get('/jobsearch_all', function (){
+//        return view('temp.jobsearch_all');
+//    })->name('jobsearch_all');
 
     Route::get('/government-jobs', function (){
         return view('temp.govt_job');
@@ -25,28 +47,20 @@ Route::group(['prefix' => 'temp'], function () {
     Route::get('/overseas-jobs', function (){
         return view('temp.overseas_jobs');
     })->name('oversea_jobs');
-    Route::get('/recruiters', function (){
-        return view('temp.recruiter-listing');
-    })->name('recruiters');
-    Route::get('/contact-us', function (){
-        return view('temp.contactus');
-    })->name('contactus');
+//    Route::get('/recruiters', function (){
+//        return view('temp.recruiter-listing');
+//    })->name('recruiters');
+//    Route::get('/contact-us', function (){
+//        return view('temp.contactus');
+//    })->name('contactus');
+//
 
-    Route::get('/all-jobs', function (){
-        return view('temp.all_jobs');
-    })->name('all_jobs');
 
-    Route::get('/jobs-by-companies', function (){
-        return view('temp.job-by-company');
-    })->name('company_job');
 
-    Route::get('/jobs-by-category', function (){
-        return view('temp.job_by_category');
-    })->name('category_job');
 
-    Route::get('/jobs-by-area', function (){
-        return view('temp.job_by_area');
-    })->name('job_by_area');
+//    Route::get('/jobs-by-area', function (){
+//        return view('temp.job_by_area');
+//    })->name('job_by_area');
 
     Route::get('/edit-summary-info', function (){
         return view('temp.edit_objective_det');
