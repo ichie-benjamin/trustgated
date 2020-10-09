@@ -1,11 +1,29 @@
+<script >
+    $('#myCarousel').carousel({
+        interval: 40000
+    });
+
+    $('.carousel .item').each(function(){
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        if (next.next().length>0) {
+
+            next.next().children(':first-child').clone().appendTo($(this)).addClass('rightest');
+
+        }
+        else {
+            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+
+        }
+    });
+</script>
 
 <!--jQUERY-->
 <script src="{{ asset('assets/plugins/jquery-2.1.3.min.js') }}"></script>
-
-<script src="{{ asset('assets/plugins/jquery-2.1.3.min.js') }}"></script>
-
-<script src="{{ asset('assets/plugins/popper.js') }}"></script>
-
 
 <!-- BOOTSTRAP JS -->
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -21,7 +39,7 @@
 <script src="{{ asset('assets/plugins/jquery.fancybox.pack.js') }}"></script>
 
 <!-- REVOLUTION SLIDER -->
-{{--<script src="{{ asset('assets/plugins/jquery.themepunch.tools.min.js') }}"></script>--}}
+<script src="{{ asset('assets/plugins/jquery.themepunch.tools.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery.themepunch.revolution.min.js') }}"></script>
 
 <!-- OWL Carousel -->
@@ -41,9 +59,9 @@
 <script src="{{ asset('assets/plugins/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery.form.min.js') }}"></script>
 
-{{--<!-- GOOGLE MAPS -->--}}
-{{--<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>--}}
-{{--<script src="{{ asset('assets/plugins/gmap3.min.js') }}"></script>--}}
+<!-- GOOGLE MAPS -->
+<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+<script src="{{ asset('assets/plugins/gmap3.min.js') }}"></script>
 
 <!-- CHARTS -->
 <script src="{{ asset('assets/plugins/jquery.easypiechart.min.js') }}"></script>
@@ -64,12 +82,10 @@
 <script src="{{ asset('assets/plugins/jquery.magnify.js') }}"></script>
 
 <!-- INSTAFEED -->
-
-{{--<script src="{{ asset('assets/plugins/instafeed.min.js') }}"></script>--}}
+<script src="{{ asset('assets/plugins/instafeed.min.js') }}"></script>
 
 <!-- TWITTERFETCHER -->
-
-{{--<script src="{{ asset('assets/plugins/twitterfetcher.js') }}"></script>--}}
+<script src="{{ asset('assets/plugins/twitterfetcher.js') }}"></script>
 
 <!-- TEXT ROTATOR -->
 <script src="{{ asset('assets/plugins/jquery.simple-text-rotator.min.js') }}"></script>
@@ -83,9 +99,9 @@
 
 <!--Auto Complete ---------------------------------------------------------------->
 
-{{--<script type="text/javascript" src="{{ asset('assets/js/jquery-1.10.2.min.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('assets/js/jquery.autocomplete.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('assets/js/jquery.autocomplete.min.js') }}"></script>--}}
+<script type="text/javascript" src="{{ asset('assets/js/jquery-1.10.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery.autocomplete.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/jquery.autocomplete.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.autocomplete.pack.js') }}"></script>
 
 

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/fiverr_jobsite.iml" filepath="$PROJECT_DIR$/.idea/fiverr_jobsite.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/fiver_jobsite.iml" filepath="$PROJECT_DIR$/.idea/fiver_jobsite.iml" />
+>>>>>>> 34800f0777bd764aa7b4377472c8c58a67856a5c
     </modules>
   </component>
 </project>

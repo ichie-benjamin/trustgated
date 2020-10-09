@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobseekerController;
 use App\Http\Controllers\TempController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +36,14 @@ Route::resources([
 
 Route::get('/jobseeker-registeration', [UsersController::class,'jobseekerReg'])->name('jobseeker.reg');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth']], function () {
+
+    Route::get('/profile', [JobseekerController::class, 'profile'])->name('jobseeker.profile');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
+
+include('temp.php');
+
+Auth::routes(['verify' => true]);
+

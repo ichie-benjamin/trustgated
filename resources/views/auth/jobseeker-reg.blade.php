@@ -74,7 +74,7 @@
                             <span class="click-here"><span class="mandatory">*</span> Mandatory Fields </span>
                         </div>
                     </div>
-                    <form id="register" name="register" class="form-horizontal m10" action="{{ route('save') }}" method="post" enctype="multipart/form-data">
+                    <form id="register" name="register" class="form-horizontal m10" action="{{ route('register') }}" method="post" enctype="multipart/form-data">
 
 
                         @csrf
@@ -98,7 +98,6 @@
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Enter your Email ID: </label>
                                 <div class="col-sm-5">
                                     <input type="text" name="email" id="email" onBlur="this.value=trim(this.value); return email_val(this.value);" class="form-control" >
-                                    <input type="hidden" name="email_sts" id="email_sts" value="0">
                                     <small class="pedit">Please register using your current email address.</small>
                                 </div>
                                 <div><span id="emailInfo"></span></div>
@@ -115,7 +114,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Confirm the Password: </label>
                                 <div class="col-sm-5">
-                                    <input type="password" name="confirmpassword" id="confirmpassword" class="form-control">
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                                 </div>
                                 <div>
                                     <span id="cpasswordInfo"></span>
@@ -125,10 +124,11 @@
                                 <label class="col-sm-4 text-right"><span class="red-star">*</span>Gender : </label>
                                 <div class="col-sm-5">
                                     <label class="radio-inline pedit4">
-                                        <input type="radio" value="Company" checked="checked" id="c1" onClick="" name="comptype"  >Male
+                                        <input type="radio" value="male" checked="checked" id="c1" onClick="" name="gender"  >Male
                                     </label>
+                                    <input value="jobseeker" name="role" type="hidden" />
                                     <label class="radio-inline pedit4">
-                                        <input type="radio" name="comptype" value="Consultant" id="c2" onClick=""> Female
+                                        <input type="radio" name="gender" value="female" id="c2" onClick=""> Female
                                     </label>
                                 </div>
                                 <div id="typeLabel" class="floaterror"></div>
@@ -162,9 +162,9 @@
 {{--                                    onChange="loadXMLDoc(this.value)"--}}
                                     <select class="form-control" name="country" id="select_country">
                                         <option value="">Select</option>
-                                        <option value="211"> Bangladesh </option>
-                                        <option value="210"> India </option>
-                                        <option value="212"> Pakistan </option>
+                                        <option value="Bangladesh"> Bangladesh </option>
+                                        <option value="India"> India </option>
+                                        <option value="Pakistan "> Pakistan </option>
                                     </select>
 
                                 </div>
@@ -180,9 +180,9 @@
 {{--                                    onChange="loadcity(this.value)"--}}
                                     <select name="state" class="form-control" id="state" onBlur="trim(this.id)">
                                         <option value="">Select State</option>
-                                        <option value="211"> Bangladesh </option>
-                                        <option value="210"> India </option>
-                                        <option value="212"> Pakistan </option>
+                                        <option value="Bangladesh"> Bangladesh </option>
+                                        <option value="India"> India </option>
+                                        <option value="Pakistan "> Pakistan </option>
                                     </select>
 
                                 </div>
@@ -196,9 +196,9 @@
                                 <div class="col-sm-5">
                                     <select name="city" class="form-control" id="city" onBlur="trim(this.id)">
                                         <option value="">Select City</option>
-                                        <option value="211"> Bangladesh </option>
-                                        <option value="210"> India </option>
-                                        <option value="212"> Pakistan </option>
+                                        <option value="Bangladesh"> Bangladesh </option>
+                                        <option value="India"> India </option>
+                                        <option value="Pakistan "> Pakistan </option>
                                     </select>
 
                                 </div>
@@ -210,12 +210,11 @@
 
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right"> <span class="red-star">*</span> Enter your Mobile number:</label>
-                                <input type="hidden" name="phonecode" id="phonecode" value="">
                                 <div class="col-sm-5">
                                     <div class="row">
                                         <div class="col-sm-3">
 
-                                            <input type="text" name="land_countrycode" id="phone_countrycode" class="form-control" onKeyPress="return checkIt(event);" placeholder="+91">
+                                            <input type="text" name="phone_countrycode" id="phone_countrycode" class="form-control" placeholder="+91">
                                         </div>
                                         <div class="col-sm-9">
                                             <input type="text" name="mobile_number" id="mobile_number"  maxlength="15"  class="form-control">
@@ -566,7 +565,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Please Select Your Basic Eduction :</label>
                                 <div class="col-sm-5">
-                                    <select name="basic_grad" id="basic_grad" class="form-control">
+                                    <select name="basic_education" id="basic_education" class="form-control">
                                         <option value="">Select</option>
                                         <option value="43"> B.E/ B. Tech </option>
                                         <option value="44"> mm </option>
@@ -766,7 +765,7 @@
                             </div><!--form-group-->
                             <div class="form-group text-center">
                                 <input type="hidden" name="frmsubval" id="frmsubval" value="">
-                                <input name="sub" id="sub" class="btn-blue btn bc " onclick="return validateForm();" value="Join Jobs.com" type="button">
+                                <input name="sub" id="sub" class="btn-blue btn bc " onclick="return validateForm();" value="Join {{ env('APP_NAME') }}" type="button">
                             </div><!--form-group-->
 
 
@@ -832,7 +831,7 @@
             var username = $('#username').val();
             var email = $('#email').val();
             var pass= $('#password').val();
-            var cpass= $('#confirmpassword').val();
+            var cpass= $('#password_confirmation').val();
             var firstname = $('#first_name').val();
             var lastname = $('#last_name').val();
 
@@ -844,7 +843,7 @@
             // var month = $('#month').val();
             //var designation = $('#function_area').val();
             //var keyskills = $('#keyskills').val();
-            var basic_grad = $('#basic_grad').val();
+            var basic_education = $('#basic_education').val();
             var post_grad = $('#post_grad').val();
             var terms= $('#terms');
 
@@ -874,11 +873,11 @@
             }
             if(cpass == ""){
                 $('#cpasswordInfo').html('<span class="error">Please specify confirm password.</span>')
-                $('#confirmpassword').focus();clr=1;
+                $('#password_confirmation').focus();clr=1;
             }
             if(pass != cpass){
                 $('#cpasswordInfo').html('<span class="error">Your passwords entries do not match.</span>');
-                $('#confirmpassword').focus();clr=1;
+                $('#password_confirmation').focus();clr=1;
             }
             if(lastname == ""){
 
@@ -943,9 +942,9 @@
                 $('#keyInfo').html('<span class="error">Please specify your key skills.</span>');$('#keyskills').focus();clr=1;
             }  */
 
-            if(basic_grad == ""){
+            if(basic_education == ""){
                 $('#basicInfo').html('<span class="error">Please select your basic course.</span>');
-                $('#basic_grad').focus();clr=1;
+                $('#basic_education').focus();clr=1;
             }
 
             if(document.getElementById("terms").checked == false){

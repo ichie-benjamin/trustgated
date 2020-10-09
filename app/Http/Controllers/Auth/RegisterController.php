@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -47,12 +49,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+
+
+        protected function validator(array $data)
     {
+
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
 
@@ -62,12 +67,34 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $role = Role::where('name',$data['role'])->first();
+        $user = User::create([
+            'username' => $data['username'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'gender' => $data['gender'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'country' => $data['country'],
+            'state' => $data['state'],
+            'city' => $data['city'],
+            'phone_countrycode' => $data['phone_countrycode'],
+            'mobile_number' => $data['mobile_number'],
+            'land_countrycode' => $data['land_countrycode'],
+            'land_areacode' => $data['land_areacode'],
+            'exp_year' => $data['exp_year'],
+            'exp_month' => $data['exp_month'],
+            'function_area' => $data['function_area'],
+            'skills' => $data['keyskills'],
+            'basic_education' => $data['basic_education'],
+            'course' => $data['course'],
+            'course2' => $data['course2'],
+            'course3' => $data['course3'],
         ]);
+        $user->attachRole($role);
+        return $user;
     }
 }
