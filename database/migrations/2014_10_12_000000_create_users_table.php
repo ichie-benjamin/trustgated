@@ -24,13 +24,20 @@ class CreateUsersTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('pincode')->nullable();
             $table->string('mobile_number')->nullable();
+            $table->string('phone_countrycode')->nullable();
+            $table->string('land_countrycode')->nullable();
+            $table->string('land_areacode')->nullable();
+            $table->string('basic_education')->nullable();
+            $table->string('course')->nullable();
+            $table->string('course2')->nullable();
+            $table->string('course3')->nullable();
             $table->string('landline_number')->nullable();
             $table->string('fax')->nullable();
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('address')->nullable();
-            $table->string('functional_area')->nullable();
+            $table->string('function_area')->nullable();
             $table->string('industry')->nullable();
             $table->string('availability')->default('notice');
 //            $table->string('university')->nullable();
@@ -47,7 +54,7 @@ class CreateUsersTable extends Migration
             $table->string('cv')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('current_team_id')->nullable();
+//            $table->foreignId('current_team_id')->nullable();
             $table->timestamps();
         });
     }

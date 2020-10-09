@@ -6,9 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laratrust\Traits\LaratrustUserTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
+    use LaratrustUserTrait;
     use HasFactory, Notifiable;
 
     /**
@@ -24,11 +26,16 @@ class User extends Authenticatable
         'landline_number',
         'fax','gender',
         'dob',
-        'functional_area',
+        'function_area',
         'industry',
-        'exp_from',
-        'exp_to',
-        'max_annual_salary',
+        'exp_year',
+        'exp_month',
+        'max_annual_salary','land_countrycode','phone_countrycode',
+'land_areacode',
+ 'basic_education',
+'course' ,
+ 'course2',
+ 'course3',
     ];
 
     /**
@@ -58,7 +65,7 @@ class User extends Authenticatable
      * @var array
      */
 
-    protected $appends = ['display_name','skill','profile_complete'];
+    protected $appends = ['name','skill','profile_complete','exp'];
 
 
 
@@ -88,6 +95,9 @@ class User extends Authenticatable
             return 'Subject to availability';
         }
     }
+    public function getExpAttribute(){
+        return "$this->exp_year year(s) $this->exp_month month(s)";
+    }
     public function getProfileCompleteAttribute(){
         if(!$this->skills || !$this->bio || !$this->cv){
             return 20;
@@ -99,7 +109,7 @@ class User extends Authenticatable
             return 100;
         }
     }
-    public function getDisplayNameAttribute(){
+    public function getNameAttribute(){
         if(!$this->first_name && !$this->last_name){
             return $this->username;
         }else{
@@ -107,11 +117,15 @@ class User extends Authenticatable
         }
     }
 
+    public function location(){
+        return "$this->country, $this->state, $this->city";
+    }
+
     public function getAvatarAttribute($value) {
         if(!$this->attributes['avatar']) {
             $colors = ['E91E63', '9C27B0', '673AB7', '3F51B5', '0D47A1', '01579B', '00BCD4', '009688', '33691E', '1B5E20', '33691E', '827717', 'E65100',  'E65100', '3E2723', 'F44336', '212121'];
             $background = $colors[$this->id%count($colors)];
-            return "https://ui-avatars.com/api/?size=256&background=".$background."&color=fff&name=".urlencode($this->display_name);
+            return "https://ui-avatars.com/api/?size=256&background=".$background."&color=fff&name=".urlencode($this->name);
         }
         return $this->attributes['avatar'];
     }

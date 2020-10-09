@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Fortify\PasswordValidationRules;
 use App\Models\User;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
-    use PasswordValidationRules;
+
 
     public function jobseekerReg(){
         return view('auth.jobseeker-reg');
@@ -158,7 +157,7 @@ class UsersController extends Controller
         Validator::make($request, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => $this->passwordRules(),
+            'password' => ['required']
         ])->validate();
 
         return User::create([
