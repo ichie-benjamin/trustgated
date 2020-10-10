@@ -1,73 +1,132 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+    <div id="content">
+        <div class="container">
+            <ol  class="breadcrumb">
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li class="active">Jobseeker Login</li>
+            </ol>
+            <div class="row">
+                <div class="col-sm-9 ma25" >
+                    <div class="top-emp-center p5">
+                        <h4>Jobseeker Login</h4>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="click-here">
+                            Recruiter? <span class="click-here"><a  href="{{ route('employer.login') }}">Click here</a></span>
+                        </div>
+                    </div>
+                    <div class="eform">
+                        <div class="row">
+                            <div class="col-md-12">Enter your login details</div>
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9 m10">
+                                <span id="id1"></span></div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <form method="POST" class="form-horizontal" action="{{ route('login') }}">
+                            @csrf
+                            <div class="form-group">
+                                <label  class="col-sm-3 control-label efs"><span class="red-star">*</span> User name/Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert" style="color: red">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
-                        </div>
+                                    @enderror
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label  class="col-sm-3  control-label efs"><span class="red-star">*</span> Password</label>
+                                <div class="col-sm-9">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9  click-here">
+
+
+
+                                    <span class="pull-left" style="font-size:14px;">Not a member as yet? <a  href="{{ route('jobseeker.register') }}">Register Now</a></span>
+                                    <span class="pull-right" style="font-size:14px;"><a href="{{ route('password.request') }}">Forgot Password?</a></span>
+
+                                    <!--<span class="pull-left">Not a member as yet? <a  href="jobseeker-registration.html">Register Now</a></span>
+
+
+                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/forgot-password.html">Forgot Password?</a>-->
+
+                                </div>
+                            </div>
+
+                            <input type="hidden" checked type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+
+
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="submit" name="submit" id="submit" class="btn-blue btn bcL">Login</button>
+
+
+
+                                    <a href="#" onclick="alert('Facebook Login is currently disable for demo purpose');" class="btn-blue btn bcL" >Login with Facebook</a>
+                                    <a href="#"  onclick="alert('Google  Login is currently disable for demo purpose');" class="btn-blue btn bcL" >Login with Google</a>
+
+
+
+                                </div>
+                            </div>
+                            <!--<div class="form-group">
+                              <div class="col-sm-offset-3 col-sm-9 regi ">
+                                <span>Not a member as yet? <a  href="jobseeker-registration.html">Register Now</a></span>
+                               </div>
+                            </div> -->
+
+
+                        </form>
+
+                    </div><!--eform-->
+                    <small>Note : In case you are using a public/shared computer we recommend that you logout to prevent any un-authorized access to your account.</small>
+                </div><!--col-sm-9-->
+
+                <div class="col-sm-3" >
+
+                    <div class="create-job">
+                        <div class="create-job-head">
+                            <h3> Member Benefits </h3>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        <div class="create-job-content">
+                            <div class="mem-ben">Create Customized 'Job Alert'</div>
+                            <p class="mem-ben-p">Get Jobs regularly in your inbox by creating up to 5 personalized Job Alert</p>
+
+                            <div class="mem-ben">Create Multiple Profiles</div>
+                            <p class="mem-ben-p">Create upto 5 customized profiles to apply to jobs in different categories</p>
+
+                            <div class="mem-ben">Let Recruiters find you the right job</div>
+                            <p class="mem-ben-p">Thousands of recruiters search our database daily to find candidates. Get found by them</p>
+
+                            <div class="mem-ben">Confidentiality & Privacy Settings</div>
+                            <p class="mem-ben-p-last">Define your privacy level. Block your current employer from accessing your profile.</p>
+
+                            <div class="ali-right"><a href="{{ route('jobseeker.register') }}"><input class="btn-blue btn bc" value="Register Now " type="button"></a></div>
+                        </div>
+                    </div><!--create-job-->
+
+                </div><!--col-sm-3-->
+
+            </div><!--row-->
+        </div><!-- container -->
+
     </div>
-</div>
 @endsection

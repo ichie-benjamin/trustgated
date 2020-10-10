@@ -21,7 +21,7 @@ class UsersController extends Controller
     }
 
     public function employerReg(){
-        return view('auth.jobseeker-reg');
+        return view('auth.employer.register');
 
     }
 

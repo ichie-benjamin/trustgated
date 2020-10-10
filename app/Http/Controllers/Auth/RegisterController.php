@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -38,6 +39,9 @@ class RegisterController extends Controller
     {
         if (auth()->user()->hasRole('jobseeker')) {
             return '/jobseeker/profile';
+        }
+        if (auth()->user()->hasRole('employer')) {
+            return '/employer/profile';
         }
         return '/home';
     }
@@ -79,12 +83,14 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
+
         $role = Role::where('name',$data['role'])->first();
         $user = User::create([
             'username' => $data['username'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'gender' => $data['gender'],
+            'pincode' => $data['pincode'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'country' => $data['country'],
@@ -104,6 +110,17 @@ class RegisterController extends Controller
             'course3' => $data['course3'],
         ]);
         $user->attachRole($role);
+        if($data['role'] == 'employer'){
+            Company::create([
+                'user_id' => $user->id,
+                'website' => $data['website_url'],
+                'phone' => $data['country_code'].$data['city_code'].$data['no3'],
+                'name' => $data['companyname'],
+                'address' => $data['address'],
+                'type' => $data['industry_type'],
+                'contact_person' => $data['Contact_Person'],
+                ]);
+        }
         return $user;
     }
 }

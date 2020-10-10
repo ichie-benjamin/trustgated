@@ -12,6 +12,7 @@ Route::get('/jobs-by-category', [JobsController::class,'jobByCat'])->name('categ
 Route::get('/jobs-by-companies', [JobsController::class,'jobByCompany'])->name('company_job');
 Route::get('/searchall', [JobsController::class,'searchAll'])->name('searchall');
 Route::get('/recruiters', [JobsController::class,'recruiters'])->name('recruiters');
+Route::get('/jobs/{type}', [JobsController::class,'jobType'])->name('job.type');
 Route::get('/contact-us', [HomeController::class,'contactus'])->name('contactus');
 
 
@@ -40,13 +41,14 @@ Route::group(['prefix' => 'temp'], function () {
 //        return view('temp.jobsearch_all');
 //    })->name('jobsearch_all');
 
-    Route::get('/government-jobs', function (){
-        return view('temp.govt_job');
-    })->name('govt_job');
+//    Route::get('/government-jobs', function (){
+//        return view('temp.govt_job');
+//    })->name('govt_job');
+//
+//    Route::get('/overseas-jobs', function (){
+//        return view('temp.overseas_jobs');
+//    })->name('oversea_jobs');
 
-    Route::get('/overseas-jobs', function (){
-        return view('temp.overseas_jobs');
-    })->name('oversea_jobs');
 //    Route::get('/recruiters', function (){
 //        return view('temp.recruiter-listing');
 //    })->name('recruiters');

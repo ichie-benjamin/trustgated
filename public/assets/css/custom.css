@@ -472,12 +472,12 @@
 #header-top {
     padding: 7px 0px;
     font-size: 14px;
-    /*background: transparent url("../../assets/images/bg-top.png") no-repeat scroll right -9% top;*/
+    background: transparent url("../../assets/images/bg-top.png") no-repeat scroll right -9% top;
     color: #FFF;
     /*background-color: #000;*/
 }}
 .widget-pages {
-    background-color: #0c0c0c;
+    /*background-color: #0c0c0c;*/
 }
 
 

@@ -1,49 +1,5 @@
 @extends('layouts.master')
 
-@section('contents')
-
-    <div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v">
-
-        <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
-            <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"> Afiaanyi Logistics</div>
-            <div class="tx-center mg-b-30">Login</div>
-
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-                <div class="form-group">
-                    {{-- <input type="text" class="form-control" > --}}
-                    <input id="email" type="email" placeholder="Enter your email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                <small><strong>{{ $message }}</strong></small>
-            </span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    {{-- <input type="password" class="form-control" placeholder="Enter your password"> --}}
-                    <input id="password" type="password" placeholder="Enter your password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                <small><strong>{{ $message }}</strong></small>
-            </span>
-                    @enderror
-                    @if (Route::has('password.request'))
-                        <a class="tx-info tx-12 d-block mg-t-10" href="{{ route('password.request') }}">
-                            {{ __('Forgot Password?') }}
-                        </a>
-                    @endif
-                </div>
-                <button type="submit" class="btn btn-info btn-block">Sign In</button>
-            </form>
-
-            <div class="mg-t-30 tx-center">Not yet a member? <a href="{{ route('register') }}" class="tx-info">Sign Up</a></div>
-        </div><!-- login-wrapper -->
-    </div><!-- d-flex -->
-
-@endsection
-
 @section('content')
     <div id="content">
         <div class="container">
@@ -87,7 +43,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Username: </label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="username" id="username"onBlur="this.value=trim(this.value); return username_val(this.value);" onKeyPress="return rmv_space(this.event);" class="form-control" >
+                                    <input type="text" name="username" id="username" onBlur="this.value=trim(this.value); return username_val(this.value);" onKeyPress="return rmv_space(this.event);" class="form-control" >
 
                                 </div>
                                 <div>

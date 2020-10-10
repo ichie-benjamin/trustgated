@@ -20,6 +20,9 @@ class JobsController extends Controller
 {
 
 
+    public function jobType($type){
+        return view('pages.job_by_type');
+    }
 
     public function allJobs(){
         return view('pages.all_jobs');

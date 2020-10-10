@@ -5,14 +5,14 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
-use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
+//use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 
 class Company extends Model
 {
 
     use Sluggable;
     use SluggableScopeHelpers;
-    use HasTrixRichText;
+//    use HasTrixRichText;
 
     public function sluggable()
     {
@@ -48,7 +48,7 @@ class Company extends Model
     protected $fillable = [
                   'user_id',
                   'name','logo','address','email','website','phone','slug','info',
-                  'address'
+                  'address','type','contact_person'
               ];
 
     /**
@@ -72,7 +72,7 @@ class Company extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
     public function jobs()
     {

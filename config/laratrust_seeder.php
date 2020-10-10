@@ -23,7 +23,11 @@ return [
             'jobs' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'employee' => [
+        'employer' => [
+            'profile' => 'r,u',
+            'jobs' => 'c,r,u,d',
+        ],
+        'consultant' => [
             'profile' => 'r,u',
             'jobs' => 'c,r,u,d',
         ],

@@ -76,9 +76,9 @@
                         <ul class="nav navbar-nav">
 							<li class="active" ><a href="{{ route('jobseeker.login') }}">Jobseekers</a></li>
 							<li ><a href="{{ route('searchall') }}">Jobs </a></li>
-							<li ><a href="{{ route('jobsearch_all') }}">IIT/IIM Jobs </a></li>
-							<li ><a href="{{ route('govt_job') }}">Govt.Jobs </a></li>
-							<li><a href="{{ route('oversea_jobs') }}">Oversea jobs </a></li>
+							<li ><a href="{{ route('searchall') }}">IIT/IIM Jobs </a></li>
+                            <li ><a  href="{{ route('job.type','govt-jobs') }}">Govt.jobs</a></li>
+                            <li ><a href="{{ route('job.type','oversea-jobs') }}"> Oversea jobs</a></li>
 							<li ><a href="{{ route('recruiters') }}">Recruiters </a></li>
 							<li ><a href="{{ route('contactus') }}">Contact </a></li>
 

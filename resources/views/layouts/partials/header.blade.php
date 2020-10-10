@@ -60,8 +60,8 @@
                                 <li><a style="font-size: 15px" href="{{ route('jobseeker-profile') }}"><i class="fa fa-user" aria-hidden="true"></i> Jobseekers</a></li>
                                 <li><a style="font-size: 15px" href="{{ route('searchall') }}"><i class="fa fa-briefcase" aria-hidden="true"></i> Jobs</a></li>
                                 <li><a style="font-size: 15px" href="{{ route('searchall') }}"><i class="fa fa-university" aria-hidden="true"></i> IIT/IIM jobs</a></li>
-                                <li ><a style="font-size: 15px" href="{{ route('govt_job') }}"><i class="fa fa-university" aria-hidden="true"></i> Govt.jobs</a></li>
-                                <li ><a style="font-size: 15px" href="{{ route('oversea_jobs') }}"><i class="fa fa-globe" aria-hidden="true"></i> Oversea jobs</a></li>
+                                <li ><a style="font-size: 15px" href="{{ route('job.type','govt-jobs') }}"><i class="fa fa-university" aria-hidden="true"></i> Govt.jobs</a></li>
+                                <li ><a style="font-size: 15px" href="{{ route('job.type','oversea-jobs') }}"><i class="fa fa-globe" aria-hidden="true"></i> Oversea jobs</a></li>
                                 <li ><a style="font-size: 15px" href="{{ route('recruiters') }}"><i class="fa fa-users" aria-hidden="true"></i> Recruiters</a></li>
 {{--                                <li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/employers-icon.png" /> Employers</a></li>--}}
                                 <li ><a style="font-size: 15px" href="{{ route('contactus') }}"><i class="fa fa-envelope" ></i> Contact us</a></li>

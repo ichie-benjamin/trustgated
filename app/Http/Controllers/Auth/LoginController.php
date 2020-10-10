@@ -33,6 +33,9 @@ class LoginController extends Controller
         if (auth()->user()->hasRole('jobseeker')) {
             return '/jobseeker/profile';
         }
+        if (auth()->user()->hasRole('employer')) {
+            return '/employer/profile';
+        }
         return '/home';
     }
 
