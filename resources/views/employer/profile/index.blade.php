@@ -42,152 +42,31 @@
                             <div class="inbox-bg" onclick="return menu_click1();">Administration</div>
                             <!--<div class="inboxa"><a href="#">Product Settings</a></li> -->
                             <div id="show1">
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html" >Manage Sub-Users</a></div>
+                                <div class="inboxa"><a href="#">Manage Sub-Users</a></div>
                                 <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html" >Subscription Status</a></div>
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resume_pack.html"  >Product Settings<!--Resume Pack--></a></div>
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"  style="color:#00CCFF"  >Company profile</a></div>
+                                <div class="inboxa"><a href="#">Subscription Status</a></div>
+                                <div class="inboxa"><a href="#">Product Settings<!--Resume Pack--></a></div>
+                                <div class="inboxa"><a href="#" style="color:#00CCFF"  >Company profile</a></div>
                                 <!--<div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_folders.html" >Manage personal folder</a></div>-->
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html" >Change Password</a></div>
+                                <div class="inboxa"><a href="#" >Change Password</a></div>
                             </div>
                             <div class="inbox-bg">Search Resumes</div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html?featured=yes" >Featured Resumes</a></div>
+                            <div class="inboxa"><a href="#" >Featured Resumes</a></div>
                             <!--<div class="inbox	a"><a href="emp_resumeaccess.php?viewall=yes">All Resumes</a></div>-->
 
                             <div class="inbox-bg">Jobs & Responses</div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_find-candidate.html"  >Job Posted Responses</a></div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html" >Post Jobs</a></div>
+                            <div class="inboxa"><a href="#"  >Job Posted Responses</a></div>
+                            <div class="inboxa"><a href="#" >Post Jobs</a></div>
                             <!--<li><a href="#" >Post Jobs to Campuses</a></li> -->
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postedjobs.html" >Response Manager</a></div>
-                            <!--<li><a href="#" >Other Media Jobs</a></li>
-                            <li><a href="#" >Upload Resumes</a></li> -->
+                            <div class="inboxa"><a href="#" >Response Manager</a></div>
 
-
-                            <!-- <div class="inbox-bg">Profile</div>
-                            <div class="inboxa"><a href="#">View Profile</a></div>
-                            <div class="panel-titlea">
-                            <a class="" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
-                            Update Profile
-                            </a>
-                            </div>
-                            <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"  aria-expanded="true">
-                            <ul class="togg">
-                            <li><a href="#"> Summary </a></li>
-                            <li><a href="#">Employer/Designation</a></li>
-                            <li><a href="#">Attached Resume</a></li>
-                            <li><a href="#">Attached Resume</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">IT Skills</a></li>
-                            <li><a href="#">Education</a></li>
-                            <li><a href="#">More Details</a></li>
-                            </ul>
-                            </div>
-                            <div class="inboxa"><a href="#">Create/Manage Profiles</a></div>
-                            <div class="inboxa"><a href="#">Profile Performance</a></div>
-                            <div class="inboxa"><a href="#">Manage Cover Letters</a></div>
-                            <div class="inboxa"><a href="#">Upload Photo</a></div>
-                            <div class="inboxa"><a href="#">My Jobs Services</a></div>
-                            <div class="inbox-bg">Jobs & Applications</div>
-                            <div class="inboxa"><a href="#">Saved Jobs</a></div>
-                            <div class="inboxa"><a href="#">Application History</a></div>
-                            <div class="inbox-bg">Recruiters</div>
-                            <div class="inboxa"><a href="#"> Jobs & Updates</a></div>
-                            <div class="inboxa"><a href="#">Manage Following</a></div>
-                            <div class="inboxa"><a href="#">RecruiterConnection</a></div>
-                            <div class="inbox-bg">Settings</div>
-                            <div class="inboxa"><a href="#">Visibility Settings</a></div>
-                            <div class="inboxa"><a href="#">Communication Settings</a></div>
-                            <div class="inboxa"><a href="#">Block Companies</a></div>
-                            <div class="inboxa"><a href="#">Change Password</a></div> -->
                         </div><!--create-job-content-->
 
                     </div><!--create-job-->
                 </div>
 
-                <!--
-
-                <style>
-                /* accordion */
-
-                .urbangreymenu{
-                    /*width: 190px; */
-                    text-align:left;
-                    border:1px solid #CCC;
-                    padding:7px;
-                    background-color: #FAFAFA;
-                    border-radius: 7px;
-                }
-
-                .urbangreymenu .headerbar{
-                    font: bold 13px Verdana;
-                    text-align:center;
-                    color: #000;
-                    /*border-bottom: 5px #2a78bd solid;*/
-                    color: white;
-                    background: #025680 url(../images/arrowstop.gif) no-repeat 8px 6px;
-                    background-color:#2a78bd;
-                    margin-bottom: 0;
-                    margin-top: 10px;
-                    padding: 7px 0px;
-
-                }
-
-                .urbangreymenu .headerbar a{
-                    text-decoration: none;
-                    color: white;
-                    /*color: #000;*/
-                    display: block;
-                }
-
-                .urbangreymenu ul{
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
-                    margin-bottom: 0;
-                }
-
-                .urbangreymenu ul li{
-                    padding-bottom: 2px;
-                }
-
-                .urbangreymenu ul li a{
-                    font: normal 12px Arial;
-                    color: black;
-                    background: #f5f5f5;
-                    display: block;
-                    padding: 5px 0;
-                    line-height: 17px;
-                    padding-left: 8px;
-                    text-decoration: none;
-                }
-
-                .urbangreymenu ul li a:visited{
-                color: black;
-                }
-
-                .urbangreymenu ul li a:hover{
-                /*color: #df5400;*/
-                color: #355774;
-                background: #FAFAFA;
-                -webkit-box-shadow: 0px 0px 3px 1px rgba(75, 75, 75, .2);
-                box-shadow: 0px 0px 3px 1px rgba(75, 75, 75, .2);
-                -webkit-border-radius: 3px;
-                border-radius: 3px;
-                }
-
-
-                /*  accordion End */
-
-                </style>-->
-
-
                 <div class="col-md-9" >
-                    <!-- <div class="top-emp-center">
-                      <h4>Professional details</h4>
-                     </div>--> <!--top-emp-center-->
                     <br />
-
-
 
                     <form class="form-horizontal m10" name='div2' enctype="multipart/form-data">
 
@@ -202,7 +81,7 @@
                                             <div class="form-group">
                                                 <label  class="col-sm-4 pedit">User Name  </label>
                                                 <div class="col-sm-8">
-                                                    <label id="uname">Liza </label>
+                                                    <label id="uname">{{ $user->name }} </label>
                                                 </div>
                                             </div><!--form-group-->
                                         </div>
@@ -210,7 +89,7 @@
                                             <div class="form-group">
                                                 <label  class="col-sm-4 pedit">Company Name </label>
                                                 <div class="col-sm-8">
-                                                    <label id="cpname"> inet</label>
+                                                    <label id="cpname"> {{ $company->name }}</label>
                                                 </div>
                                             </div><!--col-md-6-->
                                         </div>
@@ -218,7 +97,7 @@
                                             <div class="form-group">
                                                 <label  class="col-sm-4 pedit">Master Email</label>
                                                 <div class="col-sm-8">
-                                                    <label id="cpname"> Liza@gmail.com</label>
+                                                    <label id="cpname"> {{ $user->email }}</label>
                                                 </div>
                                             </div><!--col-md-6-->
                                         </div>
@@ -226,7 +105,7 @@
                                             <div class="form-group">
                                                 <label  class="col-sm-4 pedit">Type </label>
                                                 <div class="col-sm-8">
-                                                    <label id="rec_type">Company </label>
+                                                    <label id="rec_type"> {{ $user->role }} </label>
                                                 </div>
                                             </div><!--col-md-6-->
                                         </div>
@@ -256,10 +135,11 @@
                                                 </div>
                                             </div><!--form-group-->
                                         </div>
+
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <img src="images/noimage.jpg" width="150" >						</div>
+                                            <img src="{{ asset($company->logo)}}" width="150" >						</div>
                                     </div>
                                 </div>
                             </div>
@@ -267,18 +147,19 @@
                                 <div class="top-emp-center">
                                     <h4>Edit Account Details</h4>
                                 </div><br />
+                                <form action="">
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit"> User Name  </label>
                                         <div class="col-sm-8">
-                                            Liza                                  </div>
+                                            {{ $user->name }}                                 </div>
                                     </div><!--form-group-->
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Name </label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="cpname1" id="cpname1" onKeyUp="chkkabuse(this.id);" value="inet">
+                                            <input type="text" required class="form-control" name="company_name" id="cpname1" value="{{ $company->name }}">
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -286,7 +167,7 @@
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit"><span class="red-star">*</span>Master Email</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="email1" id="email1" onKeyUp="chkkabuse(this.id);" value="Liza@gmail.com">
+                                            <input type="text" disabled class="form-control" name="email1" id="email1" value="{{ $user->email }}">
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -294,10 +175,10 @@
                                     <div class="form-group">
                                         <label class="col-sm-4 pedit2"><span class="red-star">*</span>Type </label>
                                         <label class="radio-inline pedit4">
-                                            <input name="rec_type1" id="rec_type1" type="radio" value="Company"  checked   >Company
+                                            <input name="role" @if($user->role == 'employer') checked @endif type="radio" value="employer">Company
                                         </label>
                                         <label class="radio-inline pedit4">
-                                            <input name="rec_type1" id="rec_type1" type="radio" value="Consultant" > Consultant
+                                            <input name="role" type="radio" @if($user->role == 'consultant') checked @endif  value="consultant" > Consultant
                                         </label>
                                         <div id="typeLabel" class="floaterror"></div>
                                     </div>
@@ -306,14 +187,16 @@
                                 <div class="col-sm-8">
 
                                     <div class="col-sm-3 ">
-                                        <input class="btn-blue btn bc" type="button" id="submits" onClick="save_acc2();"  name="submits" value="SAVE">
+                                        <input class="btn-blue btn bc" type="button" name="submits" value="SAVE">
 
                                     </div>
                                     <div class="col-sm-3 padno">
-                                        <div class="btn-blue btn bc"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html" style="color:#FFF"> Cancel </a> </div><!--<input type="reset" onclick="cls_acc2();" value="Cancel" /><!--</div>-->
+                                        <div class="btn-blue btn bc"><a href="{{ route('employer.profile') }}" style="color:#FFF"> Cancel </a> </div><!--<input type="reset" onclick="cls_acc2();" value="Cancel" /><!--</div>-->
                                         <br>
                                     </div>
                                 </div>
+                              </form>
+
                             </div>
                             <!--col-md-6-->
                         </div>
@@ -322,11 +205,12 @@
                                 <div class="top-emp-center">
                                     <h4>Company Details</h4>
                                 </div><br />
+                                <form class="form-horizontal">
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit">Industry Type </label>
                                         <div class="col-sm-8">
-                                            <label id="itype"> Consultant</label>
+                                            <label id="itype"> {{ $company->type }}</label>
                                         </div>
                                     </div><!--form-group-->
                                 </div>
@@ -334,7 +218,7 @@
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit">Contact Person</label>
                                         <div class="col-sm-8">
-                                            <label id="cperson">Liza</label>
+                                            <label id="cperson">{{ $company->contact_person }}</label>
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -343,7 +227,7 @@
                                         <label class="col-sm-4 pedit">Logo</label>
                                         <div class="col-sm-6">
 
-                                            <img src="images/noimage.jpg" height="70" width="100" id="logo" name="logo" style="background:none;" />
+                                            <img src="{{ asset($company->logo)}}" height="70" width="100" id="logo" name="logo" style="background:none;" />
                                         </div>
 
                                     </div>
@@ -353,12 +237,12 @@
                                         <label  class="col-sm-4 pedit"><span class="red-star"></span>Website</label>
                                         <div class="col-sm-8">
                                             <label id="wsite">
-                                                Not Mentioned
+                                                {{ $company->website }}
                                             </label>
                                         </div>
                                     </div><!--form-group-->
                                 </div>
-                                <div class="col-md-8">
+                                {{-- <div class="col-md-8">
                                     <div class="form-group">
                                         <label class="col-sm-4 pedit">Company Profile</label>
                                         <div class="col-sm-6">
@@ -366,7 +250,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-8">
                                     <div class="form-group">
@@ -376,6 +260,7 @@
                                         </div>
                                     </div><!--form-group-->
                                 </div>
+                              </form>
 
                                 <!--col-md-6-->
                             </div>
@@ -1624,5 +1509,42 @@
 
     </div><!-- CONTENT -->
     <!--ADVANCED SEARCH POPUP-->
+
+@endsection
+
+@section('js')
+<script type="text/javascript">
+    function div_dis1()
+    {
+//alert("fgd");
+        $("#display1").hide();
+        $("#display11").show();
+        $("#display22").hide();
+        $("#display33").hide();
+        $("#display2").show();
+        $("#display3").show();
+    }
+    function div_dis2()
+    {
+//alert("fgd");
+        $("#display2").hide();
+        $("#display22").show();
+        $("#display11").hide();
+        $("#display33").hide();
+        $("#display1").show();
+        $("#display3").show();
+
+    }
+    function div_dis3()
+    {
+//alert("fgd");
+        $("#display3").hide();
+        $("#display33").show();
+        $("#display11").hide();
+        $("#display22").hide();
+        $("#display1").show();
+        $("#display2").show();
+    }
+</script>
 
 @endsection

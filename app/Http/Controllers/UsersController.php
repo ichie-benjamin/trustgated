@@ -9,15 +9,34 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
 
-
     public function jobseekerReg(){
         return view('auth.jobseeker-reg');
+    }
 
+    public function editSummary()
+    {
+        return view('pages.edit_objective_det');
+    }
+
+    public function roleLogout(){
+        $role = Auth::user()->role;
+        Session::put('last_role', Auth::user()->role);
+
+        if(Auth::user()->hasRole('employer')){
+            $role = 'job seeker';
+            $url = '/jobseeker/login';
+        }else{
+            $role = 'employer';
+            $url = '/employer/login';
+        }
+        Auth::logout();
+        return redirect($url)->with(['role_error' => 'Login with your '.$role.' account']);
     }
 
     public function employerReg(){

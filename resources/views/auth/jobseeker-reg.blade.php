@@ -13,6 +13,7 @@
 
 
 
+
             <div class="row">
                 <div class="col-sm-9" >
                     <div class="well34 well-sm">
@@ -34,7 +35,7 @@
 
 
                         @csrf
-
+<input name="pincode" type="hidden">
 
                         <div class="col-md-12">
                             <label class="namecover m10">Create Login Details</label>

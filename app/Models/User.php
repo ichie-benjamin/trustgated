@@ -67,16 +67,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $appends = ['name','skill','profile_complete','exp','role'];
 
-
     public function getRoleAttribute(){
         return optional($this->roles->first())->name;
     }
 
-//    protected $casts = [
-//        'email_verified_at' => 'datetime',
-//        'skills' => 'array',
-//        'program_start_date' => 'date'
-//    ];
+    public function url(){
+            if($this->hasRole('employer')){
+              return route('employer.profile');
+            }else {
+              return route('jobseeker.profile');
+            }
+    }
 
     public function profile()
     {
@@ -89,6 +90,7 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         return '';
     }
+
     public function getAvailabilityAttribute($value){
         if($value == 'notice'){
             return 'Need notice';

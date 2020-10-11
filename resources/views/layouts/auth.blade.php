@@ -16,8 +16,8 @@
             <div class="row">
                 <div class="col-sm-3">
                     <!-- LOGO -->
-                    <a id="logo" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">
-                        <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="enterprenuer.com">
+                    <a id="logo" href="{{ url('/') }}">
+                        <img src="{{ asset('images/logo.png')}}" alt="{{ env('APP_NAME')}}">
                     </a>
                 </div><!-- col -->
                 <div class="col-sm-4">
@@ -25,32 +25,44 @@
                 </div><!-- col -->
                 <div class="col-sm-5 logme">
                     <div class="widget widget-pages">
+                        @auth()
+
                         <ul >
                             <div class="dropdown2">
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-profile.html" class="dropbtn2"><i class="fa fa-lock"></i> <strong> Varsha..</strong></a></li>
+                                <li><a href="{{ auth()->user()->url() }}" class="dropbtn2"><i class="fa fa-lock"></i> <strong> {{ auth()->user()->username }}</strong></a></li>
                                 <div class="dropdown-content2">
-                                    <a href="jobseeker-profile-edit.php">Edit Profile</a>
-                                    <a href="save-jobs.php">Saved Jobs</a>
-                                    <a href="changepasswordseeker.php">Change Password</a>
+                                    <a href="#">Edit Profile</a>
+                                    <a href="#">Saved Jobs</a>
+                                    <a href="#">Change Password</a>
 
                                 </div>
                             </div>
-                            <li> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout.php"><i class="fa fa-sign-out"></i>Logout</a></li>
-
-                            <!--<li>
-                                <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-profile.html">
-                                  <i class="fa fa-user"></i> <strong> Varsha..</strong>
-                                </a>
-                            </li>
                             <li>
-                                <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout.php">
-                                    <!--<!--<i class="fa fa-pencil-square-o"></i>-->
-                            <!--<i class="fa fa-sign-out"></i>
-                              Logout
-                        </a>
-                    </li>-->
+
+                              <a href="{{ route('logout') }}"
+                                 onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                               <i class="fa fa-sign-out"></i>Logout</a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                  @csrf
+                              </form>
+</li>
 
                         </ul>
+
+                        @endauth
+
+                        @guest()
+
+                                <ul >
+
+                                        <li><a href="{{ route('jobseeker.login') }}" class="dropbtn2"><i class="fa fa-lock"></i> <strong> Login </strong></a></li>
+
+
+                                </ul>
+
+                            @endguest
 
                     </div><!-- widget-pages -->
 
@@ -59,6 +71,9 @@
             </div><!-- row -->
         </div><!-- container -->
     </div><!-- header-top -->
+
+
+
     <div id="header" >
         <div class="container">
             <div class="row">
@@ -81,6 +96,13 @@
         </div>
     </div>
     <!-- CONTENT -->
+
+    @if(session()->has('role_error'))
+        <div class="alert alert-danger">
+            {{ session()->get('role_error') }}
+        </div>
+    @endif
+
 
 @yield('content')
 

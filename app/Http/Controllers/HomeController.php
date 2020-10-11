@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function index()
     {
-        $this->middleware('auth');
+        return view('index');
     }
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function contactus(){
         return view('pages.contactus');
@@ -26,9 +26,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-
-        return view('home');
-    }
+//    public function index()
+//    {
+//
+//        return view('home');
+//    }
 }

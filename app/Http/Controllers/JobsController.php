@@ -38,7 +38,7 @@ class JobsController extends Controller
     }
 
     public function jobAgentView(){
-
+        return view('pages.job_agent_view');
     }
     public function jobByCompany(){
         return view('pages.job-by-company');

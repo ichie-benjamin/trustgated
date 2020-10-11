@@ -10,11 +10,11 @@
 	<meta name="description" content="Jobs Portal" />
 	<meta property="og:title" content="Jobs Portal" />
 	<meta property="og:description" content="Jobs Portal" />
-	<meta property="og:image" content="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/social-image.png" />
-	<meta name="format-detection" content="telephone=no">
+{{--	<meta property="og:image" content="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/social-image.png" />--}}
+{{--	<meta name="format-detection" content="telephone=no">--}}
 
 	<!-- FAVICONS ICON -->
-	<link rel="icon" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
 
 	<!-- PAGE TITLE HERE -->
@@ -27,7 +27,7 @@
 	<!-- STYLESHEETS -->
 	<!-- STYLESHEETS -->
 	<link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/css/plugins.css">
-	<link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/css/templete.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/css/skin/skin-1.css">
 
@@ -53,7 +53,7 @@
                     <!-- website logo -->
                     <div class="logo-header mostion">
 						<a href="{{ route('home') }}">
-												<img src="{{ asset('assets/images/logo-1565092795.png') }}" alt="{{ env('APP_URL') }}" class="logo" ></a>
+												<img src="{{ asset('images/logo.png') }}" alt="{{ env('APP_URL') }}" class="logo" ></a>
 											</div>
                     <!-- nav toggle button -->
                     <!-- nav toggle button -->
@@ -66,18 +66,27 @@
                     <div class="extra-nav">
                         <div class="extra-cell">
 
+@guest()
                             <a href="{{ route('jobseeker.login') }}" class="site-button"><i class="fa fa-user"></i>Login</a>
                             <a href="{{ route('jobseeker.register') }}" title="READ MORE" rel="bookmark" class="site-button"><i class="fa fa-lock"></i> Register </a>
+@endguest
+@auth
+@if(auth()->user()->hasRole('employer'))
+<a href="{{ route('employer.profile') }}" class="site-button"><i class="fa fa-user"></i> {{ auth()->user()->username }} </a>
+@else
+<a href="{{ route('jobseeker.profile') }}" class="site-button"><i class="fa fa-user"></i> {{ auth()->user()->username }} </a>
+@endif
 
+@endauth
                         </div>
                     </div>
                     <!-- main nav -->
                     <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
                         <ul class="nav navbar-nav">
-							<li class="active" ><a href="{{ route('jobseeker.login') }}">Jobseekers</a></li>
-							<li ><a href="{{ route('searchall') }}">Jobs </a></li>
+							<li class="" ><a href="{{ route('searchall') }}">Jobseekers</a></li>
+							{{-- <li ><a href="{{ route('searchall') }}">Jobs </a></li>
 							<li ><a href="{{ route('searchall') }}">IIT/IIM Jobs </a></li>
-                            <li ><a  href="{{ route('job.type','govt-jobs') }}">Govt.jobs</a></li>
+                            <li ><a  href="{{ route('job.type','govt-jobs') }}">Govt.jobs</a></li> --}}
                             <li ><a href="{{ route('job.type','oversea-jobs') }}"> Oversea jobs</a></li>
 							<li ><a href="{{ route('recruiters') }}">Recruiters </a></li>
 							<li ><a href="{{ route('contactus') }}">Contact </a></li>
@@ -100,7 +109,7 @@
 					<div class="find-job-bx">
 											<!--<a href="#" class="site-button button-sm">Find Jobs, Employment & Career Opportunities</a>
 						<h2>Search Between More Then <br/> <span class="text-primary">50,000</span> Open Jobs.</h2>-->
-						<h2 style=\\\"\\\\\\\">Search Between More Than&nbsp;<br style=\\\"\\\\\\\" /><span style=\\\"\\\\\\\">50,000</span>&nbsp;Open Jobs.</h2>						<form class="dezPlaceAni" action="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch.php" method="GET">
+						<h2 style=\\\"\\\\\\\">Search Between More Than&nbsp;<br style=\\\"\\\\\\\" /><span style=\\\"\\\\\\\">50,000</span>&nbsp;Open Jobs.</h2>						<form class="dezPlaceAni" action="#jobsearch.php" method="GET">
 							<div class="row">
 								<div class="col-lg-3 col-md-6">
 									<div class="form-group">
@@ -184,42 +193,42 @@
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?f_area=261">Business Development...</a></h3>
+                        <h3><a href="#/jobsearch_all.php?f_area=261">Business Development...</a></h3>
                         <p>(1 jobs)</p>
                     </div>
                 </div>
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?f_area=262">Customer Relationshi...</a></h3>
+                        <h3><a href="#/jobsearch_all.php?f_area=262">Customer Relationshi...</a></h3>
                         <p>(1 jobs)</p>
                     </div>
                 </div>
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?f_area=110">Stock Broking</a></h3>
+                        <h3><a href="#/jobsearch_all.php?f_area=110">Stock Broking</a></h3>
                         <p>(1 jobs)</p>
                     </div>
                 </div>
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?f_area=264">Marketing Executives</a></h3>
+                        <h3><a href="#/jobsearch_all.php?f_area=264">Marketing Executives</a></h3>
                         <p>(1 jobs)</p>
                     </div>
                 </div>
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?f_area=250">Legal Adviser</a></h3>
+                        <h3><a href="#/jobsearch_all.php?f_area=250">Legal Adviser</a></h3>
                         <p>(1 jobs)</p>
                     </div>
                 </div>
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?f_area=326">Tour Operator</a></h3>
+                        <h3><a href="#/jobsearch_all.php?f_area=326">Tour Operator</a></h3>
                         <p>(1 jobs)</p>
                     </div>
                 </div>
@@ -246,11 +255,11 @@
             <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-2.jpg" class="img-responsive" alt="">
+			 <img src="#//company_logo/com-2.jpg" class="img-responsive" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job-detail-page.html?jid=31527846358">Junior Engineering Assistant G...</a></h3>
+                  <h3><a href="#/job-detail-page.html?jid=31527846358">Junior Engineering Assistant G...</a></h3>
                   <p><span>Inet-Solution</span></p>
                </div>
                <div class="job-position"><span class="job-num">0-9 YRS</span></div>
@@ -271,11 +280,11 @@
             <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" class="img-responsive" alt="">
+			 <img src="#//company_logo/1437486045.jpg" class="img-responsive" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job-detail-page.html?jid=31527833317">BPO / KPO / CCE / Process Asso...</a></h3>
+                  <h3><a href="#/job-detail-page.html?jid=31527833317">BPO / KPO / CCE / Process Asso...</a></h3>
                   <p><span>Creative Hands HR Co...</span></p>
                </div>
                <div class="job-position"><span class="job-num">2-8 YRS</span></div>
@@ -300,7 +309,7 @@
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job-detail-page.html?jid=31527833570">Manager, India Counterfeit and...</a></h3>
+                  <h3><a href="#/job-detail-page.html?jid=31527833570">Manager, India Counterfeit and...</a></h3>
                   <p><span>Connectpro Managemen...</span></p>
                </div>
                <div class="job-position"><span class="job-num">4-10 YRS</span></div>
@@ -325,7 +334,7 @@
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job-detail-page.html?jid=31527836914">Travel Expert for Ticketing an...</a></h3>
+                  <h3><a href="#/job-detail-page.html?jid=31527836914">Travel Expert for Ticketing an...</a></h3>
                   <p><span>THE STAR HOLIDAYS</span></p>
                </div>
                <div class="job-position"><span class="job-num">0-8 YRS</span></div>
@@ -350,7 +359,7 @@
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job-detail-page.html?jid=31530696765">php html developer</a></h3>
+                  <h3><a href="#/job-detail-page.html?jid=31530696765">php html developer</a></h3>
                   <p><span>testing demo</span></p>
                </div>
                <div class="job-position"><span class="job-num">3-4 YRS</span></div>
@@ -375,7 +384,7 @@
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job-detail-page.html?jid=31530526424">Associative Vice President</a></h3>
+                  <h3><a href="#/job-detail-page.html?jid=31530526424">Associative Vice President</a></h3>
                   <p><span>php script mall</span></p>
                </div>
                <div class="job-position"><span class="job-num">15-13 YRS</span></div>
@@ -400,7 +409,7 @@
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job-detail-page.html?jid=31527835351">Associate Editor ( Magazine / ...</a></h3>
+                  <h3><a href="#job-detail-page.html?jid=31527835351">Associate Editor ( Magazine / ...</a></h3>
                   <p><span>Sphere TravelMedia &...</span></p>
                </div>
                <div class="job-position"><span class="job-num">0-10 YRS</span></div>
@@ -425,7 +434,7 @@
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job-detail-page.html?jid=31527847435">Project Associate (Software/ H...</a></h3>
+                  <h3><a href="#job-detail-page.html?jid=31527847435">Project Associate (Software/ H...</a></h3>
                   <p><span>Inet-Solution</span></p>
                </div>
                <div class="job-position"><span class="job-num">0-10 YRS</span></div>
@@ -459,7 +468,7 @@
 				</div>
 				<div class="row">
 									<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?cityfav=Baisi">
+						<a href="#jobsearch_all.php?cityfav=Baisi">
 							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic1.jpg)">
 								<div class="city-info">
 									<h5>Baisi</h5>
@@ -469,7 +478,7 @@
 						</a>
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?cityfav=Serchhip">
+						<a href="#jobsearch_all.php?cityfav=Serchhip">
 							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic2.jpg)">
 								<div class="city-info">
 									<h5>Serchhip</h5>
@@ -479,7 +488,7 @@
 						</a>
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?cityfav=Bastar">
+						<a href="#jobsearch_all.php?cityfav=Bastar">
 							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic3.jpg)">
 								<div class="city-info">
 									<h5>Bastar</h5>
@@ -489,7 +498,7 @@
 						</a>
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?cityfav=Jorethang">
+						<a href="#jobsearch_all.php?cityfav=Jorethang">
 							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic4.jpg)">
 								<div class="city-info">
 									<h5>Jorethang</h5>
@@ -499,7 +508,7 @@
 						</a>
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?cityfav=Gopalasamudram">
+						<a href="#jobsearch_all.php?cityfav=Gopalasamudram">
 							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic5.jpg)">
 								<div class="city-info">
 									<h5>Gopalasamudram</h5>
@@ -509,7 +518,7 @@
 						</a>
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?cityfav=Ponda%20City">
+						<a href="#jobsearch_all.php?cityfav=Ponda%20City">
 							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic6.jpg)">
 								<div class="city-info">
 									<h5>Ponda City</h5>
@@ -519,7 +528,7 @@
 						</a>
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?cityfav=Barbil">
+						<a href="#jobsearch_all.php?cityfav=Barbil">
 							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic7.jpg)">
 								<div class="city-info">
 									<h5>Barbil</h5>
@@ -529,7 +538,7 @@
 						</a>
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?cityfav=Nongpoh">
+						<a href="#jobsearch_all.php?cityfav=Nongpoh">
 							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic8.jpg)">
 								<div class="city-info">
 									<h5>Nongpoh</h5>
@@ -554,7 +563,7 @@
 
 										<h4>Im an EMPLOYER</h4>
 <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>                                        <ul>
-                                            <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//employer-registration.html"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
+                                            <li><a href="#/employer-registration.html"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -568,7 +577,7 @@
 
 
                                         <ul>
-                                            <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobseeker-registration.html"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
+                                            <li><a href="#jobseeker-registration.html"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
                                         </ul>
                                     </div>
                                     <div class="center_tag">
@@ -684,73 +693,73 @@
                                     </div>
                                     <div class="job_categories_content" >
                                         <ul>
-							                                            <li><i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=36">Marketing/Sales<span>(3)</span></a></li>
-											                                            <li><i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=40">Tours and Travel/Air...<span>(3)</span></a></li>
-											                                            <li><i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=50">IT-ERP-Oracle<span>(2)</span></a></li>
-											                                            <li><i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=53">IT - BPO<span>(2)</span></a></li>
-											                                            <li><i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=38">Production/Manufactu...<span>(2)</span></a></li>
+							                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=36">Marketing/Sales<span>(3)</span></a></li>
+											                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=40">Tours and Travel/Air...<span>(3)</span></a></li>
+											                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=50">IT-ERP-Oracle<span>(2)</span></a></li>
+											                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=53">IT - BPO<span>(2)</span></a></li>
+											                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=38">Production/Manufactu...<span>(2)</span></a></li>
 											                                         <div id="collapseExample" class="collapse">
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=34">Law Enforcement/Secu...<span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=34">Law Enforcement/Secu...<span>(1)</span></a>
 
 												</li>
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=37">Media/Journalism<span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=37">Media/Journalism<span>(1)</span></a>
 
 												</li>
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=44">Strategy / Managemen...<span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=44">Strategy / Managemen...<span>(1)</span></a>
 
 												</li>
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=41">Transportation/Logis...<span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=41">Transportation/Logis...<span>(1)</span></a>
 
 												</li>
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=55">Management<span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=55">Management<span>(1)</span></a>
 
 												</li>
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=45">Others<span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=45">Others<span>(1)</span></a>
 
 												</li>
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=42">KPO/Technical Suppor...<span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=42">KPO/Technical Suppor...<span>(1)</span></a>
 
 												</li>
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=35">Legal/Law<span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=35">Legal/Law<span>(1)</span></a>
 
 												</li>
 
 
                                             <li >
 
-													<i class="fa fa-caret-right"></i> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.php?category=51">Media <span>(1)</span></a>
+													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=51">Media <span>(1)</span></a>
 
 												</li>
 																								</div>
@@ -773,7 +782,7 @@
 							 						 <div class="clearfix"></div>
 						 <div class="quote-bx m-t30">
 								<div class="quote-info">
-																	<h4>Make a Difference with Your Online Resume!</h4><p>Your resume in minutes with JobBoard resume assistant is ready!</p>									<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobseeker-registration.html" class="site-button">Create an Account</a>
+																	<h4>Make a Difference with Your Online Resume!</h4><p>Your resume in minutes with JobBoard resume assistant is ready!</p>									<a href="#jobseeker-registration.html" class="site-button">Create an Account</a>
 								</div>
 							</div>
 
@@ -794,7 +803,7 @@
 																	<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=testing%20demo">
+											<li><a href="#jobsearch_all.php?cmpy_srch=testing%20demo">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1391518038.png" alt="" style=" width: 50px;height: 35px;">
@@ -810,7 +819,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=php%20script%20mall">
+											<li><a href="#jobsearch_all.php?cmpy_srch=php%20script%20mall">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1391517965.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -826,7 +835,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Client%20of%20Antrors%20HR%20Solutions">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Client%20of%20Antrors%20HR%20Solutions">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -842,10 +851,10 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=CN%20Immigration%20Services%20Pvt.%20Ltd">
+											<li><a href="#jobsearch_all.php?cmpy_srch=CN%20Immigration%20Services%20Pvt.%20Ltd">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="#company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>CN Immigration Services Pvt. L...</span>
 											</a></li>
@@ -858,10 +867,10 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=THE%20STAR%20HOLIDAYS">
+											<li><a href="#jobsearch_all.php?cmpy_srch=THE%20STAR%20HOLIDAYS">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="#company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>THE STAR HOLIDAYS</span>
 											</a></li>
@@ -874,7 +883,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Connectpro%20Management%20Consultants%20Pvt%20Ltd">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Connectpro%20Management%20Consultants%20Pvt%20Ltd">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -890,7 +899,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Cummins%20India%20Ltd">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Cummins%20India%20Ltd">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -906,7 +915,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Podar%20Education%20Network%20Pvt%20Ltd">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Podar%20Education%20Network%20Pvt%20Ltd">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -922,7 +931,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Executive%20Tracks%20Associates%20(P)%20Ltd.">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Executive%20Tracks%20Associates%20(P)%20Ltd.">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -938,7 +947,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Diamond%20Magazines%20P%20Ltd">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Diamond%20Magazines%20P%20Ltd">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -954,7 +963,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=IP%20INTEGRATED%20SERVICES%20PVT%20LTS">
+											<li><a href="#jobsearch_all.php?cmpy_srch=IP%20INTEGRATED%20SERVICES%20PVT%20LTS">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -970,7 +979,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=OASIS">
+											<li><a href="#jobsearch_all.php?cmpy_srch=OASIS">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -986,7 +995,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Indian%20Institute%20of%20Management">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Indian%20Institute%20of%20Management">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -1002,7 +1011,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Inet-Solution">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Inet-Solution">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-2.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -1018,7 +1027,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Creative%20Hands%20HR%20Consultancy">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Creative%20Hands%20HR%20Consultancy">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -1034,7 +1043,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=Sphere%20TravelMedia%20&amp;%20Exhibition%20Private%20Limited">
+											<li><a href="#jobsearch_all.php?cmpy_srch=Sphere%20TravelMedia%20&amp;%20Exhibition%20Private%20Limited">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -1050,7 +1059,7 @@
 																		<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//jobsearch_all.php?cmpy_srch=THE%20HOLIDAYS%20INN">
+											<li><a href="#jobsearch_all.php?cmpy_srch=THE%20HOLIDAYS%20INN">
 												<div class="logo">
 
 												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
@@ -1127,12 +1136,12 @@
 
 							 <h5 class="m-b20 text-white">Browse Jobs</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.html">Browse All Jobs</a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.html?sch=1">Govt. Jobs</a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.html?sch=2">International Jobs</a></li>
+                                <li><a href="#jobsearch_all.html">Browse All Jobs</a></li>
+                                <li><a href="#jobsearch_all.html?sch=1">Govt. Jobs</a></li>
+                                <li><a href="#jobsearch_all.html?sch=2">International Jobs</a></li>
                                 <!--<li><a href="job_by_company.html">Jobs by Company</a></li>-->
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job_by_category.html">Jobs by Category</a></li>
-								<li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job_by_area.html">Jobs by Location</a></li>
+                                <li><a href="#job_by_category.html">Jobs by Category</a></li>
+								<li><a href="#job_by_area.html">Jobs by Location</a></li>
                             </ul>
                         </div>
 
@@ -1145,11 +1154,11 @@
 						   <div class="widget border-0">
                             <h5 class="m-b20 text-white">INFORMATION</h5>
                               <ul class="list-2 w10 list-line">
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/aboutus.html">About Us </a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/terms.html">Terms & Conditions </a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/contactus.html">Contact Us</a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/faq.html">Help / FAQ</a></li>
+                                <li><a href="#aboutus.html">About Us </a></li>
+                                <li><a href="#terms.html">Terms & Conditions </a></li>
+                                <li><a href="#privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="#contactus.html">Contact Us</a></li>
+                                <li><a href="#faq.html">Help / FAQ</a></li>
 
                             </ul>
                         </div>
@@ -1158,11 +1167,11 @@
 						   <div class="widget border-0">
                             <h5 class="m-b20 text-white">Jobseekers</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsseeker-login.html">Login/Register</a></li>
+                                <li><a href="#jobsseeker-login.html">Login/Register</a></li>
                             </ul>
 							<h5 class="m-b20 text-white">Jobseekers</h5>
 							<ul class="list-2 w10 list-line">
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/recruiter-listing.html">Browse All Recruiters</a></li>
+                                <li><a href="#recruiter-listing.html">Browse All Recruiters</a></li>
                             </ul>
                         </div>
 
@@ -1174,12 +1183,12 @@
                         <div class="widget border-0">
                             <h5 class="m-b20 text-white">GOVT. JOBS</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.html?sch=1">US Jobs</a></li>
+                                <li><a href="#jobsearch_all.html?sch=1">US Jobs</a></li>
 
                             </ul>
 							<h5 class="m-b30 text-white">OVERSEA JOBS</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsearch_all.html?sch=2">US Jobs</a></li>
+                                <li><a href="#jobsearch_all.html?sch=2">US Jobs</a></li>
 
                             </ul>
                         </div>
@@ -1188,7 +1197,7 @@
                         <div class="widget border-0">
                             <h5 class="m-b20 text-white">Employers</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html">US Jobs</a></li>
+                                <li><a href="#emp_postjob.html">US Jobs</a></li>
 
                             </ul>
                         </div>
