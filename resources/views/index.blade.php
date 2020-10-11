@@ -26,7 +26,9 @@
 
 	<!-- STYLESHEETS -->
 	<!-- STYLESHEETS -->
-	<link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/css/plugins.css">
+{{--	<link rel="stylesheet" type="text/css" href="/asset/css/plugins.css">--}}
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-select.min.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/css/templete.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/css/skin/skin-1.css">
