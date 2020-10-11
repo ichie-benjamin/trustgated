@@ -36,6 +36,9 @@ class LoginController extends Controller
         if (auth()->user()->hasRole('employer')) {
             return '/employer/profile';
         }
+        if (auth()->user()->hasRole(['admin','super_admin'])) {
+            return '/admin/dashboard';
+        }
         return '/home';
     }
 

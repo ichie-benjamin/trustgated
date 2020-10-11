@@ -12,13 +12,13 @@ return [
     'truncate_tables' => true,
 
     'roles_structure' => [
-        'superadministrator' => [
+        'super_admin' => [
             'users' => 'c,r,u,d',
             'payments' => 'c,r,u,d',
             'jobs' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'administrator' => [
+        'admin' => [
             'users' => 'c,r,u,d',
             'jobs' => 'c,r,u,d',
             'profile' => 'r,u'
