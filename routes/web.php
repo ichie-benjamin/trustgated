@@ -32,13 +32,13 @@ Route::group(['middleware' => ['guest']], function () {
 
 });
 
-Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:jobseeker']], function () {
+Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:jobseeker|admin']], function () {
 
     Route::get('/profile', [JobseekerController::class, 'profile'])->name('jobseeker.profile');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
-Route::group(['prefix' => 'employer','middleware' => ['verified','auth']], function () {
+Route::group(['prefix' => 'employer','middleware' => ['verified','auth|admin']], function () {
 
 
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');
@@ -79,6 +79,6 @@ Route::get('/change-password', [JobseekerController::class,'changePassword'])->n
 Route::get('/check/{type}', [UsersController::class,'checkUser'])->name('check.user');
 Route::get('/role/logout', [UsersController::class,'roleLogout'])->name('logout.user')->middleware('auth');
 
-// include('temp.php');
+ include('admin.php');
 
 Auth::routes(['verify' => true]);
