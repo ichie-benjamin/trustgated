@@ -11,7 +11,7 @@
 }
 .fullwidth .header-nav .nav > li.active > a,
 .fullwidth .header-nav .nav > li:hover > a{
-	background-color:#2e55fa;
+	background-color:#f5d006;
 	color:#fff;
 }
 .extra-nav{
@@ -63,7 +63,7 @@
 	background-color: #FF2A2A;
 	font-weight: 700;
 	color: #fff;
-	border-bottom: 0; 
+	border-bottom: 0;
 }
 .job-search-tabs .form-control,
 .job-search-tabs .bootstrap-select .dropdown-toggle{
@@ -75,7 +75,7 @@
 	height: 50px;
 	padding: 10px 20px;
 	color: #606060;
-} 
+}
 .job-search-tabs .form-control::-moz-placeholder{
 	color: #606060;
 }
@@ -125,7 +125,7 @@
 .job-categories .icon-bx-wraper{
 	padding: 40px 10px;
 	margin-bottom: 20px;
-	background: #2e55fa;
+	background: #f5d006;
 	border-radius: 10px;
 	text-align:center;
 	-moz-transition:all 0.5s;
@@ -178,7 +178,7 @@
 	height: 0;
 }
 .job-categories .icon-bx-wraper:hover{
-	background-color:#2e55fa;
+	background-color:#f5d006;
 	transform: scale(1.05);
 	-moz-transform: scale(1.05);
 	-webkit-transform: scale(1.05);
@@ -357,8 +357,8 @@
 }
 .site-button-secondry:after{
 	background-color: #fff;
-}	
-.site-button, 
+}
+.site-button,
 .site-button-secondry{
 	position: relative;
     z-index: 1;
@@ -431,8 +431,8 @@
 		letter-spacing: 0;
 		line-height: 26px;
 	}
-	.counter-style-1 .counter, 
-	.counter-style-2 .counter, 
+	.counter-style-1 .counter,
+	.counter-style-2 .counter,
 	.counter-style-3 .counter{
 		font-size:30px;
 	}
@@ -524,13 +524,13 @@
 }
 .testimonial-5 .testimonial-text{
 	border:0;
-	
+
 }
 .active .testimonial-5 .testimonial-text{
-	
+
 }
 .active.center .testimonial-5 .testimonial-text{
-	background-color:#2e55fa;
+	background-color:#f5d006;
 }
 .active.center .testimonial-5 .testimonial-text p{
 	color: #fff;
@@ -557,7 +557,7 @@
 .active.center .testimonial-5 .testimonial-text:after{
 	border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 15px solid #2e55fa;
+    border-top: 15px solid #f5d006;
 }
 
 /* browse-job */
@@ -648,7 +648,7 @@
 	border-radius:0;
 	background-color: transparent;
 	border-width: 0 0 2px 0;
-	border-color:#2e55fa;
+	border-color:#f5d006;
 }
 .find-job-bx .form-control{
 	padding:0;
@@ -686,11 +686,11 @@
 	height:50px;
 }
 .find-job-bx .bootstrap-select .dropdown-toggle,
-.find-job-bx .bootstrap-select .dropdown-toggle:active, 
-.find-job-bx .bootstrap-select .dropdown-toggle:focus, 
+.find-job-bx .bootstrap-select .dropdown-toggle:active,
+.find-job-bx .bootstrap-select .dropdown-toggle:focus,
 .find-job-bx .bootstrap-select .dropdown-toggle:hover{
 	border-width: 0 0 2px 0 !important;
-	border-color: #2e55fa !important;
+	border-color: #f5d006 !important;
 	background-color: transparent !important;
 	border-radius: 0;
 	height: 50px;
@@ -755,7 +755,7 @@
 	position:relative;
 }
 .post-job-bx .post-bx:hover{
-	border-color:#2e55fa;
+	border-color:#f5d006;
 }
 .post-job-bx > li,
 .cv-manager > li{
@@ -802,7 +802,7 @@
 .job-time a:hover span{
 	color: #e1e7ff;
 	transition: all 0.5s;
-	
+
 }
 
 /* Candidates Box */
@@ -932,7 +932,7 @@
 	-o-transition:all 0.5s;
 }
 .city-bx:hover:after{
-	background-color:#2e55fa;
+	background-color:#f5d006;
 	opacity:0.95;
 }
 .city-info{
@@ -987,7 +987,7 @@
 	}
 	.fullwidth .header-nav .nav > li > a{
 		border-radius:0;
-	} 
+	}
 	.nav.navbar-nav li:hover a i.fa-chevron-down{
 		color:#fff;
 	}
@@ -1021,7 +1021,7 @@
 	.featurd-job-list .job-box-list{
 		display:block;
 	}
-	.featurd-job-list .job-title, 
+	.featurd-job-list .job-title,
 	.featurd-job-list .job-info-box{
 		display:block;
 		width:100%;
@@ -1061,7 +1061,7 @@
 		width: 33.33%;
 		float: left;
 	}
-	
+
 	.head-counter-bx  h2{
 		font-size:24px;
 	}
@@ -1087,7 +1087,7 @@
 		line-height: 28px;
 	}
 	.post-job-bx .d-flex{
-		display:block !important;	
+		display:block !important;
 	}
 	.job-post-company {
 		margin-right: 0;
@@ -1105,7 +1105,7 @@
 
 .browse-job .search-order form .input-group {
 	margin-bottom: 40px;
-	box-shadow: 0 0 10px 0 rgba(0,24,128,0.1);	
+	box-shadow: 0 0 10px 0 rgba(0,24,128,0.1);
 }
 .browse-job .search-order form .input-group .form-control {
 	margin-right: 0px;
@@ -1124,7 +1124,7 @@
 	width: 30px;
 	height: 30px;
 	border-radius: 30px;
-	border: 1px solid #2e55fa;
+	border: 1px solid #f5d006;
 	line-height: 30px;
 	text-align: center;
 	margin-left: 5px;
@@ -1136,7 +1136,7 @@
 .canditate-des  {
 	position: relative;
 	display: inline-block;
-	border: 2px solid #2E55FA;
+	border: 2px solid #f5d006;
 	outline-offset: 3px;
 	border-radius: 100%;
 	width: 150px;
@@ -1152,7 +1152,7 @@
 	right: 0;
 	box-shadow: 0 0 10px 0 rgba(0,24,128,0.1);
 	border-radius: 100%;
-	color: #2E55FA;
+	color: #f5d006;
 	overflow: hidden;
 }
 .candidate-info img {
@@ -1182,7 +1182,7 @@
 .candidate-info ul li a:hover,
 .candidate-info ul li a.active{
     background: #e1e7ff;
-	border-left-color: #2e55fa;
+	border-left-color: #f5d006;
 }
 .candidate-info ul li a span{
 	transition: all 0.5s;
@@ -1219,7 +1219,7 @@
 .canditate-des::before {
     content: "";
     position: absolute;
-    background-color: #2e55fa;
+    background-color: #f5d006;
     height: 115%;
     width: 2px;
     left: 50%;
@@ -1236,7 +1236,7 @@
     left: -15px;
     top: 50%;
     width: 120%;
-    background-color: #2e55fa;
+    background-color: #f5d006;
     height: 2px;
     z-index: -1;
 }
@@ -1307,7 +1307,7 @@
 	padding: 10px 0;
 	font-size: 22px;
 	margin-bottom: 30px;
-}	
+}
 .custom-file > input[type="file"]{
 	cursor: pointer;
 	left: 0;
@@ -1319,7 +1319,7 @@
     overflow: hidden;
     position: relative;
     padding: 12px;
-    text-align: center; 
+    text-align: center;
     border: 0 !important;
     box-shadow: 0 0 10px 0 rgba(0,24,128,0.1) !important;
     height: 50px;
@@ -1334,7 +1334,7 @@
 /* Jobs Link */
 .job-links .fa-download,
 .job-links .fa-eye{
-    background-color: #2e55fa;
+    background-color: #f5d006;
     color: #fff;
     border: 0;
     border-radius: 5px;
@@ -1661,7 +1661,7 @@
 	color: #333;
 }
 .feature .custom-control .custom-control-label::before {
-	border: 2px solid #2e55fa;
+	border: 2px solid #f5d006;
 }
 
 /* LIKE BTN ===================== */
@@ -1694,7 +1694,7 @@
 	left: 0;
 	height: 30px;
 	width: 30px;
-	border: 1px solid #2e55fa;
+	border: 1px solid #f5d006;
 	border-radius: 20px;
 }
 .like-btn input:checked ~ .checkmark {
@@ -1708,7 +1708,7 @@
 .like-btn input:checked ~ .checkmark:before {
 	width: 100%;
 	height: 100%;
-	background-color:#2e55fa;
+	background-color:#f5d006;
 	left: 0;
 	top: 0;
 	border-radius: 20px;
@@ -1720,7 +1720,7 @@
 	top: 5px;
 	width: 5px;
 	height: 10px;
-	
+
 }
 .like-btn .checkmark:before {
 	content: "\f08a";
@@ -1729,7 +1729,7 @@
     position: absolute;
     font-size: 16px;
     font-weight: normal;
-    color: #2e55fa;
+    color: #f5d006;
 }
 .comment-reply-link:hover {
     color: #333 !important;
@@ -1760,7 +1760,7 @@
 	.cv-manager .action-bx {
 		right: 5px;
 	}
-	.header-nav .nav > li .sub-menu li > .sub-menu.left, 
+	.header-nav .nav > li .sub-menu li > .sub-menu.left,
 	.header-nav .nav > li .sub-menu li:hover .sub-menu.left {
 		left: auto;
 		right: 219px;
@@ -1835,7 +1835,7 @@
 	.company-manage-job{
 		min-width: 300%;
 	}
-	.login-style2 .login-footer .float-left, 
+	.login-style2 .login-footer .float-left,
 	.login-style2 .login-footer .float-right {
 		text-align: center;
 		float: unset !important;
@@ -2061,7 +2061,7 @@
 }
 
 .site-header.border-bottom .main-bar-wraper{
-	border-bottom: 2px solid #2e55fa;
+	border-bottom: 2px solid #f5d006;
 }
 
 /* Company logo wg  */
@@ -2161,7 +2161,7 @@
 .job-alert-bx{
 	padding: 10px 10px 10px 0px;
 }
-	
+
 @media only screen and (max-width: 1024px){
 	.lead-form-modal .modal-content,
 	.lead-form-modal .modal-dialog{
