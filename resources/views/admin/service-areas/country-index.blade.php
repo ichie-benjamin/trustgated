@@ -1,4 +1,4 @@
-@extends('layouts.admin-app')
+@extends('admin.layouts.admin-app')
 
 @section('css')
 <link href="{{ asset('lib/highlightjs/github.css') }}" rel="stylesheet">

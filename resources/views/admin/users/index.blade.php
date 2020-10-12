@@ -1,4 +1,4 @@
-@extends('layouts.admin-app')
+@extends('admin.layouts.admin-app')
 
 @section('css')
     <link href="{{ asset('lib/highlightjs/github.css') }}" rel="stylesheet">
@@ -23,9 +23,9 @@
         <div class="br-pagebody">
 
             <div class="br-section-wrapper">
-                
+
                 @include('notification')
-                
+
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10" style="padding-bottom: 50px">User List <a href="{{ route('admin.users.create') }}"><button class="btn btn-success" style="float: right"> Add New</button></a></h6>
 
             <div class="table-wrapper">
@@ -96,7 +96,7 @@
     <script>
         $(function(){
           'use strict';
-  
+
           $('#datatable1').DataTable({
             responsive: true,
             language: {
@@ -105,16 +105,16 @@
               lengthMenu: '_MENU_ items/page',
             }
           });
-  
+
           $('#datatable2').DataTable({
             bLengthChange: false,
             searching: false,
             responsive: true
           });
-  
+
           // Select2
           $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
-  
+
         });
     </script>
 @endsection

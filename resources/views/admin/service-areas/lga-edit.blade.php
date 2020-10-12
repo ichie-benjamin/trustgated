@@ -1,4 +1,4 @@
-@extends('layouts.admin-app')
+@extends('admin.layouts.admin-app')
 
 @section('css')
 <script src="{{ asset('lib/datatables/jquery.dataTables.css') }}"></script>

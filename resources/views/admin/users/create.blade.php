@@ -1,15 +1,15 @@
-@extends('layouts.admin-app')
+@extends('admin.layouts.admin-app')
 
 @section('css')
     <link href="{{ asset('lib/select2/css/select2.min.css') }}" rel="Stylesheet">
 @endsection
 
 @section('content')
-    <div class="br-mainpanel"> 
+    <div class="br-mainpanel">
     <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
         <h4 class="tx-gray-800 mg-b-5">Add Admin User</h4>
     </div>
-    
+
     <div class="br-pagebody">
         <div class="br-section-wrapper">
 
@@ -105,7 +105,7 @@
                         <select name="role" class="form-control select2" data-placeholder="Choose Role" required>
                             <option label="Choose Role"></option>
                                 @foreach ($admin_roles ?? [] as $role)
-                                    <option value="{{ $role }}" @if ($role == old('role')) selected @endif>{{ $role }}</option>    
+                                    <option value="{{ $role }}" @if ($role == old('role')) selected @endif>{{ $role }}</option>
                                 @endforeach
                             {{-- <option value="USA">Plan A</option>
                             <option value="UK">Plan B</option> --}}

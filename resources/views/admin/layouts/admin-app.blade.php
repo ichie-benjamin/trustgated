@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from themepixels.me/demo/bracket/app/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Sep 2020 15:07:13 GMT -->
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -62,8 +60,7 @@
 
   <footer class="br-footer">
     <div class="footer-left">
-        <div class="mg-b-2">Copyright &copy; 2017. Bracket. All Rights Reserved.</div>
-        <div>Attentively and carefully made by ThemePixels.</div>
+        <div class="mg-b-2">Copyright &copy; 2020. {{ env('APP_NAME') }}. All Rights Reserved.</div>
     </div>
     <div class="footer-right d-flex align-items-center">
         <span class="tx-uppercase mg-r-10">Share:</span>

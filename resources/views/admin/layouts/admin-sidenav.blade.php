@@ -1,6 +1,6 @@
 
 <!-- ########## START: LEFT PANEL ########## -->
-<div class="br-logo"><a href="#"><span>[</span>bracket<span>]</span></a></div>
+<div class="br-logo"><a href="#"><span>[</span>{{ env('APP_NAME') }}<span>]</span></a></div>
 <div class="br-sideleft overflow-y-auto">
     <label class="sidebar-label pd-x-15 mg-t-20">Navigation</label>
     <div class="br-sideleft-menu">
@@ -31,7 +31,7 @@
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>
-                <span class="menu-item-label">Service Areas</span>
+                <span class="menu-item-label">Settings</span>
                 <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
