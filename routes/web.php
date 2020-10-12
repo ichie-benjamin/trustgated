@@ -38,7 +38,7 @@ Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:j
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
-Route::group(['prefix' => 'employer','middleware' => ['verified','auth|admin']], function () {
+Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:employer|admin']], function () {
 
 
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');

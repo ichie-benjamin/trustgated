@@ -587,11 +587,11 @@
 
  	.banner-top{
         /*background:url(../../assets/images/banner.png) top no-repeat; !*height:255px;*!*/
-        background-color: #0C4066;
+        background-color: #000000;
     }
 	#header {
 		/*background-image:url(../../assets/images/texture-menu.png);*/
-		background: rgba(11, 64, 101, 0.89);
+		background: #34ba00;
 		position: relative;
 		-webkit-transition: all 0.3s;
 				transition: all 0.3s;

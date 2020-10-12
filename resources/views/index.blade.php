@@ -79,6 +79,16 @@
 <a href="{{ route('jobseeker.profile') }}" class="site-button"><i class="fa fa-user"></i> {{ auth()->user()->username }} </a>
 @endif
 
+    <a href="{{ route('logout') }}"
+       onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();"
+    >
+        <i class="fa fa-sign-out"></i>Logout</a>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+
 @endauth
                         </div>
                     </div>

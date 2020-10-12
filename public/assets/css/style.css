@@ -15,7 +15,7 @@ body {
     font-smoothing: antialiased;
 }
 a {
-    color: #0072f9;
+    color: #f5d006;
     outline: 0 none;
     text-decoration: none;
 }
@@ -10966,7 +10966,7 @@ button.scroltop {
     border-width: 0;
     bottom: 15px;
     box-shadow: 2px 2px 12px -5px #000000;
-    color: #0072f9;
+    color: #f5d006;
     cursor: pointer;
     display: none;
     height: 40px;
@@ -13286,7 +13286,7 @@ ol.commentlist li .star-rating {
 }
 
 .brows-job-list:hover {
-    border-left: 4px solid #0072f9;
+    border-left: 4px solid #f5d006;
 }
 
 .jp_regis_left {
@@ -13550,7 +13550,7 @@ ol.commentlist li .star-rating {
     background: #ffffff;
     padding: 19px 7px 1px 30px;
     border: 1px solid #e9e9e9;
-    border-bottom: 1px solid #0072f9;
+    border-bottom: 1px solid #f5d006;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;

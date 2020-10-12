@@ -1,5 +1,6 @@
 <?php
 namespace Database\Seeders;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -58,7 +59,8 @@ class LaratrustSeeder extends Seeder
                 $user = \App\Models\User::create([
                     'username' => ucwords(str_replace('_', ' ', $key)),
                     'email' => $key.'@job.com',
-                    'password' => bcrypt('password')
+                    'password' => bcrypt('password'),
+                    'email_verified_at' => Carbon::now()
                 ]);
                 $user->attachRole($role);
             }
