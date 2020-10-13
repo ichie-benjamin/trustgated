@@ -136,6 +136,38 @@
             <li class="nav-item"><a href="#" class="nav-link">Inactive Resume Users</a></li>
 
         </ul>
+        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Manage Employers</label>
+        <div class="progress ht-5 mg-b-10">
+            <div class="progress-bar bg-warning wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-id-card-alt tx-24"></i>
+                <span class="menu-item-label"> Employers</span>
+                <i class="menu-item-arrow fa fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link"> Employer's Profile</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Employer's Posted Jobs</a></li>
+        </ul>
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-registered tx-22"></i>
+                <span class="menu-item-label"> Unregistered Company Job</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-paper-plane tx-22"></i>
+                <span class="menu-item-label"> Send Job Request</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+
+        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Newsletters</label>
+        <div class="progress ht-5 mg-b-10">
+            <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
 
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
