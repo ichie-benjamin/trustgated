@@ -57,18 +57,29 @@
                                 <table  class="table-responsive table table-bordered" style="border:1px solid #CCC; font-size:13px;">
 
                                     <tr style="background-color:#009900; color:#000; ">
-                                        <td class="text-center"  style="border-right:2px solid #FFF; width: 30%;"><b>POSTED DATE & TIME</b></td>
-                                        <td height="35"  class="text-center" style="border-right:2px solid #FFF;  width: 10%;"><b>JOB TITLE</b></td>
+                                        <td class="text-center"  style="border-right:2px solid #FFF; width: 20%;"><b>POSTED DATE & TIME</b></td>
+                                        <td height="35"  class="text-center" style="border-right:2px solid #FFF;  width: 40%;"><b>JOB TITLE</b></td>
                                         <td height="35"  class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>Job Type</b></td>
                                         <td height="35"  class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>Locations</b></td>
                                         <td class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>RESPONSES</b></td>
-                                        <td class="text-center" style="border-right:2px solid #FFF; width: 20%;"><b>ACTION</b></td>
+                                        <td class="text-center" style="border-right:2px solid #FFF; width: 25%;"><b>ACTION</b></td>
                                     </tr>
 
                                     @foreach($jobs as $job)
                                     <tr>
-                                        <td height="35" class="text-center">{{ $job->created_at->format('M d, Y H:i:s') }}</td>
-                                        <td class="text-center"><a href="{{ route('jobs.show',$job->slug) }}">{{ $job->title }}</a></td>
+                                        <td height="35" class="text-center">{{ $job->created_at->format('M d, Y H:i:s') }}
+                                            <br>
+                                            @if (!$job->trashed())
+                                                @if ($job->status == 'Active')
+                                                    <span class="text-success">Active</span>
+                                                @else
+                                                    <span class="help-block">{{ $job->status }}</span>
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td class="text-center"><a href="{{ route('jobs.show',$job->slug) }}">{{ $job->title }}</a>
+
+                                        </td>
 
                                         <td class="text-center">{{ $job->type_id }}</td>
                                         <td class="text-center">{{ count($job->locations) }}</td>
@@ -112,9 +123,16 @@
                                                         <a href="{{ route('jobs.show', $job->id ) }}" class="btn btn-info" title="Public View">
                                                             <span class="fa fa-eye" aria-hidden="true"></span>
                                                         </a>
-                                                        <a href="{{ route('jobs.show', $job->id ) }}" class="btn btn-success" title="activate job">
-                                                            <span class="fa fa-check" aria-hidden="true"></span>
-                                                        </a>
+                                                        @if ($job->is_disabled)
+                                                            <a href="{{ route('jobs.toggle_disabled', $job->slug ) }}" class="btn btn-success" title="activate job">
+                                                                <span class="fa fa-check" aria-hidden="true"></span>
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ route('jobs.toggle_disabled', $job->slug) }}" class="btn btn-warning" title="deactivate job">
+                                                                <span class="fa fa-remove" aria-hidden="true"></span>
+                                                            </a>
+                                                        @endif
+
                                                         <a href="{{ route('jobs.edit', $job->slug ) }}" class="btn btn-primary" title="Edit Job">
                                                             <span class="fa fa-edit" aria-hidden="true"></span>
                                                         </a>

@@ -146,6 +146,7 @@ if(!$companies){
 
     public function store(Request $request)
     {
+//        return $request->all();
 //        try {
 
             $data = $this->getData($request);
@@ -165,7 +166,7 @@ if(!$companies){
 
         return redirect()->route('jobs.index')
             ->with('success_message', 'Job successfully posted, awaiting admin verification.');
-        
+
     }
 
     public function candidates($id){
@@ -265,6 +266,20 @@ $companies = Company::pluck('name','id')->all();
             $job->restore();
             return redirect()->route('jobs.index')
                 ->with('success_message', 'Job was successfully restored from trash.');
+        }else {
+            return redirect()->route('jobs.index')
+                ->with('unexpected_error', 'Something went wrong.');
+        }
+
+    }
+
+    public function toggleDisabled($slug){
+        $job = Job::whereSlug($slug)->first();
+        if($job){
+            $job->is_disabled = !$job->is_disabled;
+            $job->save();
+            return redirect()->route('jobs.index')
+                ->with('success_message', 'Job status successfully updated.');
         }else {
             return redirect()->route('jobs.index')
                 ->with('unexpected_error', 'Something went wrong.');

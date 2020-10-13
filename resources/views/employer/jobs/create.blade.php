@@ -57,24 +57,11 @@
                         </div>
 
                     </form>
-                    <script language="javascript">
-                        function checkfiletype(val) {
-                            var spearate1=val.split('\\');
-                            var filename=spearate1[spearate1.length-1];
-                            var seperate2=filename.split('.');
-                            var extn1=seperate2[seperate2.length-1];
-                            extn1=extn1.toLowerCase();
-                            //alert(extn1);
-                            if(extn1!="xls" && extn1!="xlsx") {
-                                alert("Please upload Excel file only !!!");
-                                document.getElementById('timesheet').value='';
-                                document.getElementById('timesheet').focus();
-                            }
-                        }
-                    </script>
+
                 </div><!--col-sm-9-->
             </div><!--row-->
         </div><!-- container -->
 
     </div><!-- CONTENT -->
 @endsection
+
