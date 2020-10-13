@@ -43,6 +43,9 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
 
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::resources([
+        'jobs' => JobsController::class,
+        ]);
 });
 
 

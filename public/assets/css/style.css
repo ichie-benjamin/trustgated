@@ -15,7 +15,7 @@ body {
     font-smoothing: antialiased;
 }
 a {
-    color: #f5d006;
+    color: #34ba00;
     outline: 0 none;
     text-decoration: none;
 }
@@ -6466,13 +6466,13 @@ a,
 	white-space: pre;
 }
 .site-button {
-    background-color: #f5d006;
+    background-color: #34ba00;
 }
 .site-button:active,
 .site-button:hover,
 .site-button:focus,
 .active > .site-button {
-    background-color: #d8a409;
+    background-color: #009688;
     color: #fff;
 }
 .site-button-secondry {
@@ -10966,7 +10966,7 @@ button.scroltop {
     border-width: 0;
     bottom: 15px;
     box-shadow: 2px 2px 12px -5px #000000;
-    color: #f5d006;
+    color: #34ba00;
     cursor: pointer;
     display: none;
     height: 40px;
@@ -13094,7 +13094,7 @@ ol.commentlist li .star-rating {
     padding-top: 5px;
 }
 .jp_top_jobs_category_wrapper:hover {
-    background: #f5d006;
+    background: #34ba00;
     box-shadow: 0px 0px 37px #00000091;
     z-index: 2;
     -webkit-transition: all 200ms ease-in;
@@ -13286,7 +13286,7 @@ ol.commentlist li .star-rating {
 }
 
 .brows-job-list:hover {
-    border-left: 4px solid #f5d006;
+    border-left: 4px solid #34ba00;
 }
 
 .jp_regis_left {
@@ -13295,7 +13295,7 @@ ol.commentlist li .star-rating {
     text-align: center;
     background: #ffffff;
     border: 1px solid #e9e9e9;
-    border-bottom: 1px solid #f5d006;
+    border-bottom: 1px solid #34ba00;
     border-right: 0;
     padding-top: 42px;
     padding-bottom: 50px;
@@ -13341,7 +13341,7 @@ ol.commentlist li .star-rating {
     line-height: 50px;
     color: #ffffff;
     font-weight: bold;
-    background: #f5d006;
+    background: #34ba00;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -13409,7 +13409,7 @@ ol.commentlist li .star-rating {
 .center_tag {
     width: 70px;
     height: 70px;
-    background: #f5d006;
+    background: #34ba00;
     position: absolute;
     left: -34px;
     top: 50%;
@@ -13434,7 +13434,7 @@ ol.commentlist li .star-rating {
 .job_categories_heading {
     float: left;
     width: 100%;
-    background: #f5d006;
+    background: #34ba00;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 20px;
@@ -13493,12 +13493,12 @@ ol.commentlist li .star-rating {
 }
 
 .job_categories_content li a span {
-    color: #f5d006;
+    color: #34ba00;
 }
 
 .right_side_box h4:before {
     content: '';
-    border: 1px solid #f5d006;
+    border: 1px solid #34ba00;
     width: 8px;
     position: absolute;
     bottom: -15px;
@@ -13509,7 +13509,7 @@ ol.commentlist li .star-rating {
 
 .right_side_box h4:after {
     content: '';
-    border: 1px solid #f5d006;
+    border: 1px solid #34ba00;
     width: 30px;
     position: absolute;
     bottom: -15px;
@@ -13520,7 +13520,7 @@ ol.commentlist li .star-rating {
 
 .left_side_box h4:before {
     content: '';
-    border: 1px solid #f5d006;
+    border: 1px solid #34ba00;
     width: 8px;
     position: absolute;
     bottom: -15px;
@@ -13531,7 +13531,7 @@ ol.commentlist li .star-rating {
 
 .left_side_box h4:after {
     content: '';
-    border: 1px solid #f5d006;
+    border: 1px solid #34ba00;
     width: 30px;
     position: absolute;
     bottom: -15px;
@@ -13550,7 +13550,7 @@ ol.commentlist li .star-rating {
     background: #ffffff;
     padding: 19px 7px 1px 30px;
     border: 1px solid #e9e9e9;
-    border-bottom: 1px solid #f5d006;
+    border-bottom: 1px solid #34ba00;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -13578,7 +13578,7 @@ ol.commentlist li .star-rating {
 
 .jp_best_deal_icon_sec i:before {
     font-size: 35px;
-    color: #f5d006;
+    color: #34ba00;
     margin-left: 0;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;

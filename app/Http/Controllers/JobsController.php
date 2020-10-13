@@ -119,7 +119,7 @@ class JobsController extends Controller
     public function create(Request $request)
     {
         $job = null;
-        $users = User::pluck('id','id')->all();
+//        $users = User::pluck('id','id')->all();
 $types = Type::pluck('name','id')->all();
 $categories = JobCategory::pluck('name','id')->all();
 $locations = Location::pluck('id','id')->all();
@@ -131,7 +131,7 @@ if(!$companies){
     return redirect()->route('companies.company.create');
 }
 
-        return view('jobs.create', compact('users','types','categories','locations','companies','job'));
+        return view('employer.jobs.create', compact('types','categories','locations','companies','job'));
     }
 
     public function store(Request $request)

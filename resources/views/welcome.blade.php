@@ -158,10 +158,10 @@
                             <nav>
                                 <a id="mobile-menu-button" style="position:fixed" href="#"><i class="mt-icons-menu"></i></a>
                                 <ul class="menu clearfix" id="menu">
-                                    <li  class="active"  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"><i class="fa fa-user"></i> Profile</a></li>
                                     <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_find-candidate.html"><i class="fa fa-users"></i> Find Candidate</a></li>
                                     <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html"><i class="fa fa-university"></i> Resume Access</a></li>
-                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html"><i class="fa fa-globe"></i> Post Job</a></li>
+                                    <li  class="active" ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html"><i class="fa fa-globe"></i> Post Job</a></li>
                                     <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postedjobs.html"><i class="fa fa-briefcase"></i> Posted Job List</a></li>
                                     <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html"><i class="icon-user4"></i> Transaction List</a></li>
                                     <!--<li><a href="faq.html">Help / FAQ</a></li>-->
@@ -255,6 +255,13 @@
 
                 }
             </script>
+
+            <style type="text/css">
+                td {
+                    vertical-align:middle;
+                }
+            </style>
+
             <!-- SEARCH-start -->
 
             <div class="container hometom">
@@ -343,6 +350,9 @@
 
     <!-- HEADER -->
 
+
+
+
     <!-- CONTENT -->
     <div id="content">
         <div class="container">
@@ -352,10 +362,9 @@
                     <ol class="breadcrumb">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="employer-profile-view.php">My Account</a></li>
-                        <li class="active">Professional Details</li>
+                        <li class="active">Post Job</li>
                     </ol>
                 </div>
-
                 <script type="text/javascript">
                     $('.inbox-bg .inboxa').hide(0);
 
@@ -388,7 +397,7 @@
                                 <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html" >Subscription Status</a></div>
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resume_pack.html"  >Product Settings<!--Resume Pack--></a></div>
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"  style="color:#00CCFF"  >Company profile</a></div>
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"  >Company profile</a></div>
                                 <!--<div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_folders.html" >Manage personal folder</a></div>-->
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html" >Change Password</a></div>
                             </div>
@@ -522,1444 +531,1241 @@
 
                 </style>-->
 
+                <!--col-sm-2-->
 
-                <div class="col-md-9" >
-                    <!-- <div class="top-emp-center">
-                      <h4>Professional details</h4>
-                     </div>--> <!--top-emp-center-->
-                    <br />
-
-
-
-                    <form class="form-horizontal m10" name='div2' enctype="multipart/form-data">
+                <div class="col-md-9" ><!--<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/add_sub_user.html" style="float:right; padding:5px;" class="btn-blue">ADD</a>-->
+                    <!--<div class="top-emp-center">
+                     <h4>Post Job</h4>
+                    </div>--> <!--top-emp-center-->
+                    <div style="color:#009900; padding:5px; "> 					</div>
+                    <form class="form-horizontal m10" onSubmit="return val(); " action="jobsave.php"  name="r_post_job_frm" method="post" enctype="multipart/form-data">
 
                         <div class="row" >
-                            <div id="display1">
-                                <div class="top-emp-center">
-                                    <h4>Account Details</h4>
-                                </div><br />
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label  class="col-sm-4 pedit">User Name  </label>
-                                                <div class="col-sm-8">
-                                                    <label id="uname">Liza </label>
-                                                </div>
-                                            </div><!--form-group-->
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label  class="col-sm-4 pedit">Company Name </label>
-                                                <div class="col-sm-8">
-                                                    <label id="cpname"> inet</label>
-                                                </div>
-                                            </div><!--col-md-6-->
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label  class="col-sm-4 pedit">Master Email</label>
-                                                <div class="col-sm-8">
-                                                    <label id="cpname"> Liza@gmail.com</label>
-                                                </div>
-                                            </div><!--col-md-6-->
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label  class="col-sm-4 pedit">Type </label>
-                                                <div class="col-sm-8">
-                                                    <label id="rec_type">Company </label>
-                                                </div>
-                                            </div><!--col-md-6-->
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="col-sm-4 pedit">Membership Plan for Job Posting :</label>
-                                                <div class="col-sm-6">
-                                                    <label id="rec_type">Free Plan </label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="col-sm-4 pedit">Membership plan for Resume Access :</label>
-                                                <div class="col-sm-6">
-                                                    <label id="rec_type">platinum </label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label  class="col-sm-4 pedit"><h5><a href="javascript:;" style="color:#0099FF" onclick="div_dis1();"> Edit Account Details </a></h5></label>
-                                                <div class="col-sm-8">
-
-                                                </div>
-                                            </div><!--form-group-->
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <img src="images/noimage.jpg" width="150" >						</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="display11" style="display:none">
-                                <div class="top-emp-center">
-                                    <h4>Edit Account Details</h4>
-                                </div><br />
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"> User Name  </label>
-                                        <div class="col-sm-8">
-                                            Liza                                  </div>
-                                    </div><!--form-group-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Name </label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="cpname1" id="cpname1" onKeyUp="chkkabuse(this.id);" value="inet">
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Master Email</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="email1" id="email1" onKeyUp="chkkabuse(this.id);" value="Liza@gmail.com">
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2"><span class="red-star">*</span>Type </label>
-                                        <label class="radio-inline pedit4">
-                                            <input name="rec_type1" id="rec_type1" type="radio" value="Company"  checked   >Company
-                                        </label>
-                                        <label class="radio-inline pedit4">
-                                            <input name="rec_type1" id="rec_type1" type="radio" value="Consultant" > Consultant
-                                        </label>
-                                        <div id="typeLabel" class="floaterror"></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-8">
-
-                                    <div class="col-sm-3 ">
-                                        <input class="btn-blue btn bc" type="button" id="submits" onClick="save_acc2();"  name="submits" value="SAVE">
-
-                                    </div>
-                                    <div class="col-sm-3 padno">
-                                        <div class="btn-blue btn bc"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html" style="color:#FFF"> Cancel </a> </div><!--<input type="reset" onclick="cls_acc2();" value="Cancel" /><!--</div>-->
-                                        <br>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--col-md-6-->
-                        </div>
-                        <div class="row" >
-                            <div id="display2">
-                                <div class="top-emp-center">
-                                    <h4>Company Details</h4>
-                                </div><br />
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Industry Type </label>
-                                        <div class="col-sm-8">
-                                            <label id="itype"> Consultant</label>
-                                        </div>
-                                    </div><!--form-group-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Contact Person</label>
-                                        <div class="col-sm-8">
-                                            <label id="cperson">Liza</label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit">Logo</label>
-                                        <div class="col-sm-6">
-
-                                            <img src="images/noimage.jpg" height="70" width="100" id="logo" name="logo" style="background:none;" />
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star"></span>Website</label>
-                                        <div class="col-sm-8">
-                                            <label id="wsite">
-                                                Not Mentioned
-                                            </label>
-                                        </div>
-                                    </div><!--form-group-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit">Company Profile</label>
-                                        <div class="col-sm-6">
-                                            <label id="cpro"> Not Mentioned </label>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><h5><a href="javascript:;" style="color:#0099FF" onclick="div_dis2();"> Edit Company Details </a></h5></label>
-                                        <div class="col-sm-8">
-
-                                        </div>
-                                    </div><!--form-group-->
-                                </div>
-
-                                <!--col-md-6-->
-                            </div>
-                            <div id="display22" style="display:none">
-                                <form name="form_div" id="form_div" action="logo_upload.php" target="upload_iframe" method="post" enctype="multipart/form-data">
-                                    <div class="top-emp-center">
-                                        <h4>Edit Company Details</h4>
-                                    </div><br />
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label  class="col-sm-4 pedit">Industry Type  </label>
-                                            <div class="col-sm-8">
-                                                <select name="ins" id="ins" class="textbox-med">
-                                                    <option value="">Select</option>
-                                                    <option value="Law Enforcement/Security"  >
-                                                        Law Enforcement/Security </option>
-
-                                                    <option value="Legal/Law"  >
-                                                        Legal/Law </option>
-
-                                                    <option value="Marketing/Sales"  >
-                                                        Marketing/Sales </option>
-
-                                                    <option value="Media/Journalism"  >
-                                                        Media/Journalism </option>
-
-                                                    <option value="Production/Manufacturing/Maintenance"  >
-                                                        Production/Manufacturing/Maintenance </option>
-
-                                                    <option value="Tours and Travel/Airline"  >
-                                                        Tours and Travel/Airline </option>
-
-                                                    <option value="Transportation/Logistics"  >
-                                                        Transportation/Logistics </option>
-
-                                                    <option value="KPO/Technical Support"  >
-                                                        KPO/Technical Support </option>
-
-                                                    <option value="Strategy / Management Consulting Firms"  >
-                                                        Strategy / Management Consulting Firms </option>
-
-                                                    <option value="Others"  >
-                                                        Others </option>
-
-                                                    <option value="test cate"  >
-                                                        test cate </option>
-
-                                                    <option value="IT-ERP-Oracle"  >
-                                                        IT-ERP-Oracle </option>
-
-                                                    <option value="Media "  >
-                                                        Media  </option>
-
-                                                    <option value="mech"  >
-                                                        mech </option>
-
-                                                    <option value="IT - BPO"  >
-                                                        IT - BPO </option>
-
-                                                    <option value="NGO/Social Services"  >
-                                                        NGO/Social Services </option>
-
-                                                    <option value="Management"  >
-                                                        Management </option>
-
-                                                    <option value="Construction"  >
-                                                        Construction </option>
-
-
-                                                </select>
-                                            </div>
-                                        </div><!--form-group-->
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Contact Person</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="cper" id="cper" onKeyUp="chkkabuse(this.id);" value="Liza" >
-                                            </div>
-                                        </div><!--col-md-6-->
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Logo</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" type="file" name="logo1" id="logo1" value="Choose" onChange="jsUpload(this);" >
-                                            </div>
-                                        </div><!--col-md-6-->
-                                    </div>
-                                    <!--<div class="col-md-8">
-                                          <div class="form-group">
-                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Website</label>
-                                            <div class="col-sm-8">
-                                              <input class="form-control" type="text" id="wsite1" name="wsite1" onKeyUp="chkkabuse(this.id);" value="" >
-                                            </div>
-                                          </div>
-                                    </div>-->
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Profile</label>
-                                            <div class="col-sm-8">
-                                                <textarea class="form-control" cols="30" rows="6" id="cpro1" name="cpro1" onKeyUp="chkkabuse(this.id);"></textarea>
-                                            </div>
-                                        </div><!--col-md-6-->
-                                    </div>
+                            <div class="top-emp-center">
+                                <h4>Job Details</h4>
+                                <center><p style='color:red'></p></center>
+                            </div><br />
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Job Post Type :</label>
                                     <div class="col-sm-8">
-
-                                        <div class="col-sm-3 ">
-                                            <input class="btn-blue btn bc" type="button" id="submits" name="submits" onClick="save_acc4();" value="SAVE">
-
-                                        </div>
-                                        <div class="col-sm-3 padno">
-                                            <div class="btn-blue btn bc"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html" style="color:#FFF"> Cancel </a><!--<input type="reset" value="Cancel" onclick="cls_acc4();" /><!--</div>-->
-                                            </div>
-                                            <br>
-                                        </div>
-
-                                        <!-- </form>--->
+                                        <select class="form-control" id="premium" name="premium" onchange="checkpremium(this.val)">
+                                            <option value="">Select One</option>
+                                            <option value="3" >Job Posting Offer</option>										<option value="4" >Silver Job Posting</option>										<option value="5" >Web Developer</option>										</select><span id="preInfo"></span>
                                     </div>
+                                </div><!--form-group-->
                             </div>
-                        </div>
-                        <div class="row" >
-                            <div id="display3">
-                                <div class="top-emp-center">
-                                    <h4>Contact Details</h4>
-                                </div><br />
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Address Label</label>
-                                        <div class="col-sm-8">
-                                            <label id="lab">inet </label>
-                                        </div>
-                                    </div><!--form-group-->
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Job Tittle / Designation:</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" onkeyup="chkkabuse(this.id);" name="desg" id="desg" style="" value="" placeholder="">
+                                    </div>
+                                </div><!--col-md-6-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Job Description:</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="job_desc" id="job_desc" onBlur="chk_length(this.value,'2000');" onkeyup="chkkabuse(this.id);" rows="3"></textarea>
+                                        <br><font size="-2" color="#646464">Maximum 2000 charecters.</font>
+                                    </div>
+                                </div><!--col-md-6-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="col-sm-4 pedit"><span class="red-star">*</span>Industry :</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="industry_type" id="industry_type">
+                                            <option value="">Select One</option>
+                                            <option value="56" >Construction</option>			<option value="53" >IT - BPO</option>			<option value="50" >IT-ERP-Oracle</option>			<option value="42" >KPO/Technical Support</option>			<option value="34" >Law Enforcement/Security</option>			<option value="35" >Legal/Law</option>			<option value="55" >Management</option>			<option value="36" >Marketing/Sales</option>			<option value="52" >mech</option>			<option value="51" >Media </option>			<option value="37" >Media/Journalism</option>			<option value="54" >NGO/Social Services</option>			<option value="45" >Others</option>			<option value="38" >Production/Manufacturing/Maintenance</option>			<option value="44" >Strategy / Management Consulting Firms</option>			<option value="46" >test cate</option>			<option value="40" >Tours and Travel/Airline</option>			<option value="41" >Transportation/Logistics</option>                                    </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="checkbox-inline pedit">
+                                            <input type="checkbox" name="walkin" id="walkin" value="1"  onClick="walkin_date();" /> <label for="walkin" class="pdl5">Walkins</label>
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Functional area :</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="rcat" id="rcat" onChange="pass_val(this.value)">
+                                            <option value="" > -- Select Category -- </option>
+                                            <option value="349" >0 - 044 -</option>
+                                            <option value="340" >Accessory Designer</option>
+                                            <option value="99" >Accountant</option>
+                                            <option value="73" >Accounts Assistant</option>
+                                            <option value="241" >Accounts Manager</option>
+                                            <option value="339" >AD</option>
+                                            <option value="154" >Administration</option>
+                                            <option value="316" >Air Hostess/Steward/Cabin Crew</option>
+                                            <option value="183" >Anaesthetist</option>
+                                            <option value="83" >Animator</option>
+                                            <option value="176" >Apparel / Garment Designer</option>
+                                            <option value="136" >Architects</option>
+                                            <option value="272" >Art Director</option>
+                                            <option value="258" >Asst. Sales Manager</option>
+                                            <option value="159" >Autocad Draughtman/Designer</option>
+                                            <option value="84" >AV Executive</option>
+                                            <option value="100" >Bank Assurance</option>
+                                            <option value="101" >Banking - General</option>
+                                            <option value="211" >Banquet Manager</option>
+                                            <option value="184" >Beautician</option>
+                                            <option value="185" >Bio-Technology Research</option>
+                                            <option value="317" >Branch Head</option>
+                                            <option value="259" >Branch Manager</option>
+                                            <option value="286" >Building Inspection</option>
+                                            <option value="260" >Business Analyst</option>
+                                            <option value="261" >Business Development Executives</option>
+                                            <option value="273" >Cameraman</option>
+                                            <option value="327" >Cargo</option>
+                                            <option value="137" >Carpenter</option>
+                                            <option value="74" >Chartered Accountant</option>
+                                            <option value="186" >Chemical Research Scientist</option>
+                                            <option value="187" >Chemist</option>
+                                            <option value="341" >chennai</option>
+                                            <option value="212" >Chief Chef</option>
+                                            <option value="160" >Chief Engineer</option>
+                                            <option value="161" >Civil Engineer</option>
+                                            <option value="102" >Clerk/Office Boy</option>
+                                            <option value="247" >Company Secretary</option>
+                                            <option value="293" >Computer Operator/Data Entry</option>
+                                            <option value="124" >Configuration Manager</option>
+                                            <option value="350" >Construction</option>
+                                            <option value="138" >Construction Manager</option>
+                                            <option value="274" >Content Developer</option>
+                                            <option value="139" >Controller</option>
+                                            <option value="275" >Correspondent/Reporter</option>
+                                            <option value="75" >Cost Accountant</option>
+                                            <option value="155" >Councellor</option>
+                                            <option value="328" >Courier/Delivery</option>
+                                            <option value="140" >Crane Operator</option>
+                                            <option value="262" >Customer Relationship Officer</option>
+                                            <option value="112" >Customer Service Executive (Non Voice)</option>
+                                            <option value="113" >Customer Service Executive (Voice)</option>
+                                            <option value="162" >Customer Service/Tech. Support</option>
+                                            <option value="223" >Data Entry/Computer Operator</option>
+                                            <option value="114" >Data Processing Executive</option>
+                                            <option value="125" >Database Administrator</option>
+                                            <option value="298" >Database Programmer</option>
+                                            <option value="297" >DBA</option>
+                                            <option value="188" >Dentist</option>
+                                            <option value="189" >Dietician</option>
+                                            <option value="329" >Dockworker</option>
+                                            <option value="190" >Doctor</option>
+                                            <option value="318" >Documentation and Visa</option>
+                                            <option value="319" >Domestic Travel</option>
+                                            <option value="191" >ECG/CGA Technician</option>
+                                            <option value="163" >Electrical Engineer</option>
+                                            <option value="141" >Electrician</option>
+                                            <option value="164" >Engineer</option>
+                                            <option value="143" >Equipment Operator</option>
+                                            <option value="103" >Equity Analyst</option>
+                                            <option value="85" >Event Coordinator</option>
+                                            <option value="86" >Event/Promotios Manager</option>
+                                            <option value="76" >External Auditor</option>
+                                            <option value="213" >F & B Manager</option>
+                                            <option value="126" >Faculty</option>
+                                            <option value="77" >Finance Assistant</option>
+                                            <option value="165" >Foreman</option>
+                                            <option value="330" >Forklift Operator</option>
+                                            <option value="214" >Front Office Executive</option>
+                                            <option value="345" >gdfgdf</option>
+                                            <option value="263" >GM- Marketing</option>
+                                            <option value="294" >Graphic Designer /Animator</option>
+                                            <option value="320" >Ground Staff</option>
+                                            <option value="127" >H/W Installation / Maintenance Engg</option>
+                                            <option value="128" >Hardware Design Technical Leader</option>
+                                            <option value="347" >having 7 years exp. as a professional medical representative with flaring formulation, abbott health</option>
+                                            <option value="144" >Heavy Equipment Operator</option>
+                                            <option value="215" >Hostess</option>
+                                            <option value="193" >House Keeping</option>
+                                            <option value="216" >House Keeping Executive</option>
+                                            <option value="225" >HR Executive / Recruiter</option>
+                                            <option value="226" >HR Manager</option>
+                                            <option value="129" >Instructional Designer</option>
+                                            <option value="104" >Insurance / Financial Advisor</option>
+                                            <option value="105" >Insurance Telesales</option>
+                                            <option value="166" >Interior Designer</option>
+                                            <option value="78" >Internal Auditor</option>
+                                            <option value="343" >it software- application programming / maintenance</option>
+                                            <option value="346" >IT-ERP- Business Analyst</option>
+                                            <option value="177" >Jewellery Designer</option>
+                                            <option value="217" >Kitchen Manager</option>
+                                            <option value="194" >Lab Technician</option>
+                                            <option value="146" >Laborer</option>
+                                            <option value="248" >Law Officer</option>
+                                            <option value="249" >Lawyer</option>
+                                            <option value="250" >Legal Adviser</option>
+                                            <option value="251" >Legal Assistant</option>
+                                            <option value="252" >Legal Consultant</option>
+                                            <option value="253" >Legal Editor</option>
+                                            <option value="254" >Legal Services - Manager</option>
+                                            <option value="156" >Librarian</option>
+                                            <option value="331" >Logistics Manager</option>
+                                            <option value="235" >Machine Operator</option>
+                                            <option value="236" >Machinist</option>
+                                            <option value="237" >Maintenance Supervisor</option>
+                                            <option value="321" >Management Trainee</option>
+                                            <option value="322" >Manager</option>
+                                            <option value="79" >Manager - Accounts</option>
+                                            <option value="80" >Manager- Finance Planning</option>
+                                            <option value="228" >Manager/Co-ordinator</option>
+                                            <option value="264" >Marketing Executives</option>
+                                            <option value="265" >Marketing Manager</option>
+                                            <option value="167" >Mechanical Engineer</option>
+                                            <option value="238" >Mechanical Technician</option>
+                                            <option value="89" >Media Planning - Manager / Executive</option>
+                                            <option value="195" >Medical Assistant</option>
+                                            <option value="196" >Medical Representative</option>
+                                            <option value="115" >Medical Transcriptionist</option>
+                                            <option value="197" >Medical Writer</option>
+                                            <option value="179" >Merchandiser</option>
+                                            <option value="198" >Microbiologist</option>
+                                            <option value="148" >Mining</option>
+                                            <option value="107" >Mutual Funds</option>
+                                            <option value="130" >Network Administrator</option>
+                                            <option value="131" >Network Designer</option>
+                                            <option value="295" >Network Engineer</option>
+                                            <option value="278" >News Editor</option>
+                                            <option value="279" >News Reador</option>
+                                            <option value="199" >Nurse</option>
+                                            <option value="200" >Nutritionist</option>
+                                            <option value="323" >Office Assistant</option>
+                                            <option value="229" >Office Secretary/AdminOfficer</option>
+                                            <option value="287" >Officer</option>
+                                            <option value="108" >Operations</option>
+                                            <option value="332" >Operations Management</option>
+                                            <option value="201" >Opthamologist</option>
+                                            <option value="296" >Oracle Developer</option>
+                                            <option value="132" >Other</option>
+                                            <option value="149" >Painter</option>
+                                            <option value="256" >Patent</option>
+                                            <option value="203" >Pharmaceutical Research</option>
+                                            <option value="204" >Pharmacist</option>
+                                            <option value="300" >Photoshop</option>
+                                            <option value="205" >Physician</option>
+                                            <option value="206" >Physiotherapist</option>
+                                            <option value="150" >Plumber</option>
+                                            <option value="288" >Process Engineer</option>
+                                            <option value="122" >Process Engineers</option>
+                                            <option value="281" >Production Manager</option>
+                                            <option value="289" >Production Quality Assurance</option>
+                                            <option value="301" >Programmer</option>
+                                            <option value="169" >Project Manager</option>
+                                            <option value="282" >Proof Reader</option>
+                                            <option value="257" >Proof Reader (Law)</option>
+                                            <option value="207" >Public Health Administration</option>
+                                            <option value="231" >Public Relation Officer</option>
+                                            <option value="312" >QA</option>
+                                            <option value="290" >Quality Assurance Engineer</option>
+                                            <option value="291" >Quality Assurance Manager</option>
+                                            <option value="292" >Quality Control Inspector</option>
+                                            <option value="208" >Radiographer</option>
+                                            <option value="232" >Receptionist/Front Office Executive</option>
+                                            <option value="109" >Relationship Manager</option>
+                                            <option value="239" >Repairman</option>
+                                            <option value="325" >Reservation and Ticketing</option>
+                                            <option value="219" >Reservation Manager</option>
+                                            <option value="220" >Restaurant Manager</option>
+                                            <option value="151" >Roofing</option>
+                                            <option value="170" >Safety Officer</option>
+                                            <option value="268" >Sales Executives</option>
+                                            <option value="269" >Sales Manager</option>
+                                            <option value="97" >Sales/Marketing Executive</option>
+                                            <option value="209" >Scientist</option>
+                                            <option value="243" >Security Guard</option>
+                                            <option value="240" >Security Installation</option>
+                                            <option value="221" >Security Manager</option>
+                                            <option value="333" >Shipping And Receiving</option>
+                                            <option value="245" >Site Manager</option>
+                                            <option value="304" >Software Application Developer</option>
+                                            <option value="305" >Software Engineer</option>
+                                            <option value="222" >Steward/Waiter</option>
+                                            <option value="180" >Stiching/Tailor</option>
+                                            <option value="110" >Stock Broking</option>
+                                            <option value="171" >Store Keeper</option>
+                                            <option value="91" >Studio Operation Manager</option>
+                                            <option value="283" >Sub Editor</option>
+                                            <option value="95" >Supervisor</option>
+                                            <option value="181" >Supervisor/Officer</option>
+                                            <option value="172" >Surveyor</option>
+                                            <option value="306" >System Administrator</option>
+                                            <option value="133" >System Analyst</option>
+                                            <option value="303" >System Programmer</option>
+                                            <option value="81" >Taxation - Manager</option>
+                                            <option value="157" >Teaching/Professor/Lecturer</option>
+                                            <option value="117" >Team Leader</option>
+                                            <option value="308" >Technical Architect</option>
+                                            <option value="134" >Technical Leader</option>
+                                            <option value="135" >Technical Support Engineer</option>
+                                            <option value="118" >Technical Support Executive (Voice)</option>
+                                            <option value="309" >Technical Writer</option>
+                                            <option value="173" >Technician</option>
+                                            <option value="271" >Tele Marketing Executives</option>
+                                            <option value="119" >Telemarketing Executive</option>
+                                            <option value="311" >Testing Engineer</option>
+                                            <option value="182" >Textile Designer</option>
+                                            <option value="326" >Tour Operator</option>
+                                            <option value="335" >Train Operator</option>
+                                            <option value="120" >Trainee/Management Trainee</option>
+                                            <option value="313" >Trainer</option>
+                                            <option value="246" >Training Officer</option>
+                                            <option value="284" >Translator</option>
+                                            <option value="336" >Transportation Supervisor</option>
+                                            <option value="233" >Travel/Immigration Coordinator</option>
+                                            <option value="337" >Truck Driver</option>
+                                            <option value="234" >Typist</option>
+                                            <option value="210" >Veterinary</option>
+                                            <option value="285" >Video Editor</option>
+                                            <option value="92" >Visualiser- Art Director</option>
+                                            <option value="121" >Voice & Accent Trainer</option>
+                                            <option value="338" >Warehouse Worker</option>
+                                            <option value="314" >Web Designer</option>
+                                            <option value="315" >Web Developer</option>
+                                            <option value="153" >Welder</option>
+                                            <option value="174" >Workman / Foreman / Technician</option>
+                                        </select><div id="functionalinfo"></div>
+                                    </div>
+                                </div><!--form-group-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Job Role :</label>
+                                    <div class="col-sm-8">
+                                        <div id="subcate">
+                                            <select name="sub_cat" id="sub_cat" class="form-control" onClick="jobrolee()">
+                                                <option value="" > -- Select Sub Category -- </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><!--form-group-->
+                            </div>
+                            <div id="expire_date">
+                                <div class="col-md-9" >
                                     <div class="form-group">
-                                        <label  class="col-sm-4 pedit"> Street Address </label>
+                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Expire Date :</label>
 
                                         <div class="col-sm-8">
-                                            <label id="lab">cbfdgdfgds</label>
+                                            <input type="text" name="exp_date" id="exp_date" class="form-control" value="" style=""/>
                                         </div>
                                         <div class="col-sm-1"><!--<i class="fa fa-jpy"></i>--></div>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
+                            </div>
+                            <div id="walk_date" style="display:none;">
+                                <div class="col-md-9">
                                     <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Country </label>
-                                        <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
+                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Walkin Date :  </label>
+                                        <div class="col-sm-3">
+                                            From <input type="text" name="from_date" id="from_date" class="form-control"  />
 
-                                            <label id="con">
-                                            </label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">State </label>
-                                        <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="state">
-                                                Kentucky														</label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">City </label>
-                                        <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="city">
-                                                Ary																				</label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Pincode </label>
-                                        <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="pin">6575464</label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Mobile Number </label>
-                                        <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="mobn">   </label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Landline Number</label>
-                                        <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="ph1">
-                                                7856756756 </label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Fax </label>
-                                        <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="fax">Not Mentioned </label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><h5><a href="javascript:;" style="color:#0099FF" onclick="div_dis3();"> Edit Contact Details </a></h5></label>
-                                        <div class="col-sm-8">
+                                            <!--<script language="JavaScript">
+                                            new tcal ({
 
+                                            // form name
+                                            'formname': 'r_post_job_frm',
+                                            // input name
+                                            'controlname': 'from_date'
+                                            });
+                                            </script>-->
                                         </div>
-                                    </div><!--form-group-->
+                                        <div class="col-sm-1"><!--<i class="fa fa-jpy"></i>-->-</div>
+                                        <div class="col-sm-3">
+                                            To <input type="text" name="to_date" class="form-control" id="to_date" />
+                                            <!--<script language="JavaScript">
+                                            new tcal ({
+                                            // form name
+                                            'formname': 'r_post_job_frm',
+                                            // input name
+                                            'controlname': 'to_date'
+                                            });
+                                            </script>-->
+                                        </div>
+                                        <div class="col-sm-1"><!--<i class="fa fa-jpy"></i>--></div>
+
+                                    </div>
                                 </div>
                             </div>
-                            <div id="display33" style="display:none">
-                                <div class="top-emp-center">
-                                    <h4>Edit Contact Details</h4>
-                                </div><br />
-
-                                <div class="col-md-8">
+                            <!-- <div class="col-md-8" >
                                     <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Address Label</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control"id="cplabel" name="cplabel" onKeyUp="chkkabuse(this.id);" value="inet" >
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Street Address</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="adr1" name="adr1" value="cbfdgdfgds">
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Country</label>
-                                        <div class="col-sm-8">
-
-                                            <select class="form-control" id="country" onChange="loadXMLDoc(this.value)" >
-
-                                                <option value="211"   >
-                                                    Bangladesh </option>
-                                                <option value="210"   >
-                                                    India </option>
-                                                <option value="212"   >
-                                                    Pakistan </option>
-
-                                            </select>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit"><span class="red-star">*</span>State</label>
-                                        <div class="col-sm-8">
-
-                                            <select  class="form-control" name="state1"  id="state1" onChange="loadcity(this.value)">
-                                                string(3) "138"
-                                                <option value="138"  >Alabama</option>
-                                                string(3) "142"
-                                                <option value="142"  >Alaska</option>
-                                                string(3) "246"
-                                                <option value="246"  >Arizona</option>
-                                                string(3) "248"
-                                                <option value="248"  >Arkansas</option>
-                                                string(3) "623"
-                                                <option value="623"  >California</option>
-                                                string(3) "807"
-                                                <option value="807"  >Colorado</option>
-                                                string(3) "813"
-                                                <option value="813"  >Connecticut</option>
-                                                string(3) "904"
-                                                <option value="904"  >Delaware</option>
-                                                string(3) "940"
-                                                <option value="940"  >District of Columbia</option>
-                                                string(4) "1124"
-                                                <option value="1124"  >Florida</option>
-                                                string(4) "1188"
-                                                <option value="1188"  >Georgia</option>
-                                                string(4) "1349"
-                                                <option value="1349"  >Hawaii</option>
-                                                string(4) "1421"
-                                                <option value="1421"  >Idaho</option>
-                                                string(4) "1437"
-                                                <option value="1437"  >Illinois</option>
-                                                string(4) "1451"
-                                                <option value="1451"  >Indiana</option>
-                                                string(4) "1459"
-                                                <option value="1459"  >Iowa</option>
-                                                string(4) "1591"
-                                                <option value="1591"  >Kansas</option>
-                                                string(4) "1653"
-                                                <option value="1653" selected >Kentucky</option>
-                                                string(4) "1993"
-                                                <option value="1993"  >Louisiana</option>
-                                                string(4) "2055"
-                                                <option value="2055"  >Maine</option>
-                                                string(4) "2124"
-                                                <option value="2124"  >Maryland</option>
-                                                string(4) "2136"
-                                                <option value="2136"  >Massachusetts</option>
-                                                string(4) "2190"
-                                                <option value="2190"  >Michigan</option>
-                                                string(4) "2208"
-                                                <option value="2208"  >Minnesota</option>
-                                                string(4) "2222"
-                                                <option value="2222"  >Mississippi</option>
-                                                string(4) "2223"
-                                                <option value="2223"  >Missouri</option>
-                                                string(4) "2248"
-                                                <option value="2248"  >Montana</option>
-                                                string(4) "2367"
-                                                <option value="2367"  >Nebraska</option>
-                                                string(4) "2380"
-                                                <option value="2380"  >Nevada</option>
-                                                string(4) "2383"
-                                                <option value="2383"  >New Hampshire</option>
-                                                string(4) "2385"
-                                                <option value="2385"  >New Jersey</option>
-                                                string(4) "2386"
-                                                <option value="2386"  >New Mexico</option>
-                                                string(4) "2389"
-                                                <option value="2389"  >New York</option>
-                                                string(4) "2454"
-                                                <option value="2454"  >North Carolina</option>
-                                                string(4) "2457"
-                                                <option value="2457"  >North Dakota</option>
-                                                string(4) "2537"
-                                                <option value="2537"  >Ohio</option>
-                                                string(4) "2545"
-                                                <option value="2545"  >Oklahoma</option>
-                                                string(4) "2570"
-                                                <option value="2570"  >Oregon</option>
-                                                string(4) "2684"
-                                                <option value="2684"  >Pennsylvania</option>
-                                                string(4) "2887"
-                                                <option value="2887"  >Rhode Island</option>
-                                                string(4) "3299"
-                                                <option value="3299"  >South Carolina</option>
-                                                string(4) "3301"
-                                                <option value="3301"  >South Dakota</option>
-                                                string(4) "3496"
-                                                <option value="3496"  >Tennessee</option>
-                                                string(4) "3501"
-                                                <option value="3501"  >Texas</option>
-                                                string(4) "3642"
-                                                <option value="3642"  >Utah</option>
-                                                string(4) "3696"
-                                                <option value="3696"  >Vermont</option>
-                                                string(4) "3726"
-                                                <option value="3726"  >Virginia</option>
-                                                string(4) "3769"
-                                                <option value="3769"  >Washington</option>
-                                                string(4) "3784"
-                                                <option value="3784"  >West Virginia</option>
-                                                string(4) "3812"
-                                                <option value="3812"  >Wisconsin</option>
-                                                string(4) "3820"
-                                                <option value="3820"  >Wyoming</option>
-                                            </select><span id="state_span"></span>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>City</label>
-                                        <div class="col-sm-8">
-
-                                            <select name="city1" type="text"  class="form-control" id="city1" >
-                                                <option value="Aberdeen"  >Aberdeen</option>
-                                                <option value="Adairville"  >Adairville</option>
-                                                <option value="Adams"  >Adams</option>
-                                                <option value="Adolphus"  >Adolphus</option>
-                                                <option value="Ages Brookside"  >Ages Brookside</option>
-                                                <option value="Albany"  >Albany</option>
-                                                <option value="Alexandria"  >Alexandria</option>
-                                                <option value="Allen"  >Allen</option>
-                                                <option value="Allensville"  >Allensville</option>
-                                                <option value="Almo"  >Almo</option>
-                                                <option value="Alpha"  >Alpha</option>
-                                                <option value="Alvaton"  >Alvaton</option>
-                                                <option value="Annville"  >Annville</option>
-                                                <option value="Argillite"  >Argillite</option>
-                                                <option value="Arjay"  >Arjay</option>
-                                                <option value="Arlington"  >Arlington</option>
-                                                <option value="Artemus"  >Artemus</option>
-                                                <option value="Ary" selected>Ary</option>
-                                                <option value="Ashcamp"  >Ashcamp</option>
-                                                <option value="Asher"  >Asher</option>
-                                                <option value="Ashland"  >Ashland</option>
-                                                <option value="Athol"  >Athol</option>
-                                                <option value="Auburn"  >Auburn</option>
-                                                <option value="Augusta"  >Augusta</option>
-                                                <option value="Austin"  >Austin</option>
-                                                <option value="Auxier"  >Auxier</option>
-                                                <option value="Avawam"  >Avawam</option>
-                                                <option value="Bagdad"  >Bagdad</option>
-                                                <option value="Bandana"  >Bandana</option>
-                                                <option value="Banner"  >Banner</option>
-                                                <option value="Barbourville"  >Barbourville</option>
-                                                <option value="Bardstown"  >Bardstown</option>
-                                                <option value="Bardwell"  >Bardwell</option>
-                                                <option value="Barlow"  >Barlow</option>
-                                                <option value="Baskett"  >Baskett</option>
-                                                <option value="Battletown"  >Battletown</option>
-                                                <option value="Baxter"  >Baxter</option>
-                                                <option value="Bays"  >Bays</option>
-                                                <option value="Bear Branch"  >Bear Branch</option>
-                                                <option value="Beattyville"  >Beattyville</option>
-                                                <option value="Beaumont"  >Beaumont</option>
-                                                <option value="Beauty"  >Beauty</option>
-                                                <option value="Beaver"  >Beaver</option>
-                                                <option value="Beaver Dam"  >Beaver Dam</option>
-                                                <option value="Bedford"  >Bedford</option>
-                                                <option value="Bee Spring"  >Bee Spring</option>
-                                                <option value="Beech Creek"  >Beech Creek</option>
-                                                <option value="Beech Grove"  >Beech Grove</option>
-                                                <option value="Beechmont"  >Beechmont</option>
-                                                <option value="Belcher"  >Belcher</option>
-                                                <option value="Belfry"  >Belfry</option>
-                                                <option value="Bellevue"  >Bellevue</option>
-                                                <option value="Belton"  >Belton</option>
-                                                <option value="Benham"  >Benham</option>
-                                                <option value="Benton"  >Benton</option>
-                                                <option value="Berea"  >Berea</option>
-                                                <option value="Berry"  >Berry</option>
-                                                <option value="Bethany"  >Bethany</option>
-                                                <option value="Bethelridge"  >Bethelridge</option>
-                                                <option value="Bethlehem"  >Bethlehem</option>
-                                                <option value="Betsy Layne"  >Betsy Layne</option>
-                                                <option value="Beverly"  >Beverly</option>
-                                                <option value="Bevinsville"  >Bevinsville</option>
-                                                <option value="Big Clifty"  >Big Clifty</option>
-                                                <option value="Big Creek"  >Big Creek</option>
-                                                <option value="Big Laurel"  >Big Laurel</option>
-                                                <option value="Bighill"  >Bighill</option>
-                                                <option value="Bimble"  >Bimble</option>
-                                                <option value="Blackey"  >Blackey</option>
-                                                <option value="Blackford"  >Blackford</option>
-                                                <option value="Blaine"  >Blaine</option>
-                                                <option value="Bledsoe"  >Bledsoe</option>
-                                                <option value="Bloomfield"  >Bloomfield</option>
-                                                <option value="Blue River"  >Blue River</option>
-                                                <option value="Boaz"  >Boaz</option>
-                                                <option value="Bonnieville"  >Bonnieville</option>
-                                                <option value="Bonnyman"  >Bonnyman</option>
-                                                <option value="Booneville"  >Booneville</option>
-                                                <option value="Boons Camp"  >Boons Camp</option>
-                                                <option value="Boston"  >Boston</option>
-                                                <option value="Bowling Green"  >Bowling Green</option>
-                                                <option value="Bradfordsville"  >Bradfordsville</option>
-                                                <option value="Brandenburg"  >Brandenburg</option>
-                                                <option value="Breeding"  >Breeding</option>
-                                                <option value="Bremen"  >Bremen</option>
-                                                <option value="Brodhead"  >Brodhead</option>
-                                                <option value="Bronston"  >Bronston</option>
-                                                <option value="Brooks"  >Brooks</option>
-                                                <option value="Brooksville"  >Brooksville</option>
-                                                <option value="Browder"  >Browder</option>
-                                                <option value="Brownsville"  >Brownsville</option>
-                                                <option value="Bryants Store"  >Bryants Store</option>
-                                                <option value="Bryantsville"  >Bryantsville</option>
-                                                <option value="Buckhorn"  >Buckhorn</option>
-                                                <option value="Buckner"  >Buckner</option>
-                                                <option value="Buffalo"  >Buffalo</option>
-                                                <option value="Bulan"  >Bulan</option>
-                                                <option value="Burdine"  >Burdine</option>
-                                                <option value="Burgin"  >Burgin</option>
-                                                <option value="Burkesville"  >Burkesville</option>
-                                                <option value="Burlington"  >Burlington</option>
-                                                <option value="Burna"  >Burna</option>
-                                                <option value="Burnside"  >Burnside</option>
-                                                <option value="Bush"  >Bush</option>
-                                                <option value="Busy"  >Busy</option>
-                                                <option value="Butler"  >Butler</option>
-                                                <option value="Bypro"  >Bypro</option>
-                                                <option value="Cadiz"  >Cadiz</option>
-                                                <option value="Calhoun"  >Calhoun</option>
-                                                <option value="California"  >California</option>
-                                                <option value="Calvert City"  >Calvert City</option>
-                                                <option value="Calvin"  >Calvin</option>
-                                                <option value="Campbellsburg"  >Campbellsburg</option>
-                                                <option value="Campbellsville"  >Campbellsville</option>
-                                                <option value="Campton"  >Campton</option>
-                                                <option value="Canada"  >Canada</option>
-                                                <option value="Cane Valley"  >Cane Valley</option>
-                                                <option value="Caneyville"  >Caneyville</option>
-                                                <option value="Canmer"  >Canmer</option>
-                                                <option value="Cannel City"  >Cannel City</option>
-                                                <option value="Cannon"  >Cannon</option>
-                                                <option value="Carlisle"  >Carlisle</option>
-                                                <option value="Carrie"  >Carrie</option>
-                                                <option value="Carrollton"  >Carrollton</option>
-                                                <option value="Carter"  >Carter</option>
-                                                <option value="Catlettsburg"  >Catlettsburg</option>
-                                                <option value="Cave City"  >Cave City</option>
-                                                <option value="Cawood"  >Cawood</option>
-                                                <option value="Cecilia"  >Cecilia</option>
-                                                <option value="Center"  >Center</option>
-                                                <option value="Centertown"  >Centertown</option>
-                                                <option value="Central City"  >Central City</option>
-                                                <option value="Cerulean"  >Cerulean</option>
-                                                <option value="Chaplin"  >Chaplin</option>
-                                                <option value="Chavies"  >Chavies</option>
-                                                <option value="Clarkson"  >Clarkson</option>
-                                                <option value="Clay"  >Clay</option>
-                                                <option value="Clay City"  >Clay City</option>
-                                                <option value="Clayhole"  >Clayhole</option>
-                                                <option value="Clearfield"  >Clearfield</option>
-                                                <option value="Cleaton"  >Cleaton</option>
-                                                <option value="Clermont"  >Clermont</option>
-                                                <option value="Clifty"  >Clifty</option>
-                                                <option value="Clinton"  >Clinton</option>
-                                                <option value="Closplint"  >Closplint</option>
-                                                <option value="Cloverport"  >Cloverport</option>
-                                                <option value="Coalgood"  >Coalgood</option>
-                                                <option value="Coldiron"  >Coldiron</option>
-                                                <option value="Columbia"  >Columbia</option>
-                                                <option value="Columbus"  >Columbus</option>
-                                                <option value="Combs"  >Combs</option>
-                                                <option value="Corbin"  >Corbin</option>
-                                                <option value="Corinth"  >Corinth</option>
-                                                <option value="Cornettsville"  >Cornettsville</option>
-                                                <option value="Corydon"  >Corydon</option>
-                                                <option value="Covington"  >Covington</option>
-                                                <option value="Coxs Creek"  >Coxs Creek</option>
-                                                <option value="Crab Orchard"  >Crab Orchard</option>
-                                                <option value="Cranks"  >Cranks</option>
-                                                <option value="Crayne"  >Crayne</option>
-                                                <option value="Crestwood"  >Crestwood</option>
-                                                <option value="Crittenden"  >Crittenden</option>
-                                                <option value="Crockett"  >Crockett</option>
-                                                <option value="Crofton"  >Crofton</option>
-                                                <option value="Cromona"  >Cromona</option>
-                                                <option value="Cromwell"  >Cromwell</option>
-                                                <option value="Cub Run"  >Cub Run</option>
-                                                <option value="Cumberland"  >Cumberland</option>
-                                                <option value="Cunningham"  >Cunningham</option>
-                                                <option value="Curdsville"  >Curdsville</option>
-                                                <option value="Custer"  >Custer</option>
-                                                <option value="Cynthiana"  >Cynthiana</option>
-                                                <option value="Dana"  >Dana</option>
-                                                <option value="Danville"  >Danville</option>
-                                                <option value="David"  >David</option>
-                                                <option value="Dawson Springs"  >Dawson Springs</option>
-                                                <option value="Dayhoit"  >Dayhoit</option>
-                                                <option value="Dayton"  >Dayton</option>
-                                                <option value="De Mossville"  >De Mossville</option>
-                                                <option value="Deane"  >Deane</option>
-                                                <option value="Debord"  >Debord</option>
-                                                <option value="Delphia"  >Delphia</option>
-                                                <option value="Dema"  >Dema</option>
-                                                <option value="Denniston"  >Denniston</option>
-                                                <option value="Denton"  >Denton</option>
-                                                <option value="Dewitt"  >Dewitt</option>
-                                                <option value="Dexter"  >Dexter</option>
-                                                <option value="Dice"  >Dice</option>
-                                                <option value="Dixon"  >Dixon</option>
-                                                <option value="Dorton"  >Dorton</option>
-                                                <option value="Dover"  >Dover</option>
-                                                <option value="Drake"  >Drake</option>
-                                                <option value="Drakesboro"  >Drakesboro</option>
-                                                <option value="Drift"  >Drift</option>
-                                                <option value="Dry Ridge"  >Dry Ridge</option>
-                                                <option value="Dubre"  >Dubre</option>
-                                                <option value="Dunbar"  >Dunbar</option>
-                                                <option value="Dundee"  >Dundee</option>
-                                                <option value="Dunmor"  >Dunmor</option>
-                                                <option value="Dunnville"  >Dunnville</option>
-                                                <option value="Dwale"  >Dwale</option>
-                                                <option value="Dwarf"  >Dwarf</option>
-                                                <option value="Dycusburg"  >Dycusburg</option>
-                                                <option value="Earlington"  >Earlington</option>
-                                                <option value="East Bernstadt"  >East Bernstadt</option>
-                                                <option value="East Point"  >East Point</option>
-                                                <option value="Eastern"  >Eastern</option>
-                                                <option value="Eastview"  >Eastview</option>
-                                                <option value="Eastwood"  >Eastwood</option>
-                                                <option value="Eddyville"  >Eddyville</option>
-                                                <option value="Edmonton"  >Edmonton</option>
-                                                <option value="Eighty Eight"  >Eighty Eight</option>
-                                                <option value="Ekron"  >Ekron</option>
-                                                <option value="Elizabethtown"  >Elizabethtown</option>
-                                                <option value="Elizaville"  >Elizaville</option>
-                                                <option value="Elk Horn"  >Elk Horn</option>
-                                                <option value="Elkfork"  >Elkfork</option>
-                                                <option value="Elkhorn City"  >Elkhorn City</option>
-                                                <option value="Elkton"  >Elkton</option>
-                                                <option value="Elliottville"  >Elliottville</option>
-                                                <option value="Emerson Orcutts Grocery"  >Emerson Orcutts Grocery</option>
-                                                <option value="Eminence"  >Eminence</option>
-                                                <option value="Emlyn"  >Emlyn</option>
-                                                <option value="Emmalena"  >Emmalena</option>
-                                                <option value="Eolia"  >Eolia</option>
-                                                <option value="Eriline"  >Eriline</option>
-                                                <option value="Erlanger"  >Erlanger</option>
-                                                <option value="Ermine"  >Ermine</option>
-                                                <option value="Essie"  >Essie</option>
-                                                <option value="Etoile"  >Etoile</option>
-                                                <option value="Eubank"  >Eubank</option>
-                                                <option value="Evarts"  >Evarts</option>
-                                                <option value="Ewing"  >Ewing</option>
-                                                <option value="Ezel"  >Ezel</option>
-                                                <option value="Fairdale"  >Fairdale</option>
-                                                <option value="Fairfield"  >Fairfield</option>
-                                                <option value="Fairview"  >Fairview</option>
-                                                <option value="Falcon"  >Falcon</option>
-                                                <option value="Fall Rock"  >Fall Rock</option>
-                                                <option value="Falls Of Rough"  >Falls Of Rough</option>
-                                                <option value="Falmouth"  >Falmouth</option>
-                                                <option value="Fancy Farm"  >Fancy Farm</option>
-                                                <option value="Farmers"  >Farmers</option>
-                                                <option value="Farmington"  >Farmington</option>
-                                                <option value="Fedscreek"  >Fedscreek</option>
-                                                <option value="Ferguson"  >Ferguson</option>
-                                                <option value="Finchville"  >Finchville</option>
-                                                <option value="Fisherville"  >Fisherville</option>
-                                                <option value="Fisty"  >Fisty</option>
-                                                <option value="Flat Lick"  >Flat Lick</option>
-                                                <option value="Flatgap"  >Flatgap</option>
-                                                <option value="Flatwoods"  >Flatwoods</option>
-                                                <option value="Flemingsburg"  >Flemingsburg</option>
-                                                <option value="Florence"  >Florence</option>
-                                                <option value="Fords Branch"  >Fords Branch</option>
-                                                <option value="Fordsville"  >Fordsville</option>
-                                                <option value="Forest Hills"  >Forest Hills</option>
-                                                <option value="Fort Campbell"  >Fort Campbell</option>
-                                                <option value="Fort Knox"  >Fort Knox</option>
-                                                <option value="Fort Thomas"  >Fort Thomas</option>
-                                                <option value="Foster"  >Foster</option>
-                                                <option value="Fountain Run"  >Fountain Run</option>
-                                                <option value="Fourmile"  >Fourmile</option>
-                                                <option value="Frakes"  >Frakes</option>
-                                                <option value="Frankfort"  >Frankfort</option>
-                                                <option value="Franklin"  >Franklin</option>
-                                                <option value="Fredonia"  >Fredonia</option>
-                                                <option value="Freeburn"  >Freeburn</option>
-                                                <option value="Frenchburg"  >Frenchburg</option>
-                                                <option value="Ft Mitchell"  >Ft Mitchell</option>
-                                                <option value="Fulton"  >Fulton</option>
-                                                <option value="Gamaliel"  >Gamaliel</option>
-                                                <option value="Gapville"  >Gapville</option>
-                                                <option value="Garfield"  >Garfield</option>
-                                                <option value="Garner"  >Garner</option>
-                                                <option value="Garrard"  >Garrard</option>
-                                                <option value="Garrett"  >Garrett</option>
-                                                <option value="Garrison"  >Garrison</option>
-                                                <option value="Gays Creek"  >Gays Creek</option>
-                                                <option value="Georgetown"  >Georgetown</option>
-                                                <option value="Germantown"  >Germantown</option>
-                                                <option value="Ghent"  >Ghent</option>
-                                                <option value="Gilbertsville"  >Gilbertsville</option>
-                                                <option value="Girdler"  >Girdler</option>
-                                                <option value="Glasgow"  >Glasgow</option>
-                                                <option value="Glencoe"  >Glencoe</option>
-                                                <option value="Glendale"  >Glendale</option>
-                                                <option value="Glens Fork"  >Glens Fork</option>
-                                                <option value="Glenview"  >Glenview</option>
-                                                <option value="Goose Rock"  >Goose Rock</option>
-                                                <option value="Gordon"  >Gordon</option>
-                                                <option value="Goshen"  >Goshen</option>
-                                                <option value="Gracey"  >Gracey</option>
-                                                <option value="Gradyville"  >Gradyville</option>
-                                                <option value="Graham"  >Graham</option>
-                                                <option value="Grahn"  >Grahn</option>
-                                                <option value="Grand Rivers"  >Grand Rivers</option>
-                                                <option value="Gravel Switch"  >Gravel Switch</option>
-                                                <option value="Gray"  >Gray</option>
-                                                <option value="Gray Hawk"  >Gray Hawk</option>
-                                                <option value="Grays Knob"  >Grays Knob</option>
-                                                <option value="Grayson"  >Grayson</option>
-                                                <option value="Green Road"  >Green Road</option>
-                                                <option value="Greensburg"  >Greensburg</option>
-                                                <option value="Greenup"  >Greenup</option>
-                                                <option value="Greenville"  >Greenville</option>
-                                                <option value="Grethel"  >Grethel</option>
-                                                <option value="Gulston"  >Gulston</option>
-                                                <option value="Gunlock"  >Gunlock</option>
-                                                <option value="Guston"  >Guston</option>
-                                                <option value="Guthrie"  >Guthrie</option>
-                                                <option value="Hagerhill"  >Hagerhill</option>
-                                                <option value="Hallie"  >Hallie</option>
-                                                <option value="Hampton"  >Hampton</option>
-                                                <option value="Hanson"  >Hanson</option>
-                                                <option value="Happy"  >Happy</option>
-                                                <option value="Hardburly"  >Hardburly</option>
-                                                <option value="Hardin"  >Hardin</option>
-                                                <option value="Hardinsburg"  >Hardinsburg</option>
-                                                <option value="Hardy"  >Hardy</option>
-                                                <option value="Hardyville"  >Hardyville</option>
-                                                <option value="Harlan"  >Harlan</option>
-                                                <option value="Harned"  >Harned</option>
-                                                <option value="Harold"  >Harold</option>
-                                                <option value="Harrods Creek"  >Harrods Creek</option>
-                                                <option value="Harrodsburg"  >Harrodsburg</option>
-                                                <option value="Hartford"  >Hartford</option>
-                                                <option value="Hawesville"  >Hawesville</option>
-                                                <option value="Hazard"  >Hazard</option>
-                                                <option value="Hazel"  >Hazel</option>
-                                                <option value="Hazel Green"  >Hazel Green</option>
-                                                <option value="Hebron"  >Hebron</option>
-                                                <option value="Heidelberg"  >Heidelberg</option>
-                                                <option value="Heidrick"  >Heidrick</option>
-                                                <option value="Hellier"  >Hellier</option>
-                                                <option value="Helton"  >Helton</option>
-                                                <option value="Henderson"  >Henderson</option>
-                                                <option value="Herndon"  >Herndon</option>
-                                                <option value="Hestand"  >Hestand</option>
-                                                <option value="Hi Hat"  >Hi Hat</option>
-                                                <option value="Hickman"  >Hickman</option>
-                                                <option value="Hickory"  >Hickory</option>
-                                                <option value="Hillsboro"  >Hillsboro</option>
-                                                <option value="Hillview"  >Hillview</option>
-                                                <option value="Hima"  >Hima</option>
-                                                <option value="Hindman"  >Hindman</option>
-                                                <option value="Hinkle"  >Hinkle</option>
-                                                <option value="Hiseville"  >Hiseville</option>
-                                                <option value="Hitchins"  >Hitchins</option>
-                                                <option value="Hodgenville"  >Hodgenville</option>
-                                                <option value="Holland"  >Holland</option>
-                                                <option value="Holmes Mill"  >Holmes Mill</option>
-                                                <option value="Hope"  >Hope</option>
-                                                <option value="Hopkinsville"  >Hopkinsville</option>
-                                                <option value="Horse Branch"  >Horse Branch</option>
-                                                <option value="Horse Cave"  >Horse Cave</option>
-                                                <option value="Hoskinston"  >Hoskinston</option>
-                                                <option value="Huddy"  >Huddy</option>
-                                                <option value="Hudson"  >Hudson</option>
-                                                <option value="Hueysville"  >Hueysville</option>
-                                                <option value="Hulen"  >Hulen</option>
-                                                <option value="Hustonville"  >Hustonville</option>
-                                                <option value="Hyden"  >Hyden</option>
-                                                <option value="Independence"  >Independence</option>
-                                                <option value="Inez"  >Inez</option>
-                                                <option value="Ingram"  >Ingram</option>
-                                                <option value="Irvine"  >Irvine</option>
-                                                <option value="Irvington"  >Irvington</option>
-                                                <option value="Island"  >Island</option>
-                                                <option value="Island City"  >Island City</option>
-                                                <option value="Isom"  >Isom</option>
-                                                <option value="Isonville"  >Isonville</option>
-                                                <option value="Ivel"  >Ivel</option>
-                                                <option value="Jackhorn"  >Jackhorn</option>
-                                                <option value="Jackson"  >Jackson</option>
-                                                <option value="Jamestown"  >Jamestown</option>
-                                                <option value="Jeff"  >Jeff</option>
-                                                <option value="Jeffersonville"  >Jeffersonville</option>
-                                                <option value="Jenkins"  >Jenkins</option>
-                                                <option value="Jeremiah"  >Jeremiah</option>
-                                                <option value="Jetson"  >Jetson</option>
-                                                <option value="Jonancy"  >Jonancy</option>
-                                                <option value="Jonesville"  >Jonesville</option>
-                                                <option value="Junction City"  >Junction City</option>
-                                                <option value="Keaton"  >Keaton</option>
-                                                <option value="Keavy"  >Keavy</option>
-                                                <option value="Keene"  >Keene</option>
-                                                <option value="Kenton"  >Kenton</option>
-                                                <option value="Kenvir"  >Kenvir</option>
-                                                <option value="Kettle Island"  >Kettle Island</option>
-                                                <option value="Kevil"  >Kevil</option>
-                                                <option value="Kimper"  >Kimper</option>
-                                                <option value="Kings Mountain"  >Kings Mountain</option>
-                                                <option value="Kirksey"  >Kirksey</option>
-                                                <option value="Kite"  >Kite</option>
-                                                <option value="Knifley"  >Knifley</option>
-                                                <option value="Knob Lick"  >Knob Lick</option>
-                                                <option value="Krypton"  >Krypton</option>
-                                                <option value="Kuttawa"  >Kuttawa</option>
-                                                <option value="La Center"  >La Center</option>
-                                                <option value="La Fayette"  >La Fayette</option>
-                                                <option value="La Grange"  >La Grange</option>
-                                                <option value="Lackey"  >Lackey</option>
-                                                <option value="Lancaster"  >Lancaster</option>
-                                                <option value="Langley"  >Langley</option>
-                                                <option value="Latonia"  >Latonia</option>
-                                                <option value="Lawrenceburg"  >Lawrenceburg</option>
-                                                <option value="Lebanon"  >Lebanon</option>
-                                                <option value="Lebanon Junction"  >Lebanon Junction</option>
-                                                <option value="Leburn"  >Leburn</option>
-                                                <option value="Ledbetter"  >Ledbetter</option>
-                                                <option value="Leitchfield"  >Leitchfield</option>
-                                                <option value="Lerose"  >Lerose</option>
-                                                <option value="Letcher"  >Letcher</option>
-                                                <option value="Lewisburg"  >Lewisburg</option>
-                                                <option value="Lewisport"  >Lewisport</option>
-                                                <option value="Lexington"  >Lexington</option>
-                                                <option value="Liberty"  >Liberty</option>
-                                                <option value="Lick Creek"  >Lick Creek</option>
-                                                <option value="Lily"  >Lily</option>
-                                                <option value="Linefork"  >Linefork</option>
-                                                <option value="Littcarr"  >Littcarr</option>
-                                                <option value="Livermore"  >Livermore</option>
-                                                <option value="Livingston"  >Livingston</option>
-                                                <option value="Lockport"  >Lockport</option>
-                                                <option value="London"  >London</option>
-                                                <option value="Lone"  >Lone</option>
-                                                <option value="Lookout"  >Lookout</option>
-                                                <option value="Loretto"  >Loretto</option>
-                                                <option value="Lost Creek"  >Lost Creek</option>
-                                                <option value="Louisa"  >Louisa</option>
-                                                <option value="Louisville"  >Louisville</option>
-                                                <option value="Lovelaceville"  >Lovelaceville</option>
-                                                <option value="Lovely"  >Lovely</option>
-                                                <option value="Lowes"  >Lowes</option>
-                                                <option value="Lowmansville"  >Lowmansville</option>
-                                                <option value="Loyall"  >Loyall</option>
-                                                <option value="Lucas"  >Lucas</option>
-                                                <option value="Lynch"  >Lynch</option>
-                                                <option value="Lynnville"  >Lynnville</option>
-                                                <option value="Maceo"  >Maceo</option>
-                                                <option value="Mackville"  >Mackville</option>
-                                                <option value="Madisonville"  >Madisonville</option>
-                                                <option value="Magnolia"  >Magnolia</option>
-                                                <option value="Majestic"  >Majestic</option>
-                                                <option value="Mallie"  >Mallie</option>
-                                                <option value="Malone"  >Malone</option>
-                                                <option value="Mammoth Cave"  >Mammoth Cave</option>
-                                                <option value="Manchester"  >Manchester</option>
-                                                <option value="Manitou"  >Manitou</option>
-                                                <option value="Mannsville"  >Mannsville</option>
-                                                <option value="Maple Mount"  >Maple Mount</option>
-                                                <option value="Marion"  >Marion</option>
-                                                <option value="Marrowbone"  >Marrowbone</option>
-                                                <option value="Marshes Siding"  >Marshes Siding</option>
-                                                <option value="Martha"  >Martha</option>
-                                                <option value="Martin"  >Martin</option>
-                                                <option value="Mary Alice"  >Mary Alice</option>
-                                                <option value="Mason"  >Mason</option>
-                                                <option value="Masonic Home"  >Masonic Home</option>
-                                                <option value="Mayfield"  >Mayfield</option>
-                                                <option value="Mayking"  >Mayking</option>
-                                                <option value="Mayslick"  >Mayslick</option>
-                                                <option value="Maysville"  >Maysville</option>
-                                                <option value="Mazie"  >Mazie</option>
-                                                <option value="Mc Andrews"  >Mc Andrews</option>
-                                                <option value="Mc Carr"  >Mc Carr</option>
-                                                <option value="Mc Daniels"  >Mc Daniels</option>
-                                                <option value="Mc Dowell"  >Mc Dowell</option>
-                                                <option value="Mc Henry"  >Mc Henry</option>
-                                                <option value="Mc Kee"  >Mc Kee</option>
-                                                <option value="Mc Quady"  >Mc Quady</option>
-                                                <option value="Mc Roberts"  >Mc Roberts</option>
-                                                <option value="Mcandrews"  >Mcandrews</option>
-                                                <option value="Mccarr"  >Mccarr</option>
-                                                <option value="Mcdowell"  >Mcdowell</option>
-                                                <option value="Mchenry"  >Mchenry</option>
-                                                <option value="Mckee"  >Mckee</option>
-                                                <option value="Mcroberts"  >Mcroberts</option>
-                                                <option value="Meally"  >Meally</option>
-                                                <option value="Means"  >Means</option>
-                                                <option value="Melber"  >Melber</option>
-                                                <option value="Melbourne"  >Melbourne</option>
-                                                <option value="Melvin"  >Melvin</option>
-                                                <option value="Middleburg"  >Middleburg</option>
-                                                <option value="Middlesboro"  >Middlesboro</option>
-                                                <option value="Midway"  >Midway</option>
-                                                <option value="Migrate"  >Migrate</option>
-                                                <option value="Milburn"  >Milburn</option>
-                                                <option value="Milford"  >Milford</option>
-                                                <option value="Millersburg"  >Millersburg</option>
-                                                <option value="Millstone"  >Millstone</option>
-                                                <option value="Millwood"  >Millwood</option>
-                                                <option value="Milton"  >Milton</option>
-                                                <option value="Minerva"  >Minerva</option>
-                                                <option value="Minnie"  >Minnie</option>
-                                                <option value="Miracle"  >Miracle</option>
-                                                <option value="Mistletoe"  >Mistletoe</option>
-                                                <option value="Mitchellsburg"  >Mitchellsburg</option>
-                                                <option value="Mize"  >Mize</option>
-                                                <option value="Monticello"  >Monticello</option>
-                                                <option value="Moorefield"  >Moorefield</option>
-                                                <option value="Morehead"  >Morehead</option>
-                                                <option value="Morganfield"  >Morganfield</option>
-                                                <option value="Morgantown"  >Morgantown</option>
-                                                <option value="Morning View"  >Morning View</option>
-                                                <option value="Mortons Gap"  >Mortons Gap</option>
-                                                <option value="Mount Eden"  >Mount Eden</option>
-                                                <option value="Mount Hermon"  >Mount Hermon</option>
-                                                <option value="Mount Olivet"  >Mount Olivet</option>
-                                                <option value="Mount Sherman"  >Mount Sherman</option>
-                                                <option value="Mount Sterling"  >Mount Sterling</option>
-                                                <option value="Mount Vernon"  >Mount Vernon</option>
-                                                <option value="Mount Washington"  >Mount Washington</option>
-                                                <option value="Mousie"  >Mousie</option>
-                                                <option value="Mouthcard"  >Mouthcard</option>
-                                                <option value="Mozelle"  >Mozelle</option>
-                                                <option value="Muldraugh"  >Muldraugh</option>
-                                                <option value="Munfordville"  >Munfordville</option>
-                                                <option value="Murray"  >Murray</option>
-                                                <option value="Muses Mills"  >Muses Mills</option>
-                                                <option value="Myra"  >Myra</option>
-                                                <option value="Nancy"  >Nancy</option>
-                                                <option value="Nazareth"  >Nazareth</option>
-                                                <option value="Nebo"  >Nebo</option>
-                                                <option value="Neon"  >Neon</option>
-                                                <option value="Nerinx"  >Nerinx</option>
-                                                <option value="New Castle"  >New Castle</option>
-                                                <option value="New Concord"  >New Concord</option>
-                                                <option value="New Haven"  >New Haven</option>
-                                                <option value="New Hope"  >New Hope</option>
-                                                <option value="New Liberty"  >New Liberty</option>
-                                                <option value="Newport"  >Newport</option>
-                                                <option value="Nicholasville"  >Nicholasville</option>
-                                                <option value="North Middletown"  >North Middletown</option>
-                                                <option value="Nortonville"  >Nortonville</option>
-                                                <option value="Oak Grove"  >Oak Grove</option>
-                                                <option value="Oakland"  >Oakland</option>
-                                                <option value="Oil Springs"  >Oil Springs</option>
-                                                <option value="Olaton"  >Olaton</option>
-                                                <option value="Olive Hill"  >Olive Hill</option>
-                                                <option value="Olmstead"  >Olmstead</option>
-                                                <option value="Olympia"  >Olympia</option>
-                                                <option value="Oneida"  >Oneida</option>
-                                                <option value="Ophir"  >Ophir</option>
-                                                <option value="Orlando"  >Orlando</option>
-                                                <option value="Owensboro"  >Owensboro</option>
-                                                <option value="Owenton"  >Owenton</option>
-                                                <option value="Owingsville"  >Owingsville</option>
-                                                <option value="Paducah"  >Paducah</option>
-                                                <option value="Paint Lick"  >Paint Lick</option>
-                                                <option value="Paintsville"  >Paintsville</option>
-                                                <option value="Paris"  >Paris</option>
-                                                <option value="Park City"  >Park City</option>
-                                                <option value="Parkers Lake"  >Parkers Lake</option>
-                                                <option value="Parksville"  >Parksville</option>
-                                                <option value="Partridge"  >Partridge</option>
-                                                <option value="Pathfork"  >Pathfork</option>
-                                                <option value="Payneville"  >Payneville</option>
-                                                <option value="Pembroke"  >Pembroke</option>
-                                                <option value="Pendleton"  >Pendleton</option>
-                                                <option value="Perry Park"  >Perry Park</option>
-                                                <option value="Perryville"  >Perryville</option>
-                                                <option value="Petersburg"  >Petersburg</option>
-                                                <option value="Pewee Valley"  >Pewee Valley</option>
-                                                <option value="Phelps"  >Phelps</option>
-                                                <option value="Philpot"  >Philpot</option>
-                                                <option value="Phyllis"  >Phyllis</option>
-                                                <option value="Pikeville"  >Pikeville</option>
-                                                <option value="Pilgrim"  >Pilgrim</option>
-                                                <option value="Pine Knot"  >Pine Knot</option>
-                                                <option value="Pine Ridge"  >Pine Ridge</option>
-                                                <option value="Pine Top"  >Pine Top</option>
-                                                <option value="Pineville"  >Pineville</option>
-                                                <option value="Pinsonfork"  >Pinsonfork</option>
-                                                <option value="Pippa Passes"  >Pippa Passes</option>
-                                                <option value="Pittsburg"  >Pittsburg</option>
-                                                <option value="Pleasureville"  >Pleasureville</option>
-                                                <option value="Plummers Landing"  >Plummers Landing</option>
-                                                <option value="Poole"  >Poole</option>
-                                                <option value="Port Royal"  >Port Royal</option>
-                                                <option value="Powderly"  >Powderly</option>
-                                                <option value="Premium"  >Premium</option>
-                                                <option value="Preston"  >Preston</option>
-                                                <option value="Prestonsburg"  >Prestonsburg</option>
-                                                <option value="Primrose"  >Primrose</option>
-                                                <option value="Princeton"  >Princeton</option>
-                                                <option value="Printer"  >Printer</option>
-                                                <option value="Prospect"  >Prospect</option>
-                                                <option value="Providence"  >Providence</option>
-                                                <option value="Putney"  >Putney</option>
-                                                <option value="Quincy"  >Quincy</option>
-                                                <option value="Raccoon"  >Raccoon</option>
-                                                <option value="Radcliff"  >Radcliff</option>
-                                                <option value="Ransom"  >Ransom</option>
-                                                <option value="Raven"  >Raven</option>
-                                                <option value="Ravenna"  >Ravenna</option>
-                                                <option value="Raywick"  >Raywick</option>
-                                                <option value="Redfox"  >Redfox</option>
-                                                <option value="Reed"  >Reed</option>
-                                                <option value="Regina"  >Regina</option>
-                                                <option value="Renfro Valley"  >Renfro Valley</option>
-                                                <option value="Revelo"  >Revelo</option>
-                                                <option value="Reynolds Station"  >Reynolds Station</option>
-                                                <option value="Rhodelia"  >Rhodelia</option>
-                                                <option value="Ricetown"  >Ricetown</option>
-                                                <option value="Richmond"  >Richmond</option>
-                                                <option value="Rineyville"  >Rineyville</option>
-                                                <option value="River"  >River</option>
-                                                <option value="Roark"  >Roark</option>
-                                                <option value="Robards"  >Robards</option>
-                                                <option value="Robinson Creek"  >Robinson Creek</option>
-                                                <option value="Rochester"  >Rochester</option>
-                                                <option value="Rockfield"  >Rockfield</option>
-                                                <option value="Rockholds"  >Rockholds</option>
-                                                <option value="Rockhouse"  >Rockhouse</option>
-                                                <option value="Rockport"  >Rockport</option>
-                                                <option value="Rocky Hill"  >Rocky Hill</option>
-                                                <option value="Rogers"  >Rogers</option>
-                                                <option value="Rosine"  >Rosine</option>
-                                                <option value="Roundhill"  >Roundhill</option>
-                                                <option value="Rousseau"  >Rousseau</option>
-                                                <option value="Rowdy"  >Rowdy</option>
-                                                <option value="Roxana"  >Roxana</option>
-                                                <option value="Royalton"  >Royalton</option>
-                                                <option value="Rumsey"  >Rumsey</option>
-                                                <option value="Rush"  >Rush</option>
-                                                <option value="Russell"  >Russell</option>
-                                                <option value="Russell Springs"  >Russell Springs</option>
-                                                <option value="Russellville"  >Russellville</option>
-                                                <option value="Sacramento"  >Sacramento</option>
-                                                <option value="Sadieville"  >Sadieville</option>
-                                                <option value="Saint Catharine"  >Saint Catharine</option>
-                                                <option value="Saint Charles"  >Saint Charles</option>
-                                                <option value="Saint Francis"  >Saint Francis</option>
-                                                <option value="Saint Helens"  >Saint Helens</option>
-                                                <option value="Saint Mary"  >Saint Mary</option>
-                                                <option value="Salem"  >Salem</option>
-                                                <option value="Salt Lick"  >Salt Lick</option>
-                                                <option value="Salvisa"  >Salvisa</option>
-                                                <option value="Salyersville"  >Salyersville</option>
-                                                <option value="Sanders"  >Sanders</option>
-                                                <option value="Sandgap"  >Sandgap</option>
-                                                <option value="Sandy Hook"  >Sandy Hook</option>
-                                                <option value="Sassafras"  >Sassafras</option>
-                                                <option value="Saul"  >Saul</option>
-                                                <option value="Scalf"  >Scalf</option>
-                                                <option value="Science Hill"  >Science Hill</option>
-                                                <option value="Scottsville"  >Scottsville</option>
-                                                <option value="Scuddy"  >Scuddy</option>
-                                                <option value="Sebree"  >Sebree</option>
-                                                <option value="Seco"  >Seco</option>
-                                                <option value="Sedalia"  >Sedalia</option>
-                                                <option value="Sextons Creek"  >Sextons Creek</option>
-                                                <option value="Sharon Grove"  >Sharon Grove</option>
-                                                <option value="Sharpsburg"  >Sharpsburg</option>
-                                                <option value="Shelbiana"  >Shelbiana</option>
-                                                <option value="Shelby Gap"  >Shelby Gap</option>
-                                                <option value="Shelbyville"  >Shelbyville</option>
-                                                <option value="Shepherdsville"  >Shepherdsville</option>
-                                                <option value="Sidney"  >Sidney</option>
-                                                <option value="Siler"  >Siler</option>
-                                                <option value="Silver Grove"  >Silver Grove</option>
-                                                <option value="Simpsonville"  >Simpsonville</option>
-                                                <option value="Sitka"  >Sitka</option>
-                                                <option value="Sizerock"  >Sizerock</option>
-                                                <option value="Slade"  >Slade</option>
-                                                <option value="Slaughters"  >Slaughters</option>
-                                                <option value="Slemp"  >Slemp</option>
-                                                <option value="Smilax"  >Smilax</option>
-                                                <option value="Smith Mills"  >Smith Mills</option>
-                                                <option value="Smithfield"  >Smithfield</option>
-                                                <option value="Smithland"  >Smithland</option>
-                                                <option value="Smiths Grove"  >Smiths Grove</option>
-                                                <option value="Soldier"  >Soldier</option>
-                                                <option value="Somerset"  >Somerset</option>
-                                                <option value="Sonora"  >Sonora</option>
-                                                <option value="South Carrollton"  >South Carrollton</option>
-                                                <option value="South Portsmouth"  >South Portsmouth</option>
-                                                <option value="South Shore"  >South Shore</option>
-                                                <option value="South Union"  >South Union</option>
-                                                <option value="South Williamson"  >South Williamson</option>
-                                                <option value="Sparta"  >Sparta</option>
-                                                <option value="Spottsville"  >Spottsville</option>
-                                                <option value="Springfield"  >Springfield</option>
-                                                <option value="Staffordsville"  >Staffordsville</option>
-                                                <option value="Stambaugh"  >Stambaugh</option>
-                                                <option value="Stamping Ground"  >Stamping Ground</option>
-                                                <option value="Stanford"  >Stanford</option>
-                                                <option value="Stanley"  >Stanley</option>
-                                                <option value="Stanton"  >Stanton</option>
-                                                <option value="Stanville"  >Stanville</option>
-                                                <option value="Stearns"  >Stearns</option>
-                                                <option value="Steele"  >Steele</option>
-                                                <option value="Stephensport"  >Stephensport</option>
-                                                <option value="Stinnett"  >Stinnett</option>
-                                                <option value="Stone"  >Stone</option>
-                                                <option value="Stoney Fork"  >Stoney Fork</option>
-                                                <option value="Stopover"  >Stopover</option>
-                                                <option value="Strunk"  >Strunk</option>
-                                                <option value="Sturgis"  >Sturgis</option>
-                                                <option value="Sullivan"  >Sullivan</option>
-                                                <option value="Sulphur"  >Sulphur</option>
-                                                <option value="Summer Shade"  >Summer Shade</option>
-                                                <option value="Summersville"  >Summersville</option>
-                                                <option value="Sweeden"  >Sweeden</option>
-                                                <option value="Symsonia"  >Symsonia</option>
-                                                <option value="Taylorsville"  >Taylorsville</option>
-                                                <option value="Teaberry"  >Teaberry</option>
-                                                <option value="Thelma"  >Thelma</option>
-                                                <option value="Thornton"  >Thornton</option>
-                                                <option value="Thousandsticks"  >Thousandsticks</option>
-                                                <option value="Tiline"  >Tiline</option>
-                                                <option value="Tollesboro"  >Tollesboro</option>
-                                                <option value="Tolu"  >Tolu</option>
-                                                <option value="Tomahawk"  >Tomahawk</option>
-                                                <option value="Tompkinsville"  >Tompkinsville</option>
-                                                <option value="Topmost"  >Topmost</option>
-                                                <option value="Totz"  >Totz</option>
-                                                <option value="Tram"  >Tram</option>
-                                                <option value="Trenton"  >Trenton</option>
-                                                <option value="Trosper"  >Trosper</option>
-                                                <option value="Turners Station"  >Turners Station</option>
-                                                <option value="Tutor Key"  >Tutor Key</option>
-                                                <option value="Tyner"  >Tyner</option>
-                                                <option value="Ulysses"  >Ulysses</option>
-                                                <option value="Union"  >Union</option>
-                                                <option value="Union Star"  >Union Star</option>
-                                                <option value="Uniontown"  >Uniontown</option>
-                                                <option value="Upton"  >Upton</option>
-                                                <option value="Utica"  >Utica</option>
-                                                <option value="Van Lear"  >Van Lear</option>
-                                                <option value="Vanceburg"  >Vanceburg</option>
-                                                <option value="Vancleve"  >Vancleve</option>
-                                                <option value="Varney"  >Varney</option>
-                                                <option value="Verona"  >Verona</option>
-                                                <option value="Versailles"  >Versailles</option>
-                                                <option value="Vest"  >Vest</option>
-                                                <option value="Vicco"  >Vicco</option>
-                                                <option value="Vincent"  >Vincent</option>
-                                                <option value="Vine Grove"  >Vine Grove</option>
-                                                <option value="Viper"  >Viper</option>
-                                                <option value="Virgie"  >Virgie</option>
-                                                <option value="Waco"  >Waco</option>
-                                                <option value="Waddy"  >Waddy</option>
-                                                <option value="Walker"  >Walker</option>
-                                                <option value="Wallingford"  >Wallingford</option>
-                                                <option value="Wallins Creek"  >Wallins Creek</option>
-                                                <option value="Walton"  >Walton</option>
-                                                <option value="Waneta"  >Waneta</option>
-                                                <option value="Warbranch"  >Warbranch</option>
-                                                <option value="Warfield"  >Warfield</option>
-                                                <option value="Warsaw"  >Warsaw</option>
-                                                <option value="Washington"  >Washington</option>
-                                                <option value="Water Valley"  >Water Valley</option>
-                                                <option value="Waverly"  >Waverly</option>
-                                                <option value="Wayland"  >Wayland</option>
-                                                <option value="Waynesburg"  >Waynesburg</option>
-                                                <option value="Webbville"  >Webbville</option>
-                                                <option value="Webster"  >Webster</option>
-                                                <option value="Weeksbury"  >Weeksbury</option>
-                                                <option value="Welchs Creek"  >Welchs Creek</option>
-                                                <option value="Wellington"  >Wellington</option>
-                                                <option value="Wendover"  >Wendover</option>
-                                                <option value="West Liberty"  >West Liberty</option>
-                                                <option value="West Louisville"  >West Louisville</option>
-                                                <option value="West Paducah"  >West Paducah</option>
-                                                <option value="West Point"  >West Point</option>
-                                                <option value="West Somerset"  >West Somerset</option>
-                                                <option value="West Van Lear"  >West Van Lear</option>
-                                                <option value="Westport"  >Westport</option>
-                                                <option value="Westview"  >Westview</option>
-                                                <option value="Wheatcroft"  >Wheatcroft</option>
-                                                <option value="Wheelwright"  >Wheelwright</option>
-                                                <option value="Whick"  >Whick</option>
-                                                <option value="White Mills"  >White Mills</option>
-                                                <option value="White Plains"  >White Plains</option>
-                                                <option value="Whitesburg"  >Whitesburg</option>
-                                                <option value="Whitesville"  >Whitesville</option>
-                                                <option value="Whitley City"  >Whitley City</option>
-                                                <option value="Wickliffe"  >Wickliffe</option>
-                                                <option value="Wildie"  >Wildie</option>
-                                                <option value="Willard"  >Willard</option>
-                                                <option value="Williamsburg"  >Williamsburg</option>
-                                                <option value="Williamsport"  >Williamsport</option>
-                                                <option value="Williamstown"  >Williamstown</option>
-                                                <option value="Willisburg"  >Willisburg</option>
-                                                <option value="Wilmore"  >Wilmore</option>
-                                                <option value="Winchester"  >Winchester</option>
-                                                <option value="Windsor"  >Windsor</option>
-                                                <option value="Wingo"  >Wingo</option>
-                                                <option value="Winston"  >Winston</option>
-                                                <option value="Wittensville"  >Wittensville</option>
-                                                <option value="Woodbine"  >Woodbine</option>
-                                                <option value="Woodburn"  >Woodburn</option>
-                                                <option value="Woodbury"  >Woodbury</option>
-                                                <option value="Woollum"  >Woollum</option>
-                                                <option value="Wooton"  >Wooton</option>
-                                                <option value="Worthington"  >Worthington</option>
-                                                <option value="Worthville"  >Worthville</option>
-                                                <option value="Wrigley"  >Wrigley</option>
-                                                <option value="Yeaddiss"  >Yeaddiss</option>
-                                                <option value="Yerkes"  >Yerkes</option>
-                                                <option value="Yosemite"  >Yosemite</option>
-                                                <option value="Zoe"  >Zoe</option>
-
-                                            </select>
-                                            <br><span id="city_span"></span>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Pincode</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="pin1" name="pin1" value="6575464">
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Mobile Number</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="mobno" name="mobno" value="">
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit">Landline Number</label>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control"  placeholder="+91" id="isd1" name="isd1" value="">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="text" class="form-control"  placeholder="044" id="std1" name="std1" value="" >
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control"  placeholder="123456" id="ph11" name="ph11" value="7856756756">
-                                        </div>
+                                      <label  class="col-sm-4 pedit"><span class="red-star">*</span>Expire Date :</label>
+                                      <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="exp_date" id="exp_date" value="" placeholder=""><script language="JavaScript">
+    new tcal ({
+    // form name
+    'formname': 'r_post_job_frm',
+    // input name
+    'controlname': 'exp_date'
+    });
+    </script>
+                                      </div>
+                                    </div>
+                              </div>--><!--col-md-6-->
+                            <div class="col-md-9" >
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Keywords :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="keywords"  id="jobkeywords" onKeyUp="chkkabuse(this.id);" value="" class="form-control"  placeholder="">
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Fax</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="fax1" name="fax1" onKeyUp="chkkabuse(this.id);" value="">
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-sm-8">
+                            </div><!--col-md-6-->
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Country :</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="emp_country" id="emp_country" onChange="loadXMLDoc(this.value)">
+                                            <option value="">Select Country</option>
+                                            <option value="211" > Bangladesh </option>
+                                            <option value="210" > India </option>
+                                            <option value="212" > Pakistan </option>
+                                        </select>
+                                    </div><span id="countryinfo"></span>
+                                </div><!--form-group-->
+                            </div>
 
-                                    <div class="col-sm-3 ">
-                                        <input class="btn-blue btn bc" type="button" id="submits" name="submits" value="SAVE" onClick="save_acc6();">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>job locations :</label>
+                                    <div class="col-sm-8">
+                                        <select name="job_locations[]" id='locations' class="form-control" style='height:260px;' multiple>
+                                            <option value="">Select Location</option>
+                                            <option value="1">Agartala</option>
+                                            <option value="2">Ahmadabad</option>
+                                            <option value="3">Ahmednagar</option>
+                                            <option value="4">Aizwal</option>
+                                            <option value="5">Ajmer</option>
+                                            <option value="6">Akola</option>
+                                            <option value="7">Allahabad</option>
+                                            <option value="8">Alleppey</option>
+                                            <option value="9">Amer</option>
+                                            <option value="10">Amravati</option>
+                                            <option value="11">Amritsar</option>
+                                            <option value="12">Anakapalle</option>
+                                            <option value="13">Anantapur</option>
+                                            <option value="229">ApreÅ¡ov</option>
+                                            <option value="14">Ara</option>
+                                            <option value="15">Arakonam</option>
+                                            <option value="16">Arcot</option>
+                                            <option value="17">Ariyalur</option>
+                                            <option value="18">Aruppukkottai</option>
+                                            <option value="19">Auraiya</option>
+                                            <option value="20">Aurangabad</option>
+                                            <option value="21">Aurangabad Chikalthan Aerodrome</option>
+                                            <option value="22">Balasore</option>
+                                            <option value="23">Bangalore</option>
+                                            <option value="24">Barddhaman</option>
+                                            <option value="25">Basirhat</option>
+                                            <option value="26">Batala</option>
+                                            <option value="27">Belgaum/Sambra</option>
+                                            <option value="28">Benares</option>
+                                            <option value="29">Bhandara</option>
+                                            <option value="30">Bhatkal</option>
+                                            <option value="31">Bhatpara</option>
+                                            <option value="32">Bhiwandi</option>
+                                            <option value="33">Bhiwani</option>
+                                            <option value="34">Bhongir</option>
+                                            <option value="35">Bhopal</option>
+                                            <option value="36">Bhubaneshwar</option>
+                                            <option value="37">Bhuj-Rudramata</option>
+                                            <option value="38">Bihar</option>
+                                            <option value="39">Bikaner</option>
+                                            <option value="40">Bombay</option>
+                                            <option value="41">Bulandshahr</option>
+                                            <option value="42">Calcutta</option>
+                                            <option value="43">Chandigarh</option>
+                                            <option value="44">Chavakkad</option>
+                                            <option value="45">Chengelput</option>
+                                            <option value="46">Chennai</option>
+                                            <option value="47">Chhapra</option>
+                                            <option value="48">Chitradurga</option>
+                                            <option value="49">Chittoor</option>
+                                            <option value="50">Cochin</option>
+                                            <option value="51">Coimbatore/Peelamedu</option>
+                                            <option value="52">Cuddalore</option>
+                                            <option value="53">Cuttack</option>
+                                            <option value="54">Daman</option>
+                                            <option value="55">Daosa</option>
+                                            <option value="56">Darjiling</option>
+                                            <option value="57">Daund</option>
+                                            <option value="58">Dehradun</option>
+                                            <option value="59">Delhi</option>
+                                            <option value="60">Dewas</option>
+                                            <option value="61">Dibrugarh/Mohanbari</option>
+                                            <option value="62">Dindigul</option>
+                                            <option value="63">Dindivanam</option>
+                                            <option value="64">Dispur</option>
+                                            <option value="65">Dod Ballapur</option>
+                                            <option value="66">Duraha</option>
+                                            <option value="67">Elamanchili</option>
+                                            <option value="68">Erode</option>
+                                            <option value="69">Etawah</option>
+                                            <option value="70">Faizabad</option>
+                                            <option value="71">Faridabad</option>
+                                            <option value="72">Fatehpur</option>
+                                            <option value="73">Gadag</option>
+                                            <option value="74">Gandhinagar</option>
+                                            <option value="75">Gangtok</option>
+                                            <option value="76">Gauhati</option>
+                                            <option value="77">Gaya</option>
+                                            <option value="78">Ghaziabad</option>
+                                            <option value="79">Ghazipur</option>
+                                            <option value="80">Goa/Panjim</option>
+                                            <option value="81">Godhra</option>
+                                            <option value="82">Guwahati</option>
+                                            <option value="83">Gwalior</option>
+                                            <option value="84">Haora</option>
+                                            <option value="85">Hisar</option>
+                                            <option value="86">Hoshiarpur</option>
+                                            <option value="87">Hyderabad</option>
+                                            <option value="88">Imphal</option>
+                                            <option value="89">Indore</option>
+                                            <option value="90">Itanagar</option>
+                                            <option value="91">Jabalpur</option>
+                                            <option value="92">Jagdalpur</option>
+                                            <option value="93">Jaipur</option>
+                                            <option value="94">Jaisalmer</option>
+                                            <option value="95">Jalandhar</option>
+                                            <option value="96">Jamshedpur</option>
+                                            <option value="97">Jatni</option>
+                                            <option value="98">Jaunpur</option>
+                                            <option value="99">Jharsuguda</option>
+                                            <option value="100">Jodhpur</option>
+                                            <option value="101">Kakinada</option>
+                                            <option value="102">Kalimpang</option>
+                                            <option value="103">Kalyan</option>
+                                            <option value="104">Kamthi</option>
+                                            <option value="105">Kancheepuram</option>
+                                            <option value="106">Kanpur</option>
+                                            <option value="107">Kanyakumari</option>
+                                            <option value="108">Kasaragod</option>
+                                            <option value="109">Kerala</option>
+                                            <option value="110">Khadki</option>
+                                            <option value="111">Khammam</option>
+                                            <option value="112">Kharagpur</option>
+                                            <option value="113">Kodaikanal</option>
+                                            <option value="114">Kohima</option>
+                                            <option value="115">Kolar</option>
+                                            <option value="116">Kolhapur</option>
+                                            <option value="117">Koregaon</option>
+                                            <option value="118">Kovilpatti</option>
+                                            <option value="119">Kozhikode</option>
+                                            <option value="120">Kumbakonam</option>
+                                            <option value="121">Kumbum</option>
+                                            <option value="122">Kurnool</option>
+                                            <option value="123">Kutralam</option>
+                                            <option value="124">Lucknow</option>
+                                            <option value="125">Ludhiana</option>
+                                            <option value="126">M. O. Ranchi</option>
+                                            <option value="127">Machilipatnam</option>
+                                            <option value="128">Madurai</option>
+                                            <option value="129">Mahbubnagar</option>
+                                            <option value="130">Mahesana</option>
+                                            <option value="131">Malegaon</option>
+                                            <option value="132">Mandya</option>
+                                            <option value="133">Mangalore</option>
+                                            <option value="134">Mannarkudi</option>
+                                            <option value="135">Mayiladuthurai</option>
+                                            <option value="136">Medinipur</option>
+                                            <option value="137">Meerut</option>
+                                            <option value="138">Mhow</option>
+                                            <option value="139">Minicoy</option>
+                                            <option value="140">Mirzapur</option>
+                                            <option value="141">Moga</option>
+                                            <option value="142">Mumbai</option>
+                                            <option value="143">Murud</option>
+                                            <option value="144">Muzaffarnagar</option>
+                                            <option value="145">Muzaffarpur</option>
+                                            <option value="146">Nadiad</option>
+                                            <option value="147">Nagercoil</option>
+                                            <option value="148">Nagpur</option>
+                                            <option value="149">Nasik</option>
+                                            <option value="150">Nawabganj</option>
+                                            <option value="151">Nellore</option>
+                                            <option value="152">New Delhi</option>
+                                            <option value="153">New Delhi/Safdarjung</option>
+                                            <option value="154">Neyyattinkara</option>
+                                            <option value="155">Nizamabad</option>
+                                            <option value="156">Ooty</option>
+                                            <option value="157">Panvel</option>
+                                            <option value="158">Papanasam</option>
+                                            <option value="159">Patiala</option>
+                                            <option value="160">Patna</option>
+                                            <option value="161">Pendra Road</option>
+                                            <option value="162">Perambalur</option>
+                                            <option value="163">Pondicherry</option>
+                                            <option value="164">Poona</option>
+                                            <option value="165">Port Blair</option>
+                                            <option value="166">Pune</option>
+                                            <option value="167">Puri</option>
+                                            <option value="168">Quilon</option>
+                                            <option value="169">Rae Bareli</option>
+                                            <option value="170">Raigarh</option>
+                                            <option value="171">Rajapalaiyam</option>
+                                            <option value="172">Rajkot</option>
+                                            <option value="173">Rameshwaram</option>
+                                            <option value="174">Ratnagiri</option>
+                                            <option value="175">Rohtak</option>
+                                            <option value="176">Salem</option>
+                                            <option value="177">Sambalpur</option>
+                                            <option value="178">Sankarankovil</option>
+                                            <option value="179">Sanwer</option>
+                                            <option value="180">Saraipali</option>
+                                            <option value="181">Satara</option>
+                                            <option value="182">Satna</option>
+                                            <option value="183">Sattur</option>
+                                            <option value="184">Sehore</option>
+                                            <option value="185">Shertallai</option>
+                                            <option value="186">Shillong</option>
+                                            <option value="187">Shimla</option>
+                                            <option value="188">Sholapur</option>
+                                            <option value="189">Sitapur</option>
+                                            <option value="190">Sivakasi</option>
+                                            <option value="191">Solapur</option>
+                                            <option value="192">Sonipat</option>
+                                            <option value="193">Srikakulam</option>
+                                            <option value="194">Srinagar</option>
+                                            <option value="195">Sriperumpudur</option>
+                                            <option value="196">Srivilliputhur</option>
+                                            <option value="197">Surat</option>
+                                            <option value="198">Tambaram</option>
+                                            <option value="199">Tezpur</option>
+                                            <option value="200">Thana, INDIA</option>
+                                            <option value="201">Thanjavur</option>
+                                            <option value="202">Theni</option>
+                                            <option value="203">Thiruchendur</option>
+                                            <option value="204">Thiruvan</option>
+                                            <option value="205">Tiruchchirapalli</option>
+                                            <option value="206">Tirunelveli</option>
+                                            <option value="207">Tirupati</option>
+                                            <option value="208">Tiruvottiyur</option>
+                                            <option value="209">Tonk</option>
+                                            <option value="210">Trivandrum</option>
+                                            <option value="211">Tumkur</option>
+                                            <option value="212">Tuticorin</option>
+                                            <option value="213">Udupi</option>
+                                            <option value="214">Ulhasnagar</option>
+                                            <option value="215">Unnao</option>
+                                            <option value="216">Vadodara</option>
+                                            <option value="217">Varanasi</option>
+                                            <option value="218">Vellore</option>
+                                            <option value="219">Veraval</option>
+                                            <option value="220">Vidisha</option>
+                                            <option value="221">Villupuram</option>
+                                            <option value="222">Virdhachalam</option>
+                                            <option value="223">Virudunagar</option>
+                                            <option value="224">Vishakhapatnam</option>
+                                            <option value="225">Vizianagaram</option>
+                                            <option value="226">Warangal</option>
+                                            <option value="227">Wardha</option>
+                                            <option value="230">Washington, US</option>
+                                            <option value="228">Zahirabad</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>State :</label>
+                                    <div class="col-sm-8" id="location1">
+                                        <select name="location" class="form-control" id="location" onChange="return loadXMLDoc1(this.value);">
+                                            <option value="">Select State</option>
+
+                                            <!--<span id="cityinfo"></span>-->
+                                        </select>
 
                                     </div>
-                                    <div class="col-sm-3 padno">
-                                        <div class="btn-blue btn bc"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html" style="color:#FFF"> Cancel </a><!-- <input type="reset" value="Cancel" onclick="cls_acc6();" />--></div>
-                                    </div><br>
+                                    <span id="stateInfo"></span>
+                                </div><!--form-group-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>City :</label>
+                                    <div class="col-sm-8" id="city">
+                                        <select name="city" class="form-control" id="city1">
+                                            <option value="">Select City</option>
+
+                                            <!--<span id="cityinfo"></span>-->
+                                        </select>
+
+                                    </div>
+                                </div><!--form-group-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Annual Salary:  </label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control" name="salaryfrom" id="salaryfrom" style="width:100px;">
+                                            <option value="">--- From ---</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1 Lakh</option>
+                                            <option value="2">2 Lakhs</option>
+                                            <option value="3">3 Lakhs</option>
+                                            <option value="4">4 Lakhs</option>
+                                            <option value="5">5 Lakhs</option>
+                                            <option value="6">6 Lakhs</option>
+                                            <option value="7">7 Lakhs</option>
+                                            <option value="8">8 Lakhs</option>
+                                            <option value="9">9 Lakhs</option>
+                                            <option value="10">10 Lakhs</option>
+                                            <option value="11">11 Lakhs</option>
+                                            <option value="12">12 Lakhs</option>
+                                            <option value="13">13 Lakhs</option>
+                                            <option value="14">14 Lakhs</option>
+                                            <option value="15">15 Lakhs</option>
+                                            <option value="16">16 Lakhs</option>
+                                            <option value="17">17 Lakhs</option>
+                                            <option value="18">18 Lakhs</option>
+                                            <option value="19">19 Lakhs</option>
+                                            <option value="20">20 Lakhs</option>
+                                            <option value="21">21 Lakhs</option>
+                                            <option value="22">22 Lakhs</option>
+                                            <option value="23">23 Lakhs</option>
+                                            <option value="24">24 Lakhs</option>
+                                            <option value="25">25 Lakhs</option>
+                                            <option value="26">26 Lakhs</option>
+                                            <option value="27">27 Lakhs</option>
+                                            <option value="28">28 Lakhs</option>
+                                            <option value="29">29 Lakhs</option>
+                                            <option value="30">30 Lakhs</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1"><!--<i class="fa fa-jpy"></i>-->-</div>
+                                    <div class="col-sm-3">
+                                        <select  class="form-control" name="salaryto" id="salaryto" style="width:100px;">
+                                            <option value="">--- To ---</option>
+                                            <option value="0">0</option>
+                                            <option value="1">1 Lakh</option>
+                                            <option value="2">2 Lakhs</option>
+                                            <option value="3">3 Lakhs</option>
+                                            <option value="4">4 Lakhs</option>
+                                            <option value="5">5 Lakhs</option>
+                                            <option value="6">6 Lakhs</option>
+                                            <option value="7">7 Lakhs</option>
+                                            <option value="8">8 Lakhs</option>
+                                            <option value="9">9 Lakhs</option>
+                                            <option value="10">10 Lakhs</option>
+                                            <option value="11">11 Lakhs</option>
+                                            <option value="12">12 Lakhs</option>
+                                            <option value="13">13 Lakhs</option>
+                                            <option value="14">14 Lakhs</option>
+                                            <option value="15">15 Lakhs</option>
+                                            <option value="16">16 Lakhs</option>
+                                            <option value="17">17 Lakhs</option>
+                                            <option value="18">18 Lakhs</option>
+                                            <option value="19">19 Lakhs</option>
+                                            <option value="20">20 Lakhs</option>
+                                            <option value="21">21 Lakhs</option>
+                                            <option value="22">22 Lakhs</option>
+                                            <option value="23">23 Lakhs</option>
+                                            <option value="24">24 Lakhs</option>
+                                            <option value="25">25 Lakhs</option>
+                                            <option value="26">26 Lakhs</option>
+                                            <option value="27">27 Lakhs</option>
+                                            <option value="28">28 Lakhs</option>
+                                            <option value="29">29 Lakhs</option>
+                                            <option value="30">30 Lakhs</option>
+                                            <option value="31">31 Lakhs</option>
+                                            <option value="32">32 Lakhs</option>
+                                            <option value="33">33 Lakhs</option>
+                                            <option value="34">34 Lakhs</option>
+                                            <option value="35">35 Lakhs</option>
+                                            <option value="36">36 Lakhs</option>
+                                            <option value="37">37 Lakhs</option>
+                                            <option value="38">38 Lakhs</option>
+                                            <option value="39">39 Lakhs</option>
+                                            <option value="40">40 Lakhs</option>
+                                            <option value="41">41 Lakhs</option>
+                                            <option value="42">42 Lakhs</option>
+                                            <option value="43">43 Lakhs</option>
+                                            <option value="44">44 Lakhs</option>
+                                            <option value="45">45 Lakhs</option>
+                                            <option value="46">46 Lakhs</option>
+                                            <option value="47">47 Lakhs</option>
+                                            <option value="48">48 Lakhs</option>
+                                            <option value="49">49 Lakhs</option>
+                                            <option value="50">50 Lakhs</option>
+                                            <option value=">50">Above 50 Lakhs</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1"><!--<i class="fa fa-jpy"></i>--></div>
+
                                 </div>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Job To:  </label>
+                                    <div class="col-sm-8">
+                                        <label class="radio-inline"><input type="radio" name="jobto" value="1">Govt Jobs</label>
+                                        <label class="radio-inline"><input type="radio" name="jobto" value="2">Oversea Jobs</label>
+                                        <label class="radio-inline"><input type="radio" name="jobto" value="4">IIT Jobs</label>
+                                        <label class="radio-inline"><input type="radio" name="jobto" value="3">Others</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--col-md-6-->
+
+                            <!--col-md-12-->
+                        </div>
+                        <div class="row" >
+                            <div class="top-emp-center">
+                                <h4>Contact Details</h4>
+                            </div><br />
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Name :</label>
+                                    <div class="col-sm-8">
+                                        <input name="company_name" type="text" id="company_name" onKeyUp="chkkabuse(this.id);" value="inet" style="" class="form-control"  placeholder="">
+                                    </div>
+                                </div><!--form-group-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Contact Name :</label>
+                                    <div class="col-sm-8">
+                                        <input name="c_name" type="text" id="c_name" onKeyUp="chkkabuse(this.id);" value="Liza" class="form-control"  placeholder="">
+                                    </div>
+                                </div><!--col-md-6-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Contact Telephone :</label>
+                                    <div class="col-sm-6">
+                                        <input name="c_phone" type="text" id="c_phone" onKeyUp="chkkabuse(this.id);" value="7856756756" class="form-control"  placeholder="">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="checkbox-inline pedit">
+                                            <input type="checkbox" name="hide_phone" id="hide_phone" value="1" /><label for="hide_mail" class="pdl5">Hide view</label>
+                                        </label>
+                                    </div>
+                                </div><!--col-md-6-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="col-sm-4 pedit"><span class="red-star">*</span>Contact Email :</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" name="c_mail" type="text" id="c_mail" onKeyUp="chkkabuse(this.id);" value="Liza@gmail.com">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="checkbox-inline pedit">
+                                            <input type="checkbox" name="hide_mail" id="hide_mail" value="1" /><label for="hide_mail" class="pdl5">Hide view</label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Contact Website	:</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" name="c_website" type="text" id="c_website" onKeyUp="chkkabuse(this.id);" value="" >
+                                    </div>
+                                </div><!--form-group-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="col-sm-4 pedit"><span class="red-star">*</span>Contact Address :</label>
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" onKeyUp="chkkabuse(this.id);" name="c_address" id="c_address" rows="3">cbfdgdfgds</textarea>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label class="checkbox-inline pedit">
+                                            <input type="checkbox" name="hide_address" id="hide_address"  value="1" style="vertical-align:middle;" /> <label for="hide_address" style="vertical-align:middle;" class="pdl5">Hide view</label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--form-group-->
+
+                            <div class="col-md-9" >
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Details :</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="c_details" id="c_details" onKeyUp="chkkabuse(this.id);" onBlur="chk_length(this.value,'2000');" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div><!--col-md-6-->
+
+                            <!--col-md-6-->
+                        </div>
+                        <div class="row" >
+                            <div class="top-emp-center">
+                                <h4>Candidate Profile</h4>
+                            </div><br />
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Candidate Description :</label>
+                                    <div class="col-sm-8">
+                                        <textarea name="candidate_desc" id="candidate_desc" onKeyUp="chkkabuse(this.id);" onBlur="chk_length(this.value,'2000');" class="form-control" rows="3"></textarea>
+                                    </div>
+                                </div><!--form-group-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Experience :  </label>
+                                    <div class="col-sm-2">
+                                        <select name="ex_from" class="sub_heading2" id="ex_from" style="">
+                                            <option value="" selected="selected">Year</option>
+                                            <option value="0" selected="selected">
+                                                0										</option>
+                                            <option value="1" >
+                                                1										</option>
+                                            <option value="2" >
+                                                2										</option>
+                                            <option value="3" >
+                                                3										</option>
+                                            <option value="4" >
+                                                4										</option>
+                                            <option value="5" >
+                                                5										</option>
+                                            <option value="6" >
+                                                6										</option>
+                                            <option value="7" >
+                                                7										</option>
+                                            <option value="8" >
+                                                8										</option>
+                                            <option value="9" >
+                                                9										</option>
+                                            <option value="10" >
+                                                10										</option>
+                                            <option value="11" >
+                                                11										</option>
+                                            <option value="12" >
+                                                12										</option>
+                                            <option value="13" >
+                                                13										</option>
+                                            <option value="14" >
+                                                14										</option>
+                                            <option value="15" >
+                                                15										</option>
+                                            <option value="16" >
+                                                16										</option>
+                                            <option value="17" >
+                                                17										</option>
+                                            <option value="18" >
+                                                18										</option>
+                                            <option value="19" >
+                                                19										</option>
+                                            <option value="20" >
+                                                20										</option>
+                                            <option value="21" >
+                                                21										</option>
+                                            <option value="22" >
+                                                22										</option>
+                                            <option value="23" >
+                                                23										</option>
+                                            <option value="24" >
+                                                24										</option>
+                                            <option value="25" >
+                                                25										</option>
+                                            <option value="26" >
+                                                26										</option>
+                                            <option value="27" >
+                                                27										</option>
+                                            <option value="28" >
+                                                28										</option>
+                                            <option value="29" >
+                                                29										</option>
+                                            <option value="30" >
+                                                30										</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1" style="float:left !important;">Year</div>
+                                    <div class="col-sm-2">
+                                        <select name="exp_to" class="text1" id="exp_to" style="">
+                                            <option value="" selected="selected"></option>
+                                            <option value="0" selected="selected">
+                                                0										</option>
+                                            <option value="1" >
+                                                1										</option>
+                                            <option value="2" >
+                                                2										</option>
+                                            <option value="3" >
+                                                3										</option>
+                                            <option value="4" >
+                                                4										</option>
+                                            <option value="5" >
+                                                5										</option>
+                                            <option value="6" >
+                                                6										</option>
+                                            <option value="7" >
+                                                7										</option>
+                                            <option value="8" >
+                                                8										</option>
+                                            <option value="9" >
+                                                9										</option>
+                                            <option value="10" >
+                                                10										</option>
+                                            <option value="11" >
+                                                11										</option>
+                                            <option value="12" >
+                                                12										</option>
+                                            <option value="13" >
+                                                13										</option>
+                                            <option value="14" >
+                                                14										</option>
+                                            <option value="15" >
+                                                15										</option>
+                                            <option value="16" >
+                                                16										</option>
+                                            <option value="17" >
+                                                17										</option>
+                                            <option value="18" >
+                                                18										</option>
+                                            <option value="19" >
+                                                19										</option>
+                                            <option value="20" >
+                                                20										</option>
+                                            <option value="21" >
+                                                21										</option>
+                                            <option value="22" >
+                                                22										</option>
+                                            <option value="23" >
+                                                23										</option>
+                                            <option value="24" >
+                                                24										</option>
+                                            <option value="25" >
+                                                25										</option>
+                                            <option value="26" >
+                                                26										</option>
+                                            <option value="27" >
+                                                27										</option>
+                                            <option value="28" >
+                                                28										</option>
+                                            <option value="29" >
+                                                29										</option>
+                                            <option value="30" >
+                                                30										</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1" >Year</div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Qualification :</label>
+                                    <div class="col-sm-8">
+                                        <!-- <textarea class="form-control" rows="3"></textarea>-->
+                                        <!--<select name='qualification[]' multiple="multiple" class="form-control" style="">
+                                        <option value="">Select </option>
+                                            <optgroup label="****Under Graduation***">
+                                                                                    <option value="B.E/ B. Tech"> B.E/ B. Tech </option>
+                                                                                    <option value="mm"> mm </option>
+                                                                                    <option value="B.Sc"> B.Sc </option>
+                                                                                    <option value="Diplomo"> Diplomo </option>
+                                                                                    <option value="HSC"> HSC </option>
+                                                                                    <option value="SSLC"> SSLC </option>
+                                                                                    <option value="php"> php </option>
+                                                                                    <option value="MBBS"> MBBS </option>
+                                                                                    <option value="BA"> BA </option>
+                                                                                    <option value="B Com"> B Com </option>
+                                                                                    <option value="B Ed"> B Ed </option>
+                                                                                    <option value="BBA"> BBA </option>
+                                                                                    <option value="BAMS"> BAMS </option>
+                                                                                    <option value="BHMS"> BHMS </option>
+                                                                                    <option value="Others"> Others </option>
+                                                                                    <option value="ICMA"> ICMA </option>
+                                                                                    <option value="M.Com"> M.Com </option>
+                                                                                    </optgroup>
+                                            <optgroup label="****Post Graduation***">
+                                                                                    <option value="M.A">
+                                            M.A										</option>
+                                                                                    <option value="M.Arch">
+                                            M.Arch										</option>
+                                                                                    <option value="MBA / PGDM / PGDBA">
+                                            MBA / PGDM / PGDBA										</option>
+                                                                                    <option value="MCA/PGDCA">
+                                            MCA/PGDCA										</option>
+                                                                                    <option value="MCM">
+                                            MCM										</option>
+                                                                                    <option value="M.Com">
+                                            M.Com										</option>
+                                                                                    <option value="M.D/Ms">
+                                            M.D/Ms										</option>
+                                                                                    <option value="M.E/M Tech">
+                                            M.E/M Tech										</option>
+                                                                                    <option value="M.H.R.M">
+                                            M.H.R.M										</option>
+                                                                                    <option value="M.P.Ed">
+                                            M.P.Ed										</option>
+                                                                                    <option value="M.Pharm">
+                                            M.Pharm										</option>
+                                                                                    <option value="M.Phil">
+                                            M.Phil										</option>
+                                                                                    <option value="M.S.W">
+                                            M.S.W										</option>
+                                                                                    <option value="M.Sc">
+                                            M.Sc										</option>
+                                                                                    <option value="M.T.M">
+                                            M.T.M										</option>
+                                                                                    <option value="CA/ ICWA/ CS">
+                                            CA/ ICWA/ CS										</option>
+                                                                                    <option value="not mentioned">
+                                            not mentioned										</option>
+                                                                                    <option value="Others">
+                                            Others										</option>
+                                                                                    <option value="M.C.S.">
+                                            M.C.S.										</option>
+                                                                                    </optgroup>
+
+
+
+                                            <optgroup label="***Doctorate Qualification***">
+                                                                                    <option value="Ph.D/Doctorate"> Ph.D/Doctorate </option>
+                                                                                    <option value="MPHIL"> MPHIL </option>
+                                                                                    <option value="Other"> Other </option>
+                                                                                    <option value="koss"> koss </option>
+
+                                            </optgroup>
+
+
+
+                                        <optgroup label="***Doctorate Qualification***">
+
+                                                                            <option value="Ph.D/Doctorate" > Ph.D/Doctorate </option>
+                                                                            <option value="MPHIL" > MPHIL </option>
+                                                                            <option value="Other" > Other </option>
+                                                                            <option value="koss" > koss </option>
+                                                                            </optgroup>
+
+                                        </select>-->
+                                        <div style="border: 1px solid #ccc; padding:5px;
+										height: 300px; width: 370px;
+										overflow: auto;">
+                                            <label>****Under Graduation***</label><br>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="B.E/ B. Tech">B.E/ B. Tech</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="mm">mm</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="B.Sc">B.Sc</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="Diplomo">Diplomo</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="HSC">HSC</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="SSLC">SSLC</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="php">php</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="MBBS">MBBS</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="BA">BA</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="B Com">B Com</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="B Ed">B Ed</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="BBA">BBA</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="BAMS">BAMS</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="BHMS">BHMS</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="Others">Others</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="ICMA">ICMA</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.Com">M.Com</label><br />
+                                            <label>****Post Graduation***</label><br>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.A">&nbsp;M.A										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.Arch">&nbsp;M.Arch										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="MBA / PGDM / PGDBA">&nbsp;MBA / PGDM / PGDBA										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="MCA/PGDCA">&nbsp;MCA/PGDCA										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="MCM">&nbsp;MCM										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.Com">&nbsp;M.Com										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.D/Ms">&nbsp;M.D/Ms										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.E/M Tech">&nbsp;M.E/M Tech										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.H.R.M">&nbsp;M.H.R.M										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.P.Ed">&nbsp;M.P.Ed										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.Pharm">&nbsp;M.Pharm										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.Phil">&nbsp;M.Phil										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.S.W">&nbsp;M.S.W										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.Sc">&nbsp;M.Sc										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.T.M">&nbsp;M.T.M										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="CA/ ICWA/ CS">&nbsp;CA/ ICWA/ CS										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="not mentioned">&nbsp;not mentioned										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="Others">&nbsp;Others										</label><br />
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="M.C.S.">&nbsp;M.C.S.										</label><br />
+                                            <label>****Doctorate Qualification***</label><br>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="Ph.D/Doctorate">&nbsp;Ph.D/Doctorate										</label><br />
+
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="MPHIL">&nbsp;MPHIL										</label><br />
+
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="Other">&nbsp;Other										</label><br />
+
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="qualification" name="qualification[]" style="display:inline" value="koss">&nbsp;koss										</label><br />
+
+
+                                        </div>
+                                    </div>
+                                </div><!--col-md-6-->
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit">Time sheet upload :</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" type="file" name="timesheet" id="timesheet" >
+                                    </div>
+                                </div><!--form-grouponChange="checkfiletype(this.value);"-->
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"><input type="submit" class="btn-blue pdng-btn1 btn" name="save" id="save" value="Post Job" onClick="return val();"></div>
+                                    <div class="col-sm-3"><div class="btn-blue pdng-btn1 btn"><a href="emp_postedjobs.html" style="color:#FFF"> Cancel </a></div></div>
+                                </div> <!--col-md-6-->
                             </div>
                         </div>
 
                     </form>
+                    <script language="javascript">
+                        function checkfiletype(val) {
+                            var spearate1=val.split('\\');
+                            var filename=spearate1[spearate1.length-1];
+                            var seperate2=filename.split('.');
+                            var extn1=seperate2[seperate2.length-1];
+                            extn1=extn1.toLowerCase();
+                            //alert(extn1);
+                            if(extn1!="xls" && extn1!="xlsx") {
+                                alert("Please upload Excel file only !!!");
+                                document.getElementById('timesheet').value='';
+                                document.getElementById('timesheet').focus();
+                            }
+                        }
+                    </script>
                 </div><!--col-sm-9-->
             </div><!--row-->
         </div><!-- container -->
@@ -3288,67 +3094,613 @@
 <style>
     .error,.redstar{ color:#F00;   font-size: 12px;}
 </style>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
+      rel="stylesheet" type="text/css" />
+<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"
+      rel="stylesheet" type="text/css" />
+<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+<script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/javascripts/emp/emp.js"> </script>
+<script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/js/calendar_us.js"></script>
+<script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/javascripts/categ.js"> </script>
 
-<script language="javascript">
-    function jsUpload(upload_field)
+<link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/dev.css" />
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<script>
+    /*$(function() {
+      $( "#from_date" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+          $( "#to_date" ).datepicker( "option", "minDate", selectedDate );
+        }
+      });
+      $( "#to_date" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+          $( "#from_date" ).datepicker( "option", "maxDate", selectedDate );
+        }
+      });
+    });*/
+
+</script>
+<script>
+    $(function() {
+        $( "#from_date" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $( "#to_date" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $( "#exp_date" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
+<script>
+
+    function showsub(str)
     {
-//alert(upload_field);
 
-        var re_text = /\.jpg|\.png|\.gif|\.jpeg/i;
+        //alert(str);
 
-        var filename = upload_field.value;
-        //alert(filename);
+        var chks=document.getElementById('location');
+        //var value=document.getElementById('hidsubval').value.split(",");
+        //var hasChecked = false;
+        //alert(chks.length);
+        var temp_city = "";
 
-        if (filename.search(re_text) == -1)
+        for (var i=0; i < chks.length; i++) {
+            //alert(document.getElementById('ddcl-location-i0.'+i).value);
+            //alert(document.getElementById('ddcl-location-i1.'+i).value);
+            if(document.getElementById('ddcl-location-i0.'+i)) {
+                var chkbx0 = document.getElementById('ddcl-location-i0.'+i);
+                //alert(chkbx.checked+" - "+i);
+                if(chkbx0.checked) {
+                    if(temp_city == "") {
+                        temp_city = chkbx0.value;
+                    } else {
+                        temp_city += ","+chkbx0.value;
+                    }
+                    //alert(temp_city);
+                    //alert(chkbx.value);
+                }
+            }
+            if(document.getElementById('ddcl-location-i1.'+i)) {
+                var chkbx1 = document.getElementById('ddcl-location-i1.'+i);
+                if(chkbx1.checked) {
+                    if(temp_city == "") {
+                        temp_city = chkbx1.value;
+                    } else {
+                        temp_city += ","+chkbx1.value;
+                    }
+                    //alert(temp_city);
+                    //alert(chkbx.value);
+                }
+            }
+        }
+        //alert(temp_city);
+        document.getElementById('hidsubval').value=temp_city;
+
+    }
+
+    //function select_limit(ele) {
+
+    //}
+
+
+
+
+    function val()
+    {
+
+        //tinyMCE.triggerSave();
+        var premium = document.r_post_job_frm.premium;
+        //alert(premium);
+        var designation=document.r_post_job_frm.desg;
+
+        var description=document.r_post_job_frm.job_desc;
+
+        var category=document.r_post_job_frm.rcat ;
+
+        //var subcategory=document.r_post_job_frm.sub_cat;
+
+        //var funarea=document.r_post_job_frm.farea;
+
+        var industype=document.r_post_job_frm.industry_type;
+
+        var keywords=document.r_post_job_frm.keywords;
+        //alert(keywords.value);
+        var location=document.r_post_job_frm.hidsubval;
+        var location_org=document.r_post_job_frm.location;
+        var emp_country = document.r_post_job_frm.emp_country;
+        //alert($(".ui-dropdownchecklist-text").innerHTML);
+        //alert(location.value,location_org.value);return false;
+
+        var company_name=document.r_post_job_frm.company_name;
+
+        /*var postal_code=document.r_post_job_frm.postal_code;
+        var intlocation=document.r_post_job_frm.int_location;*/
+
+        var cname=document.r_post_job_frm.c_name;
+
+        var cphone=document.r_post_job_frm.c_phone;
+
+        var cmail=document.r_post_job_frm.c_mail;
+
+        var cwebsite=document.r_post_job_frm.c_website;
+
+        var caddress=document.r_post_job_frm.c_address;
+
+        var from_exp=document.r_post_job_frm.ex_from;
+
+        var to_exp=document.r_post_job_frm.exp_to;
+
+        var candidate_desc=document.r_post_job_frm.candidate_desc;
+
+        var qualification=document.r_post_job_frm.qualification;
+
+        var theurl=cwebsite.value;
+
+        var tomatch= new RegExp("^(www[.]+\|http://|https://){1}([0-9A-Za-z._-]+\)\\.([a-z]{2,5})$");
+
+        var error=0;
+
+
+        if((premium.value=='')||(premium.value==null))
         {
-            alert("File does not have text(jpg, png, gif) extension");
+            alert("Job Post Type should not empty");
+            document.r_post_job_frm.premium.focus();
+            return false;
+        }
+        if((designation.value=='')||(designation.value==null))
+        {
+            alert("Designation should not empty");
+            document.r_post_job_frm.desg.focus();
+            return false;
+        }
 
-            upload_field.form_div.reset();
+        if((description.value=='')||(description.value==null))
+        {
+            alert("Job description should not empty");
+            description.focus();
+            return false;
+        }
+        if((industype.value=='')||(industype.value==null))
+        {
+            alert("Select the industry type");
+            industype.focus();
+            return false;
+        }
+
+        if((category.value=='')||(category.value==null))
+        {
+            alert("Select the Category");
+            rcat.focus();
+            return false;
+        }
+
+        /* if((subcategory.value=='')||(subcategory.value==null))
+        {
+            alert("Select the Sub Category");
+            sub_cat.focus();
+            return false;
+        }*/
+
+
+
+        /*else if((funarea.value=='')||(funarea.value==null))
+        {
+            alert("Select the functional area");
+            funarea.focus();
+            error=1;
+        }
+        */
+
+        /*
+         if(document.getElementById('walkin').checked==true)
+        {
+        if(document.getElementById('from_date').value=='')
+        {
+            alert("Please Choose From Date");
+            document.getElementById('from_date').focus();
+            return false;
+        }
+
+         if(document.getElementById('from_date').value!='')
+        {
+
+            var val = document.getElementById('from_date').value;
+                var s=val.split("/");
+                var d=s[0]+"-"+s[1]+"-"+s[2];
+
+                var mydate=new Date(d);
+                var today=new Date();
+
+                /*if(mydate < today)
+                {
+                alert('Please Choose Future Date');
+                document.getElementById('from_date').focus();
+                return false;
+                }*/
+        /*
+        }
+
+
+         if(document.getElementById('to_date').value=='')
+        {
+            alert("Please Choose To Date");
+            document.getElementById('to_date').focus();
+            return false;
+        }
+
+
+        /*
+        else if(document.getElementById('to_date').value!='')
+        {
+
+            var val1 = document.getElementById('to_date').value;
+                var s1=val1.split("/");
+                var d1=s1[0]+"-"+s1[1]+"-"+s1[2];
+
+                var mydate1=new Date(d);
+                var today1=new Date();
+
+                if(mydate1 <= today1)
+                {
+
+                alert('Please Choose Future Date');
+                document.getElementById('to_date').focus();
+                return false;
+                }
+        }*/
+
+        /*
+         if(document.getElementById('from_date').value!='' && document.getElementById('to_date').value!='')
+        {
+
+         var f_date = document.getElementById('from_date').value;
+            var t_date = document.getElementById('to_date').value;
+                var fs=f_date.split("/");
+                var fd=fs[0]+"-"+fs[1]+"-"+fs[2];
+
+                var ts=t_date.split("/");
+                var tod=ts[0]+"-"+ts[1]+"-"+ts[2];
+
+                var fr_date=new Date(fd);
+                var to_dat=new Date(tod);
+
+                if(fr_date > to_dat)
+                {
+
+                alert('Please Choose from date must be less than to date');
+                document.getElementById('from_date').focus();
+                return false;
+                }
+        }
+        }
+        else
+            {
+            var val = document.getElementById('exp_date').value;
+            var s=val.split("/");
+            var d=s[0]+"-"+s[1]+"-"+s[2];
+
+            var mydate=new Date(d);
+            var today=new Date();
+
+                if((mydate<today))
+                {
+             alert('Job Expiry Date should not be less than today!!');
+                document.getElementById('exp_date').focus();
+                return false;
+                }
+            }
+        */
+
+        if((keywords.value=='')||(keywords.value==null))
+        {
+            alert("Keywords should not empty");
+            keywords.focus();
+            return false;
+        }
+        if((emp_country.value=='')||(emp_country.value==null))
+        {
+            alert("Country should not empty");
+            emp_country.focus();
+            return false;
+        }
+        /*
+        if((location.value=='')||(location.value==null))
+        {
+            alert("Location should not empty");
+            location_org.focus();
+            return false;
+        }*/
+
+        /*else if((postal_code.value=='')||(postal_code.value==null))
+        {
+            alert("Postal code should not empty");
+            postal_code.focus();
+            error=1;
+        }
+
+        else if((intlocation.value=='')||(intlocation.value==null))
+        {
+            alert("Select the international location");
+            intlocation.focus();
+            error=1;
+        }
+        */
+
+        if((company_name.value=='')||(company_name.value==null))
+        {
+            alert("Company Name should not empty");
+            company_name.focus();
+            return false;
+        }
+
+        if((cname.value=='')||(cname.value==null))
+        {
+            alert("Contact Name should not empty");
+            cname.focus();
+            return false;
+        }
+
+        if((cphone.value=='')||(cphone.value==null))
+        {
+            alert("Telephone should not empty");
+            cphone.focus();
+            return false;
+        }
+
+        if(isNaN(cphone.value))
+        {
+            alert("Enter Valid Phone Number");
+            cphone.focus();
+            return false;
+        }
+        if((cmail.value=='')||(cmail.value==null))
+        {
+            alert("Email should not empty");
+            cmail.focus();
+            return false;
+        }
+        if(echeck(cmail.value)==false)
+        {
+            alert("Invalid Email ID");
+            cmail.value=="";
+            cmail.focus();
+            return false;
+
+        }
+
+        if((cwebsite.value == '')||(cwebsite.value == null))
+        {
+            alert("Enter Website URL! example www.example.com");
+            cwebsite.value="";
+            cwebsite.focus();
+            return false;
+        }
+
+        if (!tomatch.test(cwebsite.value))
+        {
+            window.alert("Give Valid Website! example www.example.com");
+            cwebsite.value="";
+            cwebsite.focus();
+            return false;
+        }
+
+        if((caddress.value=='')||(caddress.value==null))
+        {
+            alert("Address should not empty");
+            caddress.focus();
+            return false;
+        }
+        /**/
+        /* if((candidate_desc.value=='')||(candidate_desc.value==null))
+        {
+            alert("Enter the Candidate Description");
+            candidate_desc.focus();
+            return false;
+        }
+        */
+
+        if((from_exp.value=='')||(from_exp.value==null))
+        {
+            alert("Select the from experience");
+            from_exp.focus();
+            return false;
+        }
+
+        if((to_exp.value=='')||(to_exp.value==null))
+        {
+            alert("Select the to experience");
+            to_exp.focus();
+            return false;
+        }
+
+
+        if(parseInt(from_exp.value) > parseInt(to_exp.value))
+        {
+            alert("Check experience");
+            return false;
+        }
+        /*
+         if((qualification.value=='')||(qualification.value==null))
+        {
+            alert("Select the qualification");
+            qualification.focus();
+            return false;
+        }
+        */
+
+        return true;
+
+
+    }
+    function echeck(str)
+    {
+
+        var at="@";
+        var dot=".";
+        var lat=str.indexOf(at);
+        var lstr=str.length;
+        var ldot=str.indexOf(dot);
+        if (str.indexOf(at)==-1){
+
+            return false;
+
+        }
+
+        if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
 
             return false;
         }
 
-        document.form_div.submit();
+        if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+
+            return false;
+        }
+
+        if (str.indexOf(at,(lat+1))!=-1){
+
+            return false;
+        }
+
+        if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+
+            return false;
+        }
+
+        if (str.indexOf(dot,(lat+2))==-1){
+
+            return false;
+        }
+
+        if (str.indexOf(" ")!=-1){
+
+            return false;
+        }
 
         return true;
-
     }
 
-    function stopUpload(res)
+
+    function walkin_date()
     {
-//alert(res); //exit;
-        if(res == 1)
+        document.getElementById('from_date').value='';
+        document.getElementById('to_date').value='';
+        //document.getElementById('exp_date').value='';
+        if(document.getElementById('walkin').checked==true)
         {
-
-            document.getElementById('logo_name').innerHTML = 'Uploaded';
-
-        }
-        else if(res == 3)
-        {
-
-            document.getElementById('logo_name_error').innerHTML = 'Image Larger Then 1MB';
-            document.getElementById('logo1').value = '';
-
+            document.getElementById('walk_date').style.display='block';
+            document.getElementById('expire_date').style.display='none';
         }
         else
         {
+            document.getElementById('walk_date').style.display='none';
+            document.getElementById('expire_date').style.display='block';
+        }
+    }
 
-            document.getElementById('logo_name_error').innerHTML = 'Not Uploaded' ;
-            document.getElementById('logo1').value = '';
+    function chk_length(text,len)
+    {
+//alert(text);
+//alert(len);
+        //var new_txt = text.value;
 
+        //alert(new_txt.length+1);
+        var txt_len = text.length;
+        //alert(txt_len)
+        if(txt_len > len) { //500
+            alert("You Exceeds the Limit of Maximum 2000 Character");
+            new_txt = new_txt.substring(0, len);
+            text.value = new_txt;
+            //alert(new_txt);
+        } else {
+            return true;
+        }
+    }
+
+    function checkpremium()
+    {
+        var preval=document.getElementById("premium").value;
+
+        if(preval!='0')
+        {
+            var val=preval;
+        } else
+        {
+            return false;
         }
 
+        if (window.XMLHttpRequest)
+        {
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                //alert(xmlhttp.responseText);
+                if(xmlhttp.responseText==0)
+                {
+                    document.getElementById("preInfo").innerHTML="<font color='red' style='font-size:12px;'>Job Posting Count exceed !!! <a href='emp_resume_pack.php' style='color:#000066; font-weight:bold;'> Upgrade Membership </a></font>";
+                    document.getElementById('premium').value="";
+                    document.getElementById('premium').focus();
+                }
+                else
+                {
+                    document.getElementById("preInfo").innerHTML="<font color='#009966' style='font-size:12px;'>Job Posting is available</font>";
+                }
+            }
+        }
+        xmlhttp.open("GET","pre-check.php?prmval="+val,true);
+        xmlhttp.send();
+
     }
-</script>
 
-<script type="text/javascript" src="javascripts/emp/emp.js"> </script>
 
-<script>
-    //-------------------------Ajax loading for states-------------//
+    function loadXMLDoc_cities(val){
+        var xmlhttp;
+        if (window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
+        else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById("locations").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","city_ajax_multiple.php?country="+val,true);
+        xmlhttp.send();
+    }
+
+
     function loadXMLDoc(val)
     {
-
-        //alert(val);
+//alert(val);
+        document.getElementById('countryinfo').innerHTML='<img src="images/loading.gif" />';
         var xmlhttp;
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -3362,17 +3714,26 @@
         {
             if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
-                document.getElementById("state1").innerHTML=xmlhttp.responseText;
+                //alert (xmlhttp.responseText);
+                document.getElementById("location1").innerHTML=xmlhttp.responseText;
+
+                document.getElementById('countryinfo').innerHTML='';
+
             }
         }
-        xmlhttp.open("GET","profile_state_ajax.php?country="+val,true);
+        xmlhttp.open("GET","state_ajax.php?country="+val,true);
         xmlhttp.send();
+
+        loadXMLDoc_cities(val);
     }
 
-    //--------------------------Ajax Loading for Cities--------------//
-    function loadcity(cityval)
+
+
+
+    function loadXMLDoc1(val)
     {
-        //alert(cityval);
+//alert(val);
+        document.getElementById('stateInfo').innerHTML='<img src="images/loading.gif" />';
         var xmlhttp;
         if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -3386,45 +3747,20 @@
         {
             if (xmlhttp.readyState==4 && xmlhttp.status==200)
             {
-                document.getElementById("city1").innerHTML=xmlhttp.responseText;
+                //alert (xmlhttp.responseText);
+                document.getElementById("city").innerHTML=xmlhttp.responseText;
+
+                document.getElementById('stateInfo').innerHTML='';
+
             }
         }
-        xmlhttp.open("GET","profile_city_ajax.php?city="+cityval,true);
+        xmlhttp.open("GET","cityajxm.php?state="+val,true);
         xmlhttp.send();
     }
-</script>
 
+    function jobrolee()
+    {
+        $('#functionalinfo').html('<span style="color:#DE1616;">Select functional area to select job role </span>');
+    }
 
-<script type="text/javascript">
-    function div_dis1()
-    {
-//alert("fgd");
-        $("#display1").hide();
-        $("#display11").show();
-        $("#display22").hide();
-        $("#display33").hide();
-        $("#display2").show();
-        $("#display3").show();
-    }
-    function div_dis2()
-    {
-//alert("fgd");
-        $("#display2").hide();
-        $("#display22").show();
-        $("#display11").hide();
-        $("#display33").hide();
-        $("#display1").show();
-        $("#display3").show();
-
-    }
-    function div_dis3()
-    {
-//alert("fgd");
-        $("#display3").hide();
-        $("#display33").show();
-        $("#display11").hide();
-        $("#display22").hide();
-        $("#display1").show();
-        $("#display2").show();
-    }
 </script>
