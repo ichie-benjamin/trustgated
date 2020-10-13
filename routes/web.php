@@ -42,7 +42,12 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
 
 
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');
+    Route::get('/job/{slug}', [JobsController::class, 'view'])->name('jobs.job.view');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::get('/jobs/deleted', [JobsController::class, 'deleted'])->name('jobs.deleted');
+    Route::get('/jobs/restore/deleted/job/{slug}/{id}', [JobsController::class, 'restore'])->name('jobs.restore');
+    Route::post('/jobs/force/delete/{id}', [JobsController::class, 'forceDelete'])->name('jobs.delete');
     Route::resources([
         'jobs' => JobsController::class,
         ]);

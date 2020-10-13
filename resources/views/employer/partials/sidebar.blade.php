@@ -23,7 +23,7 @@
             <div class="inboxa"><a href="#"  >Job Posted Responses</a></div>
             <div class="inboxa"><a href="{{ route('jobs.create') }}" >Post Jobs</a></div>
             <!--<li><a href="#" >Post Jobs to Campuses</a></li> -->
-            <div class="inboxa"><a href="#" >Response Manager</a></div>
+            <div class="inboxa"><a href="{{ route('jobs.index') }}" >Response Manager</a></div>
 
         </div><!--create-job-content-->
 

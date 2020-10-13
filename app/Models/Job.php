@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\AppliedJob;
-use App\Currency;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
@@ -17,7 +15,7 @@ class Job extends Model
     use SoftDeletes;
     use Sluggable;
     use SluggableScopeHelpers;
-    use HasTrixRichText;
+//    use HasTrixRichText;
 
     public function sluggable()
     {
@@ -29,14 +27,9 @@ class Job extends Model
     }
     protected $table = 'jobs';
 
-    /**
-    * The database primary key value.
-    *
-    * @var string
-    */
     protected $primaryKey = 'id';
 
-    protected $with = ['company','type','currency'];
+    protected $with = ['company','type','user'];
 
     protected $appends = ['expired','short_description'];
     protected $fillable = [
@@ -50,7 +43,7 @@ class Job extends Model
                   'is_active',
                   'type_id',
                   'category_id',
-                  'location_id',
+                  'locations',
                   'min_salary',
                   'max_salary',
                   'company_id',
@@ -68,23 +61,14 @@ class Job extends Model
                   'candidate_description',
                   'experience_from',
                   'experience_to',
-                  'qualification',
+                  'qualification','industry_id'
               ];
 
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
+
     protected $dates = [
                'deleted_at','closing_date'
            ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [];
 
     public function getExpiredAttribute(){
@@ -95,6 +79,24 @@ class Job extends Model
         }
     }
 
+    public function setLocationsAttribute($value)
+    {
+        $this->attributes['locations'] = json_encode($value);
+    }
+
+    public function getLocationsAttribute($value){
+        return json_decode($value) ?: [];
+    }
+
+    public function getQualificationAttribute($value){
+        return json_decode($value) ?: [];
+    }
+
+    public function setQualificationAttribute($value)
+    {
+        $this->attributes['qualification'] = json_encode($value);
+    }
+
     public function getShortDescriptionAttribute(){
         $text =  substr($this->description,0,100). '...';
         return strip_tags($text);
@@ -102,7 +104,7 @@ class Job extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
     public function currency()
     {
@@ -113,43 +115,21 @@ class Job extends Model
         return $this->hasMany(AppliedJob::class,'job_id');
     }
 
-
-
-    /**
-     * Get the type for this model.
-     *
-     * @return App\Models\Type
-     */
     public function type()
     {
         return $this->belongsTo('App\Models\Type','type_id');
     }
 
-    /**
-     * Get the category for this model.
-     *
-     * @return App\Models\Category
-     */
     public function category()
     {
         return $this->belongsTo('App\Models\JobCategory','category_id');
     }
 
-    /**
-     * Get the location for this model.
-     *
-     * @return App\Models\Location
-     */
     public function location()
     {
         return $this->belongsTo('App\Models\Location','location_id');
     }
 
-    /**
-     * Get the company for this model.
-     *
-     * @return App\Models\Company
-     */
     public function company()
     {
         return $this->belongsTo('App\Models\Company','company_id');
