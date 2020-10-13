@@ -168,6 +168,24 @@
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-chalkboard-teacher tx-22"></i>
+                <span class="menu-item-label"> Job Seekers</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-user-tie tx-22"></i>
+                <span class="menu-item-label"> Recruiters</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-university tx-22"></i>
+                <span class="menu-item-label"> Institute</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
 
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
