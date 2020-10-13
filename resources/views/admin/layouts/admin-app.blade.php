@@ -4,8 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
     <!-- Twitter -->
     <meta name="twitter:site" content="@themepixels">
     <meta name="twitter:creator" content="@themepixels">
@@ -33,11 +31,14 @@
     <title>Afiaanyi Logistics</title>
 
     <!-- vendor css -->
-    <link href="{{ asset('lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">--}}
+{{--    <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/Ionicons/css/ionicons.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/jquery-switchbutton/jquery.switchButton.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('assets/js/all.min.js') }}"></script>
 
     <link href="{{ asset('lib/select2/css/select2.min.css')}}" rel="stylesheet">
     {{-- <link href="{{ asset('lib/rickshaw/rickshaw.min.css') }}" rel="stylesheet">
@@ -71,6 +72,7 @@
 {{-- </div><!-- br-mainpanel --> --}}
 <!-- ########## END: MAIN PANEL ########## -->
 
+
     <script src="{{ asset('lib/jquery/jquery.js') }}"></script>
     <script src="{{ asset('lib/popper.js/popper.js') }}"></script>
     <script src="{{ asset('lib/bootstrap/bootstrap.js') }}"></script>
@@ -79,6 +81,7 @@
     <script src="{{ asset('lib/jquery-ui/jquery-ui.js') }}"></script>
     <script src="{{ asset('lib/jquery-switchbutton/jquery.switchButton.js') }}"></script>
     <script src="{{ asset('lib/peity/jquery.peity.js') }}"></script>
+
     {{-- <script src="{{ asset('lib/select2/js/select2.min.js') }}"></script> --}}
 
     {{-- <script src="{{ asset('lib/chartist/chartist.js') }}"></script>
