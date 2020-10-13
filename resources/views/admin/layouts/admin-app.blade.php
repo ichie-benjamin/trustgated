@@ -47,6 +47,17 @@
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{ asset('css/bracket.css') }}">
 
+    <style>
+        .br-menu-item {
+            height: 30px;
+            letter-spacing: 0.1px;
+            font-size: .65rem;
+        }
+        .br-menu-item .svg-inline--fa{
+            width: 1.05em!important;
+        }
+    </style>
+
 
 </head>
 
