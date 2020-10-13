@@ -31,7 +31,7 @@ class Job extends Model
 
     protected $with = ['company','type','user'];
 
-    protected $appends = ['expired','short_description'];
+    protected $appends = ['expired','short_description','status'];
     protected $fillable = [
                   'title',
                   'slug',
@@ -86,6 +86,18 @@ class Job extends Model
 
     public function getLocationsAttribute($value){
         return json_decode($value) ?: [];
+    }
+
+    public function getStatusAttribute(){
+        if($this->is_active){
+            if($this->is_disabled){
+                return 'disabled';
+            }else{
+                return 'Active';
+            }
+        }else {
+            return 'Pending verification';
+        }
     }
 
     public function getQualificationAttribute($value){

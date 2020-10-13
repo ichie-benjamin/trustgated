@@ -46,6 +46,7 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::get('/jobs/deleted', [JobsController::class, 'deleted'])->name('jobs.deleted');
+    Route::get('/jobs/toggle/disabled/{slug}', [JobsController::class, 'toggleDisabled'])->name('jobs.toggle_disabled');
     Route::get('/jobs/restore/deleted/job/{slug}/{id}', [JobsController::class, 'restore'])->name('jobs.restore');
     Route::post('/jobs/force/delete/{id}', [JobsController::class, 'forceDelete'])->name('jobs.delete');
     Route::resources([

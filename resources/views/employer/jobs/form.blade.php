@@ -81,7 +81,7 @@
         <div class="form-group">
             <label  class="col-sm-4 pedit"><span class="red-star">*</span>Functional area :</label>
             <div class="col-sm-8">
-                <select class="form-control" name="functional_area" id="" required>
+                <select class="form-control select" name="functional_area" id="functional_area" required>
                     <option value="" > -- Select Category -- </option>
                     <option value="340" >Accessory Designer</option>
                     <option value="99" >Accountant</option>
@@ -376,7 +376,7 @@
         <div class="form-group">
             <label  class="col-sm-4 pedit"><span class="red-star">*</span>Country :</label>
             <div class="col-sm-8">
-                <select required class="form-control" name="country" id="country">
+                <select required class="form-control select" name="country" id="country">
                     <option value="">Select Country</option>
                     <option value="Bangladesh" > Bangladesh </option>
                     <option value="India" > India </option>
@@ -390,7 +390,7 @@
         <div class="form-group">
             <label  class="col-sm-4 pedit"><span class="red-star">*</span>job locations :</label>
             <div class="col-sm-8">
-                <select required name="locations[]" id='locations' class="form-control" style='height:260px;' multiple>
+                <select required name="locations[]" id='locations' multiple="multiple" class="form-control select">
                     <option value="">Select Location</option>
                     <option value="1">Agartala</option>
                     <option value="2">Ahmadabad</option>
@@ -787,6 +787,7 @@
                 </select>
             </div>
             <div class="col-sm-1" style="float:left !important;">Year</div>
+            <div class="col-sm-1">To</div>
             <div class="col-sm-2">
                 <select required name="experience_to" class="text1" id="exp_to" style="">
                     <option value="" selected="selected"></option>
@@ -959,4 +960,17 @@
         </div><!--col-md-6-->
     </div>
 </div>
+
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.select').select2();
+        });
+    </script>
+@endsection
+
+@section('style')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 
