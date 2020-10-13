@@ -89,8 +89,8 @@
                                         <li  class="active"  ><a href="{{ route('employer.profile') }}"><i class="fa fa-user"></i> Profile</a></li>
                                         <li ><a href="#"><i class="fa fa-users"></i> Find Candidate</a></li>
                                         <li ><a href="#"><i class="fa fa-university"></i> Resume Access</a></li>
-                                        <li ><a href="#"><i class="fa fa-globe"></i> Post Job</a></li>
-                                        <li  ><a href="#"><i class="fa fa-briefcase"></i> Posted Job List</a></li>
+                                        <li ><a href="{{ route('jobs.create') }}"><i class="fa fa-globe"></i> Post Job</a></li>
+                                        <li  ><a href="{{ route('jobs.index') }}"><i class="fa fa-briefcase"></i> Posted Job List</a></li>
                                         <li ><a href="#"><i class="icon-user4"></i> Transaction List</a></li>
                                         <!--<li><a href="faq.html">Help / FAQ</a></li>-->
 

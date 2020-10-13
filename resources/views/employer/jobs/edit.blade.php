@@ -7,28 +7,21 @@
     <div id="content">
         <div class="container">
             <div class="row">
+                @if ($errors->any())
 
-                @if(session()->has('message'))
-                    <div class="alert alert-success">
-                        {{ session()->get('message') }}
-                    </div>
+                    <ul class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 @endif
-
-                    @if ($errors->any())
-
-                        <ul class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
 
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="{{ route('employer.profile') }}">My Account</a></li>
-                        <li class="active">Post Job</li>
+                        <li class="active">Edit {{ $job->title }}</li>
                     </ol>
                 </div>
 
@@ -50,7 +43,7 @@
                             <div class="col-sm-12">
                                 <div class="col-sm-6">
                                     <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"><input type="submit" class="btn-blue pdng-btn1 btn" value="Post Job"></div>
+                                    <div class="col-sm-3"><input type="submit" class="btn-blue pdng-btn1 btn" value="Update Job"></div>
                                     <div class="col-sm-3"><div class="btn-blue pdng-btn1 btn"><a href="{{ route('jobs.create') }}" style="color:#FFF"> Cancel </a></div></div>
                                 </div> <!--col-md-6-->
                             </div>

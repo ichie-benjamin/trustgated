@@ -60,6 +60,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+    @yield('css')
 
     <style>
 
@@ -95,6 +96,10 @@
             position: relative;
             color: #027BC4;
 
+        }
+
+        .help-block{
+            color: red!important;
         }
         /*  ul.acc li a:after {
             text-align: center;

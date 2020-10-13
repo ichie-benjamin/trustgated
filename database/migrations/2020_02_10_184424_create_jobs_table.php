@@ -20,10 +20,11 @@ class CreateJobsTable extends Migration
             $table->text('description')->nullable();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->boolean('is_active')->default(0);
+            $table->boolean('is_disabled')->default(0);
             $table->integer('type_id')->unsigned()->index();
             $table->integer('industry_id')->unsigned()->index();
-            $table->integer('category_id')->unsigned()->index();
-            $table->integer('location_id')->unsigned()->index();
+            $table->integer('category_id')->nullable();
+            $table->text('locations')->nullable();
             $table->string('min_salary');
             $table->string('max_salary');
             $table->integer('company_id')->unsigned()->nullable()->index();
@@ -37,7 +38,6 @@ class CreateJobsTable extends Migration
             $table->string('functional_area')->nullable();
             $table->string('job_role_id')->nullable();
             $table->string('country')->nullable();
-            $table->integer('location_id')->nullable()->change();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('address')->nullable();

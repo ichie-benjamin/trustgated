@@ -111,9 +111,19 @@ class JobsController extends Controller
 
     public function index()
     {
+        $title = 'Successfully Job Posted!';
         $jobs = Job::with('user','type','category','location','company')->whereUserId(auth()->user()->id)->latest()->paginate(25);
 
-        return view('jobs.index', compact('jobs'));
+        return view('employer.jobs.index', compact('jobs','title'));
+    }
+
+    public function deleted()
+    {
+        $jobs = Job::withTrashed()->whereUserId(auth()->user()->id)->latest()->paginate(25);
+
+        $title = 'Deleted Jobs';
+
+        return view('employer.jobs.index', compact('jobs','title'));
     }
 
     public function create(Request $request)
@@ -139,28 +149,23 @@ if(!$companies){
 //        try {
 
             $data = $this->getData($request);
-        $data['description'] = request('job-trixFields.description');
-        $data['attachment-job-trixFields'] =  request('attachment-job-trixFields');
-        if(strlen($data['description']) < 30){
-            return response()->json('Job description must be at least 20 character', 404);
-        }
+//        $data['description'] = request('job-trixFields.description');
+//        $data['attachment-job-trixFields'] =  request('attachment-job-trixFields');
+//        if(strlen($data['description']) < 30){
+//            return response()->json('Job description must be at least 20 character', 404);
+//        }
             $job = Job::create($data);
 
-        DB::table('trix_rich_texts')->insert([
-            'model_type' => 'App\Models\Job',
-            'model_id' => $job->id,
-            'field' => 'description',
-            'content' => request('job-trixFields.description')
-        ]);
+//        DB::table('trix_rich_texts')->insert([
+//            'model_type' => 'App\Models\Job',
+//            'model_id' => $job->id,
+//            'field' => 'description',
+//            'content' => request('job-trixFields.description')
+//        ]);
 
-
-        $request->session()->flash('message', 'Job successfully posted, awaiting admin verification');
-            $request->session()->flash('message-type', 'success');
-            $data['url'] = route('jobs.upgrade', $job->id);
-            $data['id'] = $job->id;
-
-            return response()->json($data, 200);
-
+        return redirect()->route('jobs.index')
+            ->with('success_message', 'Job successfully posted, awaiting admin verification.');
+        
     }
 
     public function candidates($id){
@@ -169,19 +174,19 @@ if(!$companies){
         return view('jobs.manage_candidates',compact('applied','job'));
     }
 
-    /**
-     * Display the specified job.
-     *
-     * @param int $id
-     *
-     * @return Illuminate\View\View
-     */
-    public function show($id)
+    public function show($slug)
     {
-        $job = Job::with('user','type','category','location','company')->findOrFail($id);
+        $job = Job::findBySlugOrFail($slug);
 
-        return view('jobs.show', compact('job'));
+        return view('employer.jobs.show', compact('job'));
     }
+
+    public function view($slug)
+    {
+        $job = Job::with('user','type','category','location','company')->findBySlugOrFail($slug);
+        return view('employer.jobs.show', compact('job'));
+    }
+
     public function showApply($slug)
     {
         $find = Job::findBySlugOrFail($slug);
@@ -197,25 +202,18 @@ if(!$companies){
      *
      * @return Illuminate\View\View
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $job = Job::findOrFail($id);
-$types = Type::pluck('name','id')->all();
-$categories = JobCategory::pluck('name','id')->all();
+
+        $job = Job::findBySlugOrFail($slug);
+//$types = Type::pluck('name','id')->all();
+//$categories = JobCategory::pluck('name','id')->all();
 //$locations = Location::pluck('name','id')->all();
 $companies = Company::pluck('name','id')->all();
 
-        return view('jobs.edit', compact('job','types','categories','companies'));
+        return view('employer.jobs.edit', compact('job','companies'));
     }
 
-    /**
-     * Update the specified job in the storage.
-     *
-     * @param int $id
-     * @param Illuminate\Http\Request $request
-     *
-     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
-     */
     public function update($id, Request $request)
     {
             $data = $this->getData($request);
@@ -244,20 +242,14 @@ $companies = Company::pluck('name','id')->all();
         return response()->json($data, 200);
     }
 
-    /**
-     * Remove the specified job from the storage.
-     *
-     * @param int $id
-     *
-     * @return Illuminate\Http\RedirectResponse | Illuminate\Routing\Redirector
-     */
+
     public function destroy($id)
     {
         try {
             $job = Job::findOrFail($id);
             $job->delete();
 
-            return redirect()->route('jobs.job.index')
+            return redirect()->route('jobs.index')
                 ->with('success_message', 'Job was successfully deleted.');
         } catch (Exception $exception) {
 
@@ -266,24 +258,47 @@ $companies = Company::pluck('name','id')->all();
         }
     }
 
+    public function restore($slug, $id){
+        $deleted = Job::withTrashed()->whereSlug($slug)->first();
+        if($deleted){
+            $job = Job::withTrashed()->findOrFail($id);
+            $job->restore();
+            return redirect()->route('jobs.index')
+                ->with('success_message', 'Job was successfully restored from trash.');
+        }else {
+            return redirect()->route('jobs.index')
+                ->with('unexpected_error', 'Something went wrong.');
+        }
 
-    /**
-     * Get the request's data from the request.
-     *
-     * @param Illuminate\Http\Request\Request $request
-     * @return array
-     */
+    }
+
+    public function forceDelete($id)
+    {
+        try {
+            $job = Job::withTrashed()->findOrFail($id);
+            $job->forceDelete();
+
+            return redirect()->route('jobs.index')
+                ->with('success_message', 'Job was successfully deleted from trashed and cant be restored.');
+        } catch (Exception $exception) {
+
+            return back()->withInput()
+                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+        }
+    }
+
+
     protected function getData(Request $request)
     {
         $rules = [
-                'title' => 'string|min:1|max:255|required',
+            'title' => 'string|min:1|max:255|required',
             'slug' => 'string|min:1|nullable',
             'description' => 'nullable',
             'user_id' => 'nullable',
             'is_active' => 'boolean|nullable',
             'type_id' => 'required',
-            'category_id' => 'required',
-            'location_id' => 'nullable',
+            'category_id' => 'nullable',
+            'locations' => 'nullable',
             'min_salary' => 'required|string|min:1',
             'max_salary' => 'required|string|min:1',
             'company_id' => 'required',
@@ -297,11 +312,23 @@ $companies = Company::pluck('name','id')->all();
             'city' => 'string|min:1|nullable',
             'state' => 'string|min:1|nullable',
             'address' => 'string|min:10|required',
+            'type_id',
+'industry_id' => 'required',
+'job_to'  => 'nullable',
+'functional_area' => 'nullable',
+'job_role_id' => 'nullable',
+'candidate_description' => 'nullable',
+'experience_from' => 'nullable',
+'experience_to' => 'nullable',
+'qualification' => 'nullable',
+'currency_id' => 'nullable',
         ];
 
         $data = $request->validate($rules);
 
         $data['is_active'] = false;
+        $data['category_id'] = $data['industry_id'];
+        $data['location_id'] = $data['industry_id'];
         $data['user_id'] = auth()->user()->id;
         $data['is_apply_here'] = true;
 
