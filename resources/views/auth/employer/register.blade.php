@@ -73,7 +73,9 @@
                             <div class="form-group">
                                 <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span> Password : </label>
                                 <div class="col-sm-4">
-                                    <input name="password" type="password" id="password" class="form-control">
+                                    <input name="password" type="password" id="password"  onKeyUp="checkPasswordStrength();" class="form-control">
+                                    <span id="password-strength-status" style="color:#FF0000;  font-size:10px; font-style:italic"></span>
+
 
                                 </div><div id="passLabel" class="floaterror"></div>
                             </div><!--form-group-->
@@ -382,7 +384,7 @@
                                     <span class="regi5"><a href="https://support.google.com/recaptcha/?hl=en#6080904" target="_blank"> What is this ?</a> </span>
                                 </div> <!--form-group-->
                                 <div class="form-group">
-                                    <input class="btn-blue btn bc"  onclick="return requestvalidation();" name="submit" value="Submit" type="submit" >
+                                    <input class="btn-blue btn bc submit"  onclick="return requestvalidation();" name="submit" value="Submit" type="submit" >
                                 </div> <!--form-group-->
 
                             </form>
