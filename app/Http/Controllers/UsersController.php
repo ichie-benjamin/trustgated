@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
+use App\Rules\MatchOldPassword;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,27 +22,23 @@ class UsersController extends Controller
 
     public function updatePassword(Request $request){
 
-//        $validator = Validator::make($request->all(), [
-//            'password' => 'alpha_num|min:6'
-//        ]);
-//
-//        if ($validator->fails()) {
-//            return 'failed';
-//        }
-
         $request->validate([
             'password' => [
                 'required',
                 'string',
                 'confirmed',
-                'min:10',             // must be at least 10 characters in length
+                'min:6',             // must be at least 10 characters in length
                 'regex:/[a-z]/',      // must contain at least one lowercase letter
                 'regex:/[A-Z]/',      // must contain at least one uppercase letter
                 'regex:/[0-9]/',      // must contain at least one digit
                 'regex:/[@$!%*#?&]/', // must contain a special character
             ],
+            'current_password' => ['required', new MatchOldPassword],
         ]);
-       return back();
+
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
+
+       return back()->with('success_message','Password succesfully changed');
     }
 
     public function editSummary()

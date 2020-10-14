@@ -115,7 +115,7 @@
     <div class="page-content">
 		<!-- Section Banner -->
 
-		<div class="dez-bnr-inr dez-bnr-inr-md" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/slider-1598937228.);">
+		<div class="dez-bnr-inr dez-bnr-inr-md" style="background-image:url(/images/slider-1598937228.);">
             <div class="container">
                 <div class="dez-bnr-inr-entry align-m padb-130">
 					<div class="find-job-bx">
@@ -317,7 +317,7 @@
             <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" class="img-responsive" alt="">
+			 <img src="/company_logo/1437486045.jpg" class="img-responsive" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
@@ -342,7 +342,7 @@
             <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" class="img-responsive" alt="">
+			 <img src="/company_logo/com-6.jpg" class="img-responsive" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
@@ -367,7 +367,7 @@
             <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1391518038.png" class="img-responsive" alt="">
+			 <img src="/company_logo/1391518038.png" class="img-responsive" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
@@ -392,7 +392,7 @@
             <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1391517965.jpg" class="img-responsive" alt="">
+			 <img src="/company_logo/1391517965.jpg" class="img-responsive" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
@@ -417,7 +417,7 @@
             <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" class="img-responsive" alt="">
+			 <img src="/company_logo/1437486045.jpg" class="img-responsive" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
@@ -442,7 +442,7 @@
             <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-2.jpg" class="img-responsive" alt="">
+			 <img src="/company_logo/com-2.jpg" class="img-responsive" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
@@ -481,7 +481,7 @@
 				<div class="row">
 									<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
 						<a href="#jobsearch_all.php?cityfav=Baisi">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic1.jpg)">
+							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic1.jpg)">
 								<div class="city-info">
 									<h5>Baisi</h5>
 									<span>1 Jobs</span>
@@ -491,7 +491,7 @@
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
 						<a href="#jobsearch_all.php?cityfav=Serchhip">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic2.jpg)">
+							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic2.jpg)">
 								<div class="city-info">
 									<h5>Serchhip</h5>
 									<span>1 Jobs</span>
@@ -501,7 +501,7 @@
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
 						<a href="#jobsearch_all.php?cityfav=Bastar">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic3.jpg)">
+							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic3.jpg)">
 								<div class="city-info">
 									<h5>Bastar</h5>
 									<span>1 Jobs</span>
@@ -511,7 +511,7 @@
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
 						<a href="#jobsearch_all.php?cityfav=Jorethang">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic4.jpg)">
+							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic4.jpg)">
 								<div class="city-info">
 									<h5>Jorethang</h5>
 									<span>1 Jobs</span>
@@ -521,7 +521,7 @@
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
 						<a href="#jobsearch_all.php?cityfav=Gopalasamudram">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic5.jpg)">
+							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic5.jpg)">
 								<div class="city-info">
 									<h5>Gopalasamudram</h5>
 									<span>1 Jobs</span>
@@ -531,7 +531,7 @@
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
 						<a href="#jobsearch_all.php?cityfav=Ponda%20City">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic6.jpg)">
+							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic6.jpg)">
 								<div class="city-info">
 									<h5>Ponda City</h5>
 									<span>1 Jobs</span>
@@ -541,7 +541,7 @@
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
 						<a href="#jobsearch_all.php?cityfav=Barbil">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic7.jpg)">
+							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic7.jpg)">
 								<div class="city-info">
 									<h5>Barbil</h5>
 									<span>1 Jobs</span>
@@ -551,7 +551,7 @@
 					</div>
 														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
 						<a href="#jobsearch_all.php?cityfav=Nongpoh">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/city/pic8.jpg)">
+							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic8.jpg)">
 								<div class="city-info">
 									<h5>Nongpoh</h5>
 									<span>1 Jobs</span>
@@ -571,7 +571,7 @@
 			     <div class="jp_register_section_main_wrapper">
                                 <div class="jp_regis_left">
                                     <div class="left_side_box">
-									                                         <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/regis_icon.png" alt="icon">
+									                                         <img src="/assets/images/regis_icon.png" alt="icon">
 
 										<h4>Im an EMPLOYER</h4>
 <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>                                        <ul>
@@ -582,7 +582,7 @@
                                 <div class="jp_regis_right">
                                     <div class="right_img_overlay"></div>
                                     <div class="right_side_box">
-									                                        <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/regis_icon2.png" alt="icon">
+									                                        <img src="/assets/images/regis_icon2.png" alt="icon">
                                         <h4>Im an candidate</h4>
                                         <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>
 
@@ -784,7 +784,7 @@
 						 <div class="clearfix"></div>
 						 						 <div class="candidates-are-sys m-t30">
 								<div class="candidates-bx">
-									<div class="testimonial-pic radius"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/art_photo/1472533219.png" alt="" width="100" height="100"></div>
+									<div class="testimonial-pic radius"><img src="/art_photo/1472533219.png" alt="" width="100" height="100"></div>
 									<div class="testimonial-text">
 										<p><p>"Donec sagittis et massa at rutrum. Proin eleifend nunc interdum tortor malesuada molestie."</p> </p>
 									</div>
@@ -818,7 +818,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=testing%20demo">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1391518038.png" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1391518038.png" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>testing demo</span>
 											</a></li>
@@ -834,7 +834,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=php%20script%20mall">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1391517965.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1391517965.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>php script mall</span>
 											</a></li>
@@ -850,7 +850,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Client%20of%20Antrors%20HR%20Solutions">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Client of Antrors HR Solutions</span>
 											</a></li>
@@ -898,7 +898,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Connectpro%20Management%20Consultants%20Pvt%20Ltd">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Connectpro Management Consulta...</span>
 											</a></li>
@@ -914,7 +914,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Cummins%20India%20Ltd">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Cummins India Ltd </span>
 											</a></li>
@@ -930,7 +930,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Podar%20Education%20Network%20Pvt%20Ltd">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Podar Education Network Pvt Lt...</span>
 											</a></li>
@@ -946,7 +946,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Executive%20Tracks%20Associates%20(P)%20Ltd.">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Executive Tracks Associates (P...</span>
 											</a></li>
@@ -962,7 +962,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Diamond%20Magazines%20P%20Ltd">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Diamond Magazines P Ltd</span>
 											</a></li>
@@ -978,7 +978,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=IP%20INTEGRATED%20SERVICES%20PVT%20LTS">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>IP INTEGRATED SERVICES PVT LTS</span>
 											</a></li>
@@ -994,7 +994,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=OASIS">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>OASIS</span>
 											</a></li>
@@ -1010,7 +1010,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Indian%20Institute%20of%20Management">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Indian Institute of Management</span>
 											</a></li>
@@ -1026,7 +1026,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Inet-Solution">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-2.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/com-2.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Inet-Solution</span>
 											</a></li>
@@ -1042,7 +1042,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Creative%20Hands%20HR%20Consultancy">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Creative Hands HR Consultancy</span>
 											</a></li>
@@ -1058,7 +1058,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=Sphere%20TravelMedia%20&amp;%20Exhibition%20Private%20Limited">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>Sphere TravelMedia & Exhibitio...</span>
 											</a></li>
@@ -1074,7 +1074,7 @@
 											<li><a href="#jobsearch_all.php?cmpy_srch=THE%20HOLIDAYS%20INN">
 												<div class="logo">
 
-												<img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
+												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
 												<span>THE HOLIDAYS INN</span>
 											</a></li>
@@ -1103,7 +1103,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<div class="modal-body row m-a0 clearfix">
-					<div class="col-lg-6 col-md-6 overlay-primary-dark d-flex p-a0" style="background-image:url(http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/background/bg3.jpg);  background-position:center; background-size:cover;">
+					<div class="col-lg-6 col-md-6 overlay-primary-dark d-flex p-a0" style="background-image:url(/assets/images/background/bg3.jpg);  background-position:center; background-size:cover;">
 						<div class="form-info text-white align-self-center">
 							<h3 class="m-b15">Login To You Now</h3>
 							<p class="m-b15">Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the industry.</p>
@@ -1242,43 +1242,30 @@
         </div>
     </footer>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>
-    $( document ).ready(function() {
-        var getval = document.domain;
-        var pass_arg = {get_val:getval};
-        $.ajax({
-          dataType: "json",
-          url: "admin/readajax.php",
-          type: "POST",
-          async : true,
-          data: pass_arg,
-        });
-    });
-    </script>
+        <script src="/assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+
     <!-- Footer END -->
     <!-- scroll top button -->
     <button class="scroltop fa fa-arrow-up" ></button>
 </div>
+</div>
 <!-- JAVASCRIPT FILES ========================================= -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/bootstrap/js/popper.min.js"></script><!-- BOOTSTRAP.MIN JS -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/bootstrap/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/bootstrap-select/bootstrap-select.min.js"></script><!-- FORM JS -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/asset/imagesloaded/asset/imagesloaded.js"></script><!-- IMAGESLOADED -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/masonry/masonry-3.1.4.js"></script><!-- MASONRY -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/masonry/masonry.filter.js"></script><!-- MASONRY -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/plugins/owl-carousel/owl.carousel.js"></script><!-- OWL SLIDER -->
+<script src="/lib/popper.js/popper.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/lib/bootstrap/bootstrap.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="/assets/plugins/bootstrap-select.min.js"></script><!-- FORM JS -->
+<script src="/assets/plugins/jquery.bootstrap-touchspin.js"></script><!-- FORM JS -->
+<script src="/assets/plugins/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="/assets/plugins/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+{{--<script src="/assets/plugins/counter/counterup.min.js"></script><!-- COUNTERUP JS -->--}}
+{{--<script src="/assets/plugins/asset/imagesloaded/asset/imagesloaded.js"></script><!-- IMAGESLOADED -->--}}
+<script src="/assets/plugins/masonry-3.1.4.js"></script><!-- MASONRY -->
+<script src="/assets/plugins/masonry.filter.js"></script><!-- MASONRY -->
+<script src="/assets/plugins/owl.carousel.js"></script><!-- OWL SLIDER -->
 
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
-<script src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/js/dz.ajax.js"></script><!-- CONTACT JS  -->
+<script src="/assets/js/custom1.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src="/assets/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
+{{--<script src="/assets/js/dz.ajax.js"></script><!-- CONTACT JS  -->--}}
+
 </body>
 
-
-<!-- Mirrored from 74.124.215.220/~demolin/demo/entrepreneur_job_portal/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Oct 2020 12:57:19 GMT -->
 </html>

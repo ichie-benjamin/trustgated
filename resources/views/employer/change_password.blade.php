@@ -100,6 +100,14 @@
                             </ul>
                         </div>
                     @endif
+
+
+                    @if(session()->has('success_message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success_message') }}
+                        </div>
+                    @endif
+
                     <form class="form-horizontal m10" method="POST" action="{{ route('update.password') }}">
                         @csrf
 
@@ -108,7 +116,9 @@
                                 <div class="form-group">
                                     <label  class="col-sm-4 pedit"><span class="red-star">*</span>Current Password:</label>
                                     <div class="col-sm-8">
-                                        <input type="password" name="currentpass" class="form-control" required />
+                                        <input type="password" name="current_password" class="form-control" required />
+                                        {!! $errors->first('current_password', '<p class="help-block">:message</p>') !!}
+
                                     </div>
                                 </div><!--col-md-6-->
                             </div>
@@ -116,9 +126,10 @@
                                 <div class="form-group">
                                     <label  class="col-sm-4 pedit"><span class="red-star">*</span>New Password:</label>
                                     <div class="col-sm-8">
-                                        <input type="password" id="password" name="password" class="form-control" required onKeyUp="checkPasswordStrength2();" />&nbsp;
-                                        <span id="password-strength-status" style="color:#FF0000;  font-size:10px; font-style:italic"></span>
+                                        <input type="password" id="password" name="password" class="form-control" required onKeyUp="checkPasswordStrength();" />
                                         {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
+                                        &nbsp;
+                                        <span id="password-strength-status" style="color:#FF0000;  font-size:10px; font-style:italic"></span>
 
                                     </div>
                                 </div>
