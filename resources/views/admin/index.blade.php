@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin-app')
 
-@section('css')
+@section('style')
     <link href="{{ asset('lib/rickshaw/rickshaw.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/chartist/chartist.css') }}" rel="stylesheet">
 @endsection

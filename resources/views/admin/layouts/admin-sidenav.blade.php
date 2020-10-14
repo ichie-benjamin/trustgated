@@ -168,7 +168,83 @@
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-chalkboard-teacher tx-22"></i>
+                <span class="menu-item-label"> Job Seekers</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-user-tie tx-22"></i>
+                <span class="menu-item-label"> Recruiters</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-university tx-22"></i>
+                <span class="menu-item-label"> Institute</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
 
+        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Price Settings</label>
+        <div class="progress ht-5 mg-b-10">
+            <div class="progress-bar bg-purple wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-money-check-alt tx-22"></i>
+                <span class="menu-item-label"> Database Access Price</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-upload tx-24"></i>
+                <span class="menu-item-label"> Job Posting</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <ul class="br-menu-sub nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link">Job Posting</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"> Job Posting Type</a></li>
+        </ul>
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-university tx-22"></i>
+                <span class="menu-item-label"> Traing Institute Plan</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Key Skill</label>
+        <div class="progress ht-5 mg-b-10">
+            <div class="progress-bar bg-danger wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <a href="{{ route('admin.skills.index') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-keycdn tx-22"></i>
+                <span class="menu-item-label"> Key Skills</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Employers Order Mgt</label>
+        <div class="progress ht-5 mg-b-10">
+            <div class="progress-bar bg-danger wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-database tx-22"></i>
+                <span class="menu-item-label"> Database Access</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-user-md tx-22"></i>
+                <span class="menu-item-label"> Job Posting Access</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+
+
+
+
+        <br>
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-power tx-24"></i>
