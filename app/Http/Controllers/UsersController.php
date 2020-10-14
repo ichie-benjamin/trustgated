@@ -19,6 +19,31 @@ class UsersController extends Controller
         return view('auth.jobseeker-reg');
     }
 
+    public function updatePassword(Request $request){
+
+//        $validator = Validator::make($request->all(), [
+//            'password' => 'alpha_num|min:6'
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return 'failed';
+//        }
+
+        $request->validate([
+            'password' => [
+                'required',
+                'string',
+                'confirmed',
+                'min:10',             // must be at least 10 characters in length
+                'regex:/[a-z]/',      // must contain at least one lowercase letter
+                'regex:/[A-Z]/',      // must contain at least one uppercase letter
+                'regex:/[0-9]/',      // must contain at least one digit
+                'regex:/[@$!%*#?&]/', // must contain a special character
+            ],
+        ]);
+       return back();
+    }
+
     public function editSummary()
     {
         return view('pages.edit_objective_det');

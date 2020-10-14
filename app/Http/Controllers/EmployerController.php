@@ -16,4 +16,8 @@ class EmployerController extends Controller
         }
         return view('employer.profile.index', compact('user','company'));
     }
+
+    public function changePassword(){
+        return view('employer.change_password');
+    }
 }

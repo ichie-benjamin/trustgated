@@ -13,7 +13,7 @@
                 <div class="inboxa"><a href="#">Product Settings<!--Resume Pack--></a></div>
                 <div class="inboxa"><a href="#" style="color:#00CCFF"  >Company profile</a></div>
                 <!--<div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_folders.html" >Manage personal folder</a></div>-->
-                <div class="inboxa"><a href="#" >Change Password</a></div>
+                <div class="inboxa"><a href="{{ route('employer.change_password') }}" >Change Password</a></div>
             </div>
             <div class="inbox-bg">Search Resumes</div>
             <div class="inboxa"><a href="#" >Featured Resumes</a></div>
