@@ -10,8 +10,23 @@
                 <li class="active">Employer Registration</li>
             </ol>
 
+
             <div class="row">
+
+
+
                 <div class="col-sm-9" >
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
 
                     <div class="top-emp-center p5">
                         <h4>Employer Registration</h4>
