@@ -28,7 +28,7 @@
     <meta name="author" content="ThemePixels">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Afiaanyi Logistics</title>
+    <title>{{ env('APP_NAME') }}</title>
 
     <!-- vendor css -->
 {{--    <link href="{{ asset('lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">--}}
@@ -43,7 +43,7 @@
     <link href="{{ asset('lib/select2/css/select2.min.css')}}" rel="stylesheet">
     {{-- <link href="{{ asset('lib/rickshaw/rickshaw.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/chartist/chartist.css') }}" rel="stylesheet"> --}}
-    @yield('css')
+    @yield('style')
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{ asset('css/bracket.css') }}">
 
@@ -74,11 +74,7 @@
     <div class="footer-left">
         <div class="mg-b-2">Copyright &copy; 2020. {{ env('APP_NAME') }}. All Rights Reserved.</div>
     </div>
-    <div class="footer-right d-flex align-items-center">
-        <span class="tx-uppercase mg-r-10">Share:</span>
-        <a target="_blank" class="pd-x-5" href="#"><i class="fa fa-facebook tx-20"></i></a>
-        <a target="_blank" class="pd-x-5" href="#"><i class="fa fa-twitter tx-20"></i></a>
-    </div>
+
 </footer>
 {{-- </div><!-- br-mainpanel --> --}}
 <!-- ########## END: MAIN PANEL ########## -->
