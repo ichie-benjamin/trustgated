@@ -7,79 +7,69 @@ use Illuminate\Http\Request;
 
 class IndustryTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+       $industry_types = IndustryType::all();
+       return view('admin.industry-type-list', compact('industry_types'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.industry-type-list');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->getData($request);
+        IndustryType::create($data);
+        return redirect()->back()
+            ->with('success_message', 'Industry Type created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\IndustryType  $industryType
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(IndustryType $industryType)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\IndustryType  $industryType
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(IndustryType $industryType)
+
+    public function edit($id)
     {
-        //
+        $industry_type = IndustryType::findOrFail($id);
+        return view('admin.industry-type-edit', compact('industry_type'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\IndustryType  $industryType
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, IndustryType $industryType)
+    public function update(Request $request, $id)
     {
-        //
+        $industry_type = IndustryType::findOrFail($id);
+        $industry_type->update($this->getData($request));
+        return redirect()->route('admin.industry-type.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\IndustryType  $industryType
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(IndustryType $industryType)
+    public function destroy($id)
     {
-        //
+        $industry_type = IndustryType::findOrFail($id);
+        $industry_type->delete();
+        return redirect()->back()->with('deleted', 'Industry Type Deleted');
+    }
+
+    protected function getData(Request $request){
+        $rules = [
+            'category' => 'required',
+            'meta_title' => 'nullable',
+            'description' => 'nullable',
+            'keywords' => 'nullable',
+            'cat_industry_type' => 'required',
+            'job_type' => 'required',
+        ];
+        return $request->validate($rules);
     }
 }

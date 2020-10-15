@@ -5,6 +5,8 @@ use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\FunctionalAreaController;
+use App\Http\Controllers\IndustryTypeController;
 use App\Http\Controllers\LgaController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\StateController;
@@ -27,6 +29,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'states' => StateController::class,
         'cities' => CityController::class,
         'skills' => SkillsController::class,
+        'countries'         => CountryController::class,
+        'lgas'              => LgaController::class,
+        'states'            => StateController::class,
+        'cities'            => CityController::class,
+        'skills'            => SkillsController::class,
+        'industry-type'     => IndustryTypeController::class,
+        'functional-area'   => FunctionalAreaController::class,
     ]);
 
 });
