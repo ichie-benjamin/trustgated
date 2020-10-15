@@ -14,8 +14,22 @@
 
 
 
+
+
             <div class="row">
                 <div class="col-sm-9" >
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+
                     <div class="well34 well-sm">
                         <div class="row">
                             <div class="col-md-12 weltop padno">Become a Member of {{ env('APP_NAME') }} and find the right job. Create your Profile now.</div>
@@ -62,10 +76,11 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Create a Password for your account: </label>
                                 <div class="col-sm-5">
-                                    <input type="password" name="password" id="password" class="form-control" >
+                                    <input type="password" name="password" id="password" onKeyUp="checkPasswordStrength();" class="form-control" >
                                 </div>
                                 <div>
                                     <span id="passwordInfo"></span>
+                                    <span id="password-strength-status" style="color:#FF0000;  font-size:10px; font-style:italic"></span>
                                 </div>
                             </div><!--form-group-->
                             <div class="form-group">
@@ -722,7 +737,7 @@
                             </div><!--form-group-->
                             <div class="form-group text-center">
                                 <input type="hidden" name="frmsubval" id="frmsubval" value="">
-                                <input name="sub" id="sub" class="btn-blue btn bc " onclick="return validateForm();" value="Join {{ env('APP_NAME') }}" type="button">
+                                <input name="sub" id="sub" class="btn-blue btn bc submit " onclick="return validateForm();" value="Join {{ env('APP_NAME') }}" type="button">
                             </div><!--form-group-->
 
 
@@ -1068,7 +1083,8 @@
                     }
                 }
             }
-            xmlhttp.open("GET","check/email?q="+val,true);
+            // xmlhttp.open("GET","check/email?q="+val,true);
+            xmlhttp.open("GET", "{{ route('check.user','email') }}?q="+val,true);
             xmlhttp.send();
 
         }
@@ -1127,7 +1143,7 @@
                     }
                 }
             }
-            xmlhttp.open("GET","check/username?q="+val,true);
+            xmlhttp.open("GET", "{{ route('check.user','username') }}?q="+val,true);
             xmlhttp.send();
         }
 

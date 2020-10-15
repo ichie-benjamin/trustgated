@@ -19,6 +19,7 @@ Route::resources([
     'users' => UsersController::class,
 ]);
 
+Route::post('/update/password',[UsersController::class, 'updatePassword'])->name('update.password');
 
 
 Route::get('/jobseeker-registeration', [UsersController::class,'jobseekerReg'])->name('jobseeker.reg');
@@ -42,6 +43,7 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
 
 
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');
+    Route::get('/change/password', [EmployerController::class, 'changePassword'])->name('employer.change_password');
     Route::get('/job/{slug}', [JobsController::class, 'view'])->name('jobs.job.view');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 

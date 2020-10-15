@@ -255,15 +255,7 @@
 
                 }
             </script>
-            <style type="text/css">
-                td {
-                    vertical-align:middle;
-                }
-            </style>
-            <link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/dev.css" />
-            <script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/javascripts/emp/emp.js"> </script>
             <!-- SEARCH-start -->
-
             <div class="container hometom">
                 <div class="row">
                     <div class="col-sm-12" >
@@ -323,6 +315,7 @@
                     </div>
                 </div>
             </div>            <!--SEARCH-end -->
+
             <div id="header-bottom" class="hea" >
                 <div class="container">
                     <div class="col-sm-12">
@@ -350,9 +343,6 @@
 
     <!-- HEADER -->
 
-
-
-
     <!-- CONTENT -->
     <div id="content">
         <div class="container">
@@ -360,9 +350,9 @@
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">My Account</a></li>
-                        <!--<li class="active">Sub user Management</li>-->
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="employer-profile-view.php">My Account</a></li>
+                        <li class="active">Change Password</li>
                     </ol>
                 </div>
                 <script type="text/javascript">
@@ -393,13 +383,13 @@
                             <div class="inbox-bg" onclick="return menu_click1();">Administration</div>
                             <!--<div class="inboxa"><a href="#">Product Settings</a></li> -->
                             <div id="show1">
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html"  style="color:#00CCFF" >Manage Sub-Users</a></div>
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html" >Manage Sub-Users</a></div>
                                 <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html" >Subscription Status</a></div>
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resume_pack.html"  >Product Settings<!--Resume Pack--></a></div>
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"  >Company profile</a></div>
                                 <!--<div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_folders.html" >Manage personal folder</a></div>-->
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html" >Change Password</a></div>
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html"  style="color:#00CCFF" >Change Password</a></div>
                             </div>
                             <div class="inbox-bg">Search Resumes</div>
                             <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html?featured=yes" >Featured Resumes</a></div>
@@ -530,196 +520,52 @@
                 /*  accordion End */
 
                 </style>-->
-
                 <!--col-sm-2-->
 
                 <div class="col-md-9" >
                     <div class="top-emp-center">
-                        <h4><!--Sub user Management--></h4>
+                        <h4>Change Password</h4>
                     </div> <!--top-emp-center-->
-                    <div style="color:#009900; padding:5px; font-family:'Times New Roman', Times, serif; font-style:italic;">
+                    <div style="color:#FF0000; padding:5px;">
                     </div>
-                    <div class="col-md-8">
-                        <div class="box radius" style="margin-left:3px; ">
-                            <div class="innerpadding">
-                                <h6 style="margin: 0;">Tittle : New Job</h6>
+                    <form class="form-horizontal m10">
+                        <div class="row" >
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Current Password:</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" name="currentpass" class="form-control" required />
+                                    </div>
+                                </div><!--col-md-6-->
                             </div>
-
-
-
-                            <div class="clear">&nbsp;</div>
-
-                        </div>
-
-                        <div class="clear">&nbsp;</div>
-                        <hr class="noshade">
-
-                        <div class="box radius" style="margin-left: 4px; width:99.3%;">
-                            <div style="padding:9px;">
-                                <h6>Description</h6>
-                                <hr>
-                                <p align="justify">
-                                    Job description		</p>
-                                <table width="100%">
-                                    <tr>
-                                        <td width="25%">
-                                            Role
-                                        </td>
-                                        <td width="74%">
-                                            New Job				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Location
-                                        </td>
-                                        <td width="74%">
-                                            3				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Experience
-                                        </td>
-                                        <td width="74%">
-                                            0-0 YRS				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Functional Area
-                                        </td>
-                                        <td width="74%">
-                                            Accessory Designer				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Qualification
-                                        </td>
-                                        <td width="74%">
-                                            Not Mentioned				</td>
-                                    </tr>
-                                </table>
+                            <div class="col-md-8" >
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>New Password:</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" name="newpass" class="form-control" pattern=".{6,}" required />&nbsp;
+                                        <span style="color:#FF0000; font-size:10px; font-style:italic">Minimum 6 letters</span>
+                                    </div>
+                                </div>
+                            </div><!--col-md-6-->
+                            <div class="col-md-8" >
+                                <div class="form-group">
+                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>New Password again:</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" name="newpass2" class="form-control" required />
+                                    </div>
+                                </div>
                             </div>
+                            <!--col-md-12-->
+
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"><input class="btn-blue btn" name="changepass" value="SAVE" type="submit"></div>
+
+                                </div> <!--col-md-6-->
+                            </div> <!--col-md-12-->
                         </div>
-
-                        <hr class="noshade">
-
-                        <div class="box radius" style="margin-left: 4px; width:99.3%;">
-                            <div style="padding:9px;">
-                                <h6>Company Details</h6>
-                                <hr>
-                                <table width="100%">
-                                    <tr>
-                                        <td width="25%">
-                                            Company Name
-                                        </td>
-                                        <td width="74%">
-                                            inet				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Industry Type
-                                        </td>
-                                        <td width="74%">
-                                            NGO/Social Services				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Website
-                                        </td>
-                                        <td width="74%">
-                                            <a href="http://Not Mentioned" target="_blank">Not Mentioned</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Contact Person
-                                        </td>
-                                        <td width="74%">
-                                            Liza				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Telephone
-                                        </td>
-                                        <td width="74%">
-                                            7856756756				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Address
-                                        </td>
-                                        <td width="74%">
-                                            cbfdgdfgds				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Mail Id
-                                        </td>
-                                        <td width="74%">
-                                            <a href="mailto:Liza@gmail.com?Subject=Enquiry about the job - New Job" target="_blank">Liza@gmail.com</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-                        <hr class="noshade">
-
-                        <div class="box radius" style="margin-left: 4px; width:99.3%;">
-                            <div style="padding:9px;">
-                                <h6>Candidate Information</h6>
-                                <hr>
-                                <p align="justify">
-                                    Not Mentioned		</p>
-                                <table width="100%">
-                                    <tr>
-                                        <td width="25%" valign="top">
-                                            Key Skills
-                                        </td>
-                                        <td width="74%">
-                                            QUICK				</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-                        <hr class="noshade">
-
-                        <div class="box radius" style="margin-left: 4px; width:99.3%;">
-                            <div style="padding:9px;">
-                                <h6>General Information</h6>
-                                <hr>
-                                <table width="100%">
-                                    <tr>
-                                        <td width="25%" valign="top">
-                                            Job Posted
-                                        </td>
-                                        <td width="74%">
-                                            Oct 13,2020				</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="25%" valign="top">
-                                            Post Expires on
-                                        </td>
-                                        <td width="74%">
-                                            Jan 01, 1970				</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-
-                        <hr class="noshade">
-
-                        <div class="box radius" style="margin-left: 4px; width:99.3%;">
-                            <div style="padding:9px; text-align:center;">
-                                <a href="emp_postjob_edit.php?edit_id=31602575081" class="gobtn toosmallbtn" onClick="return confirm('Do you realy want to edit this job ?');">Edit</a>
-                                &nbsp;&nbsp;
-                                <a href="delete_posted_job.php?id=31602575081" class="gobtn toosmallbtn" onClick="return confirm('Do you realy want to delete this job ?');">Delete</a>
-                            </div>
-                        </div>
-
-                        <p>&nbsp;</p>
-                    </div>
+                    </form>
                 </div><!--col-sm-9-->
             </div><!--row-->
         </div><!-- container -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
+use App\Rules\MatchOldPassword;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,27 @@ class UsersController extends Controller
 
     public function jobseekerReg(){
         return view('auth.jobseeker-reg');
+    }
+
+    public function updatePassword(Request $request){
+
+        $request->validate([
+            'password' => [
+                'required',
+                'string',
+                'confirmed',
+                'min:6',             // must be at least 10 characters in length
+                'regex:/[a-z]/',      // must contain at least one lowercase letter
+                'regex:/[A-Z]/',      // must contain at least one uppercase letter
+                'regex:/[0-9]/',      // must contain at least one digit
+                'regex:/[@$!%*#?&]/', // must contain a special character
+            ],
+            'current_password' => ['required', new MatchOldPassword],
+        ]);
+
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
+
+       return back()->with('success_message','Password succesfully changed');
     }
 
     public function editSummary()

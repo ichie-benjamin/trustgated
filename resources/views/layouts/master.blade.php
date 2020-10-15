@@ -440,6 +440,32 @@
     }
 </script>
 <script type="text/javascript">
+
+    function checkPasswordStrength() {
+        $('.submit').attr("disabled", true);
+        var number = /([0-9])/;
+        var alphabets = /([a-zA-Z])/;
+        var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+        if ($('#password').val().length < 6) {
+            $('#password-strength-status').removeClass();
+            $('#password-strength-status').addClass('weak-password');
+            $('#password-strength-status').html("(password should be atleast 6 characters.)");
+        } else {
+            if ($('#password').val().match(number) && $('#password').val().match(alphabets) && $('#password').val().match(special_characters)) {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('strong-password');
+                $('#password-strength-status').html("Strong");
+                $('.submit').attr("disabled", false);
+            } else {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('medium-password');
+                $('#password-strength-status').html("(Password should include alphabets, numbers and special characters.)");
+            }
+        }
+    }
+
+
+
     function jobalertValidate()
     {
         var keywordalert=$('#keywordalert').val();
@@ -530,145 +556,3 @@
 <style>
     .error,.redstar{ color:#F00;   font-size: 12px;}
 </style>
-{{--<script type="text/javascript">--}}
-
-{{--    function addit()--}}
-{{--    {--}}
-
-{{--        document.getElementById('additt').style.display='row';--}}
-
-{{--        //document.getElementById('notice1').style.display='none';--}}
-
-
-{{--    }--}}
-
-{{--    function validateForm1(){--}}
-
-
-{{--        var nameReg = /^[A-Za-z]+$/;--}}
-{{--        var numberReg =  /^[0-9]+$/;--}}
-{{--        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;--}}
-
-{{--        var res_title = $('#res_title').val();--}}
-{{--        var curr_industry = $('#curr_industry').val();--}}
-{{--        var function_area= $('#function_area').val();--}}
-{{--        var role= $('#role').val();--}}
-{{--        var designation1 = $('#designation1').val();--}}
-
-{{--        var annulsal = $('#annulsal').val();--}}
-{{--        var annulsa = $('#annulsa').val();--}}
-{{--        var fromyear = $('#fromyear').val();--}}
-{{--        var frommonth = $('#frommonth').val();--}}
-{{--        var notice = $('#notice').val();--}}
-{{--        var job_profile = $('#job_profile').val();--}}
-{{--        //alert($("#agree").is(':checked'));--}}
-{{--        // var inputVal = new Array(names,address,email,telephone,message,lnames);--}}
-{{--//alert(names);--}}
-{{--        var inputMessage = new Array("Username","Email Address","Password","Confirm password", "Your Full Name","Current Location","City","Mobile Number","Work Experience","Designation","Key Skills","Basic Education","Agree To Terms And Conditions");--}}
-
-{{--        $('.error').hide();--}}
-{{--        var clr=0;--}}
-
-{{--        if(res_title == ""){--}}
-
-{{--            $('#resumeheadInfo').html('<span class="error">Resume Headline is Required</span>');--}}
-{{--            //$('#res_title').focus();--}}
-{{--            clr=1;--}}
-{{--        }--}}
-{{--        if(curr_industry == ""){--}}
-{{--            $('#currentInfo').html('<span class="error">Current Industry is Required</span>');--}}
-{{--            //$('#curr_industry').focus();--}}
-{{--            clr=1;--}}
-{{--        }--}}
-
-{{--        if(function_area == ""){--}}
-{{--            $('#functionalInfo').html('<span class="error">Functional Area is Required</span>');--}}
-{{--            //$('#function_area').focus();--}}
-{{--            clr=1;--}}
-{{--        }--}}
-{{--        if(role == ""){--}}
-{{--            $('#roleInfo').html('<span class="error">Role is Required</span>')--}}
-{{--            //$('#company').focus();--}}
-{{--            clr=1;--}}
-{{--        }--}}
-{{--        /*if(pass != cpass){--}}
-{{--            $('#cpasswordInfo').html('<span class="error">Retype ' + inputMessage[3] + '</span>');--}}
-{{--            $('#confirmpassword').focus();clr=1;--}}
-{{--        }*/--}}
-{{--        /*  if(designation1 == ""){--}}
-
-{{--              $('#desigInfo').html('<span class="error">Designation Required</span>');--}}
-{{--              //$('#designation1').focus();--}}
-{{--          clr=1;--}}
-{{--          } */--}}
-{{--        /*else if(!nameReg.test(names)){--}}
-{{--            $('#nameLabel').html('<span class="error"> Letters only</span>');--}}
-{{--			clr=1;--}}
-{{--        }--}}
-{{--		else if(names.length<=3){--}}
-
-{{--            $('#nameLabel').html('<span class="error">' + inputMessage[0] + ' Should Be atleast 4 characters Long</span>');--}}
-{{--			clr=1;--}}
-{{--        } */--}}
-{{--        if(annulsal == ""){--}}
-
-{{--            $('#salInfo').html('<span class="error"> Annual Salary is Required</span>');--}}
-{{--            //$('#annulsal').focus();--}}
-{{--            clr=1;--}}
-{{--        }--}}
-{{--        /*	if(fromyear == ""){--}}
-
-{{--            $('#durationInfo').html('<span class="error"> Duration is Required</span>');--}}
-{{--            //$('#fromyear').focus();--}}
-{{--            clr=1;--}}
-{{--        }--}}
-{{--        if(frommonth ==""){--}}
-
-{{--            $('#durationInfo').html('<span class="error"> Duration is Required</span>');--}}
-{{--            //$('#frommonth').focus();--}}
-{{--            clr=1;--}}
-{{--        } */--}}
-{{--        /*if(notice == ""){--}}
-{{--        //alert("industry");--}}
-
-{{--            $('#noticeInfo').html('<span class="error">Notice period is Required</span>');--}}
-{{--            //$('#notice').focus();--}}
-{{--            clr=1;--}}
-{{--        } */--}}
-{{--        /* else if(!nameReg.test(lnames)){--}}
-{{--             $('#lnameLabel').html('<span class="error"> Letters only</span>');--}}
-{{--             clr=1;--}}
-{{--         }*/--}}
-
-
-{{--        /* if(job_profile == ""){--}}
-{{--            $('#jobInfo').html('<span class="error">Job Profile Number is Required</span>');--}}
-{{--            //$('#job_profile').focus();--}}
-{{--            clr=1;--}}
-{{--        } */--}}
-
-{{--        if(clr==0)--}}
-{{--        {--}}
-{{--            //alert('ffff');--}}
-
-{{--            document.register1.frmsubvall.value=1;--}}
-{{--            //alert(document.register1.frmsubvall.value);--}}
-
-{{--            document.register1.submit();--}}
-{{--            // alert('ffff');--}}
-{{--            return true;--}}
-{{--            // $('#register').submit();--}}
-{{--        }--}}
-{{--        /* if(clr==0)--}}
-{{--         {--}}
-{{--           //  alert(clr);--}}
-{{--             $('#ckhcartview').fadeIn('slow');--}}
-{{--           //  $('#checkout-heading-mod').show();--}}
-{{--            // $(".checkout-content").slideUp('slow');--}}
-{{--             //document.subfrm.frmsubval.value=1;--}}
-{{--         //document.subfrm.submit();--}}
-{{--         }--}}
-{{--         */--}}
-{{--    }--}}
-{{--    });--}}
-{{--</script>--}}
