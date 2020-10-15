@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
@@ -31,6 +32,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'skills' => SkillsController::class,
         'industry-type'     => IndustryTypeController::class,
         'functional-area'   => FunctionalAreaController::class,
+        'educational-details' => EducationalDetails::class,
     ]);
 
 });

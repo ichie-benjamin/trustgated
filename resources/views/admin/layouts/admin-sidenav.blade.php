@@ -51,7 +51,7 @@
                 <span class="menu-item-label"> Job Location</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.educational-details.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-graduation-cap tx-22"></i>
                 <span class="menu-item-label"> Education Details</span>
