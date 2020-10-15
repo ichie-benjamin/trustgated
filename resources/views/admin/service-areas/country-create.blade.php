@@ -45,7 +45,27 @@
 
             <div class="row mg-t-10">
                 <div class="col-xl-12">
-                    <form action="{{ route('admin.countries.store') }}" method="POST">
+
+                    @if ($errors->any())
+
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+
+                        @if(session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success_message') }}
+                            </div>
+                        @endif
+
+
+                        <form action="{{ route('admin.countries.store') }}" method="POST">
                         @csrf
                     <div class="form-layout form-layout-4">
                         <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Country</h6>

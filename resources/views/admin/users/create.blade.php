@@ -7,7 +7,7 @@
 @section('content')
     <div class="br-mainpanel">
     <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
-        <h4 class="tx-gray-800 mg-b-5">Add Admin User</h4>
+        <h4 class="tx-gray-800 mg-b-5">Add {{ $role }} User</h4>
     </div>
 
     <div class="br-pagebody">
@@ -18,17 +18,28 @@
 
             @include('notification')
 
+                @if ($errors->any())
+
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
             <div class="form-layout form-layout-4">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Admin User</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add {{ $role }} User</h6>
 
                 <form action="{{ route('admin.users.store') }}" method="POST">
                     @csrf
                     <div class="row">
-                    <label class="col-sm-4 form-control-label">Full Name: <span class="tx-danger">*</span></label>
+                    <label class="col-sm-4 form-control-label">First Name: <span class="tx-danger">*</span></label>
                     <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                        <input id="name" type="text" placeholder="Fullname" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="name" type="text" placeholder="First name" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="name" autofocus>
 
-                        @error('name')
+                        @error('first_name')
                             <span class="invalid-feedback" role="alert">
                                 <small><strong>{{ $message }}</strong></small>
                             </span>
@@ -104,8 +115,8 @@
                         <div class="col-sm-8 mg-t-10 mg-sm-t-0">
                         <select name="role" class="form-control select2" data-placeholder="Choose Role" required>
                             <option label="Choose Role"></option>
-                                @foreach ($admin_roles ?? [] as $role)
-                                    <option value="{{ $role }}" @if ($role == old('role')) selected @endif>{{ $role }}</option>
+                                @foreach ($roles ?? [] as $role)
+                                    <option value="{{ $role->id }}" @if ($role->id == old('role')) selected @endif>{{ $role->name }}</option>
                                 @endforeach
                             {{-- <option value="USA">Plan A</option>
                             <option value="UK">Plan B</option> --}}

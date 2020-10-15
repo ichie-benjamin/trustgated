@@ -65,7 +65,7 @@
                             <th class="wd-20p">S/N</th>
                             <th class="wd-40p">Country</th>
                             <th class="wd-40p">Action</th>
-                            <th></th>
+{{--                            <th></th>--}}
                         </tr>
                     </thead>
                     <tbody>

@@ -15,7 +15,7 @@
             <div class="progress-bar bg-danger wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.user.admins') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-users-cog tx-22"></i>
                 <span class="menu-item-label">Administrator</span>
@@ -148,8 +148,8 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="#" class="nav-link"> Employer's Profile</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Employer's Posted Jobs</a></li>
+            <li class="nav-item"><a href="{{ route('admin.user.employers') }}" class="nav-link"> Employer's Profile</a></li>
+            <li class="nav-item"><a href="{{ route('admin.jobs.index') }}" class="nav-link">Employer's Posted Jobs</a></li>
         </ul>
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">

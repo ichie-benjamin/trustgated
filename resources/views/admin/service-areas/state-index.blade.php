@@ -1,49 +1,19 @@
 @extends('admin.layouts.admin-app')
 
 @section('css')
-<link href="{{ asset('lib/highlightjs/github.css') }}" rel="stylesheet">
-<link href="{{ asset('lib/datatables/jquery.dataTables.css') }}" rel="stylesheet">
-<link href="{{ asset('lib/select2/css/select2.min.css') }}" rel="Stylesheet">
+@include('admin.partials.dt-css')
 @endsection
+
 @section('js')
-<script src="{{ asset('lib/highlightjs/highlight.pack.js') }}"></script>
-<script src="{{ asset('lib/datatables/jquery.dataTables.js') }}"></script>
-<script src="{{ asset('lib/datatables-responsive/dataTables.responsive.js') }}"></script>
-
-<script src="{{ asset('lib/select2/js/select2.min.js') }}"></script>
-{{-- <script src="http://localhost/afiaanyi-logistics/js/bracket.js"></script> --}}
-
-<script>
-    $(function(){
-          'use strict';
-
-          $('#datatable1').DataTable({
-            responsive: true,
-            language: {
-              searchPlaceholder: 'Search...',
-              sSearch: '',
-              lengthMenu: '_MENU_ items/page',
-            }
-          });
-
-          $('#datatable2').DataTable({
-            bLengthChange: false,
-            searching: false,
-            responsive: true
-          });
-
-          // Select2
-          $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
-
-        });
-</script>
+@include('admin.partials.dt-js')
 @endsection
+
 @section('content')
 <!-- ########## START: MAIN PANEL ########## -->
 <div class="br-mainpanel">
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">Bracket</a>
+            <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
 
         </nav>
     </div><!-- br-pageheader -->
@@ -64,7 +34,7 @@
                             <th class="wd-30p">Country</th>
                             <th class="wd-30p">State</th>
                             <th class="wd-30p">Action</th>
-                            <th></th>
+{{--                            <th></th>--}}
                         </tr>
                     </thead>
                     <tbody>

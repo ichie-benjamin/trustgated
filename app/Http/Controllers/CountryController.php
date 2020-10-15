@@ -40,16 +40,7 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        try {
-
-            $zone = Country::create($request->all());
-
-        } catch(\Exception $e) {
-
-            return back()->with('failure', 'Woops! something went wrong'.$e->getMessage());
-
-        }
+        $zone = Country::create($request->all());
 
 
         return redirect()->route('admin.countries.index')->with('success', 'Country added successfully');

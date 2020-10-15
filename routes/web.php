@@ -43,6 +43,11 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
 
 
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');
+    Route::get('/emp_resume_pack', [EmployerController::class, 'empResumePack'])->name('employer.resume_pack');
+    Route::get('/transactions', [EmployerController::class, 'Transactions'])->name('employer.transactions');
+    Route::get('/sub_users', [EmployerController::class, 'subUsers'])->name('employer.sub_users');
+    Route::get('/add_sub_user', [EmployerController::class, 'addSubUser'])->name('employer.add_sub_user');
+
     Route::get('/change/password', [EmployerController::class, 'changePassword'])->name('employer.change_password');
     Route::get('/job/{slug}', [JobsController::class, 'view'])->name('jobs.job.view');
     Route::get('/home', [HomeController::class, 'index'])->name('home');

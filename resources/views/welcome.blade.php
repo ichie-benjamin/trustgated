@@ -255,6 +255,27 @@
 
                 }
             </script>
+            <style type="text/css">
+                td {
+                    vertical-align:middle;
+                }
+            </style>
+
+
+            <script type="text/javascript">
+                var count=0;
+                function count_check(field)
+                {
+                    if(field.checked)
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        count--;
+                    }
+                }
+            </script>
             <!-- SEARCH-start -->
             <div class="container hometom">
                 <div class="row">
@@ -314,8 +335,8 @@
                         </div>
                     </div>
                 </div>
-            </div>            <!--SEARCH-end -->
-
+            </div>
+            <!--SEARCH-end -->
             <div id="header-bottom" class="hea" >
                 <div class="container">
                     <div class="col-sm-12">
@@ -343,6 +364,9 @@
 
     <!-- HEADER -->
 
+
+
+
     <!-- CONTENT -->
     <div id="content">
         <div class="container">
@@ -350,9 +374,9 @@
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="employer-profile-view.php">My Account</a></li>
-                        <li class="active">Change Password</li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">My Account</a></li>
+                        <li class="active">Sub user Management</li>
                     </ol>
                 </div>
                 <script type="text/javascript">
@@ -383,13 +407,13 @@
                             <div class="inbox-bg" onclick="return menu_click1();">Administration</div>
                             <!--<div class="inboxa"><a href="#">Product Settings</a></li> -->
                             <div id="show1">
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html" >Manage Sub-Users</a></div>
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html"  style="color:#00CCFF" >Manage Sub-Users</a></div>
                                 <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html" >Subscription Status</a></div>
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resume_pack.html"  >Product Settings<!--Resume Pack--></a></div>
                                 <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"  >Company profile</a></div>
                                 <!--<div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_folders.html" >Manage personal folder</a></div>-->
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html"  style="color:#00CCFF" >Change Password</a></div>
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html" >Change Password</a></div>
                             </div>
                             <div class="inbox-bg">Search Resumes</div>
                             <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html?featured=yes" >Featured Resumes</a></div>
@@ -520,50 +544,111 @@
                 /*  accordion End */
 
                 </style>-->
+
                 <!--col-sm-2-->
 
                 <div class="col-md-9" >
+                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html" style="float:right; padding:5px;" class="btn-blue">View All</a>
                     <div class="top-emp-center">
-                        <h4>Change Password</h4>
+                        <h4>Add Sub user</h4>
                     </div> <!--top-emp-center-->
-                    <div style="color:#FF0000; padding:5px;">
-                    </div>
-                    <form class="form-horizontal m10">
-                        <div class="row" >
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>Current Password:</label>
-                                    <div class="col-sm-8">
-                                        <input type="password" name="currentpass" class="form-control" required />
-                                    </div>
-                                </div><!--col-md-6-->
-                            </div>
-                            <div class="col-md-8" >
-                                <div class="form-group">
-                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>New Password:</label>
-                                    <div class="col-sm-8">
-                                        <input type="password" name="newpass" class="form-control" pattern=".{6,}" required />&nbsp;
-                                        <span style="color:#FF0000; font-size:10px; font-style:italic">Minimum 6 letters</span>
-                                    </div>
-                                </div>
-                            </div><!--col-md-6-->
-                            <div class="col-md-8" >
-                                <div class="form-group">
-                                    <label  class="col-sm-4 pedit"><span class="red-star">*</span>New Password again:</label>
-                                    <div class="col-sm-8">
-                                        <input type="password" name="newpass2" class="form-control" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <!--col-md-12-->
+                    <form name="form_sub">
+                        <table cellpadding="0" cellspacing="0" border="0" style="border:1px solid #a6d6f4; " height="100" width="100%" align="center">
+                            <tr>
+                                <td valign="middle" colspan="3" height="1"  bgcolor="#FFFFFF"></td>
+                            </tr>
+                            <tr style="background-color: #E0EEF7;" height="30">
+                                <td valign="middle"align="center" width="50" colspan="3"><b>Recuriter information</b></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" align="right">User Name</td>
+                                <td width="3%" align="center">:</td>
+                                <td align="left"><input style="margin-top:30px;" name="sub_uname" id="sub_uname" type="text" class="textbox-registration" onBlur="chk_av();"  />  &nbsp; <label id="suser_av"> </label></td>
+                            </tr>
 
-                            <div class="col-sm-12">
-                                <div class="col-sm-6">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"><input class="btn-blue btn" name="changepass" value="SAVE" type="submit"></div>
+                            <tr>
+                                <td width="45%" align="right">Password</td>
+                                <td width="3%" align="center">:</td>
+                                <td align="left"><input style="margin-bottom: 30px; margin-top: 30px;" name="sub_pwd" id="sub_pwd" type="password" class="textbox-registration" onKeyPress="document.getElementById('suser_av').innerHTML ='';" /></td>
+                            </tr>
 
-                                </div> <!--col-md-6-->
-                            </div> <!--col-md-12-->
+                            <tr>
+                                <td valign="middle" colspan="3" height="1" style="background-color:#a6d6f4;"></td>
+                            </tr>
+                            <tr>
+
+                        </table>
+                        <br />
+                        <table cellpadding="0" cellspacing="0" border="0" style="border:1px solid #a6d6f4;" height="100" width="100%" align="center">
+                            <tr>
+                                <td valign="middle" height="1"  bgcolor="#FFFFFF"></td>
+                            </tr>
+                            <tr style="background-color: #E0EEF7;" height="30">
+                                <td valign="middle"align="center" width="50"><b>Post Job Type</b></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" align="center" >
+                                    <div class="inline col-sm-3" style="margin:0 10px;">
+                                        <label for="perm1">
+                                            ADD<br>
+                                            <label class="checkbox-inline">
+                                                <input name="perm1" id="perm1" type="checkbox" value="add" onChange="count_check(this)" />
+                                            </label>
+                                        </label>
+                                    </div>
+
+                                    <div class="inline col-sm-3" style="margin:0 10px;">
+                                        <label for="perm2">
+                                            EDIT<br>
+                                            <label class="checkbox-inline">
+                                                <input name="perm2" id="perm2" type="checkbox" value="edit" onChange="count_check(this)"/>
+                                            </label></label>
+                                    </div>
+
+                                    <div class="inline col-sm-3" style="margin:0 10px;">
+                                        <label for="perm3">
+                                            DELETE<br>
+                                            <label class="checkbox-inline">
+                                                <input name="perm3" id="perm3" type="checkbox" value="delete" onChange="count_check(this)" />
+                                            </label></label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <br>
+                        <table cellpadding="0" cellspacing="0" border="0" style="border:1px solid #a6d6f4;" height="100" width="100%" align="center">
+                            <tr>
+                                <td valign="middle" height="1"  bgcolor="#FFFFFF"></td>
+                            </tr>
+                            <tr style="background-color: #E0EEF7;" height="30">
+                                <td valign="middle"align="center" width="50"><b>Response Type</b></td>
+                            </tr>
+                            <tr>
+                                <td width="45%" align="center">
+                                    <div class="inline col-sm-5" style="margin:0 10px;">
+                                        <label for="resp1">
+                                            View Job<br>
+                                            <label class="checkbox-inline">
+                                                <input name="resp1" id="resp1" type="checkbox" value="view" onChange="count_check(this)" />
+                                            </label></label>
+                                    </div>
+
+                                    <div class="inline col-sm-5" style="margin:0 10px;">
+                                        <label for="resp2">
+                                            Resume Access<br>
+                                            <label class="checkbox-inline">
+                                                <input name="resp2" id="resp2" type="checkbox" value="access" onChange="count_check(this)" />
+                                            </label></label>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        </table>
+                        <br />
+                        <div align="center">
+                            <img src="images/add-subuser.png" border="0px" style="cursor:pointer;" onClick="sub_save('91');" />
                         </div>
                     </form>
                 </div><!--col-sm-9-->
@@ -1894,3 +1979,4 @@
 <style>
     .error,.redstar{ color:#F00;   font-size: 12px;}
 </style>
+<script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/javascripts/emp/emp.js"> </script>

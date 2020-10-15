@@ -100,18 +100,6 @@
                                                     </div>
 
                                                 </form>
-                                                {{--                                            <a href="emp_postedjobs.php?act_id=31602575081&act">--}}
-                                                {{--                                                <img src="images/ico_active_1.png" width="20">--}}
-                                                {{--                                            </a>--}}
-                                                {{--                                            <a href="emp_postjob_edit.php?edit_id=31602575081" onClick="if(confirm('Do you want to edit this job')) { return true; } else { return false; }">--}}
-                                                {{--                                                <img src="images/edit-1.gif" border="0" />--}}
-                                                {{--                                            </a>--}}
-
-                                                {{--                                            <a href="delete_posted_job.php?id=31602575081"><img src="images/delete-11.png" border="0" /></a>--}}
-
-                                                {{--                                            <a href="javascript:void(0);" onclick = "alert('Job posted today only'); " title="Click to refresh"><img src="images/refresh.png" width="16" border="0"  /></a>--}}
-                                                {{--                                       --}}
-
                                             </td>
                                         @else
                                             <td class="text-center">

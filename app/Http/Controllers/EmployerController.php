@@ -17,6 +17,22 @@ class EmployerController extends Controller
         return view('employer.profile.index', compact('user','company'));
     }
 
+    public function empResumePack(){
+        return view('employer.resume_pack');
+    }
+
+    public function addSubUser(){
+        return view('employer.add_sub_user');
+    }
+
+    public function subUsers(){
+        return view('employer.sub_user_list');
+    }
+
+    public function Transactions(){
+        return view('employer.transaction');
+    }
+
     public function changePassword(){
         return view('employer.change_password');
     }
