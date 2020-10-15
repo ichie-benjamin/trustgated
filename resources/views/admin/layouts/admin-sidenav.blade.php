@@ -27,7 +27,7 @@
                 <span class="menu-item-label">Sub Admin</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.industry-type.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-industry tx-22"></i>
                 <span class="menu-item-label">Industry Type</span>
@@ -220,7 +220,7 @@
         </div>
         <a href="{{ route('admin.skills.index') }}" class="br-menu-link">
             <div class="br-menu-item">
-                <i class="menu-item-fa fa fa-keycdn tx-22"></i>
+                <i class="menu-item-fa fa fa-hockey-puck tx-22"></i>
                 <span class="menu-item-label"> Key Skills</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->

@@ -11,7 +11,7 @@
 <div class="br-mainpanel">
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">Bracket</a>
+            <a class="breadcrumb-item" href="index.html">Dashboard</a>
             <a class="breadcrumb-item" href="#">Skills</a>
             <span class="breadcrumb-item active">Skills Layouts</span>
         </nav>
@@ -21,6 +21,12 @@
     </div>
 
     <div class="br-pagebody">
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Add Key Skill
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
         <div class="br-section-wrapper">
             <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Skill</h6>
 
@@ -37,8 +43,8 @@
                 </div><!-- form-layout -->
             </form>
         </div><!-- br-section-wrapper -->
-
-
+        </div>
+    </div>
         <div class="br-pagebody">
             <div class="br-section-wrapper">
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Key Skills List</h6>
