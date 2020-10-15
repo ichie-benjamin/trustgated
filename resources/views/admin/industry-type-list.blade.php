@@ -144,7 +144,7 @@
                                             <span class="fa fa-edit" aria-hidden="true"></span>
                                         </a>
 
-                                        <button type="submit" class="btn btn-danger" title="Delete Job" onclick="return confirm(&quot;Click Ok to delete Job.&quot;)">
+                                        <button type="submit" class="btn btn-danger" title="Delete Job" onclick="return confirm(&quot;Click Ok to delete Industry Type.&quot;)">
                                             <span class="fa fa-trash" aria-hidden="true"></span>
                                         </button>
                                     </div>

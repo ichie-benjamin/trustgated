@@ -33,7 +33,7 @@
                 <span class="menu-item-label">Industry Type</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.functional-area.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-atom tx-22"></i>
                 <span class="menu-item-label">Functional Area</span>
