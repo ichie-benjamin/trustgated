@@ -21,7 +21,7 @@
                 <span class="menu-item-label">Administrator</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{{ route('admin.user.sub_admins') }}}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-user-cog tx-22"></i>
                 <span class="menu-item-label">Sub Admin</span>
@@ -39,7 +39,7 @@
                 <span class="menu-item-label">Functional Area</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.countries.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-compass tx-22"></i>
                 <span class="menu-item-label"> Location Management</span>
@@ -57,7 +57,7 @@
                 <span class="menu-item-label"> Education Details</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.ads.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-ad tx-22"></i>
                 <span class="menu-item-label"> Homepage Ads</span>
@@ -78,7 +78,7 @@
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-file-upload tx-22"></i>
-                <span class="menu-item-label"> C M S Uploads</span>
+                <span class="menu-item-label"> ##C M S Uploads</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <a href="#" class="br-menu-link">

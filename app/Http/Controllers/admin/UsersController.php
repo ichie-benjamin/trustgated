@@ -17,6 +17,11 @@ class UsersController extends Controller
         $users = User::whereRoleIs('admin')->orWhereRoleIs('super_admin')->get();
         return view('admin.users.index', compact('users','title'));
     }
+    public function subAdmins(){
+        $title = 'sub_admin';
+        $users = User::whereRoleIs('sub_admin')->orWhereRoleIs('moderator')->get();
+        return view('admin.users.index', compact('users','title'));
+    }
 
    public function employers(){
         $title = 'employer';
