@@ -105,7 +105,6 @@
             <li class="nav-item"><a href="{{ route('admin.states.index') }}" class="nav-link">State</a></li>
             <li class="nav-item"><a href="{{ route('admin.lgas.index') }}" class="nav-link">Lga</a></li>
             <li class="nav-item"><a href="{{ route('admin.cities.index') }}" class="nav-link">Cities</a></li>
-
         </ul>
 
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9">Manage Seekers</label>
@@ -216,7 +215,7 @@
         </a><!-- br-menu-link -->
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Key Skill</label>
         <div class="progress ht-5 mg-b-10">
-            <div class="progress-bar bg-purple wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <a href="{{ route('admin.skills.index') }}" class="br-menu-link">
             <div class="br-menu-item">
@@ -240,10 +239,23 @@
                 <span class="menu-item-label"> Job Posting Access</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Key Skill</label>
+        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Featured Services</label>
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-warning wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+        <a href="{{ route('admin.packages.index') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-box tx-22"></i>
+                <span class="menu-item-label"> Packages</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-cubes tx-22"></i>
+                <span class="menu-item-label"> Package Purchased</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+
 
 
 

@@ -18,7 +18,7 @@ class CreatePackagesTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->integer('no_of_users');
-            $table->integer('no_of_users');
+            $table->integer('price');
             $table->string('logo')->nullable();
         });
     }

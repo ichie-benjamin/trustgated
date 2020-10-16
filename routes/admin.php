@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
+use App\Http\Controllers\admin\PackagesController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
@@ -39,6 +40,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'educational-details' => EducationalDetails::class,
         'products' => ProductsController::class,
         'ads' => AdController::class,
+        'packages' => PackagesController::class
     ]);
 
 });

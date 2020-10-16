@@ -12,23 +12,22 @@
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
             <a class="breadcrumb-item" href="index.html">Dashboard</a>
-            <a class="breadcrumb-item" href="{{ route('admin.functional-area.index') }}">Functional Area</a>
-            <span class="breadcrumb-item active">Functional Area Layouts</span>
+            <span class="breadcrumb-item active"> Packages Layouts</span>
         </nav>
     </div><!-- br-pageheader -->
     <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
-        <h4 class="tx-gray-800 mg-b-5"> Functional Area</h4>
+        <h4 class="tx-gray-800 mg-b-5"> Package</h4>
     </div>
 
     <div class="br-pagebody">
         <p>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Add Functional Area
+                Add Package
             </button>
         </p>
         <div class="collapse" id="collapseExample">
         <div class="br-section-wrapper">
-            <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Functional Area</h6>
+            <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Package</h6>
 
             <form action="{{ route('admin.products.store') }}" method="POST">
                 @csrf
@@ -71,7 +70,7 @@
     </div>
         <div class="br-pagebody">
             <div class="br-section-wrapper">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Functional Area List</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10"> Packages List</h6>
 
                 <div class="table-wrapper">
                     <table id="datatable1" class="table display responsive nowrap">
@@ -85,20 +84,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($products as $product)
+                        @foreach($packages as $package)
                         <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->no_of_days }}</td>
-                            <td>{{ $product->no_of_jobs }}</td>
-                            <td>{{ $product->price }}</td>
+                            <td>{{ $package->id }}</td>
+                            <td>{{ $package->name }}</td>
+                            <td>{{ $package->no_of_users }}</td>
+                            <td>{{ $package->price }}</td>
+                            <td>{{ $package->logo }}</td>
                             <td class="text-center">
-                                <form method="POST" action="{!! route('admin.products.destroy', $product->id) !!}" accept-charset="UTF-8">
+                                <form method="POST" action="{!! route('admin.packages.destroy', $package->id) !!}" accept-charset="UTF-8">
                                     <input name="_method" value="DELETE" type="hidden">
                                     {{ csrf_field() }}
 
                                     <div class="btn-group justify-center" role="group">
-                                        <a href="{{ route('admin.products.edit', $product->id ) }}" class="btn btn-primary" title="Edit Job">
+                                        <a href="{{ route('admin.packages.edit', $package->id ) }}" class="btn btn-primary" title="Edit Job">
                                             <span class="fa fa-edit" aria-hidden="true"></span>
                                         </a>
 
