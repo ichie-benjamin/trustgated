@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\admin\AdController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
+use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\CityController;
@@ -20,7 +20,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 //    User Listing
 
     Route::get('user/admins', [UsersController::class, 'admins'])->name('user.admins');
-    Route::get('user/sub_admins', [UsersController::class, 'subAdmins'])->name('user.sub_admins');
     Route::get('user/employers', [UsersController::class, 'employers'])->name('user.employers');
     Route::get('user/jobseekers', [UsersController::class, 'jobseekers'])->name('user.jobseekers');
     Route::get('user/jobseeker', [UsersController::class, 'jobseekers'])->name('user.jobseeker');
@@ -36,7 +35,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'industry-type'     => IndustryTypeController::class,
         'functional-area'   => FunctionalAreaController::class,
         'educational-details' => EducationalDetails::class,
-        'ads' => AdController::class,
+        'products' => ProductsController::class,
     ]);
 
 });
