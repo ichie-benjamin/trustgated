@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('user/sub_admins', [UsersController::class, 'subAdmins'])->name('user.sub_admins');
     Route::get('user/employers', [UsersController::class, 'employers'])->name('user.employers');
     Route::get('user/jobseekers', [UsersController::class, 'jobseekers'])->name('user.jobseekers');
+    Route::get('user/jobseeker', [UsersController::class, 'jobseekers'])->name('user.jobseeker');
 
     Route::resources([
         'countries' => CountryController::class,
