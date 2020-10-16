@@ -43,19 +43,19 @@
                         <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label text text-capitalize">No of Days recruiter allowed to post job: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" name="no_of_days" placeholder="No of Days">
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-                                <label class="form-control-label text text-capitalize"> No of jobs allowed to post: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" name="no_of_jobs"  placeholder="No of jobs allowed to post">
+                                <input class="form-control" type="number" name="no_of_users" placeholder="No of Days">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label"> Price: <span class="tx-danger">*</span></label>
                                 <input class="form-control" type="number" name="price" placeholder="Price">
+                            </div>
+                        </div><!-- col-8 -->
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+                                <label class="form-control-label text text-capitalize"> Upload Logo: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="file" name="logo"  placeholder="No of jobs allowed to post">
                             </div>
                         </div><!-- col-8 -->
                     </div><!-- row -->
