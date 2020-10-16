@@ -63,25 +63,25 @@
                 <span class="menu-item-label"> Homepage Ads</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.pages.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-archive tx-22"></i>
                 <span class="menu-item-label"> C M S Content</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.pages.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-list tx-22"></i>
                 <span class="menu-item-label"> C M S List Content</span>
             </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-fa fa fa-file-upload tx-22"></i>
-                <span class="menu-item-label"> ##C M S Uploads</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+{{--        </a><!-- br-menu-link -->--}}
+{{--        <a href="#" class="br-menu-link">--}}
+{{--            <div class="br-menu-item">--}}
+{{--                <i class="menu-item-fa fa fa-file-upload tx-22"></i>--}}
+{{--                <span class="menu-item-label"> ##C M S Uploads</span>--}}
+{{--            </div><!-- menu-item -->--}}
+{{--        </a><!-- br-menu-link -->--}}
+        <a href="{{ route('admin.banners.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-tasks tx-22"></i>
                 <span class="menu-item-label"> Banner Manage</span>

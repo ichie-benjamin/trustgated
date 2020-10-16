@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\admin\AdController;
+use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\PackagesController;
+use App\Http\Controllers\admin\PagesController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
