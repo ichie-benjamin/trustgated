@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
+use App\Http\Controllers\admin\PackagesController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
@@ -20,6 +21,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 //    User Listing
 
     Route::get('user/admins', [UsersController::class, 'admins'])->name('user.admins');
+    Route::get('user/sub-admins', [UsersController::class, 'admins'])->name('user.sub_admins');
     Route::get('user/employers', [UsersController::class, 'employers'])->name('user.employers');
     Route::get('user/jobseekers', [UsersController::class, 'jobseekers'])->name('user.jobseekers');
 
@@ -35,6 +37,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'functional-area'   => FunctionalAreaController::class,
         'educational-details' => EducationalDetails::class,
         'products' => ProductsController::class,
+        'packages' => PackagesController::class
     ]);
 
 });
