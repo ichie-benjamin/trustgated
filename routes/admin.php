@@ -42,7 +42,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'educational-details' => EducationalDetails::class,
         'products' => ProductsController::class,
         'ads' => AdController::class,
-        'packages' => PackagesController::class
+        'packages' => PackagesController::class,
+        'pages' => PagesController::class,
+        'banners' => BannerController::class,
     ]);
 
 });
