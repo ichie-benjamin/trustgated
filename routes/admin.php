@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\admin\AdController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\ProductsController;
@@ -21,7 +20,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 //    User Listing
 
     Route::get('user/admins', [UsersController::class, 'admins'])->name('user.admins');
-    Route::get('user/sub_admins', [UsersController::class, 'subAdmins'])->name('user.sub_admins');
     Route::get('user/employers', [UsersController::class, 'employers'])->name('user.employers');
     Route::get('user/jobseekers', [UsersController::class, 'jobseekers'])->name('user.jobseekers');
 
@@ -36,11 +34,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'industry-type'     => IndustryTypeController::class,
         'functional-area'   => FunctionalAreaController::class,
         'educational-details' => EducationalDetails::class,
-<<<<<<< HEAD
         'products' => ProductsController::class,
-=======
-        'ads' => AdController::class,
->>>>>>> 3879ac095cb35b5cca564ec075d6a918afcc0c97
     ]);
 
 });
