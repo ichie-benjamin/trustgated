@@ -205,7 +205,7 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="#" class="nav-link">Job Posting</a></li>
+            <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link">Job Posting</a></li>
             <li class="nav-item"><a href="#" class="nav-link"> Job Posting Type</a></li>
         </ul>
         <a href="#" class="br-menu-link">

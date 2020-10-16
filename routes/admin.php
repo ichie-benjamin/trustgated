@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
+use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\CityController;
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'industry-type'     => IndustryTypeController::class,
         'functional-area'   => FunctionalAreaController::class,
         'educational-details' => EducationalDetails::class,
+        'products' => ProductsController::class,
     ]);
 
 });
