@@ -101,9 +101,13 @@
     {{-- <script src="{{ asset('js/ResizeSensor.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script> --}}
 
+<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+
+<script>
+    $('#lfm').filemanager('image');
+</script>
+
     @yield('js')
 
 </body>
-
-<!-- Mirrored from themepixels.me/demo/bracket/app/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Sep 2020 15:10:01 GMT -->
 </html>

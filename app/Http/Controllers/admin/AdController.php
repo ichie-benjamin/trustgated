@@ -24,28 +24,16 @@ class AdController extends Controller
 
     public function store(Request $request)
     {
-        $ad = Ad::create($request->all());
+        Ad::create($request->all());
 
-        return redirect()->route('admin.ads.index')->with('success', 'Country added successfully');
+        return redirect()->route('admin.ads.index')->with('success', 'Ad added successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Country $country)
+    public function show(Ad $ad)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Country  $country
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Ad $ad)
     {
         //

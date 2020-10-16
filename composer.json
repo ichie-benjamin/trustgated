@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "santigarcor/laratrust": "^6.2",
+        "unisharp/laravel-filemanager": "master",
         "watson/active": "^6.0"
     },
     "require-dev": {
