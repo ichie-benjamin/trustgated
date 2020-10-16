@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ad;
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -10,35 +11,22 @@ class AdController extends Controller
     public function index()
     {
         //
-        $countries = Country::all();
+        $ads = Ad::all();
 
-        return view('admin.service-areas.country-index', ['countries' => $countries]);
+        return view('admin.ads.index', ['ads' => $ads]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
-
         return view('admin.service-areas.country-create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        $zone = Country::create($request->all());
+        $ad = Ad::create($request->all());
 
-
-        return redirect()->route('admin.countries.index')->with('success', 'Country added successfully');
+        return redirect()->route('admin.ads.index')->with('success', 'Country added successfully');
     }
 
     /**
@@ -58,25 +46,19 @@ class AdController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function edit(Country $country)
+    public function edit(Ad $ad)
     {
         //
-        return view('admin.service-areas.country-edit', ['country' => $country]);
+        return view('admin.ads.edit', ['ad' => $ad]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Country $country)
+
+    public function update(Request $request, Ad $ad)
     {
         //
         try {
 
-            $country->update($request->all());
+            $ad->update($request->all());
 
         } catch(\Exception $e) {
 
@@ -85,15 +67,15 @@ class AdController extends Controller
         }
 
 
-        return redirect()->route('admin.countries.index')->with('success', 'Country updated successfully');
+        return redirect()->route('admin.ads.index')->with('success', 'Ad updated successfully');
     }
 
-    public function destroy(Country $country)
+    public function destroy(Ad $ad)
     {
         //
         try {
 
-            $country->delete();
+            $ad->delete();
 
         } catch(\Exception $e) {
 
@@ -101,6 +83,6 @@ class AdController extends Controller
 
         }
 
-        return back()->with('success', 'Country deleted successfully');
+        return back()->with('success', 'Ad deleted successfully');
     }
 }

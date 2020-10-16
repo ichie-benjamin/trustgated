@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\UsersController;
@@ -34,6 +35,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'industry-type'     => IndustryTypeController::class,
         'functional-area'   => FunctionalAreaController::class,
         'educational-details' => EducationalDetails::class,
+        'ads' => AdController::class,
     ]);
 
 });
