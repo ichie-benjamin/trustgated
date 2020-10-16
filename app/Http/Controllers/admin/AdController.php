@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\Country;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class AdController extends Controller
 {
-
     public function index()
     {
         //
@@ -89,12 +88,6 @@ class CountryController extends Controller
         return redirect()->route('admin.countries.index')->with('success', 'Country updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Country  $country
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Country $country)
     {
         //

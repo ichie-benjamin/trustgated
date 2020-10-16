@@ -23,6 +23,16 @@ return [
             'jobs' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
+        'sub_admin' => [
+            'users' => 'c,r,u,d',
+            'jobs' => 'c,r,u,d',
+            'profile' => 'r,u'
+        ],
+        'moderator' => [
+            'users' => 'c,r,u,d',
+            'jobs' => 'c,r,u,d',
+            'profile' => 'r,u'
+        ],
         'employer' => [
             'profile' => 'r,u',
             'jobs' => 'c,r,u,d',

@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 //    User Listing
 
     Route::get('user/admins', [UsersController::class, 'admins'])->name('user.admins');
+    Route::get('user/sub_admins', [UsersController::class, 'subAdmins'])->name('user.sub_admins');
     Route::get('user/employers', [UsersController::class, 'employers'])->name('user.employers');
     Route::get('user/jobseekers', [UsersController::class, 'jobseekers'])->name('user.jobseekers');
 
