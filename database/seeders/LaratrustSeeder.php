@@ -64,7 +64,7 @@ class LaratrustSeeder extends Seeder
                     'email_verified_at' => Carbon::now()
                 ]);
                 if($key == 'employer'){
-                    Company::create(['user_id'=>$user->id]);
+                    Company::create(['user_id'=>$user->id,'name' => 'Test Company']);
                 }
                 $user->attachRole($role);
             }
