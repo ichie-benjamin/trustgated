@@ -108,7 +108,7 @@
                                                     {{ csrf_field() }}
 
                                                     <div class="btn-group justify-center" role="group">
-                                                        <a href="{{ route('jobs.show', $job->id ) }}" class="btn btn-info" title="Public View">
+                                                        <a href="{{ route('jobs.show', $job->slug ) }}" class="btn btn-info" title="Public View">
                                                             <span class="fa fa-eye" aria-hidden="true"></span>
                                                         </a>
                                                         @if ($job->is_disabled)

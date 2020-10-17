@@ -18,14 +18,15 @@
             </nav>
         </div><!-- br-pageheader -->
         <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
-            <h4 class="tx-gray-800 mg-b-5">State List</h4>
+            <h4 class="tx-gray-800 mg-b-5">Jobs List</h4>
         </div>
 
         <div class="br-pagebody">
             <div class="br-section-wrapper">
                 @include('notification')
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10" style="padding-bottom: 50px">Jobs List <a
-                        href="{{ route('admin.jobs.create') }}"><button class="btn btn-success" style="float: right"> Add New</button></a></h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10" style="padding-bottom: 50px">Jobs List
+{{--                    <a href="{{ route('admin.jobs.create') }}"><button class="btn btn-success" style="float: right"> Add New</button></a>--}}
+                </h6>
                 <div class="table-wrapper">
                     <table id="datatable1" class="table table-condensed table-bordered display responsive nowrap">
                         <thead>
@@ -60,7 +61,7 @@
                                         {{ csrf_field() }}
 
                                         <div class="btn-group justify-center" role="group">
-                                            <a href="{{ route('jobs.show', $item->id ) }}" class="btn btn-info btn-sm" title="Public View">
+                                            <a href="{{ route('jobs.show', $item->slug ) }}" target="_blank" class="btn btn-info btn-sm" title="Public View">
                                                 <span class="fa fa-eye" aria-hidden="true"></span>
                                             </a>
                                             @if ($item->is_disabled)

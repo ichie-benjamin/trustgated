@@ -12,7 +12,7 @@ class JobsController extends Controller
     public function index()
     {
         $title = 'Successfully Job Posted!';
-        $jobs = Job::with('user','type','category','location','company')->latest()->get();
+        $jobs = Job::with('user','type','category','company')->latest()->get();
 
         return view('admin.jobs.list', compact('jobs','title'));
     }

@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\AppliedJob;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Models\Country;
 use App\Models\JobCategory;
 use App\Models\Job;
-use App\Models\Location;
+//use App\Models\Location;
 use App\Models\Type;
 use App\Notifications\NewApplicant;
 use Illuminate\Support\Facades\DB;
 use Validator;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -112,7 +113,7 @@ class JobsController extends Controller
     public function index()
     {
         $title = 'Successfully Job Posted!';
-        $jobs = Job::with('user','type','category','location','company')->whereUserId(auth()->user()->id)->latest()->paginate(25);
+        $jobs = Job::with('user','type','category','company')->whereUserId(auth()->user()->id)->latest()->paginate(25);
 
         return view('employer.jobs.index', compact('jobs','title'));
     }
@@ -132,7 +133,7 @@ class JobsController extends Controller
 //        $users = User::pluck('id','id')->all();
 $types = Type::pluck('name','id')->all();
 $categories = JobCategory::pluck('name','id')->all();
-$locations = Location::pluck('id','id')->all();
+$locations = Country::pluck('id','id')->all();
 $companies = Company::where('user_id',auth()->user()->id)->pluck('name','id')->all();
 
 if(!$companies){

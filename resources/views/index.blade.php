@@ -41,6 +41,11 @@
 [aria-expanded="true"] > .collapsed {
   display: none;
 }
+.logo-header img, .logo-footer img {
+    height: auto;
+    width: auto;
+    max-width: 236px;
+}
 </style>
 </head>
 <body id="bg">

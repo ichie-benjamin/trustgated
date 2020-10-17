@@ -47,7 +47,7 @@
                                 <div class="row mt-4">
                                     <div class="col-sm-12">
                                         <div class="col-sm-6">
-                                            <div class="col-sm-3"><input type="submit" class="btn-blue pdng-btn1 btn" value="Update Job"></div>
+                                            <div class="col-sm-3"><input type="button" class="btn-blue pdng-btn1 btn" value="Update Job"></div>
                                             <div class="col-sm-3"><div class="btn-blue pdng-btn1 btn"><a href="{{ route('jobs.create') }}" style="color:#FFF"> Cancel </a></div></div>
                                         </div> <!--col-md-6-->
                                     </div>
