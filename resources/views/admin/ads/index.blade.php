@@ -93,6 +93,13 @@
                                 </select>
                             </div>
                         </div><!-- col-4 -->
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            @include('admin.partials.image-uploader',['field' => 'image'])
+                        </div>
                     </div>
 
                     <div class="form-layout-footer">

@@ -14,7 +14,7 @@ class UsersController extends Controller
 {
     public function admins(){
         $title = 'admin';
-        $users = User::whereRoleIs('admin')->orWhereRoleIs('super_admin')->get();
+        $users = User::whereRoleIs('admin')->get();
         return view('admin.users.index', compact('users','title'));
     }
     public function subAdmins(){
@@ -26,6 +26,12 @@ class UsersController extends Controller
    public function employers(){
         $title = 'employer';
         $users = User::whereRoleIs('employer')->get();
+        return view('admin.users.employer-list', compact('users','title'));
+    }
+
+   public function jobseekers(){
+        $title = 'Jobseeker';
+        $users = User::whereRoleIs('jobseeker')->get();
         return view('admin.users.employer-list', compact('users','title'));
     }
 
