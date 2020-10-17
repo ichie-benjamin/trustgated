@@ -61,10 +61,10 @@
                                     <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                                     <select name="category_id" class="form-control" required data-placeholder="Choose Category:">
                                         {{--                                    <option label="Choose Category"></option>--}}
-                                        <option value="{{ $ad->category_id }}" selected>{{ $ad->category_id }}</option>
-                                        <option value="1"> Under Graduation</option>
-                                        <option value="2">Post Graduation</option>
-                                        <option value="3"> Doctorate/PhD</option>
+                                        <option value="{{ $ad->category }}" selected>{{ $ad->category }}</option>
+                                        <option value="it"> IT</option>
+                                        <option value="manufacturing">Manufacturing</option>
+                                        <option value="services"> Services</option>
                                     </select>
                                 </div>
                             </div><!-- col-4 -->

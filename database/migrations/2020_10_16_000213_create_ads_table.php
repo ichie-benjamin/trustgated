@@ -20,7 +20,7 @@ class CreateAdsTable extends Migration
             $table->string('value')->nullable();
             $table->string('company_status')->nullable();
             $table->string('image')->nullable();
-            $table->integer('category_id')->nullable();
+            $table->string('category')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
         });

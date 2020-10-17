@@ -81,6 +81,7 @@
 {{--                <span class="menu-item-label"> ##C M S Uploads</span>--}}
 {{--            </div><!-- menu-item -->--}}
 {{--        </a><!-- br-menu-link -->--}}
+        </a>
         <a href="{{ route('admin.banners.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-tasks tx-22"></i>
@@ -197,21 +198,20 @@
                 <span class="menu-item-label"> Database Access Price</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.products.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-upload tx-24"></i>
-                <span class="menu-item-label"> Job Posting</span>
-                <i class="menu-item-arrow fa fa-angle-down"></i>
+                <span class="menu-item-label"> Job Posting Type</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link">Job Posting</a></li>
-            <li class="nav-item"><a href="#" class="nav-link"> Job Posting Type</a></li>
-        </ul>
+{{--        <ul class="br-menu-sub nav flex-column">--}}
+{{--            <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link">Job Posting</a></li>--}}
+{{--            <li class="nav-item"><a href="#" class="nav-link"> Job Posting Type</a></li>--}}
+{{--        </ul>--}}
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-university tx-22"></i>
-                <span class="menu-item-label"> Traing Institute Plan</span>
+                <span class="menu-item-label"> Training Institute Plan</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Key Skill</label>
@@ -262,7 +262,7 @@
 
 
         <br>
-        <a href="#" class="br-menu-link">
+        <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-power tx-24"></i>
                 <span class="menu-item-label">Logout</span>
@@ -292,6 +292,7 @@
     </div><!-- br-header-left -->
     <div class="br-header-right">
         <nav class="nav">
+            @section('hide')
             <div class="dropdown">
                 <a href="#" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
                     <i class="icon ion-ios-email-outline tx-24"></i>
@@ -420,6 +421,7 @@
                     </div><!-- media-list -->
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->
+            @endsection
             <div class="dropdown">
                 <a href="#" class="nav-link nav-link-profile" data-toggle="dropdown">
                     <span class="logged-name hidden-md-down">{{ auth()->user()->username }}</span>
@@ -428,12 +430,16 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-header wd-200">
                     <ul class="list-unstyled user-profile-nav">
-                        <li><a href="#"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
-                        <li><a href="#"><i class="icon ion-ios-gear"></i> Settings</a></li>
-                        <li><a href="#"><i class="icon ion-ios-download"></i> Downloads</a></li>
-                        <li><a href="#"><i class="icon ion-ios-star"></i> Favorites</a></li>
-                        <li><a href="#"><i class="icon ion-ios-folder"></i> Collections</a></li>
-                        <li><a href="#"><i class="icon ion-power"></i> Sign Out</a></li>
+                        <li><a href="#"><i class="icon ion-ios-person"></i> Change Password</a></li>
+                        <li><a href="{{ route('admin.settings.index') }}"><i class="icon ion-ios-gear"></i> Settings</a></li>
+{{--                        <li><a href="#"><i class="icon ion-ios-download"></i> Downloads</a></li>--}}
+{{--                        <li><a href="#"><i class="icon ion-ios-star"></i> Favorites</a></li>--}}
+{{--                        <li><a href="#"><i class="icon ion-ios-folder"></i> Collections</a></li>--}}
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon ion-power"></i> Sign Out</a></li>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->

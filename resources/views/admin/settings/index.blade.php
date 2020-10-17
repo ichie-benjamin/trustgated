@@ -24,7 +24,7 @@
                 </ul>
             </div>
         @endif
-        @if (auth()->user()->hasRole('super-admin'))
+        @if (auth()->user()->hasRole('super_admin'))
                 <p>
                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         Add Setting
@@ -95,7 +95,7 @@
                             <th class="wd-10p"> S.No</th>
                             <th class="wd-30p"> Name</th>
                             <th class="wd-60p">Value</th>
-                            @if (auth()->user()->hasRole('super-admin'))
+                            @if (auth()->user()->hasRole('super_admin'))
                             <th></th>
                             @endif
                         </tr>
@@ -130,7 +130,7 @@
 
                                     @endif
                             </td>
-                            @if (auth()->user()->hasRole('super-admin'))
+                            @if (auth()->user()->hasRole('super_admin'))
                             <td>
                                 <a href="{{ route('admin.settings.edit', $setting->id ) }}" class="btn btn-primary btn-sm" title="Edit Settings">
                                     <span class="fa fa-edit" aria-hidden="true"></span>

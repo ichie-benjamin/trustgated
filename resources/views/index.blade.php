@@ -75,8 +75,10 @@
 @auth
 @if(auth()->user()->hasRole('employer'))
 <a href="{{ route('employer.profile') }}" class="site-button"><i class="fa fa-user"></i> {{ auth()->user()->username }} </a>
-@else
-<a href="{{ route('jobseeker.profile') }}" class="site-button"><i class="fa fa-user"></i> {{ auth()->user()->username }} </a>
+@elseif (auth()->user()->hasRole(['admin','super_admin']))
+            <a href="{{ route('admin.dashboard') }}" class="site-button"><i class="fa fa-user"></i> {{ auth()->user()->username }} </a>
+        @else
+            <a href="{{ route('jobseeker.profile') }}" class="site-button"><i class="fa fa-user"></i> {{ auth()->user()->username }} </a>
 @endif
 
     <a href="{{ route('logout') }}"
