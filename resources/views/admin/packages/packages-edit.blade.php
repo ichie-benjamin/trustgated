@@ -20,40 +20,35 @@
     </div>
 
     <div class="br-pagebody">
-        <p>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Add Package
-            </button>
-        </p>
-        <div class="collapse" id="collapseExample">
         <div class="br-section-wrapper">
             <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Package</h6>
 
-            <form action="{{ route('admin.packages.store') }}" method="POST">
+            <form action="{{ route('admin.packages.update', $packages->id) }}" method="POST">
                 @csrf
+                @method('PATCH')
                 <div class="form-layout form-layout-1">
                     <div class="row mg-b-25">
 
                         <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label"> Name: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" name="name" placeholder="Enter Name">
+                                <input class="form-control" type="text" value="{{ old('name', optional($packages)->name) }}" name="name" placeholder="Enter Name">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label text text-capitalize">No of Days User allowed to access: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" name="no_of_users" placeholder=" No of Days User allowed to access:	">
+                                <input class="form-control" type="number" value="{{ old('no_of_users', optional($packages)->no_of_users) }}" name="no_of_users" placeholder="No of Days User allowed to access:">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label"> Price: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" name="price" placeholder="Price">
+                                <input class="form-control" type="number" value="{{ old('price', optional($packages)->price) }}" name="price" placeholder="Price">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-6">
-                                @include('admin.partials.image-uploader',['field' => 'logo'])
+                            @include('admin.partials.image-uploader',['field' => 'logo','image' => $packages->logo])
 
                         </div><!-- col-8 -->
                     </div><!-- row -->
@@ -64,58 +59,8 @@
                 </div><!-- form-layout -->
             </form>
         </div><!-- br-section-wrapper -->
-        </div>
     </div>
-        <div class="br-pagebody">
-            <div class="br-section-wrapper">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10"> Packages List</h6>
 
-                <div class="table-wrapper">
-                    <table id="datatable1" class="table display responsive nowrap">
-                        <thead>
-                        <tr>
-                            <th class="wd-15p">S.No</th>
-                            <th class="wd-15p"> Name</th>
-                            <th class="wd-15p"> No Of Users</th>
-                            <th class="wd-20p"> Price</th>
-                            <th class="wd-20p"> Logo</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($packages as $package)
-                        <tr>
-                            <td>{{ $package->id }}</td>
-                            <td>{{ $package->name }}</td>
-                            <td>{{ $package->no_of_users }}</td>
-                            <td>{{ $package->price }}</td>
-                            <td><img height="70" width="70" src="{{ $package->logo }}"></td>
-                            <td class="text-center">
-                                <form method="POST" action="{!! route('admin.packages.destroy', $package->id) !!}" accept-charset="UTF-8">
-                                    <input name="_method" value="DELETE" type="hidden">
-                                    {{ csrf_field() }}
-
-                                    <div class="btn-group justify-center" role="group">
-                                        <a href="{{ route('admin.packages.edit', $package->id ) }}" class="btn btn-primary" title="Edit Job">
-                                            <span class="fa fa-edit" aria-hidden="true"></span>
-                                        </a>
-
-                                        <button type="submit" class="btn btn-danger" title="Delete Job" onclick="return confirm(&quot;Click Ok to delete Record.&quot;)">
-                                            <span class="fa fa-trash" aria-hidden="true"></span>
-                                        </button>
-                                    </div>
-
-                                </form>
-
-                            </td>
-                        </tr>
-                        @endforeach
-
-                        </tbody>
-                    </table>
-                </div><!-- table-wrapper -->
-
-    </div><!-- br-pagebody -->
-</div><!-- br-mainpanel -->
 <!-- ########## END: MAIN PANEL ########## -->
 
         @section('js')

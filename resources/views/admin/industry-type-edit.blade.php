@@ -42,7 +42,6 @@
                         </ul>
                     </div>
                 @endif
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Top Label Layout</h6>
                 <form action="{{ route('admin.industry-type.update', $industry_type->id) }}" method="POST">
                     @csrf
                     @method('PATCH')
@@ -58,51 +57,53 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label">Meta Title: </label>
-                                    <textarea class="form-control" value{{ old('meta_title', optional($industry_type)->meta_title) }} type="text" name="meta_title" ></textarea>
+                                    <textarea class="form-control" type="text" name="meta_title" >{{ old('meta_title', optional($industry_type)->meta_title) }}</textarea>
                                 </div>
                             </div><!-- col-4 -->
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label">Descriptiom: </label>
-                                    <textarea class="form-control" value{{ old('meta_title', optional($industry_type)->description) }} type="text" name="description" ></textarea>
+                                    <textarea class="form-control" type="text" name="description" >{{ old('meta_title', optional($industry_type)->description) }}</textarea>
                                 </div>
                             </div><!-- col-4 -->
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label class="form-control-label">Keywords: </label>
-                                    <textarea class="form-control" type="text" name="keywords"  value{{ old('meta_title', optional($industry_type)->keywords) }}></textarea>
+                                    <textarea class="form-control" type="text" name="keywords" >{{ old('meta_title', optional($industry_type)->keywords) }}</textarea>
                                 </div>
                             </div><!-- col-4 -->
-                            <div class="row mg-t-10 col-lg-10">
-                                <h6>Category: </h6>
-                                <div class="col-lg-5 form-group">
-                                    <label class="cat_industry_type">
-                                        <input name="cat_industry_type" value="IT company" type="radio" {{ old('radio.cat_industry_type', optional($industry_type)->cat_industry_type)=="IT company" ? 'checked='.'"'.'checked'.'"' : '' }} >
-                                        <span>IT Company </span>
-                                    </label>
-                                </div><!-- col-3 -->
-                                <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
-                                    <label class="cat_industry_type">
-                                        <input name="cat_industry_type" value="Non IT company" type="radio" {{ old('radio.cat_industry_type', optional($industry_type)->cat_industry_type)=='Non IT company' ? 'checked='.'"'.'checked'.'"' : '' }} >
-                                        <span>Non IT Company </span>
-                                    </label>
-                                </div><!-- col-3 -->
-                            </div>
-                            <div class="row mg-t-10 col-lg-10">
-                                <h6>Job Type: </h6>
-                                <div class="col-lg-5 form-group">
-                                    <label class="job_type">
-                                        <input value="IT/IIM Jobs" name="job_type" type="radio" {{ old('job_type', optional($industry_type)->job_type)=='IT/IIM Jobs' ? 'checked='.'"'.'checked'.'"' : '' }}>
-                                        <span>IT/IIM Jobs</span>
-                                    </label>
-                                </div><!-- col-3 -->
-                                <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
-                                    <label class="job_type">
-                                        <input value="Govt Jobs" name="job_type" type="radio" {{ old('job_type', optional($industry_type)->job_type)=='Govt Jobs' ? 'checked='.'"'.'checked'.'"' : '' }}>
-                                        <span>Govt.Jobs </span>
-                                    </label>
-                                </div><!-- col-3 -->
-                            </div>
+                           <div class="col-lg-10">
+                               <div class="row mg-t-10 col-lg-8">
+                                   <h6>Category: </h6>
+                                   <div class="col-lg-5 form-group">
+                                       <label class="cat_industry_type">
+                                           <input name="cat_industry_type" value="IT company" type="radio" {{ old('radio.cat_industry_type', optional($industry_type)->cat_industry_type)=="IT company" ? 'checked='.'"'.'checked'.'"' : '' }} >
+                                           <span>IT Company </span>
+                                       </label>
+                                   </div><!-- col-3 -->
+                                   <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
+                                       <label class="cat_industry_type">
+                                           <input name="cat_industry_type" value="Non IT company" type="radio" {{ old('radio.cat_industry_type', optional($industry_type)->cat_industry_type)=='Non IT company' ? 'checked='.'"'.'checked'.'"' : '' }} >
+                                           <span>Non IT Company </span>
+                                       </label>
+                                   </div><!-- col-3 -->
+                               </div>
+                               <div class="row mg-t-10 col-lg-8">
+                                   <h6>Job Type: </h6>
+                                   <div class="col-lg-5 form-group">
+                                       <label class="job_type">
+                                           <input value="IT/IIM Jobs" name="job_type" type="radio" {{ old('job_type', optional($industry_type)->job_type)=='IT/IIM Jobs' ? 'checked='.'"'.'checked'.'"' : '' }}>
+                                           <span>IT/IIM Jobs</span>
+                                       </label>
+                                   </div><!-- col-3 -->
+                                   <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
+                                       <label class="job_type">
+                                           <input value="Govt Jobs" name="job_type" type="radio" {{ old('job_type', optional($industry_type)->job_type)=='Govt Jobs' ? 'checked='.'"'.'checked'.'"' : '' }}>
+                                           <span>Govt.Jobs </span>
+                                       </label>
+                                   </div><!-- col-3 -->
+                               </div>
+                           </div>
 
                         </div><!-- row -->
 
