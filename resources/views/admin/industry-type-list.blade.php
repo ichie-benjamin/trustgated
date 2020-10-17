@@ -69,37 +69,39 @@
                                 <textarea class="form-control" type="text" name="keywords"  ></textarea>
                             </div>
                         </div><!-- col-4 -->
-                        <div class="row mg-t-10 col-lg-10">
-                            <h6>Category: </h6>
-                            <div class="col-lg-5 form-group">
-                                <label class="cat_industry_type">
-                                    <input name="cat_industry_type" value="IT company" type="radio" checked="">
-                                    <span>IT Company </span>
-                                </label>
-                            </div><!-- col-3 -->
-                            <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
-                                <label class="cat_industry_type">
-                                    <input name="cat_industry_type" value="Non IT company" type="radio">
-                                    <span>Non IT Company </span>
-                                </label>
-                            </div><!-- col-3 -->
-                        </div>
-                        <div class="row mg-t-10 col-lg-10">
-                            <h6>Job Type: </h6>
-                            <div class="col-lg-5 form-group">
-                                <label class="job_type">
-                                    <input value="IT/IIM Jobs" name="job_type" type="radio" checked="">
-                                    <span>IT/IIM Jobs</span>
-                                </label>
-                            </div><!-- col-3 -->
-                            <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
-                                <label class="job_type">
-                                    <input value="Govt Jobs" name="job_type" type="radio" >
-                                    <span>Govt.Jobs </span>
-                                </label>
-                            </div><!-- col-3 -->
-                        </div>
+                       <div class="col-10">
+                           <div class="row mg-t-10 col-lg-10">
+                               <h6>Category: </h6>
+                               <div class="col-lg-5 form-group">
+                                   <label class="cat_industry_type">
+                                       <input name="cat_industry_type" value="IT company" type="radio" checked="">
+                                       <span>IT Company </span>
+                                   </label>
+                               </div><!-- col-3 -->
+                               <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
+                                   <label class="cat_industry_type">
+                                       <input name="cat_industry_type" value="Non IT company" type="radio">
+                                       <span>Non IT Company </span>
+                                   </label>
+                               </div><!-- col-3 -->
+                           </div>
+                           <div class="row mg-t-10 col-lg-10">
+                               <h6>Job Type: </h6>
+                               <div class="col-lg-5 form-group">
+                                   <label class="job_type">
+                                       <input value="IT/IIM Jobs" name="job_type" type="radio" checked="">
+                                       <span>IT/IIM Jobs</span>
+                                   </label>
+                               </div><!-- col-3 -->
+                               <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
+                                   <label class="job_type">
+                                       <input value="Govt Jobs" name="job_type" type="radio" >
+                                       <span>Govt.Jobs </span>
+                                   </label>
+                               </div><!-- col-3 -->
+                           </div>
 
+                       </div>
                     </div><!-- row -->
 
                     <div class="form-layout-footer">

@@ -22,7 +22,6 @@
 
     <div class="br-pagebody">
         <div class="br-section-wrapper">
-            <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Functional Area</h6>
 
             <form action="{{ route('admin.functional-area.update', $functional_area->id) }}" method="POST">
                 @csrf
@@ -32,7 +31,7 @@
 
                         <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
-                                <label class="form-control-label">Add Functional Area: <span class="tx-danger">*</span></label>
+                                <label class="form-control-label">Functional Area: <span class="tx-danger">*</span></label>
                                 <input class="form-control" type="text" name="category_functional_area" value="{{old('category_functional_area', optional($functional_area)->category_functional_area)}}" placeholder="Enter address">
                             </div>
                         </div><!-- col-8 -->

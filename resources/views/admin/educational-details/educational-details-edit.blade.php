@@ -31,8 +31,6 @@
             </div>
         @endif
             <div class="br-section-wrapper">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Educational Details</h6>
-
                 <form action="{{ route('admin.educational-details.update', $educational_details->id) }}" method="POST">
                     @csrf
                     @method('PATCH')
