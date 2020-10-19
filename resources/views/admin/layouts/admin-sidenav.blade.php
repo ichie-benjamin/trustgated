@@ -39,6 +39,12 @@
                 <span class="menu-item-label">Functional Area</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        <a href="{{ route('admin.categories.index') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-list tx-22"></i>
+                <span class="menu-item-label">Categories</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
         <a href="{{ route('admin.countries.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-compass tx-22"></i>
@@ -155,7 +161,7 @@
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-registered tx-22"></i>
-                <span class="menu-item-label"> Unregistered Company Job</span>
+                <span class="menu-item-label"> Inactive Companies</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <a href="#" class="br-menu-link">
@@ -208,12 +214,12 @@
 {{--            <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link">Job Posting</a></li>--}}
 {{--            <li class="nav-item"><a href="#" class="nav-link"> Job Posting Type</a></li>--}}
 {{--        </ul>--}}
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-fa fa fa-university tx-22"></i>
-                <span class="menu-item-label"> Training Institute Plan</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
+{{--        <a href="#" class="br-menu-link">--}}
+{{--            <div class="br-menu-item">--}}
+{{--                <i class="menu-item-fa fa fa-university tx-22"></i>--}}
+{{--                <span class="menu-item-label"> Training Institute Plan</span>--}}
+{{--            </div><!-- menu-item -->--}}
+{{--        </a><!-- br-menu-link -->--}}
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Key Skill</label>
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>

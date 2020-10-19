@@ -6,10 +6,10 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FunctionalArea extends Model
+class Category extends Model
 {
-
     use HasFactory;
+
     use Sluggable;
 //    use HasTrixRichText;
 
@@ -17,15 +17,9 @@ class FunctionalArea extends Model
     {
         return [
             'slug' => [
-                'source' => 'category_functional_area'
+                'source' => 'name'
             ]
         ];
     }
-    protected $with = ['category'];
     protected $guarded = [];
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class,'category_id');
-    }
 }

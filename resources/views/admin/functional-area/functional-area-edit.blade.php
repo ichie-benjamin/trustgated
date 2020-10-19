@@ -11,7 +11,7 @@
 <div class="br-mainpanel">
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">Dashboard</a>
+            <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
             <a class="breadcrumb-item" href="{{ route('admin.functional-area.index') }}">Functional Area</a>
             <span class="breadcrumb-item active">Edit Functional Area</span>
         </nav>
@@ -32,16 +32,17 @@
                         <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Functional Area: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" name="category_functional_area" value="{{old('category_functional_area', optional($functional_area)->category_functional_area)}}" placeholder="Enter address">
+                                <input class="form-control" type="text" name="category_functional_area" value="{{old('category_functional_area', optional($functional_area)->category_functional_area)}}" placeholder="Enter functional area">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Choose Main Category: <span class="tx-danger">*</span></label>
-                                <select name="main_category" class="form-control " data-placeholder="Choose Main Category:">
+                                <select name="category_id" class="form-control " data-placeholder="Choose Main Category:">
 {{--                                    <option label="Choose Category"></option>--}}
-                                    <option value="IT/IIM Jobs" @if (old('main_category') == "IT/IIM Jobs") selected="selected" @endif>IT/IIM Jobs</option>
-                                    <option value="Govt Job" @if(old('main_category')== "Govt Job") selected="selected" @endif> Govt Job</option>
+                                    @foreach (\App\Models\Category::all() as $item)
+                                        <option value="{{ $item->id }}" @if (old('category_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div><!-- col-4 -->

@@ -15,9 +15,11 @@ class CreateFunctionalAreasTable extends Migration
     {
         Schema::create('functional_areas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('main_category');
+            $table->string('category_id');
+            $table->string('slug')->nullable();
             $table->string('category_functional_area');
+            $table->boolean('featured')->default(false);
+            $table->timestamps();
         });
     }
 

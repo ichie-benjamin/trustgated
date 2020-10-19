@@ -11,7 +11,9 @@ class EmployerController extends Controller
     public function profile(){
         $user = Auth::user();
         $company = Company::whereUserId($user->id)->first();
-        if(!$company){
+        if(auth()->user()->hasRole('admin')){
+            $company = Company::latest()->first();
+        }elseif(!$company){
             return redirect('home');
         }
         return view('employer.profile.index', compact('user','company'));

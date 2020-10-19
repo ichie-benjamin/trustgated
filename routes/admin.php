@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdController;
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\PackagesController;
@@ -47,6 +48,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'pages' => PagesController::class,
         'banners' => BannerController::class,
         'settings' => SettingsController::class,
+        'categories' => CategoriesController::class,
     ]);
 
 });
