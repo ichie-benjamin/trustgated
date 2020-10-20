@@ -28,4 +28,8 @@ class FunctionalArea extends Model
     {
         return $this->belongsTo(Category::class,'category_id');
     }
+
+    public function jobs(){
+        return $this->hasMany(Job::class, 'functional_area');
+    }
 }

@@ -209,49 +209,15 @@
 						<div class="jp_banner_jobs_categories_wrapper">
                <div class="container">
 			    <div class="row">
+                    @foreach($f_areas as $item)
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="#/jobsearch_all.php?f_area=261">Business Development...</a></h3>
-                        <p>(1 jobs)</p>
+                        <h3><a href="#/jobsearch_all.php?f_area=261">{{ $item->category_functional_area }}</a></h3>
+                        <p>({{ $item->jobs_count }} jobs)</p>
                     </div>
                 </div>
-				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
-                    <div class="jp_top_jobs_category">
-                        <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="#/jobsearch_all.php?f_area=262">Customer Relationshi...</a></h3>
-                        <p>(1 jobs)</p>
-                    </div>
-                </div>
-				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
-                    <div class="jp_top_jobs_category">
-                        <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="#/jobsearch_all.php?f_area=110">Stock Broking</a></h3>
-                        <p>(1 jobs)</p>
-                    </div>
-                </div>
-				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
-                    <div class="jp_top_jobs_category">
-                        <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="#/jobsearch_all.php?f_area=264">Marketing Executives</a></h3>
-                        <p>(1 jobs)</p>
-                    </div>
-                </div>
-				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
-                    <div class="jp_top_jobs_category">
-                        <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="#/jobsearch_all.php?f_area=250">Legal Adviser</a></h3>
-                        <p>(1 jobs)</p>
-                    </div>
-                </div>
-				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
-                    <div class="jp_top_jobs_category">
-                        <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="#/jobsearch_all.php?f_area=326">Tour Operator</a></h3>
-                        <p>(1 jobs)</p>
-                    </div>
-                </div>
-
+                    @endforeach
 				</div>
             </div>
         </div>
@@ -712,78 +678,9 @@
                                     </div>
                                     <div class="job_categories_content" >
                                         <ul>
-							                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=36">Marketing/Sales<span>(3)</span></a></li>
-											                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=40">Tours and Travel/Air...<span>(3)</span></a></li>
-											                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=50">IT-ERP-Oracle<span>(2)</span></a></li>
-											                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=53">IT - BPO<span>(2)</span></a></li>
-											                                            <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=38">Production/Manufactu...<span>(2)</span></a></li>
-											                                         <div id="collapseExample" class="collapse">
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=34">Law Enforcement/Secu...<span>(1)</span></a>
-
-												</li>
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=37">Media/Journalism<span>(1)</span></a>
-
-												</li>
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=44">Strategy / Managemen...<span>(1)</span></a>
-
-												</li>
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=41">Transportation/Logis...<span>(1)</span></a>
-
-												</li>
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=55">Management<span>(1)</span></a>
-
-												</li>
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=45">Others<span>(1)</span></a>
-
-												</li>
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=42">KPO/Technical Suppor...<span>(1)</span></a>
-
-												</li>
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=35">Legal/Law<span>(1)</span></a>
-
-												</li>
-
-
-                                            <li >
-
-													<i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=51">Media <span>(1)</span></a>
-
-												</li>
-																								</div>
-											<li><i class="fa fa-plus-circle"></i> <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="collapsed">View more Categories</span> <span class="expanded">View less Categories</span></a></li>
-
+                                            @foreach ($industries as $item)
+                                                <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=36">{{ $item->category }}<span>({{ $item->jobs_count }})</span></a></li>
+                                            @endforeach
 
                                         </ul>
                                     </div>

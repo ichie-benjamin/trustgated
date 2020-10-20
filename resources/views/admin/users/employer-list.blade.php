@@ -26,12 +26,14 @@
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">S/N</th>
+                            <th class="wd-5p">S/N</th>
                             <th class="wd-15p">Username</th>
                             <th class="wd-15p">Photo</th>
-                            <th class="wd-20p">Email</th>
+                            <th class="wd-30p">Company Name</th>
+                            <th class="wd-15p">DB Access</th>
+                            <th class="wd-10p">Posted Jobs</th>
 {{--                            <th class="wd-15p">Phone</th>--}}
-                            <th class="wd-15p">Role</th>
+
                             <th class="wd-10p">Action</th>
 
                         </tr>
@@ -46,9 +48,10 @@
                                 <td>{{ $count++ }}</td>
                                 <td>{{ $user->username }}</td>
                                 <td><img height="40" src="{{ $user->avatar }}"></td>
-                                <td>{{ $user->email }}</td>
+                                <td>{{ optional(\App\Models\Company::whereUserId($user->id)->first())->name }}</td>
 {{--                                <td>{{ $user->phone }}</td>--}}
-                                <td>{{ $user->role }}</td>
+                                <td>{{ 'Nill' }}</td>
+                                <td>{{ \App\Models\Job::whereUserId($user->id)->count() }}</td>
                                 <td>
                                     <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Edit User"><em class="fa fa-edit"></em></a>
                                     <a href="{{ route('admin.users.destroy', $user) }}" onclick="destroyUser(event)" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><em class="fa fa-trash"></em>
