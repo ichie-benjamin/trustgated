@@ -56,7 +56,7 @@
                                 <div class="media mbg">
                                     <div class="row">
                                         <div class=" col-md-2">
-                                            <a href="recruiter-profile.php?$rec_id" target="_blank" >
+                                            <a href="{{ route('recruiter.profile',$user->username) }}">
                                                 <img src="{{ asset($user->avatar) }}" alt="{{ $user->username }}">
                                             </a>
                                         </div>
@@ -65,7 +65,7 @@
                                             <div class="media-body">
                                                 <div class="recru-name">
 
-                                                    <a href="recruiter-profile.php?rec_id=46"> {{ $user->name }}</a><br>
+                                                    <a href="{{ route('recruiter.profile',$user->username) }}"> {{ $user->name }}</a><br>
                                                     <span class="re-pos">  </span><br>
                                                     <span class="pright15">  <i class="fa fa-suitcase"></i> {{ optional($user->company)->name }} </span>
                                                     <span class="re-pos"><i class="fa fa-map-marker"></i> {{ optional($user->company)->city }} </span>
@@ -216,13 +216,13 @@
                             @foreach($top_recruiters as $user)
                             <div class="media bor-bott">
                                 <div class="media-left">
-                                    <a href="recruiter-profile.php?$rec_id" target="_blank" >
+                                    <a href="{{ route('recruiter.profile',$user->username) }}" target="_blank" >
                                         <img src="{{ asset($user->avatar) }}" alt="{{ $user->username }}">
                                     </a>
                                 </div>
                                 <div class="media-body">
                                     <div class="recru-name">
-                                        <a href="recruiter-profile.php?rec_id=46"> {{ $user->name }}</a><br>
+                                        <a href="{{ route('recruiter.profile',$user->username) }}"> {{ $user->name }}</a><br>
                                         <span class="re-pos">  </span><br>
                                         <span class="pright15">  <i class="fa fa-suitcase"></i> {{ optional($user->company)->name }} </span>
                                         <span class="re-pos"><i class="fa fa-map-marker"></i> {{ optional($user->company)->city }} </span>

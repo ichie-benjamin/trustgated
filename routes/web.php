@@ -74,6 +74,7 @@ Route::get('/jobs-by-category', [JobsController::class,'jobByCat'])->name('categ
 Route::get('/jobs-by-companies', [JobsController::class,'jobByCompany'])->name('company_job');
 Route::get('/searchall', [JobsController::class,'searchAll'])->name('searchall');
 Route::get('/recruiters', [JobsController::class,'recruiters'])->name('recruiters');
+Route::get('/recruiter_profile/{username}', [HomeController::class,'recruitersProfile'])->name('recruiter.profile');
 Route::get('/jobs/{type}', [JobsController::class,'jobType'])->name('job.type');
 Route::get('/{company}/jobs', [JobsController::class,'CompanyJobs'])->name('company.jobs');
 Route::get('/contact-us', [HomeController::class,'contactus'])->name('contactus');
