@@ -74,6 +74,11 @@ class Company extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+
+    public function activeJobs(){
+        return $this->jobs()->count();
+    }
+
     public function jobs()
     {
         return $this->hasMany('App\Models\Job');

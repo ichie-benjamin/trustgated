@@ -64,12 +64,17 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
 
 Route::get('/all-jobs', [JobsController::class, 'allJobs'])->name('all_jobs');
 
+Route::get('/job/{slug}', [JobsController::class, 'jobView'])->name('jobs.job.view');
+
+
 Route::get('/jobs-by-area', [JobsController::class,'jobByArea'])->name('job_by_area');
 Route::get('/jobs-by-category', [JobsController::class,'jobByCat'])->name('category_job');
 Route::get('/jobs-by-companies', [JobsController::class,'jobByCompany'])->name('company_job');
 Route::get('/searchall', [JobsController::class,'searchAll'])->name('searchall');
 Route::get('/recruiters', [JobsController::class,'recruiters'])->name('recruiters');
+Route::get('/recruiter_profile/{username}', [HomeController::class,'recruitersProfile'])->name('recruiter.profile');
 Route::get('/jobs/{type}', [JobsController::class,'jobType'])->name('job.type');
+Route::get('/{company}/jobs', [JobsController::class,'CompanyJobs'])->name('company.jobs');
 Route::get('/contact-us', [HomeController::class,'contactus'])->name('contactus');
 
 Route::get('/edit-summary-info', [UsersController::class,'editSummary'])->name('edit_summary');
@@ -78,7 +83,7 @@ Route::get('/edit-resume-detail', [JobseekerController::class,'editResume'])->na
 Route::get('/itskills', [JobseekerController::class,'itSkills'])->name('itskills');
 Route::get('/educationdetails', [JobseekerController::class,'eduDetails'])->name('educational_details');
 Route::get('/moredetails', [JobseekerController::class,'moredetails'])->name('moredetails');
-Route::get('/obseeker-profile-edit', [JobseekerController::class,'profileEdit'])->name('jobseeker-edit');
+Route::get('/jobseeker-profile-edit', [JobseekerController::class,'profileEdit'])->name('jobseeker-edit');
 
 Route::get('/job-agent-view', [JobsController::class,'jobAgentView'])->name('job_agent_view');
 Route::get('/application-history', [JobseekerController::class,'applicationHistory'])->name('application_history');

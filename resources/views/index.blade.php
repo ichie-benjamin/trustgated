@@ -235,17 +235,19 @@
             <h2>New &amp; Random <span>Jobs</span></h2>
          </div>
       </div>
-	        <div class="row extra-mrg">
-	           <div class="col-md-3 col-sm-6">
-            <div class="grid-view brows-job-list">
+
+       <div class="row extra-mrg">
+           @foreach($jobs as $job)
+           <div class="col-md-3 col-sm-6">
+               <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="#//company_logo/com-2.jpg" class="img-responsive" alt="">
+			 <img src="{{ optional($job->company)->logo }}" class="img-responsive" style="" alt="">
 			 			 </div>
                <div class="brows-job-position">
 
-                  <h3><a href="#/job-detail-page.html?jid=31527846358">Junior Engineering Assistant G...</a></h3>
-                  <p><span>Inet-Solution</span></p>
+                  <h3><a href="{{ route('jobs.job.view',$job->slug) }}">{{ $job->title }}</a></h3>
+                  <p><span>{{ optional($job->company)->name }}</span></p>
                </div>
                <div class="job-position"><span class="job-num">0-9 YRS</span></div>
                <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
@@ -260,183 +262,8 @@
                   </li>
                </ul>
             </div>
-         </div>
-									         <div class="col-md-3 col-sm-6">
-            <div class="grid-view brows-job-list">
-               <div class="brows-job-company-img">
-
-			 <img src="#//company_logo/1437486045.jpg" class="img-responsive" alt="">
-			 			 </div>
-               <div class="brows-job-position">
-
-                  <h3><a href="#/job-detail-page.html?jid=31527833317">BPO / KPO / CCE / Process Asso...</a></h3>
-                  <p><span>Creative Hands HR Co...</span></p>
-               </div>
-               <div class="job-position"><span class="job-num">2-8 YRS</span></div>
-               <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
-               <ul class="grid-view-caption">
-                  <li>
-                     <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>Pondicherr...</p>
-                     </div>
-                  </li>
-                  <li>
-                     <p><span class="brows-job-sallery"><i class="fa fa-money"></i>1  - 45lakhs </span></p>
-                  </li>
-               </ul>
-            </div>
-         </div>
-									         <div class="col-md-3 col-sm-6">
-            <div class="grid-view brows-job-list">
-               <div class="brows-job-company-img">
-
-			 <img src="/company_logo/1437486045.jpg" class="img-responsive" alt="">
-			 			 </div>
-               <div class="brows-job-position">
-
-                  <h3><a href="#/job-detail-page.html?jid=31527833570">Manager, India Counterfeit and...</a></h3>
-                  <p><span>Connectpro Managemen...</span></p>
-               </div>
-               <div class="job-position"><span class="job-num">4-10 YRS</span></div>
-               <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
-               <ul class="grid-view-caption">
-                  <li>
-                     <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>Barbil</p>
-                     </div>
-                  </li>
-                  <li>
-                     <p><span class="brows-job-sallery"><i class="fa fa-money"></i>8  - 7lakhs </span></p>
-                  </li>
-               </ul>
-            </div>
-         </div>
-									         <div class="col-md-3 col-sm-6">
-            <div class="grid-view brows-job-list">
-               <div class="brows-job-company-img">
-
-			 <img src="/company_logo/com-6.jpg" class="img-responsive" alt="">
-			 			 </div>
-               <div class="brows-job-position">
-
-                  <h3><a href="#/job-detail-page.html?jid=31527836914">Travel Expert for Ticketing an...</a></h3>
-                  <p><span>THE STAR HOLIDAYS</span></p>
-               </div>
-               <div class="job-position"><span class="job-num">0-8 YRS</span></div>
-               <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
-               <ul class="grid-view-caption">
-                  <li>
-                     <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>Astara</p>
-                     </div>
-                  </li>
-                  <li>
-                     <p><span class="brows-job-sallery"><i class="fa fa-money"></i>2  - 15lakhs </span></p>
-                  </li>
-               </ul>
-            </div>
-         </div>
-									         <div class="col-md-3 col-sm-6">
-            <div class="grid-view brows-job-list">
-               <div class="brows-job-company-img">
-
-			 <img src="/company_logo/1391518038.png" class="img-responsive" alt="">
-			 			 </div>
-               <div class="brows-job-position">
-
-                  <h3><a href="#/job-detail-page.html?jid=31530696765">php html developer</a></h3>
-                  <p><span>testing demo</span></p>
-               </div>
-               <div class="job-position"><span class="job-num">3-4 YRS</span></div>
-               <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
-               <ul class="grid-view-caption">
-                  <li>
-                     <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>Indore</p>
-                     </div>
-                  </li>
-                  <li>
-                     <p><span class="brows-job-sallery"><i class="fa fa-money"></i>3  - 3lakhs </span></p>
-                  </li>
-               </ul>
-            </div>
-         </div>
-									         <div class="col-md-3 col-sm-6">
-            <div class="grid-view brows-job-list">
-               <div class="brows-job-company-img">
-
-			 <img src="/company_logo/1391517965.jpg" class="img-responsive" alt="">
-			 			 </div>
-               <div class="brows-job-position">
-
-                  <h3><a href="#/job-detail-page.html?jid=31530526424">Associative Vice President</a></h3>
-                  <p><span>php script mall</span></p>
-               </div>
-               <div class="job-position"><span class="job-num">15-13 YRS</span></div>
-               <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
-               <ul class="grid-view-caption">
-                  <li>
-                     <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>NIL</p>
-                     </div>
-                  </li>
-                  <li>
-                     <p><span class="brows-job-sallery"><i class="fa fa-money"></i>4  - 9lakhs </span></p>
-                  </li>
-               </ul>
-            </div>
-         </div>
-									         <div class="col-md-3 col-sm-6">
-            <div class="grid-view brows-job-list">
-               <div class="brows-job-company-img">
-
-			 <img src="/company_logo/1437486045.jpg" class="img-responsive" alt="">
-			 			 </div>
-               <div class="brows-job-position">
-
-                  <h3><a href="#job-detail-page.html?jid=31527835351">Associate Editor ( Magazine / ...</a></h3>
-                  <p><span>Sphere TravelMedia &...</span></p>
-               </div>
-               <div class="job-position"><span class="job-num">0-10 YRS</span></div>
-               <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
-               <ul class="grid-view-caption">
-                  <li>
-                     <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>Karveripak...</p>
-                     </div>
-                  </li>
-                  <li>
-                     <p><span class="brows-job-sallery"><i class="fa fa-money"></i>1  - 10lakhs </span></p>
-                  </li>
-               </ul>
-            </div>
-         </div>
-									         <div class="col-md-3 col-sm-6">
-            <div class="grid-view brows-job-list">
-               <div class="brows-job-company-img">
-
-			 <img src="/company_logo/com-2.jpg" class="img-responsive" alt="">
-			 			 </div>
-               <div class="brows-job-position">
-
-                  <h3><a href="#job-detail-page.html?jid=31527847435">Project Associate (Software/ H...</a></h3>
-                  <p><span>Inet-Solution</span></p>
-               </div>
-               <div class="job-position"><span class="job-num">0-10 YRS</span></div>
-               <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
-               <ul class="grid-view-caption">
-                  <li>
-                     <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>Baisi</p>
-                     </div>
-                  </li>
-                  <li>
-                     <p><span class="brows-job-sallery"><i class="fa fa-money"></i>2  - 11lakhs </span></p>
-                  </li>
-               </ul>
-            </div>
-         </div>
-
+           </div>
+           @endforeach
       </div>
    </div>
 </section>
@@ -716,15 +543,16 @@
 								</div>
 
 								<div class="row">
+                                    @foreach($companies as $item)
 																	<div class="col-lg-4 col-sm-12">
 										<ul class="category-list category-bx">
 
-											<li><a href="#jobsearch_all.php?cmpy_srch=testing%20demo">
+											<li><a href="{{ route('company.jobs',$item->slug) }}">
 												<div class="logo">
 
-												<img src="/company_logo/1391518038.png" alt="" style=" width: 50px;height: 35px;">
+												<img src="{{ asset($item->logo) }}" alt="" style=" width: 50px;height: 35px;">
 												 												</div>
-												<span>testing demo</span>
+												<span>{{ $item->name }}</span>
 											</a></li>
 
 
@@ -732,262 +560,8 @@
 
 										</ul>
 									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
+                                    @endforeach
 
-											<li><a href="#jobsearch_all.php?cmpy_srch=php%20script%20mall">
-												<div class="logo">
-
-												<img src="/company_logo/1391517965.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>php script mall</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Client%20of%20Antrors%20HR%20Solutions">
-												<div class="logo">
-
-												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Client of Antrors HR Solutions</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=CN%20Immigration%20Services%20Pvt.%20Ltd">
-												<div class="logo">
-
-												<img src="#company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>CN Immigration Services Pvt. L...</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=THE%20STAR%20HOLIDAYS">
-												<div class="logo">
-
-												<img src="#company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>THE STAR HOLIDAYS</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Connectpro%20Management%20Consultants%20Pvt%20Ltd">
-												<div class="logo">
-
-												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Connectpro Management Consulta...</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Cummins%20India%20Ltd">
-												<div class="logo">
-
-												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Cummins India Ltd </span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Podar%20Education%20Network%20Pvt%20Ltd">
-												<div class="logo">
-
-												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Podar Education Network Pvt Lt...</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Executive%20Tracks%20Associates%20(P)%20Ltd.">
-												<div class="logo">
-
-												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Executive Tracks Associates (P...</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Diamond%20Magazines%20P%20Ltd">
-												<div class="logo">
-
-												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Diamond Magazines P Ltd</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=IP%20INTEGRATED%20SERVICES%20PVT%20LTS">
-												<div class="logo">
-
-												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>IP INTEGRATED SERVICES PVT LTS</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=OASIS">
-												<div class="logo">
-
-												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>OASIS</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Indian%20Institute%20of%20Management">
-												<div class="logo">
-
-												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Indian Institute of Management</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Inet-Solution">
-												<div class="logo">
-
-												<img src="/company_logo/com-2.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Inet-Solution</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Creative%20Hands%20HR%20Consultancy">
-												<div class="logo">
-
-												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Creative Hands HR Consultancy</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=Sphere%20TravelMedia%20&amp;%20Exhibition%20Private%20Limited">
-												<div class="logo">
-
-												<img src="/company_logo/1437486045.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>Sphere TravelMedia & Exhibitio...</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
-																		<div class="col-lg-4 col-sm-12">
-										<ul class="category-list category-bx">
-
-											<li><a href="#jobsearch_all.php?cmpy_srch=THE%20HOLIDAYS%20INN">
-												<div class="logo">
-
-												<img src="/company_logo/com-6.jpg" alt="" style=" width: 50px;height: 35px;">
-												 												</div>
-												<span>THE HOLIDAYS INN</span>
-											</a></li>
-
-
-
-
-										</ul>
-									</div>
 
 								</div>
 							</div>
