@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\admin\admin;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\admin\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class TrainingPlansController extends Controller
