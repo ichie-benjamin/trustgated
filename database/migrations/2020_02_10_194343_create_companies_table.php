@@ -26,6 +26,8 @@ class CreateCompaniesTable extends Migration
             $table->string('phone')->nullable();
             $table->string('slug')->nullable();
             $table->string('type')->nullable();
+            $table->string('skill_i_hire')->nullable();
+            $table->integer('views')->default(0);
             $table->string('contact_person')->nullable();
             $table->boolean('verified')->default(false);
         });

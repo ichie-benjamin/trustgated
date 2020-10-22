@@ -29,9 +29,9 @@ class Job extends Model
 
     protected $primaryKey = 'id';
 
-    protected $with = ['company','type','user'];
+    protected $with = ['company','type','user','currency','functional_area'];
 
-    protected $appends = ['expired','short_description','status'];
+    protected $appends = ['expired','short_description','status','salary'];
     protected $fillable = [
                   'title',
                   'slug',
@@ -60,7 +60,7 @@ class Job extends Model
                   'hide_address',
                   'candidate_description',
                   'experience_from',
-                  'experience_to',
+                  'experience_to','city','state',
                   'qualification','industry_id'
               ];
 
@@ -77,6 +77,12 @@ class Job extends Model
         }else {
             return 1;
         }
+    }
+
+
+
+    public function getSalaryAttribute(){
+       return "$this->min_salary - $this->max_salary ". optional($this->currency)->code ;
     }
 
     public function setLocationsAttribute($value)
@@ -130,6 +136,15 @@ class Job extends Model
     public function type()
     {
         return $this->belongsTo('App\Models\Type','type_id');
+    }
+    public function industry()
+    {
+        return $this->belongsTo(IndustryType::class,'industry_id');
+    }
+
+    public function functional_area()
+    {
+        return $this->belongsTo(FunctionalArea::class,'functional_area');
     }
 
     public function category()

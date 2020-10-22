@@ -84,6 +84,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne('App\Profile');
     }
 
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+
     public function getSkillAttribute(){
         if($this->skills){
             return implode(",",$this->skills);

@@ -1,9 +1,8 @@
 
-
 <!doctype html>
 <html lang="en">
 
-<head><!-- -->
+<head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,7 @@
 
 
     <!-- FAVICON AND APPLE TOUCH -->
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="shortcut icon" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/favicon.png">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-180x180.png">
 
     <!-- FONTS -->
@@ -25,7 +24,6 @@
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/fonts/icomoon.css">
     <link href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/font-n/stylesheet.css" rel="stylesheet" type="text/css" charset="utf-8" />
-
 
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/bootstrap/css/bootstrap.min.css">
@@ -106,263 +104,299 @@
     </style>
 
 </head>
+<script type="text/javascript">
+    function chkempty()
+    {
+        if(tinyMCE.get("job_desc").getContent())
+        {
 
+            var idddd = "job_desc";
+            alert(job_desc);
+            chkkabuse();
+
+
+        }
+    }
+
+    function chkkabuse(txtid)
+    {
+
+        var idd = txtid;
+        //alert(idd);
+        var textval =document.getElementById(idd).value;
+        //alert(textval);
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                //alert(xmlhttp.responseText);
+
+                //alert(xmlhttp.responseText);
+                if(xmlhttp.responseText==0)
+                {
+
+                    document.getElementById("name1").innerHTML="<font color='red' style='font-size:12px;'>Don't use abuse words,  </font> ";
+
+                    //document.getElementById('name').focus();
+                    document.getElementById('txtid').value="";
+                }
+                else
+                {
+                    document.getElementById("name1").innerHTML="<font color='#009966' style='font-size:12px;'>good</font>";
+                }
+            }
+        }
+        xmlhttp.open("GET","chkabuse.php?q="+textval,true);
+        xmlhttp.send();
+
+
+    }
+</script>
+<script type="text/javascript">
+    function send_mail(rec_name,rec_mail){
+        document.getElementById('recname').value=rec_name;
+        document.getElementById('recmail').value=rec_mail;
+    }
+</script>
 <body>
+
+<div class="modal fade" id="recruiter-listing-send-message" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #017BC6; text-align:center;">
+                <button type="button" style="color:#FFF;" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 style="color:#FFF; font-weight:bold;" class="modal-title" id="exampleModalLabel">Send Message To : <input class="btn" type="text" style="font-weight:bold; font-size:16px;" id="recname" readonly></h4>
+            </div>
+            <form action="" method="post">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Email ID:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="recipient-name" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Message:</label>
+                        <textarea class="form-control" id="message-text" name="message-text"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub-text" class="control-label">Subject:</label>
+                        <textarea class="form-control" id="sub-text" name="sub-text"></textarea>
+                    </div>
+
+                    <input type="hidden" id="recmail" name="recmail"/>
+                </div>
+                <div class="modal-footer">
+
+                    <input type="submit" class="btn-blue btn bc" name="send_mail" value="Send message"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <div id="page-wrapper">
 
     <!-- HEADER -->
-    <header>
-        <div id="header-top" >
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <!-- LOGO -->
-                        <a id="logo" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">
-                            <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="enterprenuer.com">
-                        </a>
-                    </div><!-- col -->
-                    <div class="col-sm-4">
 
-                    </div><!-- col -->
-                    <div class="col-sm-5 logme">
-                        <div class="widget widget-pages">
-                            <ul >
-                                <li>
-                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html">
-                                        <i class="fa fa-user"></i> <strong> Liza..</strong>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout_emp.php">
-                                        <!--<i class="fa fa-pencil-square-o"></i>-->
-                                        <i class="fa fa-sign-out"></i>
-                                        Logout
-                                    </a>
-                                </li>
+    <div id="header-top" >
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!-- LOGO -->
+                    <a id="logo" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">
+                        <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="enterprenuer.com">
+                    </a>
+                </div><!-- col -->
+                <div class="col-sm-4">
+                </div><!-- col -->
 
-                            </ul>
+                <div class="col-sm-5 logme">
+                    <div class="widget widget-pages">
+                        <ul>
+                            <li>
+                                <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobsseeker-login.html">
+                                    <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/login-icon.png" />
+                                    Login
+                                </a>
+                            </li>
+                            <li>
+                                <!--<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-login.html">-->
+                                <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-registration.html">
+                                    <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/register-icon.png" />
+                                    <!--<i class="fa fa-lock"></i>-->
+                                    Register
+                                </a>
+                            </li>
 
-                        </div><!-- widget-pages -->
+                        </ul>
+                    </div><!-- widget-pages -->
 
 
-                    </div><!-- col -->
-                </div><!-- row -->
-            </div><!-- container -->
-        </div><!-- header-top -->
-        <div class="banner-top">	 			<div id="header" >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <!-- MENU -->
-                            <nav>
-                                <a id="mobile-menu-button" style="position:fixed" href="#"><i class="mt-icons-menu"></i></a>
-                                <ul class="menu clearfix" id="menu">
-                                    <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"><i class="fa fa-user"></i> Profile</a></li>
-                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_find-candidate.html"><i class="fa fa-users"></i> Find Candidate</a></li>
-                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html"><i class="fa fa-university"></i> Resume Access</a></li>
-                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html"><i class="fa fa-globe"></i> Post Job</a></li>
-                                    <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postedjobs.html"><i class="fa fa-briefcase"></i> Posted Job List</a></li>
-                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html"><i class="icon-user4"></i> Transaction List</a></li>
-                                    <!--<li><a href="faq.html">Help / FAQ</a></li>-->
-                                    <li ><a href="contactus.html">Contact</a></li>
-                                    <!-- <li ><a href="index.html"><i class="fa fa-cogs"></i> Services</a></li>
-                                     <li ><a href="index.html" ><i class="fa fa-plus-circle"></i> More</a>-->
+                </div><!-- col -->
 
-                                    </li>
+
+                <!-- <div class="text-right botlink5"><a href="#">Job Seeker? Click here</a>  |  Report a Problem</div>-->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- header-top -->
+    <div id="header" >
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- MENU -->
+                    <nav>
+                        <a id="mobile-menu-button" href="#"><i class="mt-icons-menu"></i></a>
+                        <ul class="menu clearfix" id="menu"><!--class="fa fa-user"-->
+
+                            <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/home.png" /> Home</a></li>
+                            <li ><a href="jobsseeker-login.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/job-seeker-icon.png" /> Jobseekers</a></li>
+                            <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/searchall.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-icon.png" /> Jobs</a></li>
+                            <li ><a href="jobsearch_all.html?sch=4"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/govt-jobs-icon.png" /> IIT/IIM jobs</a></li>
+                            <li ><a href="jobsearch_all.html?sch=1"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/govt-jobs-icon.png" /> Govt.jobs</a></li>
+                            <li ><a href="jobsearch_all.html?sch=2"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/oversea-jobs-icon.png" /> Oversea jobs</a></li>
+                            <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/recruiter-listing.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/recruiters-icon.png" /> Recruiters</a></li>
+                            <!--<li><a href="faq.html">Help / FAQ</a></li>-->
+                            <li  ><a href="contactus.html">Contact</a></li>
+                            <!--<li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/employers-icon.png" /> Employers</a></li>
+                            <li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/services-icon.png" /> Services</a></li>-->
+                            <!--<li  class="dropdown" ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/more-icon.png" /> More</a>
+                                <ul >
+                                    <li><a href="faq.html">Help / FAQ</a></li>
+                                    <li><a href="#">Career Advice</a></li>
+                                    <li><a href="contactus.html">Contact Us</a></li>
                                 </ul>
-                            </nav>
-                        </div><!-- col -->
-                    </div><!-- row -->
-                </div><!-- container -->
-            </div><!-- header -->
+                            </li>-->
+                            <!--<li ><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                            <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/searchall.html"><i class="fa fa-briefcase"></i> Search Jobs </a></li>
+                            <li ><a href="index.html"><i class="fa fa-briefcase"></i> Jobs</a></li>
+                            <li ><a href="index.html"><i class="fa fa-university"></i> Govt.jobs</a></li>
+                            <li ><a href="index.html"><i class="fa fa-globe"></i> Oversea jobs</a></li>
+                            <li  ><a href="recruiter-listing.html"><i class="fa fa-users"></i> Recruiters</a></li>
+                           <!-- <li ><a href="index.html"><i class="icon-user4"></i> Employers</a></li>
+                            <li ><a href="index.html"><i class="fa fa-cogs"></i> Services</a></li>-->
+                            <!--<li ><a href="index.html" ><i class="fa fa-plus-circle"></i> More</a></li>-->
+                        </ul>
+                    </nav>
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- header -->
 
-            <script type="text/javascript" src="js/jquery.autocomplete.js"></script>
-            <link rel="stylesheet" type="text/css" href="js/jquery.autocomplete.css" />
+    <script>
 
-            <script type="text/javascript">
-                $(document).ready(function() {
-
-                    $("#jobkeywords").autocomplete("keyskillsearch.php", {
-
-                        width: 200,
-                        formatResult: function(data, value) {
-                            return value.split(",")[0];
-                        }
-                    });
-
-                    $("#adv-location").autocomplete("ajax_joblocation.php", {
-
-                        width: 190,
-                        formatResult: function(data, value) {
-                            return value.split(",")[0];
-                        }
-                    });
-
-                    $("#edkeywords").autocomplete("keyskillsearch.php", {
-
-                        width: 200,
-                        formatResult: function(data, value) {
-                            return value.split(",")[0];
-                        }
-                    });
-
-
-                });
-
-            </script>
-
-            <script type="text/javascript">
-                function chkkabuse(txtid)
-                {
-                    //alert(txtid);
-                    var idd = txtid;
-                    //alert(idd);
-                    var textval =document.getElementById(idd).value;
-                    //alert(textval);
-                    if (window.XMLHttpRequest)
-                    {// code for IE7+, Firefox, Chrome, Opera, Safari
-                        xmlhttp=new XMLHttpRequest();
-                    }
-                    else
-                    {// code for IE6, IE5
-                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    xmlhttp.onreadystatechange=function()
-                    {
-                        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-                        {
-                            //alert(xmlhttp.responseText);
-
-                            //alert(xmlhttp.responseText);
-                            if(xmlhttp.responseText==0)
-                            {
-                                document.getElementById(idd).focus();
-                                document.getElementById(idd).value="";
-                                //document.getElementById("name1").innerHTML="<font color='red' style='font-size:12px;'>Don't use abuse words,  </font> ";
-                                alert ("Don't use abuse words");
-
-                            }
-                            else
-                            {
-                                //document.getElementById("name1").innerHTML="<font color='#009966' style='font-size:12px;'>good</font>";
-                            }
-                        }
-                    }
-                    xmlhttp.open("GET","chkabuse.php?q="+textval,true);
-                    xmlhttp.send();
-
-
+        function Captcha(){
+            var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+            var i;
+            for (i=0;i<6;i++){
+                var a = alpha[Math.floor(Math.random() * alpha.length)];
+                var b = alpha[Math.floor(Math.random() * alpha.length)];
+                var c = alpha[Math.floor(Math.random() * alpha.length)];
+                var d = alpha[Math.floor(Math.random() * alpha.length)];
+                var e = alpha[Math.floor(Math.random() * alpha.length)];
+                var f = alpha[Math.floor(Math.random() * alpha.length)];
+                var g = alpha[Math.floor(Math.random() * alpha.length)];
+            }
+            var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+            document.getElementById("mainCaptcha").value = code
+        }
+        function ValidCaptcha(){
+            var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+            var string2 = removeSpaces(document.getElementById('txtInput').value);
+            var maincaptcha=$('#mainCaptcha').val();
+            if(maincaptcha!=""){
+                if (string1 == string2){
+                    document.getElementById('id5').innerHTML='<span style="color:#DE1616;">Verification success</span>';
+                    return true;
                 }
-            </script>
-            <style type="text/css">
-                td {
-                    vertical-align:middle;
+                else{
+                    document.getElementById('id5').innerHTML='<span style="color:#DE1616;">Enter the correct captcha</span>';
+                    return false;
                 }
-            </style>
+            }
+        }
+        function removeSpaces(string){
+            return string.split(' ').join('');
+        }
+    </script>
 
+    <!--CREATE JOB ALERT POPUP-->
 
-            <script type="text/javascript">
-                var count=0;
-                function count_check(field)
-                {
-                    if(field.checked)
-                    {
-                        count++;
-                    }
-                    else
-                    {
-                        count--;
-                    }
-                }
-            </script>
-            <!-- SEARCH-start -->
-            <div class="container hometom">
-                <div class="row">
-                    <div class="col-sm-12" >
-
-                        <!--<div class="col-sm-1" ></div>-->
-                        <div class="col-sm-12" >
-                            <form class="form-inline" action="jobsearch.php" name="homeadvancesearch" method="GET">
-
-                                <div class="form-group serww"><input class="form-control2 " id="keyword" name="refkeyword" type="text"  placeholder="Keywords, Skills, Designation" value=''></div>
-                                <div class="form-group"> <input class="form-control2 " id="location" autocomplete="off" name="reflocation"  type="text" value='' placeholder="Location"></div>
-                                <div class="form-group">
-                                    <select id="category" name="category" class="form-control2 ">
-                                        <option value="">select industry</option>
-                                        <option value="56"  >Construction</option>
-                                        <option value="53"  >IT - BPO</option>
-                                        <option value="50"  >IT-ERP-Oracle</option>
-                                        <option value="42"  >KPO/Technical Support</option>
-                                        <option value="34"  >Law Enforcement/Security</option>
-                                        <option value="35"  >Legal/Law</option>
-                                        <option value="55"  >Management</option>
-                                        <option value="36"  >Marketing/Sales</option>
-                                        <option value="52"  >mech</option>
-                                        <option value="51"  >Media </option>
-                                        <option value="37"  >Media/Journalism</option>
-                                        <option value="54"  >NGO/Social Services</option>
-                                        <option value="45"  >Others</option>
-                                        <option value="38"  >Production/Manufacturing/Maintenance</option>
-                                        <option value="44"  >Strategy / Management Consulting Firms</option>
-                                        <option value="46"  >test cate</option>
-                                        <option value="40"  >Tours and Travel/Airline</option>
-                                        <option value="41"  >Transportation/Logistics</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select id="experience" name="experience" class="form-control2 " >
-                                        <option value="">Experience</option>
-                                        <option value="1" >0 to 1 Year</option>
-                                        <option value="2" >2 Years</option>
-                                        <option value="3" >3 Years</option>
-                                        <option value="4" >4 Years</option>
-                                        <option value="5" >5 Years</option>
-                                        <option value="6" >6 Years</option>
-                                        <option value="7" >7 Years</option>
-                                        <option value="8" >8 Years</option>
-                                        <option value="9" >9 Years</option>
-                                        <option value="10" >10 Years</option>
-                                        <option value="15" >15 Years</option>
-                                        <option value="20" >20 Years</option>
-                                    </select>
-                                    <!--<input  class="form-control2 input-lg" type="text" name="exp" placeholder="Experience">--></div>
-                                <div class="form-group text-center"><button  class="search-btn btn-lg btn-block"  id="homeadvsearch" type="submit" name="homeadvsearch" value="Search"> <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/search-icon.png" /> Search</button>
-                                    <!--<span class="avd"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" >Advanced Search</a></span>-->
-                                    <span class="avd"><a href="advancesearch.html">Advanced Search</a></span>
-                                </div>
-                            </form>
+    <div class="modal fade bs-example-modal-lg" id="mailjob" tabindex="-1" role="dialog" aria-labelledby="search">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header avd-serbg">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;"><span aria-hidden="true"> <img src="images/close-icon.png"></span></button>
+                    <h4 class="modal-title mode-tit" id="myModalLabel">Forward Job to Friend</h4>
+                </div>
+                <div class="modal-body avdbg1a">
+                    <form class="form-horizontal m10" onsubmit="return modalvalidate()";>
+                        <div class="form-group m20">
+                            <label class="col-sm-4 pedit2 text-right mtop4"><span class="red-star">*</span>Your Email: </label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" placeholder="Enter your email address" name="mail" id="mail"><div id="id1"></div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group m20">
+                            <label class="col-sm-4 pedit2 text-right mtop4"><span class="red-star">*</span>Friend's Email: </label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" placeholder="Enter your friend's email address" name="fmail" id="fmail"><div id="id2"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  >Subject:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" name="subject" id="subject" value="Your Friend has forwarded you the Job: Project Associate (Software/ Hardware Testing) at Inet-Solution " readonly><div id="id3"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  >Message:</label>
+                            <div class="col-sm-5">
+                                <textarea class="form-control" name="message" id="message">  </textarea>
+                                <div id="id3"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  ><span class="red-star">*</span>Enter the captcha:</label>
+                            <div class="col-sm-5">
+                                <input type="text" id="mainCaptcha"/>
+                                <script>Captcha();</script>
+                                <!--<input type="button" id="refresh" value="Refresh" onclick="Captcha();" />-->
+                                <input type="text" id="txtInput" placeholder="Enter correct captcha"/>
+                                <!-- <input id="Button1" type="button" value="Check" onclick="alert(ValidCaptcha());"/>-->
+
+                                <div id='id5'></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-12 text-center">
+                                <input type="hidden" name="jid" value="31527847435" />
+                                <input class="btn-blue btn bc3" value="Send " name="frdmailsubmit" type="submit" onclick="return ValidCaptcha();"> </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!--SEARCH-end -->
-            <div id="header-bottom" class="hea" >
-                <div class="container">
-                    <div class="col-sm-12">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span ><i class="fa fa-bars fa-2"></i></span>
-                            </button>
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="navbar-collapse-2">
-                            <ul class="nav navbar-nav navbar-left  clearfix sss">
-                                <li>Browse jobs :</li>
-                                <li class="active"><a href="jobsearch_all.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/all-jobs-icon.png" /> All jobs</a></li>
-                                <li class=""><a href="job_by_company.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-company-icon.png" /> Job by Company</a></li>
-                                <li class=""><a href="job_by_category.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-category-icon.png" /> Job by Category</a></li>
-                                <li class=""><a href="job_by_area.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-location-icon.png" /> Job by Location</a></li>
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </div> <!--col-sm-12-->
-                </div><!--container-->
-            </div><!--header-bottom-->          </div>  <!--banner-top-->
-    </header>
+        </div>
+    </div>
 
-    <!-- HEADER -->
+    <!--CREATE JOB ALERT END-->
 
 
 
@@ -370,288 +404,220 @@
     <!-- CONTENT -->
     <div id="content">
         <div class="container">
+
+
+
+            <ol  class="breadcrumb">
+                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">Home</a></li>
+                <li ><a href="#">Jobs</a></li>
+                <!-- <li><a href="#">Interior Design Jobs</a></li>-->
+                <li class="active"><a href="#">Project Associate (Software/ Hardware Testing) </a></li>
+            </ol>
+            <div id="nap_msg"></div>
+
             <div class="row">
-                <div class="col-md-0"></div>
-                <div class="col-md-11">
-                    <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">My Account</a></li>
-                        <li class="active">Sub user Management</li>
-                    </ol>
-                </div>
-                <script type="text/javascript">
-                    $('.inbox-bg .inboxa').hide(0);
+                <div class="col-sm-9" >
+                    <div class="top-emp-center p5">
+                        <h4>  Project Associate (Software/ Hardware Testing) </h4>
+                    </div>
+                    <div class=" job-detail-bg">
+                        <div class="job-detail">
+                            <div class="media">
+                                <div class="media-body">
+                                    <div class="col-md-10">
+                                        <h4 class="media-heading"><em>Project Associate (Software/ Hardware Testing)</em></h4>
+                                    </div>
+                                    <div class="col-md-2">
 
-                    $('.inbox-bg').click(function(){
-                        alert('ffff');
-                        if($('.inboxa').hasClass('vis')){
-                            $('.inboxa', this).removeClass('vis');
-                            $('.inboxa', this).hide();
-                        }else{
-                            $('.inboxa', this).addClass('vis');
-                            $('.inboxa', this).show();
-                        }
-                    });
-                    function menu_click1()
-                    {
-                        $('#show1')
-                    }
-                </script>
 
-                <div class="col-md-3">
+                                        <div class="save-job">
+                                            <a href="javascript:;" onclick="window.location.href='jobsseeker-login.html'"><i class="fa fa-floppy-o"></i> Save Job</a>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="entry-meta mtop40">
+                                        <div class="col-md-12"> <span class="posted-on"><i class="fa fa-map-marker"></i> <span class="entry-date">
+													Baisi
+											</span></span> <span class="byline"> <i class="icon-suitcase"></i> <span class="author vcard">0-10 YRS</span></span>	<span class="comments-link"><!--<i class="fa fa-inr"></i>--> 2,00,000 - 11,00,000 P.A </span></div>
+                                    </div>
+                                    <div class="bot-align">
+                                        <ul>
+
+                                            <li><a href="jobsseeker-login.html?jid=31527847435&setcok" target="_blank" onClick="javascript:window.close();">
+                                                    <input type="button" name="loginto" value="Login to Apply"  class="btn-blue btn"/></a></li>
+                                            <li><a href="jobseeker-registration.html?setco" class="btn-gre btn"> Register and Apply </a></li>
+                                            <!--<li><input class="btn-gray btn" value="Apply without Registration" type="button"> </li>-->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!--media-->
+                        </div>
+
+                        <div class="col-sm-7 m5" >
+                            <div class="all-catehead blue">Job Description</div>
+                        </div>
+                        <div class="col-sm-5 text-right m5">
+                            <!--<div class="col-sm-6"> <div class="jobs"><a href="#">Send me job like this</a></div></div>
+                              <div class="col-sm-5">
+                               <a class="fbook" style="color:#fff;" href="https://www.facebook.com/"><i class="mt-icons-facebook"></i></a>
+                               <a class="twi" style="color:#fff;" href="https://twitter.com/"><i class="mt-icons-twitter"></i></a>
+                               <a class="linkin" style="color:#fff;" href="https://www.linkedin.com/"><i class="mt-icons-linkedin"></i></a>
+                            </div>-->
+                        </div>
+                        <div class="col-sm-12 m5" >
+                            <div class="jd"><em>Applications are invited for the following temporary posts under the project titled â€œCentre of Excellence for Decentralized Power Systems\\\\\\\\\\\\\\\", Dept. of Electrical Engineering, IIT Madras.\\\\\\\\r\\\\\\\\nDuration: Initially for a period of one year, extendable based on the performances:-\\\\\\\\r\\\\\\\\nProject Co-ordinator: Prof. Ashok Jhunjhunwala, Department of Electrical Engineering\\\\\\\\r\\\\\\\\nNo. of Posts: 01\\\\\\\\r\\\\\\\\n\\\\\\\\r\\\\\\\\n\\\\\\\\r\\\\\\\\n</em>  </div>
+                            <div class="m5">
+                                <div><span class="label lco"> Salary:</span> <span class="label lco-n"> 2,00,000 - 11,00,000 P.A As per rules of Industry</span></div>
+                                <div><span class="label lco">Industry:</span> <span class="label lco-n"> NGO/Social Services</span></div>
+                                <div><span class="label lco">Functional Area:</span> <span class="label lco-n">Software Application Developer</span></div>
+                                <div><span class="label lco">Job Posted On:</span> <span class="label lco-n">2018-06-01</span></div>
+                                <!--<div><span class="label lco">Role Category:</span> <span class="label lco-n">Interior Design</span></div>
+                                <div><span class="label lco">Role:</span> <span class="label lco-n">Interior Designer</span></div>-->
+                            </div>
+                        </div>
+                        <div class="col-sm-12 m5">
+                            <div class="all-catehead blue">Key Skills</div>
+                            <div class="key">
+                                <ul>
+                                    <li><input class="btn-grey btn" value="SOFTWARE" type="button"></li>
+                                    <li><input class="btn-grey btn" value="CSS" type="button"></li>
+                                    <li><input class="btn-grey btn" value="JAVA" type="button"></li>
+                                    <li><input class="btn-grey btn" value="HTML" type="button"></li>
+
+                                    <!-- <li><input class="btn-grey btn" value="Draftsman Activities" type="button"> </li>
+                                     <li><input class="btn-grey btn" value="Design " type="button"></li>
+                                     <li><input class="btn-grey btn" value="Interior Designing" type="button"> </li>
+
+                                     <li><input class="btn-grey btn" value="Furniture designing" type="button"> </li>
+                                     <li><input class="btn-grey btn" value="Architecture" type="button"> </li>
+                                     <li><input class="btn-grey btn" value="Interiors Fitout Designing" type="button"> </li>
+                                     <li><input class="btn-grey btn" value="Interior Furnishing Design" type="button"> </li>
+                                     <li><input class="btn-grey btn" value="Drafting Spatial " type="button"> </li>
+                                     <li><input class="btn-grey btn" value="Structural Spatial Steel" type="button"> </li>-->
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12 m5">
+                            <div class="all-catehead blue"> Desired Candidate Profile</div>
+                            <div class="enq">Education :</div>
+                            <div class="m5">
+                                Not Mentioned
+                                <!--<div><span class="label lco">UG:</span> <span class="label lco-n">Any Specialization, Graduation Not Required</span></div>
+                                <div><span class="label lco">PG:</span> <span class="label lco-n"> Any Postgraduate - Any Specialization, Post Graduation Not Required</span></div>
+                                <div><span class="label lco">Doctorate:</span> <span class="label lco-n">Any Doctorate - Any Specialization, Doctorate Not Required</span></div>-->
+                            </div>
+                            <!--<div class="enq">Other Skills:</div>
+                                <div class="m5">
+                                  <div><span class="label lco-n"> Able to Identify & Resolve issues & conflicts on site, Site Visits, Site Meetings.</span></div>
+                                  <div><span class="label lco-n"> Completion of the project within time & cost limits, in accordance with Project. </span></div>
+                                  <div><span class="label lco-n">Candidate should have a positive attitude & should be Goal oriented.</span></div>
+                                   <div><span class="label lco-n">Good written and verbal communication.</span></div>
+                                   <div><span class="label lco-n">For More Information Just Email Us - <span class="add"><a href="mailto:career@infosyscareersolutions.com">career@infosyscareersolutions.com</a>.</span> </span></div>
+                               </div> -->
+
+                            <div class="all-catehead blue">Company Profile</div>
+                            <div class="enq">Inet-Solution</div>
+                            <div class="m5">
+                                <div><span class="label lco-n">Description about company</span></div>
+                                <!--   <div><span class="label lco-n">Industry:  Designing and Architecture firm with a clientele list of reknowned developers, celebrities and builders</span></div>
+                                   <div><span class="label lco-n">Company Turnover:  1 - 100 Crores</span></div>
+                                   <div><span class="label lco-n"> Company Size:  11 - 50 Employees</span></div>-->
+                            </div>
+                        </div>
+
+                        <div class="m5 col-sm-12 ">
+                            <div class="con-view lco-n"> <a data-toggle="collapse" href="#contactview" >View Contact Details </a> </div>
+                            <div class="collapse" id="contactview" >
+                                <div class="con-view-bg">
+                                    <div><span class="label lco-n"> Recruiter Name: Raj</span></div>
+                                    <div><span class="label lco-n"> Address: , ,,Baisi,252,57- </span></div>
+                                    <div><span class="label lco-n add"> Website: <a href="www.soft.com" target="_blank"> www.soft.com</a></span></div>
+                                    <div><span class="label lco-n">Telephone: 8514723696</span></div>
+                                    <div><span class="label lco-n">Email Address: ineteswar@gmail.com</span></div>
+                                </div>
+                            </div>
+
+                            <div class="bot-align2 col-lg-12">
+                                <ul>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>  <!--job-detail-bg-->
+
+                    <div class="bot-bg">
+                        <div class="botlink">
+
+                            <!--  <a href="jobsearch_all.html?jid=$jid"> View Similar jobs </a> -->
+                            <a href="#" data-toggle="modal" data-target="#mailjob"> Email this job </a>
+
+                        </div>
+                    </div>
+
+                </div><!--col-sm-9-->
+
+                <div class="col-sm-3" >
+
                     <div class="create-job">
                         <div class="create-job-head">
-                            <h3> My Home</h3>
+                            <h3> Job Posted By</h3>
                         </div>
-                        <div class="create-job-content">
-                            <div class="inbox-bg" onclick="return menu_click1();">Administration</div>
-                            <!--<div class="inboxa"><a href="#">Product Settings</a></li> -->
-                            <div id="show1">
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html"  style="color:#00CCFF" >Manage Sub-Users</a></div>
-                                <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html" >Subscription Status</a></div>
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resume_pack.html"  >Product Settings<!--Resume Pack--></a></div>
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"  >Company profile</a></div>
-                                <!--<div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_folders.html" >Manage personal folder</a></div>-->
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html" >Change Password</a></div>
+                        <div class="post-job-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/recruiter-profile.html?rec_id=66">
+                                        <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/withoutpic.jpg" alt="re">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="post-na">
+                                        <a href="#">Raj</a><br>
+                                        <a href="#"></a><br>
+                                        <a href="#">Inet-Solution</a><br>
+                                        <a href="#"><i class="fa fa-map-marker"></i> Chennai</a>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-sm-7 post-na text-right m10" ><a href="#">31607 followers</a></div>
+                                 <div class="col-sm-5" > <div class="ali-right"> <input class="btn-blue btn" value="Follow" type="button"></div></div>-->
                             </div>
-                            <div class="inbox-bg">Search Resumes</div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html?featured=yes" >Featured Resumes</a></div>
-                            <!--<div class="inbox	a"><a href="emp_resumeaccess.php?viewall=yes">All Resumes</a></div>-->
-
-                            <div class="inbox-bg">Jobs & Responses</div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_find-candidate.html"  >Job Posted Responses</a></div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html" >Post Jobs</a></div>
-                            <!--<li><a href="#" >Post Jobs to Campuses</a></li> -->
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postedjobs.html" >Response Manager</a></div>
-                            <!--<li><a href="#" >Other Media Jobs</a></li>
-                            <li><a href="#" >Upload Resumes</a></li> -->
-
-
-                            <!-- <div class="inbox-bg">Profile</div>
-                            <div class="inboxa"><a href="#">View Profile</a></div>
-                            <div class="panel-titlea">
-                            <a class="" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
-                            Update Profile
-                            </a>
-                            </div>
-                            <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"  aria-expanded="true">
-                            <ul class="togg">
-                            <li><a href="#"> Summary </a></li>
-                            <li><a href="#">Employer/Designation</a></li>
-                            <li><a href="#">Attached Resume</a></li>
-                            <li><a href="#">Attached Resume</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">IT Skills</a></li>
-                            <li><a href="#">Education</a></li>
-                            <li><a href="#">More Details</a></li>
-                            </ul>
-                            </div>
-                            <div class="inboxa"><a href="#">Create/Manage Profiles</a></div>
-                            <div class="inboxa"><a href="#">Profile Performance</a></div>
-                            <div class="inboxa"><a href="#">Manage Cover Letters</a></div>
-                            <div class="inboxa"><a href="#">Upload Photo</a></div>
-                            <div class="inboxa"><a href="#">My Jobs Services</a></div>
-                            <div class="inbox-bg">Jobs & Applications</div>
-                            <div class="inboxa"><a href="#">Saved Jobs</a></div>
-                            <div class="inboxa"><a href="#">Application History</a></div>
-                            <div class="inbox-bg">Recruiters</div>
-                            <div class="inboxa"><a href="#"> Jobs & Updates</a></div>
-                            <div class="inboxa"><a href="#">Manage Following</a></div>
-                            <div class="inboxa"><a href="#">RecruiterConnection</a></div>
-                            <div class="inbox-bg">Settings</div>
-                            <div class="inboxa"><a href="#">Visibility Settings</a></div>
-                            <div class="inboxa"><a href="#">Communication Settings</a></div>
-                            <div class="inboxa"><a href="#">Block Companies</a></div>
-                            <div class="inboxa"><a href="#">Change Password</a></div> -->
-                        </div><!--create-job-content-->
+                        </div>
 
                     </div><!--create-job-->
-                </div>
 
-                <!--
-
-                <style>
-                /* accordion */
-
-                .urbangreymenu{
-                    /*width: 190px; */
-                    text-align:left;
-                    border:1px solid #CCC;
-                    padding:7px;
-                    background-color: #FAFAFA;
-                    border-radius: 7px;
-                }
-
-                .urbangreymenu .headerbar{
-                    font: bold 13px Verdana;
-                    text-align:center;
-                    color: #000;
-                    /*border-bottom: 5px #2a78bd solid;*/
-                    color: white;
-                    background: #025680 url(../images/arrowstop.gif) no-repeat 8px 6px;
-                    background-color:#2a78bd;
-                    margin-bottom: 0;
-                    margin-top: 10px;
-                    padding: 7px 0px;
-
-                }
-
-                .urbangreymenu .headerbar a{
-                    text-decoration: none;
-                    color: white;
-                    /*color: #000;*/
-                    display: block;
-                }
-
-                .urbangreymenu ul{
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
-                    margin-bottom: 0;
-                }
-
-                .urbangreymenu ul li{
-                    padding-bottom: 2px;
-                }
-
-                .urbangreymenu ul li a{
-                    font: normal 12px Arial;
-                    color: black;
-                    background: #f5f5f5;
-                    display: block;
-                    padding: 5px 0;
-                    line-height: 17px;
-                    padding-left: 8px;
-                    text-decoration: none;
-                }
-
-                .urbangreymenu ul li a:visited{
-                color: black;
-                }
-
-                .urbangreymenu ul li a:hover{
-                /*color: #df5400;*/
-                color: #355774;
-                background: #FAFAFA;
-                -webkit-box-shadow: 0px 0px 3px 1px rgba(75, 75, 75, .2);
-                box-shadow: 0px 0px 3px 1px rgba(75, 75, 75, .2);
-                -webkit-border-radius: 3px;
-                border-radius: 3px;
-                }
-
-
-                /*  accordion End */
-
-                </style>-->
-
-                <!--col-sm-2-->
-
-                <div class="col-md-9" >
-                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html" style="float:right; padding:5px;" class="btn-blue">View All</a>
-                    <div class="top-emp-center">
-                        <h4>Add Sub user</h4>
-                    </div> <!--top-emp-center-->
-                    <form name="form_sub">
-                        <table cellpadding="0" cellspacing="0" border="0" style="border:1px solid #a6d6f4; " height="100" width="100%" align="center">
-                            <tr>
-                                <td valign="middle" colspan="3" height="1"  bgcolor="#FFFFFF"></td>
-                            </tr>
-                            <tr style="background-color: #E0EEF7;" height="30">
-                                <td valign="middle"align="center" width="50" colspan="3"><b>Recuriter information</b></td>
-                            </tr>
-                            <tr>
-                                <td width="45%" align="right">User Name</td>
-                                <td width="3%" align="center">:</td>
-                                <td align="left"><input style="margin-top:30px;" name="sub_uname" id="sub_uname" type="text" class="textbox-registration" onBlur="chk_av();"  />  &nbsp; <label id="suser_av"> </label></td>
-                            </tr>
-
-                            <tr>
-                                <td width="45%" align="right">Password</td>
-                                <td width="3%" align="center">:</td>
-                                <td align="left"><input style="margin-bottom: 30px; margin-top: 30px;" name="sub_pwd" id="sub_pwd" type="password" class="textbox-registration" onKeyPress="document.getElementById('suser_av').innerHTML ='';" /></td>
-                            </tr>
-
-                            <tr>
-                                <td valign="middle" colspan="3" height="1" style="background-color:#a6d6f4;"></td>
-                            </tr>
-                            <tr>
-
-                        </table>
-                        <br />
-                        <table cellpadding="0" cellspacing="0" border="0" style="border:1px solid #a6d6f4;" height="100" width="100%" align="center">
-                            <tr>
-                                <td valign="middle" height="1"  bgcolor="#FFFFFF"></td>
-                            </tr>
-                            <tr style="background-color: #E0EEF7;" height="30">
-                                <td valign="middle"align="center" width="50"><b>Post Job Type</b></td>
-                            </tr>
-                            <tr>
-                                <td width="45%" align="center" >
-                                    <div class="inline col-sm-3" style="margin:0 10px;">
-                                        <label for="perm1">
-                                            ADD<br>
-                                            <label class="checkbox-inline">
-                                                <input name="perm1" id="perm1" type="checkbox" value="add" onChange="count_check(this)" />
-                                            </label>
-                                        </label>
-                                    </div>
-
-                                    <div class="inline col-sm-3" style="margin:0 10px;">
-                                        <label for="perm2">
-                                            EDIT<br>
-                                            <label class="checkbox-inline">
-                                                <input name="perm2" id="perm2" type="checkbox" value="edit" onChange="count_check(this)"/>
-                                            </label></label>
-                                    </div>
-
-                                    <div class="inline col-sm-3" style="margin:0 10px;">
-                                        <label for="perm3">
-                                            DELETE<br>
-                                            <label class="checkbox-inline">
-                                                <input name="perm3" id="perm3" type="checkbox" value="delete" onChange="count_check(this)" />
-                                            </label></label>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </table>
-                        <br>
-                        <table cellpadding="0" cellspacing="0" border="0" style="border:1px solid #a6d6f4;" height="100" width="100%" align="center">
-                            <tr>
-                                <td valign="middle" height="1"  bgcolor="#FFFFFF"></td>
-                            </tr>
-                            <tr style="background-color: #E0EEF7;" height="30">
-                                <td valign="middle"align="center" width="50"><b>Response Type</b></td>
-                            </tr>
-                            <tr>
-                                <td width="45%" align="center">
-                                    <div class="inline col-sm-5" style="margin:0 10px;">
-                                        <label for="resp1">
-                                            View Job<br>
-                                            <label class="checkbox-inline">
-                                                <input name="resp1" id="resp1" type="checkbox" value="view" onChange="count_check(this)" />
-                                            </label></label>
-                                    </div>
-
-                                    <div class="inline col-sm-5" style="margin:0 10px;">
-                                        <label for="resp2">
-                                            Resume Access<br>
-                                            <label class="checkbox-inline">
-                                                <input name="resp2" id="resp2" type="checkbox" value="access" onChange="count_check(this)" />
-                                            </label></label>
-                                    </div>
-
-                                </td>
-                            </tr>
-
-                        </table>
-                        <br />
-                        <div align="center">
-                            <img src="images/add-subuser.png" border="0px" style="cursor:pointer;" onClick="sub_save('91');" />
+                    <div class="create-job">
+                        <div class="create-job-head">
+                            <h3>Similar Jobs for You </h3>
                         </div>
-                    </form>
-                </div><!--col-sm-9-->
+                        <div class="create-job-content">
+
+
+
+                            <div class="ali-right"> <a class="btn-blue btn" href="jobsearch_all.html">View All</a></div>
+                        </div>
+                    </div>
+                    <div class="openings">
+                        <a href="#">
+                            <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="ads" />
+                            <!--<img src="images/internship.jpg" alt="ads">-->
+                        </a>
+                    </div>
+                    <div class="openings">
+                        <a href="#">
+                            <a  href='' target="_blank"><img src='http://phpscriptsmall.biz/demo/jobsite/images/tmp/banner_ad_336x280_blue1.jpg' />Best Jobs Website in Pakistan and India3</a>
+                            <!--<img src="images/internship.jpg" alt="ads">-->
+                        </a>
+                    </div>
+                    <div class="openings">
+                        <a href="#">
+                            <a  href='' target="_blank"><img src='http://phpscriptsmall.biz/demo/jobsite/images/tmp/banner_ad_336x280_white.jpg' />Best Jobs Website in Pakistan and India8</a>
+                            <!--<img src="images/internship.jpg" alt="ads">-->
+                        </a>
+                    </div>
+                </div><!--col-sm-3-->
+
             </div><!--row-->
         </div><!-- container -->
 
@@ -1979,4 +1945,56 @@
 <style>
     .error,.redstar{ color:#F00;   font-size: 12px;}
 </style>
-<script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/javascripts/emp/emp.js"> </script>
+<script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/job.js"> </script>
+<script type="text/javascript">
+    function save_job(id,seeker_id)
+    {
+//alert(id);
+        $.ajax({
+            type: "POST",
+            url: "http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//ajax_save_jobs.php",
+            async:false,
+            data: "id="+id+"&seeker_id="+seeker_id,
+            success: function(msg){
+                alert("Job Saved Successfully");
+                //window.location='http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/search.html';
+            }
+        });
+    }
+
+
+    function modalvalidate()
+    {
+        //alert("hi");
+        var mail=$('#mail').val();
+        var fmail=$('#fmail').val();
+        //var message=$('#message').val();
+        var captcha=$('#txtInput').val();
+        if(mail=="")
+        {
+            $('#id1').html('<span class="error">Enter email</span>');
+            $('#mail').focus();
+            return false;
+        }
+        if(fmail=="")
+        {
+            $('#id2').html('<span class="error">Enter friend email</span>');
+            $('#fmail').focus();
+            return false;
+        }
+
+        /* if(message=="")
+        {
+            $('#id3').html('<span class="error">Enter message</span>');
+            $('#message').focus();
+            return false;
+        } */
+        if(captcha=="")
+        {
+            $('#id4').html('<span class="error">Enter captcha</span>');
+            $('#captcha').focus();
+            return false;
+        }
+    }
+</script>
+</script>

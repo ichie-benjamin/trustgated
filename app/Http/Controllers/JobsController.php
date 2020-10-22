@@ -25,12 +25,21 @@ class JobsController extends Controller
         return view('pages.job_by_type');
     }
 
+    public function CompanyJobs($slug){
+        $company = Company::findBySlugOrFail($slug);
+        $jobs = Job::with('industry')->get();
+        return view('pages.job_by_type', compact('company','jobs'));
+    }
+
     public function allJobs(){
         return view('pages.all_jobs');
     }
 
     public function recruiters(){
-        return view('pages.recruiter-listing');
+        $users = User::with('company')->whereRoleIs('employer')->get();
+        $top_recruiters = User::with('company')->whereRoleIs('employer')->get();
+        $companies = Company::all();
+        return view('pages.recruiter-listing', compact('users', 'companies','top_recruiters'));
     }
 
     public function jobByCat(){
@@ -181,6 +190,13 @@ if(!$companies){
         $job = Job::findBySlugOrFail($slug);
 
         return view('employer.jobs.show', compact('job'));
+    }
+
+    public function jobView($slug)
+    {
+        $job = Job::findBySlugOrFail($slug);
+
+        return view('jobview', compact('job'));
     }
 
     public function view($slug)
