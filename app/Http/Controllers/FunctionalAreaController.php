@@ -58,8 +58,9 @@ class FunctionalAreaController extends Controller
 
     protected function getData(Request $request){
         $rules = [
-            'main_category' => 'required',
+            'category_id' => 'required',
             'category_functional_area' => 'required',
+            'featured' => 'required',
         ];
         return $request->validate($rules);
     }

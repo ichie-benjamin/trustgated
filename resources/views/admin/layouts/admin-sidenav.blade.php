@@ -1,6 +1,6 @@
 
 <!-- ########## START: LEFT PANEL ########## -->
-<div class="br-logo"><a href="#"><span>[</span>{{ env('APP_NAME') }}<span>]</span></a></div>
+<div class="br-logo"><a href="{{ url('/') }}" target="_blank"><span>[</span>{{ setting('site_name') }}<span>]</span></a></div>
 <div class="br-sideleft overflow-y-auto">
     <label class="sidebar-label pd-x-15 mg-t-20">Navigation</label>
     <div class="br-sideleft-menu">
@@ -37,6 +37,12 @@
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-atom tx-22"></i>
                 <span class="menu-item-label">Functional Area</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="{{ route('admin.categories.index') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-list tx-22"></i>
+                <span class="menu-item-label">Categories</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <a href="{{ route('admin.countries.index') }}" class="br-menu-link">
@@ -81,37 +87,39 @@
 {{--                <span class="menu-item-label"> ##C M S Uploads</span>--}}
 {{--            </div><!-- menu-item -->--}}
 {{--        </a><!-- br-menu-link -->--}}
+        </a>
         <a href="{{ route('admin.banners.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-tasks tx-22"></i>
                 <span class="menu-item-label"> Banner Manage</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.settings.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-cogs tx-22"></i>
                 <span class="menu-item-label"> General Setting</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>
-                <span class="menu-item-label">Settings</span>
-                <i class="menu-item-arrow fa fa-angle-down"></i>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-        <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{ route('admin.countries.index') }}" class="nav-link">Country</a></li>
-            <li class="nav-item"><a href="{{ route('admin.states.index') }}" class="nav-link">State</a></li>
-            <li class="nav-item"><a href="{{ route('admin.lgas.index') }}" class="nav-link">Lga</a></li>
-            <li class="nav-item"><a href="{{ route('admin.cities.index') }}" class="nav-link">Cities</a></li>
-        </ul>
+
+{{--        <a href="#" class="br-menu-link">--}}
+{{--            <div class="br-menu-item">--}}
+{{--                <i class="menu-item-icon ion-ios-redo-outline tx-24"></i>--}}
+{{--                <span class="menu-item-label">Settings</span>--}}
+{{--                <i class="menu-item-arrow fa fa-angle-down"></i>--}}
+{{--            </div><!-- menu-item -->--}}
+{{--        </a><!-- br-menu-link -->--}}
+{{--        <ul class="br-menu-sub nav flex-column">--}}
+{{--            <li class="nav-item"><a href="{{ route('admin.countries.index') }}" class="nav-link">Country</a></li>--}}
+{{--            <li class="nav-item"><a href="{{ route('admin.states.index') }}" class="nav-link">State</a></li>--}}
+{{--            <li class="nav-item"><a href="{{ route('admin.lgas.index') }}" class="nav-link">Lga</a></li>--}}
+{{--            <li class="nav-item"><a href="{{ route('admin.cities.index') }}" class="nav-link">Cities</a></li>--}}
+{{--        </ul>--}}
 
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9">Manage Seekers</label>
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-success wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.user.jobseekers') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-id-card tx-22"></i>
                 <span class="menu-item-label"> Seeker's Profile</span>
@@ -153,7 +161,7 @@
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-registered tx-22"></i>
-                <span class="menu-item-label"> Unregistered Company Job</span>
+                <span class="menu-item-label"> Inactive Companies</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <a href="#" class="br-menu-link">
@@ -196,23 +204,22 @@
                 <span class="menu-item-label"> Database Access Price</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.products.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-upload tx-24"></i>
-                <span class="menu-item-label"> Job Posting</span>
-                <i class="menu-item-arrow fa fa-angle-down"></i>
+                <span class="menu-item-label"> Job Posting Type</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link">Job Posting</a></li>
-            <li class="nav-item"><a href="#" class="nav-link"> Job Posting Type</a></li>
-        </ul>
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-fa fa fa-university tx-22"></i>
-                <span class="menu-item-label"> Traing Institute Plan</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
+{{--        <ul class="br-menu-sub nav flex-column">--}}
+{{--            <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link">Job Posting</a></li>--}}
+{{--            <li class="nav-item"><a href="#" class="nav-link"> Job Posting Type</a></li>--}}
+{{--        </ul>--}}
+{{--        <a href="#" class="br-menu-link">--}}
+{{--            <div class="br-menu-item">--}}
+{{--                <i class="menu-item-fa fa fa-university tx-22"></i>--}}
+{{--                <span class="menu-item-label"> Training Institute Plan</span>--}}
+{{--            </div><!-- menu-item -->--}}
+{{--        </a><!-- br-menu-link -->--}}
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Key Skill</label>
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
@@ -295,7 +302,7 @@
             </a><!-- br-menu-link -->
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Ads Management</label>
             <div class="progress ht-5 mg-b-10">
-                <div class="progress-bar bg-danger wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-success wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <a href="#" class="br-menu-link">
                 <div class="br-menu-item">
@@ -307,7 +314,7 @@
             <div class="progress ht-5 mg-b-10">
                 <div class="progress-bar bg-danger wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <a href="#" class="br-menu-link">
+            <a href="{{ route('admin.testimonial.index') }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="menu-item-fa fa fa-universal-access tx-22"></i>
                     <span class="menu-item-label"> Manage Testimonial</span>
@@ -315,7 +322,7 @@
             </a><!-- br-menu-link -->
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Contacts</label>
             <div class="progress ht-5 mg-b-10">
-                <div class="progress-bar bg-danger wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-purple wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <a href="#" class="br-menu-link">
                 <div class="br-menu-item">
@@ -327,10 +334,11 @@
 
 
 
-
-
             <br>
         <a href="#" class="br-menu-link">
+        <br>
+        <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="br-menu-link">
+
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-power tx-24"></i>
                 <span class="menu-item-label">Logout</span>
@@ -360,6 +368,7 @@
     </div><!-- br-header-left -->
     <div class="br-header-right">
         <nav class="nav">
+            @section('hide')
             <div class="dropdown">
                 <a href="#" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
                     <i class="icon ion-ios-email-outline tx-24"></i>
@@ -488,32 +497,29 @@
                     </div><!-- media-list -->
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->
+            @endsection
             <div class="dropdown">
                 <a href="#" class="nav-link nav-link-profile" data-toggle="dropdown">
-                    <span class="logged-name hidden-md-down">Katherine</span>
-                    <img src="{{ asset('img/img1.jpg') }}" class="wd-32 rounded-circle" alt="">
+                    <span class="logged-name hidden-md-down">{{ auth()->user()->username }}</span>
+                    <img src="{{ asset(auth()->user()->avatar) }}) }}" class="wd-32 rounded-circle" alt="">
                     <span class="square-10 bg-success"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-header wd-200">
                     <ul class="list-unstyled user-profile-nav">
-                        <li><a href="#"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
-                        <li><a href="#"><i class="icon ion-ios-gear"></i> Settings</a></li>
-                        <li><a href="#"><i class="icon ion-ios-download"></i> Downloads</a></li>
-                        <li><a href="#"><i class="icon ion-ios-star"></i> Favorites</a></li>
-                        <li><a href="#"><i class="icon ion-ios-folder"></i> Collections</a></li>
-                        <li><a href="#"><i class="icon ion-power"></i> Sign Out</a></li>
+                        <li><a href="#"><i class="icon ion-ios-person"></i> Change Password</a></li>
+                        <li><a href="{{ route('admin.settings.index') }}"><i class="icon ion-ios-gear"></i> Settings</a></li>
+{{--                        <li><a href="#"><i class="icon ion-ios-download"></i> Downloads</a></li>--}}
+{{--                        <li><a href="#"><i class="icon ion-ios-star"></i> Favorites</a></li>--}}
+{{--                        <li><a href="#"><i class="icon ion-ios-folder"></i> Collections</a></li>--}}
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon ion-power"></i> Sign Out</a></li>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->
         </nav>
-        <div class="navicon-right">
-            <a id="btnRightMenu" href="#" class="pos-relative">
-                <i class="icon ion-ios-chatboxes-outline"></i>
-                <!-- start: if statement -->
-                <span class="square-8 bg-danger pos-absolute t-10 r--5 rounded-circle"></span>
-                <!-- end: if statement -->
-            </a>
-        </div><!-- navicon-right -->
     </div><!-- br-header-right -->
 </div><!-- br-header -->
 <!-- ########## END: HEAD PANEL ########## -->

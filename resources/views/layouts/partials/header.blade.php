@@ -123,7 +123,7 @@
 
         </script>
 
-        <script type="text/javascript" src="assets/js/ajaxupload.js"></script>
+{{--        <script type="text/javascript" src="assets/js/ajaxupload.js"></script>--}}
 
         <!-- SEARCH-start -->
 
@@ -133,7 +133,7 @@
 
                     <!--<div class="col-sm-1" ></div>-->
                     <div class="col-sm-12" >
-                        <form class="form-inline" action="jobsearch.php" name="homeadvancesearch" method="GET">
+                        <form class="form-inline" action="#" name="homeadvancesearch" method="GET">
 
                             <div class="form-group serww"><input class="form-control2 " id="keyword" name="refkeyword" type="text"  placeholder="Keywords, Skills, Designation" value=''></div>
                             <div class="form-group"> <input class="form-control2 " id="location" autocomplete="off" name="reflocation"  type="text" value='' placeholder="Location"></div>

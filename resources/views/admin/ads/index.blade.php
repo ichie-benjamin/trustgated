@@ -65,11 +65,11 @@
                         <div class="col-md-4">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
-                                <select name="category_id" class="form-control" required data-placeholder="Choose Category:">
+                                <select name="category" class="form-control" required data-placeholder="Choose Category:">
 {{--                                    <option label="Choose Category"></option>--}}
-                                    <option value="1"> Under Graduation</option>
-                                    <option value="2">Post Graduation</option>
-                                    <option value="3"> Doctorate/PhD</option>
+                                    <option value="it"> IT</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="services"> Services</option>
                                 </select>
                             </div>
                         </div><!-- col-4 -->
@@ -93,6 +93,13 @@
                                 </select>
                             </div>
                         </div><!-- col-4 -->
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            @include('admin.partials.image-uploader',['field' => 'image'])
+                        </div>
                     </div>
 
                     <div class="form-layout-footer">
@@ -128,7 +135,7 @@
                             <td>{{ $ad->company_name }}</td>
                             <td>{{ $ad->company_link }}</td>
                             <td><img src="{{ asset($ad->image) }}" height="70" /></td>
-                            <td>{{ $ad->category_id }}</td>
+                            <td>{{ $ad->category }}</td>
                             <td>@if ($ad->status)
                                 Active
                                 @else

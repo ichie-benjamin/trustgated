@@ -11,7 +11,7 @@
 <div class="br-mainpanel">
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">Dashboard</a>
+            <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
             <a class="breadcrumb-item" href="{{ route('admin.functional-area.index') }}">Functional Area</a>
             <span class="breadcrumb-item active">Functional Area Layouts</span>
         </nav>
@@ -35,19 +35,28 @@
                 <div class="form-layout form-layout-1">
                     <div class="row mg-b-25">
 
-                        <div class="col-lg-6">
+                        <div class="col-md-5">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Add Functional Area: <span class="tx-danger">*</span></label>
                                 <input class="form-control" type="text" name="category_functional_area" placeholder="Enter address">
                             </div>
                         </div><!-- col-8 -->
-                        <div class="col-lg-4">
+                        <div class="col-md-4">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Choose Main Category: <span class="tx-danger">*</span></label>
-                                <select name="main_category" class="form-control " data-placeholder="Choose Main Category:">
-                                    <option label="Choose Category"></option>
-                                    <option value="IT/IIM Jobs">IT/IIM Jobs</option>
-                                    <option value="Govt Job"> Govt Job</option>
+                                <select name="category_id" class="form-control " data-placeholder="Choose Main Category:">
+                                    @foreach (\App\Models\Category::all() as $item)
+                                        <option value="{{ $item->id }}" @if (old('category_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group mg-b-10-force">
+                                <label class="form-control-label">Featured <span class="tx-danger">*</span></label>
+                                <select name="featured" class="form-control " data-placeholder="Choose Status:">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
                                 </select>
                             </div>
                         </div><!-- col-4 -->
@@ -66,12 +75,13 @@
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Functional Area List</h6>
 
                 <div class="table-wrapper">
-                    <table id="datatable1" class="table display responsive nowrap">
+                    <table id="datatable1" class="table display table-condensed table-bordered responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">S.No</th>
-                            <th class="wd-15p">Category - Functional Area</th>
-                            <th class="wd-15p">Main Category</th>
+                            <th class="wd-10p">S.No</th>
+                            <th class="wd-30p">Category - Functional Area</th>
+                            <th class="wd-20p">Main Category</th>
+                            <th class="wd-20p">Featured</th>
                             <th class="wd-20p">Action</th>
                         </tr>
                         </thead>
@@ -80,7 +90,8 @@
                         <tr>
                             <td>{{ $functional_area->id }}</td>
                             <td>{{ $functional_area->category_functional_area }}</td>
-                            <td>{{ $functional_area->main_category }}</td>
+                            <td>{{ $functional_area->category->name }}</td>
+                            <td>{{ $functional_area->featured ? 'Yes' : 'No' }}</td>
                             <td class="text-center">
                                 <form method="POST" action="{!! route('admin.functional-area.destroy', $functional_area->id) !!}" accept-charset="UTF-8">
                                     <input name="_method" value="DELETE" type="hidden">

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\admin\admin;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\admin\Controller;
+use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
     public function admins(){
         $title = 'admin';
-        $users = User::whereRoleIs('admin')->orWhereRoleIs('super_admin')->get();
+        $users = User::whereRoleIs('admin')->get();
         return view('admin.users.index', compact('users','title'));
     }
     public function subAdmins(){
@@ -25,6 +25,12 @@ class UsersController extends Controller
    public function employers(){
         $title = 'employer';
         $users = User::whereRoleIs('employer')->get();
+        return view('admin.users.employer-list', compact('users','title'));
+    }
+
+   public function jobseekers(){
+        $title = 'Jobseeker';
+        $users = User::whereRoleIs('jobseeker')->get();
         return view('admin.users.employer-list', compact('users','title'));
     }
 
@@ -58,7 +64,7 @@ class UsersController extends Controller
                 'first_name' => $data['first_name'],
                 'email' => $data['email'],
                 'username' => $data['username'],
-                'phone' => $data['phone'],
+                'mobile_number' => $data['phone'],
                 'password' => bcrypt($data['password']),
             ]);
 
@@ -77,28 +83,29 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        $admin_roles = Role::whereNotIn('name', ['merchant', 'customer'])->pluck('name');
+        $admin_roles = Role::whereNotIn('name', ['super_admin', 'customer'])->pluck('name');
         return view('admin.users.edit', compact('user', 'admin_roles'));
     }
 
     public function update(Request $request, User $user)
     {
         $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'numeric', 'digits_between:10,14'],
+            'mobile_number' => ['required', 'numeric', 'digits_between:10,14'],
             // 'username' => ['required', 'string', 'max:50', 'unique:profiles'],
         ]);
 
         try {
             DB::beginTransaction();
 
-            $data = $request->all();
+        $data = $request->all();
 
-            $user->update([
-                'name' => $data['name'],
-                'email' => $data['email'],
+          $user->update([
+                'first_name' => $data['first_name'],
+//                'email' => $data['email'],
+                'mobile_number' => $data['mobile_number'],
                 // 'delivery_category_id' => $data['delivery_category_id']
             ]);
 
@@ -109,13 +116,7 @@ class UsersController extends Controller
 
             $active = isset($request->active) ? true : false;
 
-            $user->profile->update([
-                'phone' => $data['phone'],
-                'username' => $data['username'],
-                'active' => $active
-            ]);
-
-            $user->syncRoles($data['role']);
+            $user->syncRoles([$data['role']]);
             DB::commit();
 
         } catch(\Exception $e) {

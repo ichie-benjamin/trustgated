@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\admin\admin;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\admin\Controller;
+use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\Job;
 
@@ -11,7 +11,7 @@ class JobsController extends Controller
     public function index()
     {
         $title = 'Successfully Job Posted!';
-        $jobs = Job::with('user','type','category','location','company')->latest()->get();
+        $jobs = Job::with('user','type','category','company')->latest()->get();
 
         return view('admin.jobs.list', compact('jobs','title'));
     }

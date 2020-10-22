@@ -12,20 +12,29 @@
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
             <a class="breadcrumb-item" href="index.html">Dashbord</a>
-            <a class="breadcrumb-item" href="{{ route('admin.industry-type.index') }}">Industry Type</a>
-            <span class="breadcrumb-item active">Industry Type Layout</span>
+            <span class="breadcrumb-item active">Testimonial Layout</span>
         </nav>
     </div><!-- br-pageheader -->
     <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
-        <h4 class="tx-gray-800 mg-b-5"> Industry Type</h4>
+        <h4 class="tx-gray-800 mg-b-5"> Testimonial</h4>
     </div>
 
-
+    <div class="container">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
 
     <div class="br-pagebody">
         <p>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Add Industry Type
+                Add Testimonial
             </button>
         </p>
         <div class="collapse" id="collapseExample">
@@ -40,68 +49,35 @@
                     </div>
                 @endif
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Top Label Layout</h6>
-                <form action="{{ route('admin.industry-type.store') }}" method="POST">
+                <form action="{{ route('admin.testimonial.store') }}" method="POST">
                     @csrf
                 <div class="form-layout form-layout-1">
 
                     <div class="row mg-b-25">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" name="category"  placeholder="Enter Category">
+                                <label class="form-control-label">Name: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="name"  placeholder="Enter Category">
                             </div>
                         </div><!-- col-4 -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Meta Title: </label>
-                                <textarea class="form-control" type="text" name="meta_title" ></textarea>
+                                <label class="form-control-label"> Designation: </label>
+                                <textarea class="form-control" type="text" name="designation" ></textarea>
                             </div>
                         </div><!-- col-4 -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label">Descriptiom: </label>
                                 <textarea class="form-control" type="text" name="description" ></textarea>
                             </div>
                         </div><!-- col-4 -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Keywords: </label>
-                                <textarea class="form-control" type="text" name="keywords"  ></textarea>
+                                <label class="form-control-label">Image: </label>
+                                @include('admin.partials.image-uploader',['field' => 'testimonial_image'])
                             </div>
                         </div><!-- col-4 -->
-                       <div class="col-10">
-                           <div class="row mg-t-10 col-lg-10">
-                               <h6>Category: </h6>
-                               <div class="col-lg-5 form-group">
-                                   <label class="cat_industry_type">
-                                       <input name="cat_industry_type" value="IT company" type="radio" checked="">
-                                       <span>IT Company </span>
-                                   </label>
-                               </div><!-- col-3 -->
-                               <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
-                                   <label class="cat_industry_type">
-                                       <input name="cat_industry_type" value="Non IT company" type="radio">
-                                       <span>Non IT Company </span>
-                                   </label>
-                               </div><!-- col-3 -->
-                           </div>
-                           <div class="row mg-t-10 col-lg-10">
-                               <h6>Job Type: </h6>
-                               <div class="col-lg-5 form-group">
-                                   <label class="job_type">
-                                       <input value="IT/IIM Jobs" name="job_type" type="radio" checked="">
-                                       <span>IT/IIM Jobs</span>
-                                   </label>
-                               </div><!-- col-3 -->
-                               <div class="col-lg-5 mg-t-20 mg-lg-t-0 form-group">
-                                   <label class="job_type">
-                                       <input value="Govt Jobs" name="job_type" type="radio" >
-                                       <span>Govt.Jobs </span>
-                                   </label>
-                               </div><!-- col-3 -->
-                           </div>
-
-                       </div>
                     </div><!-- row -->
 
                     <div class="form-layout-footer">
@@ -123,26 +99,28 @@
                         <thead>
                         <tr>
                             <th class="wd-15p">S.No</th>
-                            <th class="wd-15p">Category - Industry Type</th>
-                            <th class="wd-15p">Category - Company</th>
-                            <th class="wd-15p">Job Type</th>
+                            <th class="wd-15p"> Name</th>
+                            <th class="wd-15p"> Designation</th>
+                            <th class="wd-15p"> Description</th>
+                            <th class="wd-15p"> Testimonial Image</th>
                             <th class="wd-20p">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $industry_types as $industry_type)
+                        @foreach( $testimonials as $testimonial)
                         <tr>
-                            <td>{{ $industry_type->id }}</td>
-                            <td>{{ $industry_type->category }}</td>
-                            <td>{{ $industry_type->cat_industry_type }}</td>
-                            <td>{{ $industry_type->job_type }}</td>
+                            <td>{{ $testimonial->id }}</td>
+                            <td>{{ $testimonial->name }}</td>
+                            <td>{{ $testimonial->designation }}</td>
+                            <td>{{ $testimonial->description }}</td>
+                            <td><img height="70" width="70" src="{{ $testimonial->testimonial_image }}"></td>
                             <td class="text-center">
-                                <form method="POST" action="{!! route('admin.industry-type.destroy', $industry_type->id) !!}" accept-charset="UTF-8">
+                                <form method="POST" action="{!! route('admin.testimonial.destroy', $testimonial->id) !!}" accept-charset="UTF-8">
                                     <input name="_method" value="DELETE" type="hidden">
                                     {{ csrf_field() }}
 
                                     <div class="btn-group justify-center" role="group">
-                                        <a href="{{ route('admin.industry-type.edit', $industry_type->id ) }}" class="btn btn-primary" title="Edit Job">
+                                        <a href="{{ route('admin.testimonial.edit', $testimonial->id ) }}" class="btn btn-primary" title="Edit Job">
                                             <span class="fa fa-edit" aria-hidden="true"></span>
                                         </a>
 

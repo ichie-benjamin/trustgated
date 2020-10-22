@@ -1,5 +1,6 @@
 <?php
 namespace Database\Seeders;
+use App\Models\Company;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
@@ -62,6 +63,9 @@ class LaratrustSeeder extends Seeder
                     'password' => bcrypt('password'),
                     'email_verified_at' => Carbon::now()
                 ]);
+                if($key == 'employer'){
+                    Company::create(['user_id'=>$user->id,'name' => 'Test Company']);
+                }
                 $user->attachRole($role);
             }
 

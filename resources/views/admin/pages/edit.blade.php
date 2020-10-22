@@ -15,7 +15,7 @@
         <nav class="breadcrumb pd-0 mg-0 tx-12">
             <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
             <a class="breadcrumb-item" href="{{ route('admin.pages.index') }}"> CMS Content</a>
-            <span class="breadcrumb-item active">Ad Edit</span>
+            <span class="breadcrumb-item active">CMS Edit</span>
         </nav>
     </div><!-- br-pageheader -->
     <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
@@ -56,11 +56,16 @@
                         </div><!-- row -->
 
                         <div class="row">
-
+                            <div class="col-md-12">
+                            <div class="form-group mg-b-10-force">
+                                <label class="form-control-label">Content : <span class="tx-danger">*</span></label>
+                                <textarea class="form-control" name="content">{{ old('title', optional($page)->content) }}</textarea>
+                            </div>
+                            </div>
                         </div>
 
                         <div class="form-layout-footer">
-                            <button class="btn btn-primary" type="submit">Update Ad</button>
+                            <button class="btn btn-primary" type="submit">Update CMS</button>
                         </div><!-- form-layout-footer -->
                     </div><!-- form-layout -->
                 </form>

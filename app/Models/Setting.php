@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Testimonial extends Model
+class Setting extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-}
+    protected $fillable = ['key','value','type'];
 
+    public $timestamps = false;
+
+    protected $table = 'settings';
+}

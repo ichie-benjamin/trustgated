@@ -7,7 +7,7 @@
 @section('content')
     <div class="br-mainpanel">
     <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
-        <h4 class="tx-gray-800 mg-b-5">Edit Admin User</h4>
+        <h4 class="tx-gray-800 mg-b-5">Edit {{ $user->name }}</h4>
     </div>
 
     <div class="br-pagebody">
@@ -19,17 +19,17 @@
                 @include('notification')
 
             <div class="form-layout form-layout-4">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add User</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Edit {{ $user->name }}</h6>
 
                 <form action="{{ route('admin.users.update', $user) }}" method="POST">
                     @csrf
                     @method('PATCH')
                     <div class="row">
-                    <label class="col-sm-4 form-control-label">Full Name: <span class="tx-danger">*</span></label>
+                    <label class="col-sm-4 form-control-label">First Name: <span class="tx-danger">*</span></label>
                     <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                        <input id="name" type="text" placeholder="Fullname" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
+                        <input id="name" type="text" placeholder="First name" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ $user->first_name }}" required autocomplete="name" autofocus>
 
-                        @error('name')
+                        @error('first_name')
                             <span class="invalid-feedback" role="alert">
                                 <small><strong>{{ $message }}</strong></small>
                             </span>
@@ -52,9 +52,9 @@
                     <div class="row mg-t-20">
                     <label class="col-sm-4 form-control-label">Mobile Number: <span class="tx-danger">*</span></label>
                     <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                        <input id="phone" type="text" placeholder="Phone number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->profile->phone }}" required autocomplete="phone" autofocus>
+                        <input id="mobile_number" type="text" placeholder="Phone number" class="form-control @error('mobile_number') is-invalid @enderror" name="mobile_number" value="{{ $user->mobile_number }}" required autocomplete="mobile_number" autofocus>
 
-                        @error('phone')
+                        @error('mobile_number')
                             <span class="invalid-feedback" role="alert">
                                 <small><strong>{{ $message }}</strong></small>
                             </span>
@@ -65,7 +65,7 @@
                     <div class="row mg-t-20">
                         <label class="col-sm-4 form-control-label">Username <span class="tx-danger">*</span></label>
                         <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                            <input id="name" type="text" placeholder="Username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ $user->profile->username }}" required readonly autocomplete="username" autofocus>
+                            <input id="name" disabled type="text" placeholder="Username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ $user->username }}" required readonly autocomplete="username" autofocus>
 
                             @error('username')
                                 <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                         </div>
                     </div>
 
-                    @role('super-admin')
+                    @if (auth()->user()->hasRole('super_admin'))
                         <div class="row mg-t-20">
                             <label class="col-sm-4 form-control-label">Password <span class="tx-danger">*</span></label>
                             <div class="col-sm-8 mg-t-10 mg-sm-t-0">
@@ -95,11 +95,12 @@
                                 <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control" name="password_confirmation" autocomplete="new-password">
                             </div>
                         </div>
-                    @endrole
+{{--                    @endrole--}}
+                    @endif
 
                     <div class="row mg-t-20">
                         <label class="col-sm-4 form-control-label"> <span>Active</span>    </label>                      <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                            <input type="checkbox" name="active" @if ($user->profile->active) checked @endif @if ($user->hasRole('super-admin')) disabled @endif>
+                            <input type="checkbox" name="active" @if ($user->active) checked @endif @if ($user->hasRole(['super_admin','admin'])) disabled @endif>
                         </div>
                     </div>
 
@@ -109,7 +110,7 @@
                         <select name="role" class="form-control select2" data-placeholder="Choose Role" required>
                             <option label="Choose Role"></option>
                                 @foreach ($admin_roles ?? [] as $role)
-                                    <option value="{{ $role ?? '' }}" @if($role == ($user->getRoleNames()->first())) selected @endif>{{ $role }}</option>
+                                    <option value="{{ $role ?? '' }}" @if($role == ($user->role)) selected @endif>{{ $role }}</option>
                                 @endforeach
                             {{-- <option value="USA">Plan A</option>
                             <option value="UK">Plan B</option> --}}

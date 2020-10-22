@@ -52,6 +52,7 @@ class CreateUsersTable extends Migration
             $table->string('min_annual_salary')->nullable();
             $table->string('max_annual_salary')->nullable();
             $table->string('cv')->nullable();
+            $table->boolean('active')->default(1);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 //            $table->foreignId('current_team_id')->nullable();
