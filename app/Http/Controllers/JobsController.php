@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\AppliedJob;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\Controller;
 use App\Models\Company;
-use App\Models\JobCategory;
 use App\Models\Job;
+use App\Models\JobCategory;
 use App\Models\Location;
 use App\Models\Type;
 use App\Notifications\NewApplicant;
+use App\User;
+use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Validator;
-use App\User;
-use Illuminate\Http\Request;
-use Exception;
 
 class JobsController extends Controller
 {

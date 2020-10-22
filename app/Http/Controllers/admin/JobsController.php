@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\Controller;
 use App\Models\Company;
 use App\Models\Job;
-use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {

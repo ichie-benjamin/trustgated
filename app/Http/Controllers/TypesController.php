@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\Controller;
 use App\Models\Type;
-use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Http\Request;
 
 class TypesController extends Controller
 {
@@ -29,8 +29,8 @@ class TypesController extends Controller
      */
     public function create()
     {
-        
-        
+
+
         return view('types.create');
     }
 
@@ -44,9 +44,9 @@ class TypesController extends Controller
     public function store(Request $request)
     {
         try {
-            
+
             $data = $this->getData($request);
-            
+
             Type::create($data);
 
             return redirect()->route('types.type.index')
@@ -82,7 +82,7 @@ class TypesController extends Controller
     public function edit($id)
     {
         $type = Type::findOrFail($id);
-        
+
 
         return view('types.edit', compact('type'));
     }
@@ -98,9 +98,9 @@ class TypesController extends Controller
     public function update($id, Request $request)
     {
         try {
-            
+
             $data = $this->getData($request);
-            
+
             $type = Type::findOrFail($id);
             $type->update($data);
 
@@ -110,7 +110,7 @@ class TypesController extends Controller
 
             return back()->withInput()
                 ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
-        }        
+        }
     }
 
     /**
@@ -135,20 +135,20 @@ class TypesController extends Controller
         }
     }
 
-    
+
     /**
      * Get the request's data from the request.
      *
-     * @param Illuminate\Http\Request\Request $request 
+     * @param Illuminate\Http\Request\Request $request
      * @return array
      */
     protected function getData(Request $request)
     {
         $rules = [
                 'name' => 'string|min:1|max:255|nullable',
-            'slug' => 'string|min:1|nullable', 
+            'slug' => 'string|min:1|nullable',
         ];
-        
+
         $data = $request->validate($rules);
 
 

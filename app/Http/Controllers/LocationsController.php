@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Country;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\Controller;
 use App\Models\Location;
 use App\State;
-use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Http\Request;
 
 class LocationsController extends Controller
 {

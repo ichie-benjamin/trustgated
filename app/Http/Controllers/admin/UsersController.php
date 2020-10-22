@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Profile;
+use App\Http\Controllers\admin\Controller;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
