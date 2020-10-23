@@ -21,9 +21,9 @@ class HomeController extends Controller
             return City::whereFeatured(1)->get();
         });
         $companies = Company::select('name','logo','slug')->limit('18')->get();
-    $f_areas = FunctionalArea::withCount('jobs')->whereFeatured(1)->inRandomOrder()->limit(6)->get();
-    $industries = IndustryType::withCount('jobs')->orderBy('jobs_count', 'desc')->limit(12)->get();
-    $jobs = Job::all();
+        $f_areas = FunctionalArea::withCount('jobs')->whereFeatured(1)->inRandomOrder()->limit(6)->get();
+        $industries = IndustryType::withCount('jobs')->orderBy('jobs_count', 'desc')->limit(12)->get();
+        $jobs = Job::latest()->limit(8)->get();
         return view('index', compact('f_areas','industries','companies','jobs','cities'));
     }
 

@@ -319,7 +319,7 @@
 .c23 a:hover, a:focus {
 	text-decoration:none;
     outline: 0;
-    color: #34ba00 !important;
+    color: #000 !important;
 }
 
 

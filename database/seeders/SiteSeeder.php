@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ad;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Currency;
 use App\Models\FunctionalArea;
 use App\Models\IndustryType;
 use App\Models\Location;
@@ -27,6 +29,7 @@ class SiteSeeder extends Seeder
         $countries = config('site_seeder.tables.countries');
         $states = config('site_seeder.tables.states');
         $cities = config('site_seeder.tables.cities');
+        $ads = config('site_seeder.tables.ads');
 
 
         foreach ($f_arease as $item) {
@@ -88,6 +91,29 @@ class SiteSeeder extends Seeder
                     'image' => "/assets/images/city/pic".$i++.'.jpg'
                 ]);
             }
+        }
+        foreach ($ads as $item) {
+            if($item == 'inpex'){
+                $position = 'job_right';
+            }else{
+                $position = 'job_left';
+            }
+            if (Ad::where('company_name', '=', $item)->first() === null) {
+                Ad::create([
+                    'company_name' => $item,
+                    'status' => true,
+                    'image' => "/assets/images/ads/".$item.'.jpg',
+                    'position' => $position,
+                ]);
+            }
+        }
+
+        if (Currency::where('name', '=', 'Dollar')->first() === null) {
+            Currency::create([
+                'name' => 'Dollar',
+                'code' => 'USD',
+                'symbol' => '$',
+            ]);
         }
     }
 }

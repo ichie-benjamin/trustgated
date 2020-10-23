@@ -31,7 +31,7 @@
 
 
                                         <div class="save-job">
-                                            <a href="javascript:;" onclick="window.location.href='jobsseeker-login.html'"><i class="fa fa-floppy-o"></i> Save Job</a>
+                                            <a href="javascript:;"><i class="fa fa-floppy-o"></i> Save Job</a>
                                         </div>
 
 
@@ -74,8 +74,8 @@
                             <hr />
                             <div class="m5">
                                 <div><span class="label lco"> Salary:</span> <span class="label lco-n"> {{ $job->salary }} As per rules of Industry</span></div>
-                                <div><span class="label lco">Industry:</span> <span class="label lco-n"> {{ optional($job->industry)->name }}</span></div>
-                                <div><span class="label lco">Functional Area:</span> <span class="label lco-n">{{ optional($job->functional_area)->category_functional_area }}</span></div>
+                                <div><span class="label lco">Industry:</span> <span class="label lco-n"> {{ optional($job->industry)->category }}</span></div>
+                                <div><span class="label lco">Functional Area:</span> <span class="label lco-n">{{ optional($job->functional)->category_functional_area }}</span></div>
                                 <div><span class="label lco">Job Posted On:</span> <span class="label lco-n">{{ $job->created_at->format('Y-m-d') }}</span></div>
                                 <!--<div><span class="label lco">Role Category:</span> <span class="label lco-n">Interior Design</span></div>
                                 <div><span class="label lco">Role:</span> <span class="label lco-n">Interior Designer</span></div>-->
@@ -186,24 +186,16 @@
                             <div class="ali-right"> <a class="btn-blue btn" href="{{ route('searchall') }}">View All</a></div>
                         </div>
                     </div>
+
+                    @foreach($ad_job_right->slice(0, 2) as $item)
                     <div class="openings">
                         <a href="#">
-                            <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="ads" />
+                            <a  href='' target="#"><img src='{{ $item->image }}' /></a>
                             <!--<img src="images/internship.jpg" alt="ads">-->
                         </a>
                     </div>
-                    <div class="openings">
-                        <a href="#">
-                            <a  href='' target="_blank"><img src='http://phpscriptsmall.biz/demo/jobsite/images/tmp/banner_ad_336x280_blue1.jpg' />Best Jobs Website in Pakistan and India3</a>
-                            <!--<img src="images/internship.jpg" alt="ads">-->
-                        </a>
-                    </div>
-                    <div class="openings">
-                        <a href="#">
-                            <a  href='' target="_blank"><img src='http://phpscriptsmall.biz/demo/jobsite/images/tmp/banner_ad_336x280_white.jpg' />Best Jobs Website in Pakistan and India8</a>
-                            <!--<img src="images/internship.jpg" alt="ads">-->
-                        </a>
-                    </div>
+                    @endforeach
+
                 </div><!--col-sm-3-->
 
             </div><!--row-->

@@ -68,6 +68,9 @@ Route::get('/job/{slug}', [JobsController::class, 'jobView'])->name('jobs.job.vi
 
 
 Route::get('/jobs-by-area', [JobsController::class,'jobByArea'])->name('job_by_area');
+Route::get('/jobsearch', [JobsController::class,'jobSearch'])->name('jobsearch');
+Route::get('/categorysearch', [JobsController::class,'categorySearch'])->name('categorysearch');
+Route::get('/advancesearch', [JobsController::class,'advancedSearch'])->name('advancedsearch');
 Route::get('/jobs-by-category', [JobsController::class,'jobByCat'])->name('category_job');
 Route::get('/jobs-by-companies', [JobsController::class,'jobByCompany'])->name('company_job');
 Route::get('/searchall', [JobsController::class,'searchAll'])->name('searchall');
@@ -86,11 +89,13 @@ Route::get('/moredetails', [JobseekerController::class,'moredetails'])->name('mo
 Route::get('/jobseeker-profile-edit', [JobseekerController::class,'profileEdit'])->name('jobseeker-edit');
 
 Route::get('/job-agent-view', [JobsController::class,'jobAgentView'])->name('job_agent_view');
+Route::get('/quicksearch', [JobsController::class,'quickSearch'])->name('quicksearch');
 Route::get('/application-history', [JobseekerController::class,'applicationHistory'])->name('application_history');
 Route::get('/manage-follow', [JobseekerController::class,'manageFollow'])->name('manage_follow');
 Route::get('/follow', [JobseekerController::class,'follow'])->name('follow');
 Route::get('/block-companies', [JobseekerController::class,'blockcompanies'])->name('block_companies');
 Route::get('/change-password', [JobseekerController::class,'changePassword'])->name('changepasswordseeker');
+
 
 
 

@@ -3,6 +3,8 @@
 return [
     'truncate_tables' => true,
 
+    'seed_jobs' => true,
+
     'tables' => [
         'functional_areas' => [
             'Animator','Apparel / Garment Designer','Architects','Asst. Sales Manager','Autocad Designer','AV Executive','Bank Assurance','Banking - General','Banquet Manager','Beautician','Branch Head','Business Analyst','Cameraman'
@@ -17,6 +19,7 @@ return [
             'Bangladesh','India','Pakistan'
         ],
         'states' => ['Delhi'],
+        'ads' => ['resume','cv','dynamics','inpex'],
         'cities' => ['Baisi','Serchhip','Bastar','Jorethang','Gopalasamudram','Ponda City','Barbil','Nongpoh'],
         'locations' => [
             'Agartala',

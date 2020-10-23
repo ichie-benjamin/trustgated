@@ -22,6 +22,7 @@ class CreateAdsTable extends Migration
             $table->string('image')->nullable();
             $table->string('category')->nullable();
             $table->boolean('status')->default(false);
+            $table->string('position')->nullable();
             $table->timestamps();
         });
     }

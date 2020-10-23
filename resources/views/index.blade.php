@@ -102,7 +102,8 @@
                     <!-- main nav -->
                     <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
                         <ul class="nav navbar-nav">
-							<li class="" ><a href="{{ route('searchall') }}">Jobseekers</a></li>
+							<li class="" ><a href="{{ route('searchall') }}">Jobs</a></li>
+{{--							<li class="" ><a href="{{ route('searchall') }}">Jobseekers</a></li>--}}
 							{{-- <li ><a href="{{ route('searchall') }}">Jobs </a></li>
 							<li ><a href="{{ route('searchall') }}">IIT/IIM Jobs </a></li>
                             <li ><a  href="{{ route('job.type','govt-jobs') }}">Govt.jobs</a></li> --}}

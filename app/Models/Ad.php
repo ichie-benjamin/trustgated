@@ -9,7 +9,7 @@ class Ad extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['company_name','company_link','value','status','category','company_status','image'];
+    protected $fillable = ['company_name','company_link','value','status','category','company_status','image','position'];
 
 
     public function getImageAttribute($value) {
