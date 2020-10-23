@@ -210,16 +210,6 @@
                 <span class="menu-item-label"> Job Posting Type</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-{{--        <ul class="br-menu-sub nav flex-column">--}}
-{{--            <li class="nav-item"><a href="{{ route('admin.products.index') }}" class="nav-link">Job Posting</a></li>--}}
-{{--            <li class="nav-item"><a href="#" class="nav-link"> Job Posting Type</a></li>--}}
-{{--        </ul>--}}
-{{--        <a href="#" class="br-menu-link">--}}
-{{--            <div class="br-menu-item">--}}
-{{--                <i class="menu-item-fa fa fa-university tx-22"></i>--}}
-{{--                <span class="menu-item-label"> Training Institute Plan</span>--}}
-{{--            </div><!-- menu-item -->--}}
-{{--        </a><!-- br-menu-link -->--}}
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Key Skill</label>
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
@@ -284,20 +274,20 @@
             </div>
             <a href="#" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="menu-item-fa fa fa-universal-access tx-22"></i>
+                    <i class="menu-item-fa fa fa-text-width tx-22"></i>
                     <span class="menu-item-label"> Test Categories</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
             <a href="#" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="menu-item-fa fa fa-universal-access tx-22"></i>
+                    <i class="menu-item-fa fa fa-user-friends tx-22"></i>
                     <span class="menu-item-label"> Test Users</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
             <a href="#" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="menu-item-fa fa fa-universal-access tx-22"></i>
-                    <span class="menu-item-label"> Test Users</span>
+                    <i class="menu-item-fa fa fa-align-justify tx-22"></i>
+                    <span class="menu-item-label"> Training Categories</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Ads Management</label>
@@ -306,17 +296,17 @@
             </div>
             <a href="#" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="menu-item-fa fa fa-universal-access tx-22"></i>
+                    <i class="menu-item-fa fa fa-at tx-22"></i>
                     <span class="menu-item-label"> Ads</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
-            <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Testimonal Management</label>
+            <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Testimonial Management</label>
             <div class="progress ht-5 mg-b-10">
                 <div class="progress-bar bg-danger wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <a href="{{ route('admin.testimonial.index') }}" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="menu-item-fa fa fa-universal-access tx-22"></i>
+                    <i class="menu-item-fa fa fa-tasks tx-22"></i>
                     <span class="menu-item-label"> Manage Testimonial</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
@@ -326,10 +316,44 @@
             </div>
             <a href="#" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="menu-item-fa fa fa-universal-access tx-22"></i>
-                    <span class="menu-item-label"> Manage Testimonial</span>
+                    <i class="menu-item-fa fa fa-id-card-alt tx-22"></i>
+                    <span class="menu-item-label"> job Seeker Contact</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-address-book tx-22"></i>
+                <span class="menu-item-label"> Employer Contact</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-copyright tx-22"></i>
+                <span class="menu-item-label"> Copy Right</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Reports</label>
+        <div class="progress ht-5 mg-b-10">
+            <div class="progress-bar bg-warning wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-search-plus tx-22"></i>
+                <span class="menu-item-label"> CV's Search Industry</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-search-dollar tx-22"></i>
+                <span class="menu-item-label"> CV's Search-Financial Area</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-flag-checkered tx-22"></i>
+                <span class="menu-item-label"> Reports</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
 
 
 
