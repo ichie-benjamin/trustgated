@@ -7,7 +7,8 @@ use App\Models\Setting;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
 
-class SettingsController extends Controller
+class
+SettingsController extends Controller
 {
     public function store(Request $request){
       setting($request->except('_token'))->save();

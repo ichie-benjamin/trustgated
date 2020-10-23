@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\admin\Controller;
 use App\Models\Company;
 use App\User;
 use Illuminate\Http\Request;
-use Exception;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 

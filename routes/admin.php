@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\PackagesController;
 use App\Http\Controllers\admin\PagesController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\SettingsController;
+use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\admin\CityController;
@@ -51,6 +52,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'settings' => SettingsController::class,
         'categories' => CategoriesController::class,
         'locations' => LocationController::class,
+        'testimonial' => TestimonialController::class
     ]);
 
 });

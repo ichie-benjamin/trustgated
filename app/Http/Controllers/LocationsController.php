@@ -2,28 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use App\Http\Controllers\admin\Controller;
-use App\Models\Type;
+use App\Models\Location;
+use App\State;
 use Exception;
 use Illuminate\Http\Request;
 
-class TypesController extends Controller
+class LocationsController extends Controller
 {
+    public function getstates(Request $request){
+            $country = $request->get('country');
+            $country_obj = Country::where('name', 'LIKE', $country)->first();
+            $states = State::where('country_id', $country_obj->id)->orderBy('name', 'ASC')->get();
 
-    /**
-     * Display a listing of the types.
-     *
-     * @return Illuminate\View\View
-     */
+            return response()->json([
+                'states' => $states,
+                'status' => true
+            ], 200);
+    }
+
     public function index()
     {
-        $types = Type::paginate(25);
+        $locations = Location::paginate(25);
 
-        return view('types.index', compact('types'));
+        return view('locations.index', compact('locations'));
     }
 
     /**
-     * Show the form for creating a new type.
+     * Show the form for creating a new location.
      *
      * @return Illuminate\View\View
      */
@@ -31,11 +38,11 @@ class TypesController extends Controller
     {
 
 
-        return view('types.create');
+        return view('locations.create');
     }
 
     /**
-     * Store a new type in the storage.
+     * Store a new location in the storage.
      *
      * @param Illuminate\Http\Request $request
      *
@@ -47,10 +54,10 @@ class TypesController extends Controller
 
             $data = $this->getData($request);
 
-            Type::create($data);
+            Location::create($data);
 
-            return redirect()->route('types.type.index')
-                ->with('success_message', 'Type was successfully added.');
+            return redirect()->route('locations.location.index')
+                ->with('success_message', 'Location was successfully added.');
         } catch (Exception $exception) {
 
             return back()->withInput()
@@ -59,7 +66,7 @@ class TypesController extends Controller
     }
 
     /**
-     * Display the specified type.
+     * Display the specified location.
      *
      * @param int $id
      *
@@ -67,13 +74,13 @@ class TypesController extends Controller
      */
     public function show($id)
     {
-        $type = Type::findOrFail($id);
+        $location = Location::findOrFail($id);
 
-        return view('types.show', compact('type'));
+        return view('locations.show', compact('location'));
     }
 
     /**
-     * Show the form for editing the specified type.
+     * Show the form for editing the specified location.
      *
      * @param int $id
      *
@@ -81,14 +88,14 @@ class TypesController extends Controller
      */
     public function edit($id)
     {
-        $type = Type::findOrFail($id);
+        $location = Location::findOrFail($id);
 
 
-        return view('types.edit', compact('type'));
+        return view('locations.edit', compact('location'));
     }
 
     /**
-     * Update the specified type in the storage.
+     * Update the specified location in the storage.
      *
      * @param int $id
      * @param Illuminate\Http\Request $request
@@ -101,11 +108,11 @@ class TypesController extends Controller
 
             $data = $this->getData($request);
 
-            $type = Type::findOrFail($id);
-            $type->update($data);
+            $location = Location::findOrFail($id);
+            $location->update($data);
 
-            return redirect()->route('types.type.index')
-                ->with('success_message', 'Type was successfully updated.');
+            return redirect()->route('locations.location.index')
+                ->with('success_message', 'Location was successfully updated.');
         } catch (Exception $exception) {
 
             return back()->withInput()
@@ -114,7 +121,7 @@ class TypesController extends Controller
     }
 
     /**
-     * Remove the specified type from the storage.
+     * Remove the specified location from the storage.
      *
      * @param int $id
      *
@@ -123,11 +130,11 @@ class TypesController extends Controller
     public function destroy($id)
     {
         try {
-            $type = Type::findOrFail($id);
-            $type->delete();
+            $location = Location::findOrFail($id);
+            $location->delete();
 
-            return redirect()->route('types.type.index')
-                ->with('success_message', 'Type was successfully deleted.');
+            return redirect()->route('locations.location.index')
+                ->with('success_message', 'Location was successfully deleted.');
         } catch (Exception $exception) {
 
             return back()->withInput()
@@ -145,8 +152,10 @@ class TypesController extends Controller
     protected function getData(Request $request)
     {
         $rules = [
-                'name' => 'string|min:1|max:255|nullable',
-            'slug' => 'string|min:1|nullable',
+                'country' => 'numeric|nullable',
+            'city' => 'string|min:1|nullable',
+            'state' => 'string|min:1|nullable',
+            'address' => 'string|min:1|nullable',
         ];
 
         $data = $request->validate($rules);
