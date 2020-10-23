@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
 //        $ad_job_left = Cache::remember('ad_job_left', 3600, function () {
 //            return Ad::select('company_name','image','position')->whereStatus(true)->wherePosition('job_left')->inRandomOrder()->limit(3)->get();
 //        });
-//        Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191);
 //        View::share(['f_companies' => $f_companies, 'ad_job_right' => $ad_job_right, 'ad_job_left' => $ad_job_left]);
     }
 }
