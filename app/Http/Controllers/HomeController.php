@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Company;
 use App\Models\FunctionalArea;
 use App\Models\IndustryType;
@@ -16,14 +17,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-//        $f_areas = Cache::remember('functional_areas', 60, function () {
-//            return DB::table('functional_areas')->whereFeatured(1)->get();
-//        });
+        $cities = Cache::remember('cities', 3600, function () {
+            return City::whereFeatured(1)->get();
+        });
         $companies = Company::select('name','logo','slug')->limit('18')->get();
     $f_areas = FunctionalArea::withCount('jobs')->whereFeatured(1)->inRandomOrder()->limit(6)->get();
     $industries = IndustryType::withCount('jobs')->orderBy('jobs_count', 'desc')->limit(12)->get();
     $jobs = Job::all();
-        return view('index', compact('f_areas','industries','companies','jobs'));
+        return view('index', compact('f_areas','industries','companies','jobs','cities'));
     }
 
     public function recruitersProfile($username){

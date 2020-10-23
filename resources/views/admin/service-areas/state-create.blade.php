@@ -53,7 +53,7 @@
                                 <label class="col-sm-4 form-control-label">Select Country* </label>
                                 <div class="col-sm-8 mg-t-10 mg-b-10">
                                     <select class="form-control select2" data-placeholder="Choose country" name="country_id">
-                                        <option label="Choose country"></option>
+{{--                                        <option label="Choose country"></option>--}}
                                         @foreach ($countries as $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                                         @endforeach

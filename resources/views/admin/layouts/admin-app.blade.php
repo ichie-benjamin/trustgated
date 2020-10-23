@@ -39,6 +39,10 @@
 
     <link href="{{ asset('lib/select2/css/select2.min.css')}}" rel="stylesheet">
 
+    <!-- FAVICONS ICON -->
+    <link rel="icon" href="{{ setting('favicon') }}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ setting('favicon') }}" />
+
     @yield('style')
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{ asset('css/bracket.css') }}">

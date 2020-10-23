@@ -5,13 +5,14 @@ use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
+use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\PackagesController;
 use App\Http\Controllers\admin\PagesController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\AdminDashboard;
-use App\Http\Controllers\CityController;
+use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\FunctionalAreaController;
 use App\Http\Controllers\IndustryTypeController;
@@ -49,6 +50,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'banners' => BannerController::class,
         'settings' => SettingsController::class,
         'categories' => CategoriesController::class,
+        'locations' => LocationController::class,
     ]);
 
 });
