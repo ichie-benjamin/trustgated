@@ -11,7 +11,7 @@
               <div class="col-md-11">
                   <ol class="breadcrumb">
                       <li><a href="{{ url('/') }}">Home</a></li>
-                      <li><a href="#"> Jobs</a></li>
+                      <li><a href="#"> Jobs </a></li>
                       <li class="active">Search Results</li>
                   </ol>
               </div>
@@ -47,6 +47,7 @@
                       @include('pages.partials.job_item', ['job' => $job])
                   @endforeach
 
+
                   @if (count($jobs) < 1)
                       <div class=" tab-content">
 
@@ -55,6 +56,13 @@
                           </div>
                       </div>
 
+                  @else
+                      <div class=" tab-content">
+
+                          <div class='newpagination text-center'>
+                              {{ $jobs->links() }}
+                          </div>
+                      </div>
                   @endif
 
 
@@ -69,3 +77,12 @@
   <!--ADVANCED SEARCH POPUP-->
 
 @endsection
+
+@section('js')
+    <script>
+        function sortit(val){
+{{--            let url = "{{ Request::fullUrl() }}?sort="+val--}}
+            window.location = "{{ Request::fullUrl() }}&sort="+val;
+        }
+    </script>
+    @endsection

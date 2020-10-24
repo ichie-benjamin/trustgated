@@ -200,10 +200,10 @@
                     <div class="collapse navbar-collapse" id="navbar-collapse-2">
                         <ul class="nav navbar-nav navbar-left  clearfix sss">
                             <li>Browse jobs :</li>
-                            <li class="active"><a href="{{ route('all_jobs') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/all-jobs-icon.png" /> All jobs</a></li>
-                            <li class=""><a href="{{ route('company_job') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-company-icon.png" /> Job by Company</a></li>
-                            <li class=""><a href="{{ route('category_job') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-category-icon.png" /> Job by Category</a></li>
-                            <li class=""><a href="{{ route('job_by_area') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-location-icon.png" /> Job by Location</a></li>
+                            <li class="active"><a href="{{ route('all_jobs') }}"><i class="fa fa-shopping-bag"></i> All jobs</a></li>
+                            <li class=""><a href="{{ route('company_job') }}"><i class="fa fa-suitcase"></i>Job by Company</a></li>
+                            <li class=""><a href="{{ route('category_job') }}"><i class="fa fa-list"></i>Job by Category</a></li>
+                            <li class=""><a href="{{ route('job_by_area') }}"><i class="fa fa-location-arrow"></i> Job by Location</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div> <!--col-sm-12-->

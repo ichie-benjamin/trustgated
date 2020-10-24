@@ -33,7 +33,7 @@
                                 <tr>
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $item->category }}</td>
-                                    <td><a href='{{ route('jobsearch') }}?category={{ $item->category }}' style='color:rgb(56, 112, 159)'>Click here</a></td>
+                                    <td><a href='{{ route('jobsearch') }}?category={{ $item->id }}' style='color:rgb(56, 112, 159)'>Click here</a></td>
                                 </tr>
                                 @endforeach
                             </table>

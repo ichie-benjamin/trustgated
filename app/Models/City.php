@@ -24,4 +24,9 @@ class City extends Model
         }
         return $this->attributes['image'];
     }
+
+
+    public function jobs(){
+        return $this->hasMany(Job::class, 'city','name');
+    }
 }

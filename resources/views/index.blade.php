@@ -214,7 +214,7 @@
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="#/jobsearch_all.php?f_area=261">{{ $item->category_functional_area }}</a></h3>
+                        <h3><a href="{{ route('jobsearch') }}?f_area={{ $item->id }}">{{ $item->category_functional_area }}</a></h3>
                         <p>({{ $item->jobs_count }} jobs)</p>
                     </div>
                 </div>
@@ -284,11 +284,11 @@
 				<div class="row">
                     @foreach ($cities as $item)
                         <div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-                            <a href="#jobsearch_all.php?cityfav=Baisi">
+                            <a href="{{ route('jobsearch') }}?city={{ $item->name }}">
                                 <div class="city-bx align-items-end  d-flex" style="background-image:url({{ $item->image }})">
                                     <div class="city-info">
                                         <h5>{{ $item->name }}</h5>
-                                        <span>1 Jobs</span>
+                                        <span>{{ $item->jobs_count }} Jobs</span>
                                     </div>
                                 </div>
                             </a>
@@ -441,7 +441,7 @@
                                     <div class="job_categories_content" >
                                         <ul>
                                             @foreach ($industries as $item)
-                                                <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=36">{{ $item->category }}<span>({{ $item->jobs_count }})</span></a></li>
+                                                <li><i class="fa fa-caret-right"></i> <a href="{{ route('jobsearch') }}?category={{ $item->id }}">{{ $item->category }}<span>({{ $item->jobs_count }})</span></a></li>
                                             @endforeach
 
                                         </ul>

@@ -28,7 +28,7 @@
         </div>
         <div class="create-job-content">
             @foreach($f_companies as $item)
-            <div class="fea-compa"><a href="#"> <img class="img-thumbnail" src="{{ asset($item->logo) }}" alt="{{ $item->name }}"></a></div>
+            <div class="fea-compa"><a href="{{ route('company.jobs',$item->slug) }}"> <img class="img-thumbnail" src="{{ asset($item->logo) }}" alt="{{ $item->name }}"></a></div>
             @endforeach
         </div>
     </div><!--create-job-->

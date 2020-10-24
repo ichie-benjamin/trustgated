@@ -33,7 +33,7 @@ class JobsController extends Controller
 
     public function CompanyJobs($slug){
         $company = Company::findBySlugOrFail($slug);
-        $jobs = Job::with('industry')->get();
+        $jobs = Job::with('industry')->paginate(10);
         return view('pages.job_by_type', compact('company','jobs'));
     }
 
@@ -46,8 +46,24 @@ class JobsController extends Controller
         return view('pages.advancesearch');
     }
 
-    public function jobSearch(){
-        return view('pages.all_jobs');
+    public function jobSearch(Request $request){
+        if($request->has('city')){
+            $jobs = Job::where('city','LIKE','%'.$request->get('city').'%')->latest()->paginate(10);
+        }else if($request->has('location')){
+         $jobs = Job::where('locations','LIKE','%'.$request->get('location').'%')->latest()->paginate(10);
+        }
+        else if($request->has('f_area')){
+            $jobs = Job::whereFunctionalArea($request->get('f_area'))->inRandomOrder()->paginate(10);
+        }else if($request->has('category')){
+            if($request->has('sort')){
+              $jobs = Job::whereIndustryId($request->get('category'))->latest()->paginate(10);
+            }else{
+                $jobs = Job::whereIndustryId($request->get('category'))->inRandomOrder()->paginate(10);
+            }
+        }else{
+            $jobs = Job::inRandomOrder()->paginate(10);
+        }
+        return view('pages.all_jobs',compact('jobs'));
     }
 
     public function recruiters(){
@@ -86,7 +102,7 @@ class JobsController extends Controller
 
 
     public function jobByArea(){
-        $locations = Location::inRandomOrder()->limit('20')->get();
+       return $locations = Location::inRandomOrder()->limit('20')->get();
         return view('pages.job_by_area', compact('locations'));
     }
 

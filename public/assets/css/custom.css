@@ -783,7 +783,9 @@ padding-top: 20px;}
   @media only screen and (min-width: 1024px) and (max-width:1400px) {
   .navbar-collapse {    padding-right:0px !important;}
   /*#header-bottom {		position: relative;		margin-top: 40px;}*/
-  .banner-top{ background:url("../../assets/images/banner.png") top no-repeat; height:255px;}
+  .banner-top{
+      /*background:url("../../assets/images/banner.png") top no-repeat;*/
+      height:255px;}
   #header-top {
     padding: 7px 0px;
     font-size: 14px;

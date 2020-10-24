@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $f_companies = Cache::remember('f_companies', 3600, function () {
-            return Company::select('name','id','logo')->inRandomOrder()->limit(6)->get();
+            return Company::select('name','id','logo','slug')->inRandomOrder()->limit(6)->get();
         });
         $ad_job_right = Cache::remember('ad_job_right', 3600, function () {
             return Ad::select('company_name','image','position')->whereStatus(true)->wherePosition('job_right')->inRandomOrder()->limit(3)->get();

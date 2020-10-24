@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $cities = Cache::remember('cities', 3600, function () {
-            return City::whereFeatured(1)->get();
+            return City::withCount('jobs')->whereFeatured(1)->get();
         });
         $companies = Company::select('name','logo','slug')->limit('18')->get();
         $f_areas = FunctionalArea::withCount('jobs')->whereFeatured(1)->inRandomOrder()->limit(6)->get();
