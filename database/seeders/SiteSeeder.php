@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\EducationDetails;
 use App\Models\Ad;
 use App\Models\Category;
 use App\Models\City;
@@ -10,6 +11,7 @@ use App\Models\Currency;
 use App\Models\FunctionalArea;
 use App\Models\IndustryType;
 use App\Models\Location;
+use App\Models\Page;
 use App\Models\State;
 use Illuminate\Database\Seeder;
 
@@ -30,6 +32,8 @@ class SiteSeeder extends Seeder
         $states = config('site_seeder.tables.states');
         $cities = config('site_seeder.tables.cities');
         $ads = config('site_seeder.tables.ads');
+        $cms = config('site_seeder.tables.cms');
+        $basic_edu = config('site_seeder.tables.basic_edu');
 
 
         foreach ($f_arease as $item) {
@@ -89,6 +93,22 @@ class SiteSeeder extends Seeder
                     'state_id' => $state_id,
                     'featured' => true,
                     'image' => "/assets/images/city/pic".$i++.'.jpg'
+                ]);
+            }
+        }
+        foreach ($cms as $item) {
+            if (Page::where('title', '=', $item)->first() === null) {
+                Page::create([
+                    'title' => $item,
+                    'url' => "/$item",
+                ]);
+            }
+        }
+        foreach ($basic_edu as $item) {
+            if (EducationDetails::where('name', '=', $item)->first() === null) {
+                EducationDetails::create([
+                    'name' => $item,
+                    'category' => "under_graduate",
                 ]);
             }
         }

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    
+
 
     <!-- CONTENT -->
     <div id="content">
@@ -10,83 +10,84 @@
 
 
             <ol  class="breadcrumb">
-                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">Home</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
                 <li class="active">Contact Us</li>
             </ol>
 
             <div class="row">
                 <div class="col-sm-9" >
-                    <div class="top-emp-center p5">
-                        <h4>Contact Us</h4>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6">
-                                <div class="all-catehead blue">Employers contact us at</div><br>
-                                <address>
-                                    <div class="enq"> For Sales Enquiries</div>
-                                    <strong class="enq">Toll Free Nuber:</strong>98767876565 <br>
-                                    <strong class="enq">Mobile:</strong>  8787678765<br>
-                                    <strong class="enq">Email: </strong><span class="add"> <a href="mailto:employer@gmail.com">employer@gmail.com</a></span><br>
-                                    <!-- <div class="add"><a href="#">Click here</a>  to request information</div>	-->
-                                </address>
-                            </div><!--col-sm-6-->
+                    {!! $content !!}
+{{--                    <div class="top-emp-center p5">--}}
+{{--                        <h4>Contact Us</h4>--}}
+{{--                    </div>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-sm-12">--}}
+{{--                            <div class="col-sm-6">--}}
+{{--                                <div class="all-catehead blue">Employers contact us at</div><br>--}}
+{{--                                <address>--}}
+{{--                                    <div class="enq"> For Sales Enquiries</div>--}}
+{{--                                    <strong class="enq">Toll Free Nuber:</strong>98767876565 <br>--}}
+{{--                                    <strong class="enq">Mobile:</strong>  8787678765<br>--}}
+{{--                                    <strong class="enq">Email: </strong><span class="add"> <a href="mailto:employer@gmail.com">employer@gmail.com</a></span><br>--}}
+{{--                                    <!-- <div class="add"><a href="#">Click here</a>  to request information</div>	-->--}}
+{{--                                </address>--}}
+{{--                            </div><!--col-sm-6-->--}}
 
-                            <div class="col-sm-6">
-                                <div class="all-catehead blue">Job Seekers contact us at</div><br>
-                                <address>
-                                    <strong class="enq">Toll Free Nuber:</strong> 987987987<br>
-                                    Enterprenuer Services<br>
-                                    <strong class="enq">Email: </strong><span class="add"> <a href="mailto:info@gmail.com">info@gmail.com</a></span><br>
-                                    <!--<div class="add"><a href="#">Click here</a>  for My Enterprenuer Services </div>-->
-                                </address>
-                            </div><!--col-sm-6-->
-                        </div><!--col-sm-12-->
-                    </div>
+{{--                            <div class="col-sm-6">--}}
+{{--                                <div class="all-catehead blue">Job Seekers contact us at</div><br>--}}
+{{--                                <address>--}}
+{{--                                    <strong class="enq">Toll Free Nuber:</strong> 987987987<br>--}}
+{{--                                    Enterprenuer Services<br>--}}
+{{--                                    <strong class="enq">Email: </strong><span class="add"> <a href="mailto:info@gmail.com">info@gmail.com</a></span><br>--}}
+{{--                                    <!--<div class="add"><a href="#">Click here</a>  for My Enterprenuer Services </div>-->--}}
+{{--                                </address>--}}
+{{--                            </div><!--col-sm-6-->--}}
+{{--                        </div><!--col-sm-12-->--}}
+{{--                    </div>--}}
 
-                    <div class="top-emp-center p5 mtop40">
-                        <h4>Our Management Team</h4>
-                    </div>
-                    <div class="contact row mtop40 ">
-                        <div class="col-sm-4">
-                            <div class="manage-bg ">
-                                <div class="manage-title"> Mr. Haruto Shimabukuro</div>
-                                <div class="manage">
-                                    <ul>
-                                        <li>Chief Operating Officer</li>
-                                        <li>Enterprenuer Services</li>
-                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--col-sm-4-->
+{{--                    <div class="top-emp-center p5 mtop40">--}}
+{{--                        <h4>Our Management Team</h4>--}}
+{{--                    </div>--}}
+{{--                    <div class="contact row mtop40 ">--}}
+{{--                        <div class="col-sm-4">--}}
+{{--                            <div class="manage-bg ">--}}
+{{--                                <div class="manage-title"> Mr. Haruto Shimabukuro</div>--}}
+{{--                                <div class="manage">--}}
+{{--                                    <ul>--}}
+{{--                                        <li>Chief Operating Officer</li>--}}
+{{--                                        <li>Enterprenuer Services</li>--}}
+{{--                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div><!--col-sm-4-->--}}
 
-                        <div class="col-sm-4">
-                            <div class="manage-bg ">
-                                <div class="manage-title"> Mr. Yamato Chinen</div>
-                                <div class="manage">
-                                    <ul>
-                                        <li>Product & Marketing Head</li>
-                                        <li>Enterprenuer Services</li>
-                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--col-sm-4-->
+{{--                        <div class="col-sm-4">--}}
+{{--                            <div class="manage-bg ">--}}
+{{--                                <div class="manage-title"> Mr. Yamato Chinen</div>--}}
+{{--                                <div class="manage">--}}
+{{--                                    <ul>--}}
+{{--                                        <li>Product & Marketing Head</li>--}}
+{{--                                        <li>Enterprenuer Services</li>--}}
+{{--                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div><!--col-sm-4-->--}}
 
-                        <div class="col-sm-4">
-                            <div class="manage-bg ">
-                                <div class="manage-title">  Mr. Kosuke Higa </div>
-                                <div class="manage">
-                                    <ul>
-                                        <li>Customer Care Manager</li>
-                                        <li>Enterprenuer Services</li>
-                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--col-sm-4-->
-                    </div><!--contact -->
+{{--                        <div class="col-sm-4">--}}
+{{--                            <div class="manage-bg ">--}}
+{{--                                <div class="manage-title">  Mr. Kosuke Higa </div>--}}
+{{--                                <div class="manage">--}}
+{{--                                    <ul>--}}
+{{--                                        <li>Customer Care Manager</li>--}}
+{{--                                        <li>Enterprenuer Services</li>--}}
+{{--                                        <li><i class="fa fa-envelope-o"></i> <a href="mailto:yourdomain@gmail.com">yourdomain@gmail.com</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div><!--col-sm-4-->--}}
+{{--                    </div><!--contact -->--}}
 
 
                 </div><!--col-sm-9-->

@@ -33,6 +33,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('user/jobseekers', [UsersController::class, 'jobseekers'])->name('user.jobseekers');
     Route::post('settings/store/item', [SettingsController::class, 'storeItem'])->name('settings.store.item');
 
+    Route::get('pages/edit/page', [PagesController::class, 'editPage'])->name('pages.edit.page');
+
+
     Route::resources([
         'countries' => CountryController::class,
         'users' => UsersController::class,

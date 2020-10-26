@@ -1,14 +1,17 @@
 
 <!--jQUERY-->
-<script src="{{ asset('assets/plugins/jquery-2.1.3.min.js') }}"></script>
+{{--<script src="{{ asset('assets/plugins/jquery-2.1.3.min.js') }}"></script>--}}
 
 <script src="{{ asset('assets/plugins/jquery-2.1.3.min.js') }}"></script>
 
-<script src="{{ asset('assets/plugins/popper.js') }}"></script>
+{{--<script src="{{ asset('assets/plugins/popper.js') }}"></script>--}}
 
 
-<!-- BOOTSTRAP JS -->
-<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+{{--<!-- BOOTSTRAP JS -->--}}
+{{--<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>--}}
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- VIEWPORT -->
 <script src="{{ asset('assets/plugins/jquery.viewport.js') }}"></script>

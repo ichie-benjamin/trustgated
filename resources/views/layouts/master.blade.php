@@ -3,7 +3,22 @@
 <html lang="en">
 
 @include('layouts.partials.head')
-@yield('style')
+
+<style>
+    .banner-top {
+        background-color: #222845;
+    }
+    #footer {
+        padding: 30px 0 0px;
+        background-color: #222845;
+        color: #d7d7d7;
+    }
+    #footer-bottom {
+        padding: 10px 0;
+        background-color: #222845;
+        color: #d7d7d7;
+    }
+</style>
 <body>
 
 <div id="page-wrapper">
@@ -17,6 +32,168 @@
 
 @yield('content')
 
+
+
+
+<!--CREATE JOB ALERT POPUP-->
+
+    <div class="modal fade bs-example-modal-lg2" id="createjob" tabindex="-1" role="dialog" aria-labelledby="search">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header avd-serbg">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"> <img src="images/close-icon.png"></span></button>
+                    <h4 class="modal-title mode-tit" id="myModalLabel">Tell us what kind of jobs you want</h4>
+                </div>
+                <div class="modal-body avdbg1a">
+                    <form class="form-horizontal m10" method="POST" action="{{ route('job_alerts.store') }}" name="myform1">
+                        @csrf
+
+                        <div class="form-group m20">
+                            <label class="col-sm-4 pedit2 text-right mtop4"><span class="redstar">*</span> Keyword:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="keywords" id="keywordalert" class="form-control" placeholder="Skills, Designation. Companies">
+                            </div>
+                            <div><span id="keywordinfo"></span></div>
+                        </div>
+                        <div class="form-group m20">
+                            <label class="col-sm-4 pedit2 text-right mtop4"><span class="redstar">*</span> Location: </label>
+                            <div class="col-sm-5">
+                                <input type="text" name="locations" id="locationalert" class="form-control" placeholder="Enter the cities you want to work in">
+                            </div>
+                            <div><span id="locationinfo"></span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"><span class="redstar">*</span> Work Experience: </label>
+                            <div class="col-sm-2 padno">
+                                <div class="col-sm-9">
+                                    <select class="form-control " name="experience_yr" id="workexp">
+                                        <option value="">Select</option>
+                                        <option value='0'>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option>                                    </select>
+                                </div>
+
+                                <label>Years </label>
+                            </div><!--col-sm-6-->
+                            <div class="col-sm-3 padno">
+                                <div class="col-sm-8">
+                                    <select class="form-control" name='experience_month' id="workexpmon">
+                                        <option value="">Select</option>
+
+                                        <option value='0'>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option>                                    </select>
+                                </div>
+                                <label> Months </label>
+                            </div>
+                            <div><span id="workinfo"></span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4">Expected Salary: </label>
+                            <div class="col-sm-2 padno">
+                                <div class="col-sm-9">
+                                    <select class="form-control " name="min_salary" id="salmin">
+                                        <option value="">Min</option>
+                                        <option value="0.5">0.5</option>
+                                        <option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option><option value='21'>21</option><option value='22'>22</option><option value='23'>23</option><option value='24'>24</option><option value='25'>25</option><option value='26'>26</option><option value='27'>27</option><option value='28'>28</option><option value='29'>29</option><option value='30'>30</option><option value='31'>31</option><option value='32'>32</option><option value='33'>33</option><option value='34'>34</option><option value='35'>35</option><option value='36'>36</option><option value='37'>37</option><option value='38'>38</option><option value='39'>39</option><option value='40'>40</option><option value='41'>41</option><option value='42'>42</option><option value='43'>43</option><option value='44'>44</option><option value='45'>45</option><option value='46'>46</option><option value='47'>47</option><option value='48'>48</option><option value='49'>49</option><option value='50'>50</option>                                    </select>
+                                </div>
+
+                            </div><!--col-sm-6-->
+                            <div class="col-sm-3 padno">
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="max_salary" id="salmax">
+                                        <option value="">Max</option>
+                                        <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option><option value='21'>21</option><option value='22'>22</option><option value='23'>23</option><option value='24'>24</option><option value='25'>25</option><option value='26'>26</option><option value='27'>27</option><option value='28'>28</option><option value='29'>29</option><option value='30'>30</option><option value='31'>31</option><option value='32'>32</option><option value='33'>33</option><option value='34'>34</option><option value='35'>35</option><option value='36'>36</option><option value='37'>37</option><option value='38'>38</option><option value='39'>39</option><option value='40'>40</option><option value='41'>41</option><option value='42'>42</option><option value='43'>43</option><option value='44'>44</option><option value='45'>45</option><option value='46'>46</option><option value='47'>47</option><option value='48'>48</option><option value='49'>49</option><option value='50'>50</option>                                    </select>
+                                </div>
+                                <label>In Ethiopias </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  ><span class="redstar">*</span> Industry:</label>
+                            <div class="col-sm-5">
+                                <select name="industry_id" id="indus" class="form-control " placeholder="Select the industry where you want to work">
+                                    @foreach (\App\Models\IndustryType::all() as $item)
+                                        <option value="{{ $item->id }}">{{ $item->category }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div><span id="industryinfo"></span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  ><span class="redstar">*</span> Job Category:</label>
+                            <div class="col-sm-5">
+                                <select name="functional_area" id="jobcat" class="form-control " >
+
+                                    <option value='' >--Select--</option>
+                                    @foreach (\App\Models\FunctionalArea::all() as $item)
+                                        <option value="{{ $item->id }}">{{ $item->category_functional_area }}</option>
+                                @endforeach
+                                </select>
+
+                            </div>
+                            <div><span id="categoryinfo"></span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  ><span class="redstar">*</span> Role:</label>
+                            <div class="col-sm-5">
+                                <select name="job_role_id" id="jobrole" class="form-control " placeholder="Select the role where you want to work" >
+
+                                    <option value='' >--Select--</option>
+                                    @foreach (\App\Models\FunctionalArea::all() as $item)
+                                        <option value="{{ $item->id }}">{{ $item->category_functional_area }}</option>
+                                    @endforeach
+                                </select>
+
+                            </div>
+                            <div><span id="roleinfo"></span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  ><span class="redstar">*</span> Name Your Job Alert:</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="title" id="namealert" class="form-control" placeholder="Enter a name that will help you reconize this job alert">
+
+                            </div>
+                            <div><span id="nameinfo"></span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  ><span class="redstar">*</span> Email Id:</label>
+                            <div class="col-sm-5">
+                                <input type="email" name="emailalert" id="emailalert" class="form-control" placeholder="Enter a mail id">
+
+                            </div>
+                            <div><span id="emailinfo"></span></div>
+
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-sm-4 pedit2 text-right"></label>
+                            <div class="col-sm-7">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="closejob" id="inlineCheckbox1" value="1"> <span class="redstar">*</span> Also send me job closely related to my search terms.
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-sm-4 pedit2 text-right"></label>
+                            <div class="col-sm-7">
+                                <div ><span id="termsinfo"></span></div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-sm-12 text-center"><input class="btn-blue btn bc3" name="submitalert" onclick="return jobalertValidate();" value="Create Job Alert "> </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--CREATE JOB ALERT END-->
 
 
 
@@ -35,11 +212,11 @@
                         <div class="widget widget-contact">
                             <h4 class="widget-title">Information</h4>
                             <ul>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/aboutus.html" > About Us </a> </li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/terms.html" > Terms & Conditions </a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/privacy-policy.html" > Privacy Policy </a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/contactus.html" > Contact Us </a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/faq.html" > Help / FAQ </a></li>
+                                <li><a href="{{ route('about') }}" > About Us </a> </li>
+                                <li><a href="{{ route('terms') }}" > Terms & Conditions </a></li>
+                                <li><a href="{{ route('privacy') }}" > Privacy Policy </a></li>
+                                <li><a href="{{ route('contactus') }}" > Contact Us </a></li>
+                                <li><a href="{{ route('faq') }}" > Help / FAQ </a></li>
 
                             </ul>
 
@@ -49,20 +226,16 @@
                     <div class="col-sm-2">
 
                         <div class="widget widget-contact">
+                            @guest()
                             <h4 class="widget-title">Jobseekers </h4>
                             <ul>
-                                <li><a href="jobsseeker-login.html" > Login/Register </a> </li>
-                                <!--<li><a href="#" > Follow Top Recruiters </a></li>
-                                <li><a href="#" > Resume Free Quality Score </a></li>
-                                <li><a href="#" > Career Advice </a></li>
-                                <li><a href="#" > Security Advice </a></li>
-                                <li><a href="#" > Resume Samples </a> </li>
-                                <li><a href="#" > Report a Problem </a></li>-->
+                                <li><a href="{{ route('jobseeker.login') }}" > Login/Register </a> </li>
                             </ul>
+                            @endguest
 
                             <h4 class="widget-title"> Recruiters </h4>
                             <ul>
-                                <li><a href="recruiter-listing.html" > Browse All Recruiters </a> </li>
+                                <li><a href="{{ route('recruiters') }}" > Browse All Recruiters </a> </li>
 
                                 <!--<li><a href="recruiter-listing.html" > Go to OwoRecruiters </a></li>-->
                                 <!--<li><a href="#" > Report a Problem </a></li>-->
@@ -77,14 +250,14 @@
                             <h4 class="widget-title">Browse Jobs</h4>
 
                             <ul>
-                                <li><a href="jobsearch_all.html" > Browse All Jobs </a> </li>
+                                <li><a href="{{ route('all_jobs') }}" > Browse All Jobs </a> </li>
                                 <!--<li><a href="#" > Premium MBA Jobs </a></li>
                                 <li><a href="#" > Premium Engineering Jobs </a></li>-->
-                                <li><a href="jobsearch_all.html?sch=1" > Govt. Jobs </a></li>
-                                <li><a href="jobsearch_all.html?sch=2" > International Jobs </a></li>
-                                <li><a href="job_by_company.html" > Jobs by Company </a> </li>
-                                <li><a href="job_by_category.html" > Jobs by Category </a></li>
-                                <li><a href="job_by_area.html" > Jobs by Location </a></li>
+{{--                                <li><a href="jobsearch_all.html?sch=1" > Govt. Jobs </a></li>--}}
+{{--                                <li><a href="jobsearch_all.html?sch=2" > International Jobs </a></li>--}}
+                                <li><a href="{{ route('category_job') }}" > Jobs by Company </a> </li>
+                                <li><a href="{{ route('company_job') }}" > Jobs by Category </a></li>
+                                <li><a href="{{ route('job_by_area') }}" > Jobs by Location </a></li>
                             </ul>
 
                         </div><!-- widget-contact -->
@@ -93,19 +266,19 @@
                     <div class="col-sm-2">
 
                         <div class="widget widget-contact">
-                            <h4 class="widget-title">GOVT. JOBS</h4>
-                            <ul>
-                                <li><a href="job_by_location.html?loc=1" > Location </a></li>
-                            </ul>
+{{--                            <h4 class="widget-title">GOVT. JOBS</h4>--}}
+{{--                            <ul>--}}
+{{--                                <li><a href="job_by_location.html?loc=1" > Location </a></li>--}}
+{{--                            </ul>--}}
 
-                            <h4 class="widget-title"> Oversea jobs</h4>
-                            <ul>
-                                <li><a href="job_by_location.html?loc=2" > All Countries </a> </li>
-                            </ul>
+{{--                            <h4 class="widget-title"> Oversea jobs</h4>--}}
+{{--                            <ul>--}}
+{{--                                <li><a href="job_by_location.html?loc=2" > All Countries </a> </li>--}}
+{{--                            </ul>--}}
 
                             <h4 class="widget-title"> Employers</h4>
                             <ul>
-                                <li><a href="emp_postjob.html" > Post Jobs </a> </li>
+                                <li><a href="{{ route('jobs.create') }}" > Post Jobs </a> </li>
                                 <!--<li><a href="#" > Search Resumes</a> </li>-->
                             </ul>
 
@@ -135,10 +308,10 @@
 
                             <div class="social-media">
 
-                                <a class="facebook" href="http://www.facebook.com" target="_blank"><i class="mt-icons-facebook"></i></a>
-                                <a class="twitter" href="http://www.twitter.com" target="_blank"><i class="mt-icons-twitter"></i></a>
-                                <a class="google" href="http://www.googleplus.com" target="_blank"><i class="mt-icons-google-plus"></i></a>
-                                <a class="linkedin" href="http://www.linkedin.com" target="_blank"><i class="mt-icons-linkedin"></i></a>
+                                <a class="facebook" href="{{ setting('facebook_link') }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a class="twitter" href="{{ setting('twitter_link') }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a class="google" href="{{ setting('google_link') }}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                <a class="linkedin" href="{{ setting('linkedin_link') }}" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </div><!-- social-media -->
                         </div><!-- widget-social -->
                     </div><!-- col -->
@@ -158,7 +331,7 @@
                         <div class="widget widget-text">
 
                             <div  class="copy-right"><p></p>
-                                <!--<p>All rights reserved &copy; 2015 Lead Consulting Group. |  Website Designed by <a target="_blank" href="http://www.phpscriptsmall.com/">Php Scripts Mall Pvt Ltd</a></p>-->
+                                <p>All rights reserved &copy; {{ date('Y') }} {{ setting('site_name') }}</p>
                             </div>
 
                         </div><!-- widget-text -->
@@ -176,7 +349,7 @@
 
 
 <!-- GO TOP -->
-<a id="go-top"><i class="mt-icons-arrow-up2"></i></a>
+<a id="go-top"><i class="fa fa-arrow-up"></i></a>
 
 
 @include('layouts.partials.scripts')
@@ -380,65 +553,7 @@
     //]]>
 
 </script>
-<script type="text/javascript">
-    function chkempty()
-    {
-        if(tinyMCE.get("job_desc").getContent())
-        {
 
-            var idddd = "job_desc";
-            alert(job_desc);
-            chkkabuse();
-
-
-        }
-    }
-
-
-    function chkkabuse(txtid)
-    {
-        // alert(txtid);
-        // exit;
-        var idd = txtid;
-        //alert(idd);
-        var textval =document.getElementById(idd).value;
-        //alert(textval);
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                //alert(xmlhttp.responseText);
-
-                //alert(xmlhttp.responseText);
-                if(xmlhttp.responseText==0)
-                {
-                    document.getElementById(txtid).focus();
-                    document.getElementById(txtid).value="";
-                    //document.getElementById("name1").innerHTML="<font color='red' style='font-size:12px;'>Don't use abuse words,  </font> ";
-                    alert ("Don't use abuse words");
-
-
-                }
-                else
-                {
-                    //document.getElementById("name1").innerHTML="<font color='#009966' style='font-size:12px;'>good</font>";
-                }
-            }
-        }
-        xmlhttp.open("GET","chkabuse.php?q="+textval,true);
-        xmlhttp.send();
-
-
-    }
-</script>
 <script type="text/javascript">
 
     function checkPasswordStrength() {

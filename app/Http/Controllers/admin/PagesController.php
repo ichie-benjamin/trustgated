@@ -31,7 +31,15 @@ class PagesController extends Controller
     public function edit(Page $page)
     {
         //
-        return view('admin.pages.edit', ['page' => $page]);
+        $pages = Page::all();
+        return view('admin.pages.edit', ['page' => $page,'pages' => $pages]);
+    }
+    public function editPage(Request $request)
+    {
+        $id = $request->id;
+        $page = Page::findOrFail($id);
+        $pages = Page::all();
+        return view('admin.pages.edit', ['page' => $page,'pages' => $pages]);
     }
 
 
@@ -49,7 +57,7 @@ class PagesController extends Controller
         }
 
 
-        return redirect()->route('admin.pages.index')->with('success', 'Page updated successfully');
+        return redirect()->back()->with('success', 'Page updated successfully');
     }
 
     public function destroy(Page $page)

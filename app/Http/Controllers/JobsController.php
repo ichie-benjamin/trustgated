@@ -6,6 +6,7 @@ use App\AppliedJob;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\Country;
+use App\Models\FunctionalArea;
 use App\Models\IndustryType;
 use App\Models\JobCategory;
 use App\Models\Job;
@@ -38,16 +39,33 @@ class JobsController extends Controller
     }
 
     public function allJobs(){
-        $jobs = Job::all();
+        $jobs = Job::paginate(20);
         return view('pages.all_jobs',compact('jobs'));
     }
 
+    public function advanceSearch(Request $request){
+        return $request->all();
+    }
+
     public function advancedSearch(){
-        return view('pages.advancesearch');
+        $locations = Location::pluck('id','name');
+        return view('pages.advancesearch', compact('locations'));
     }
 
     public function jobSearch(Request $request){
-        if($request->has('city')){
+        if($request->has('advancesearch') || $request->has('homeadvsearch')){
+            $location = strip_tags($request->get('location'));
+            $experience = strip_tags($request->get('experience'));
+            $f_areas = strip_tags($request->get('f_areas'));
+            $category = strip_tags($request->get('category'));
+            $salary = strip_tags($request->get('salary'));
+            $keyword = strip_tags($request->get('keyword'));
+
+            $jobs = Job::where('tags','LIKE','%'.$keyword.'%')->where('locations','LIKE','%'.$location.'%')
+                ->orWhere('min_salary',$salary)
+                ->orWhere('functional_area',$f_areas)->orWhere('industry_id',$category)
+                ->latest()->paginate(10);
+        }else if($request->has('city')){
             $jobs = Job::where('city','LIKE','%'.$request->get('city').'%')->latest()->paginate(10);
         }else if($request->has('location')){
          $jobs = Job::where('locations','LIKE','%'.$request->get('location').'%')->latest()->paginate(10);
@@ -102,7 +120,7 @@ class JobsController extends Controller
 
 
     public function jobByArea(){
-       return $locations = Location::inRandomOrder()->limit('20')->get();
+       $locations = Location::inRandomOrder()->limit('20')->get();
         return view('pages.job_by_area', compact('locations'));
     }
 

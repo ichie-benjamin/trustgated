@@ -7,14 +7,10 @@
 
 
             <ol  class="breadcrumb">
-                <li><a href="#">Home</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
                 <li class="active">Jobseeker Registration</li>
+                <li><a href="{{ route('employer.register') }}"> Employer Registration</a></li>
             </ol>
-
-
-
-
-
 
             <div class="row">
                 <div class="col-sm-9" >
@@ -32,7 +28,7 @@
 
                     <div class="well34 well-sm">
                         <div class="row">
-                            <div class="col-md-12 weltop padno">Become a Member of {{ env('APP_NAME') }} and find the right job. Create your Profile now.</div>
+                            <div class="col-md-12 weltop padno">Become a Member of {{ setting('site_name') }} and find the right job. Create your Profile now.</div>
 
                         </div>
                     </div>
@@ -69,7 +65,7 @@
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Enter your Email ID: </label>
                                 <div class="col-sm-5">
                                     <input type="text" name="email" id="email" onBlur="this.value=trim(this.value); return email_val(this.value);" class="form-control" >
-                                    <small class="pedit">Please register using your current email address.</small>
+                                    <small class="pedit">Register using your current email address.</small>
                                 </div>
                                 <div><span id="emailInfo"></span></div>
                             </div><!--form-group-->
@@ -109,7 +105,7 @@
                             <label class="namecover m10">Your Contact Information</label>
 
                             <div class="form-group">
-                                <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Please First Name: </label>
+                                <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>First Name: </label>
                                 <div class="col-sm-5">
                                     <input type="text" name="first_name" id="first_name" class="form-control" >
                                 </div>
@@ -118,7 +114,7 @@
                                 </div>
                             </div><!--form-group-->
                             <div class="form-group">
-                                <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Please mention Last Name: </label>
+                                <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Last Name: </label>
                                 <div class="col-sm-5">
                                     <input type="text" name="last_name" id="last_name" class="form-control" >
                                 </div>
@@ -134,9 +130,9 @@
 {{--                                    onChange="loadXMLDoc(this.value)"--}}
                                     <select class="form-control" name="country" id="select_country">
                                         <option value="">Select</option>
-                                        <option value="Bangladesh"> Bangladesh </option>
-                                        <option value="India"> India </option>
-                                        <option value="Pakistan "> Pakistan </option>
+                                        @foreach(\App\Models\Country::all() as $item)
+                                        <option value="{{ $item->name }}"> {{ $item->name }} </option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -152,9 +148,9 @@
 {{--                                    onChange="loadcity(this.value)"--}}
                                     <select name="state" class="form-control" id="state" onBlur="trim(this.id)">
                                         <option value="">Select State</option>
-                                        <option value="Bangladesh"> Bangladesh </option>
-                                        <option value="India"> India </option>
-                                        <option value="Pakistan "> Pakistan </option>
+                                        @foreach(\App\Models\State::all() as $item)
+                                            <option value="{{ $item->name }}"> {{ $item->name }} </option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -168,9 +164,9 @@
                                 <div class="col-sm-5">
                                     <select name="city" class="form-control" id="city" onBlur="trim(this.id)">
                                         <option value="">Select City</option>
-                                        <option value="Bangladesh"> Bangladesh </option>
-                                        <option value="India"> India </option>
-                                        <option value="Pakistan "> Pakistan </option>
+                                        @foreach(\App\Models\City::all() as $item)
+                                            <option value="{{ $item->name }}"> {{ $item->name }} </option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -218,7 +214,7 @@
 
                             <label class="namecover m10">Your Current Employment Details</label>
                             <div class="form-group">
-                                <label class="col-sm-4 pedit2 text-right">Please select the work experience?: </label>
+                                <label class="col-sm-4 pedit2 text-right">Select the work experience?: </label>
 
                                 <div class="col-sm-3 padno">
                                     <div class="col-sm-8">
@@ -280,241 +276,9 @@
                                 <div class="col-sm-5">
                                     <select name="function_area" id="function_area" class="form-control">
                                         <option value="">select</option>
-                                        <option value="349"> 0 - 044 - </option>
-                                        <option value="340"> Accessory Designer </option>
-                                        <option value="99"> Accountant </option>
-                                        <option value="73"> Accounts Assistant </option>
-                                        <option value="241"> Accounts Manager </option>
-                                        <option value="339"> AD </option>
-                                        <option value="154"> Administration </option>
-                                        <option value="316"> Air Hostess/Steward/Cabin Crew </option>
-                                        <option value="183"> Anaesthetist </option>
-                                        <option value="83"> Animator </option>
-                                        <option value="176"> Apparel / Garment Designer </option>
-                                        <option value="136"> Architects </option>
-                                        <option value="272"> Art Director </option>
-                                        <option value="258"> Asst. Sales Manager </option>
-                                        <option value="159"> Autocad Draughtman/Designer </option>
-                                        <option value="84"> AV Executive </option>
-                                        <option value="100"> Bank Assurance </option>
-                                        <option value="101"> Banking - General </option>
-                                        <option value="211"> Banquet Manager </option>
-                                        <option value="184"> Beautician </option>
-                                        <option value="185"> Bio-Technology Research </option>
-                                        <option value="317"> Branch Head </option>
-                                        <option value="259"> Branch Manager </option>
-                                        <option value="286"> Building Inspection </option>
-                                        <option value="260"> Business Analyst </option>
-                                        <option value="261"> Business Development Executives </option>
-                                        <option value="273"> Cameraman </option>
-                                        <option value="327"> Cargo </option>
-                                        <option value="137"> Carpenter </option>
-                                        <option value="74"> Chartered Accountant </option>
-                                        <option value="186"> Chemical Research Scientist </option>
-                                        <option value="187"> Chemist </option>
-                                        <option value="341"> chennai </option>
-                                        <option value="212"> Chief Chef </option>
-                                        <option value="160"> Chief Engineer </option>
-                                        <option value="161"> Civil Engineer </option>
-                                        <option value="102"> Clerk/Office Boy </option>
-                                        <option value="247"> Company Secretary </option>
-                                        <option value="293"> Computer Operator/Data Entry </option>
-                                        <option value="124"> Configuration Manager </option>
-                                        <option value="350"> Construction </option>
-                                        <option value="138"> Construction Manager </option>
-                                        <option value="274"> Content Developer </option>
-                                        <option value="139"> Controller </option>
-                                        <option value="275"> Correspondent/Reporter </option>
-                                        <option value="75"> Cost Accountant </option>
-                                        <option value="155"> Councellor </option>
-                                        <option value="328"> Courier/Delivery </option>
-                                        <option value="140"> Crane Operator </option>
-                                        <option value="262"> Customer Relationship Officer </option>
-                                        <option value="112"> Customer Service Executive (Non Voice) </option>
-                                        <option value="113"> Customer Service Executive (Voice) </option>
-                                        <option value="162"> Customer Service/Tech. Support </option>
-                                        <option value="223"> Data Entry/Computer Operator </option>
-                                        <option value="114"> Data Processing Executive </option>
-                                        <option value="125"> Database Administrator </option>
-                                        <option value="298"> Database Programmer </option>
-                                        <option value="297"> DBA </option>
-                                        <option value="188"> Dentist </option>
-                                        <option value="189"> Dietician </option>
-                                        <option value="329"> Dockworker </option>
-                                        <option value="190"> Doctor </option>
-                                        <option value="318"> Documentation and Visa </option>
-                                        <option value="319"> Domestic Travel </option>
-                                        <option value="191"> ECG/CGA Technician </option>
-                                        <option value="163"> Electrical Engineer </option>
-                                        <option value="141"> Electrician </option>
-                                        <option value="164"> Engineer </option>
-                                        <option value="143"> Equipment Operator </option>
-                                        <option value="103"> Equity Analyst </option>
-                                        <option value="85"> Event Coordinator </option>
-                                        <option value="86"> Event/Promotios Manager </option>
-                                        <option value="76"> External Auditor </option>
-                                        <option value="213"> F & B Manager </option>
-                                        <option value="126"> Faculty </option>
-                                        <option value="77"> Finance Assistant </option>
-                                        <option value="165"> Foreman </option>
-                                        <option value="330"> Forklift Operator </option>
-                                        <option value="214"> Front Office Executive </option>
-                                        <option value="345"> gdfgdf </option>
-                                        <option value="263"> GM- Marketing </option>
-                                        <option value="294"> Graphic Designer /Animator </option>
-                                        <option value="320"> Ground Staff </option>
-                                        <option value="127"> H/W Installation / Maintenance Engg </option>
-                                        <option value="128"> Hardware Design Technical Leader </option>
-                                        <option value="347"> having 7 years exp. as a professional medical representative with flaring formulation, abbott health </option>
-                                        <option value="348"> having 7 years exp. as a professional medical representative with flaring formulation, abbott health </option>
-                                        <option value="144"> Heavy Equipment Operator </option>
-                                        <option value="215"> Hostess </option>
-                                        <option value="193"> House Keeping </option>
-                                        <option value="216"> House Keeping Executive </option>
-                                        <option value="225"> HR Executive / Recruiter </option>
-                                        <option value="226"> HR Manager </option>
-                                        <option value="129"> Instructional Designer </option>
-                                        <option value="104"> Insurance / Financial Advisor </option>
-                                        <option value="105"> Insurance Telesales </option>
-                                        <option value="166"> Interior Designer </option>
-                                        <option value="78"> Internal Auditor </option>
-                                        <option value="343"> it software- application programming / maintenance </option>
-                                        <option value="346"> IT-ERP- Business Analyst </option>
-                                        <option value="177"> Jewellery Designer </option>
-                                        <option value="217"> Kitchen Manager </option>
-                                        <option value="194"> Lab Technician </option>
-                                        <option value="146"> Laborer </option>
-                                        <option value="248"> Law Officer </option>
-                                        <option value="249"> Lawyer </option>
-                                        <option value="250"> Legal Adviser </option>
-                                        <option value="251"> Legal Assistant </option>
-                                        <option value="252"> Legal Consultant </option>
-                                        <option value="253"> Legal Editor </option>
-                                        <option value="254"> Legal Services - Manager </option>
-                                        <option value="156"> Librarian </option>
-                                        <option value="331"> Logistics Manager </option>
-                                        <option value="235"> Machine Operator </option>
-                                        <option value="236"> Machinist </option>
-                                        <option value="237"> Maintenance Supervisor </option>
-                                        <option value="321"> Management Trainee </option>
-                                        <option value="322"> Manager </option>
-                                        <option value="79"> Manager - Accounts </option>
-                                        <option value="80"> Manager- Finance Planning </option>
-                                        <option value="228"> Manager/Co-ordinator </option>
-                                        <option value="264"> Marketing Executives </option>
-                                        <option value="265"> Marketing Manager </option>
-                                        <option value="167"> Mechanical Engineer </option>
-                                        <option value="238"> Mechanical Technician </option>
-                                        <option value="89"> Media Planning - Manager / Executive </option>
-                                        <option value="195"> Medical Assistant </option>
-                                        <option value="196"> Medical Representative </option>
-                                        <option value="115"> Medical Transcriptionist </option>
-                                        <option value="197"> Medical Writer </option>
-                                        <option value="179"> Merchandiser </option>
-                                        <option value="198"> Microbiologist </option>
-                                        <option value="148"> Mining </option>
-                                        <option value="107"> Mutual Funds </option>
-                                        <option value="130"> Network Administrator </option>
-                                        <option value="131"> Network Designer </option>
-                                        <option value="295"> Network Engineer </option>
-                                        <option value="278"> News Editor </option>
-                                        <option value="279"> News Reador </option>
-                                        <option value="199"> Nurse </option>
-                                        <option value="200"> Nutritionist </option>
-                                        <option value="323"> Office Assistant </option>
-                                        <option value="229"> Office Secretary/AdminOfficer </option>
-                                        <option value="287"> Officer </option>
-                                        <option value="108"> Operations </option>
-                                        <option value="332"> Operations Management </option>
-                                        <option value="201"> Opthamologist </option>
-                                        <option value="296"> Oracle Developer </option>
-                                        <option value="132"> Other </option>
-                                        <option value="149"> Painter </option>
-                                        <option value="256"> Patent </option>
-                                        <option value="203"> Pharmaceutical Research </option>
-                                        <option value="204"> Pharmacist </option>
-                                        <option value="300"> Photoshop </option>
-                                        <option value="205"> Physician </option>
-                                        <option value="206"> Physiotherapist </option>
-                                        <option value="150"> Plumber </option>
-                                        <option value="288"> Process Engineer </option>
-                                        <option value="122"> Process Engineers </option>
-                                        <option value="281"> Production Manager </option>
-                                        <option value="289"> Production Quality Assurance </option>
-                                        <option value="301"> Programmer </option>
-                                        <option value="169"> Project Manager </option>
-                                        <option value="282"> Proof Reader </option>
-                                        <option value="257"> Proof Reader (Law) </option>
-                                        <option value="207"> Public Health Administration </option>
-                                        <option value="231"> Public Relation Officer </option>
-                                        <option value="312"> QA </option>
-                                        <option value="290"> Quality Assurance Engineer </option>
-                                        <option value="291"> Quality Assurance Manager </option>
-                                        <option value="292"> Quality Control Inspector </option>
-                                        <option value="208"> Radiographer </option>
-                                        <option value="232"> Receptionist/Front Office Executive </option>
-                                        <option value="109"> Relationship Manager </option>
-                                        <option value="239"> Repairman </option>
-                                        <option value="325"> Reservation and Ticketing </option>
-                                        <option value="219"> Reservation Manager </option>
-                                        <option value="220"> Restaurant Manager </option>
-                                        <option value="151"> Roofing </option>
-                                        <option value="170"> Safety Officer </option>
-                                        <option value="268"> Sales Executives </option>
-                                        <option value="269"> Sales Manager </option>
-                                        <option value="97"> Sales/Marketing Executive </option>
-                                        <option value="209"> Scientist </option>
-                                        <option value="243"> Security Guard </option>
-                                        <option value="240"> Security Installation </option>
-                                        <option value="221"> Security Manager </option>
-                                        <option value="333"> Shipping And Receiving </option>
-                                        <option value="245"> Site Manager </option>
-                                        <option value="304"> Software Application Developer </option>
-                                        <option value="305"> Software Engineer </option>
-                                        <option value="222"> Steward/Waiter </option>
-                                        <option value="180"> Stiching/Tailor </option>
-                                        <option value="110"> Stock Broking </option>
-                                        <option value="171"> Store Keeper </option>
-                                        <option value="91"> Studio Operation Manager </option>
-                                        <option value="283"> Sub Editor </option>
-                                        <option value="95"> Supervisor </option>
-                                        <option value="181"> Supervisor/Officer </option>
-                                        <option value="172"> Surveyor </option>
-                                        <option value="306"> System Administrator </option>
-                                        <option value="133"> System Analyst </option>
-                                        <option value="303"> System Programmer </option>
-                                        <option value="81"> Taxation - Manager </option>
-                                        <option value="157"> Teaching/Professor/Lecturer </option>
-                                        <option value="117"> Team Leader </option>
-                                        <option value="308"> Technical Architect </option>
-                                        <option value="134"> Technical Leader </option>
-                                        <option value="135"> Technical Support Engineer </option>
-                                        <option value="118"> Technical Support Executive (Voice) </option>
-                                        <option value="309"> Technical Writer </option>
-                                        <option value="173"> Technician </option>
-                                        <option value="271"> Tele Marketing Executives </option>
-                                        <option value="119"> Telemarketing Executive </option>
-                                        <option value="311"> Testing Engineer </option>
-                                        <option value="182"> Textile Designer </option>
-                                        <option value="326"> Tour Operator </option>
-                                        <option value="335"> Train Operator </option>
-                                        <option value="120"> Trainee/Management Trainee </option>
-                                        <option value="313"> Trainer </option>
-                                        <option value="246"> Training Officer </option>
-                                        <option value="284"> Translator </option>
-                                        <option value="336"> Transportation Supervisor </option>
-                                        <option value="233"> Travel/Immigration Coordinator </option>
-                                        <option value="337"> Truck Driver </option>
-                                        <option value="234"> Typist </option>
-                                        <option value="210"> Veterinary </option>
-                                        <option value="285"> Video Editor </option>
-                                        <option value="92"> Visualiser- Art Director </option>
-                                        <option value="121"> Voice & Accent Trainer </option>
-                                        <option value="338"> Warehouse Worker </option>
-                                        <option value="314"> Web Designer </option>
-                                        <option value="315"> Web Developer </option>
-                                        <option value="153"> Welder </option>
-                                        <option value="174"> Workman / Foreman / Technician </option>
+                                        @foreach($f_areas as $item => $value)
+                                            <option value="{{ $item }}"> {{ $item }} </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div>
@@ -525,7 +289,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right">What are your Key Skills?:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="keyskills" id="keyskills" class="form-control " placeholder=" Please enter your areas of expertise/specialization." >
+                                    <input type="text" name="keyskills" id="keyskills" class="form-control " placeholder=" Enter your areas of expertise/specialization." >
                                 </div>
                                 <div>
                                     <span id="keyInfo"></span>
@@ -535,27 +299,13 @@
                             <label class="namecover m10">Your Education Background</label>
 
                             <div class="form-group">
-                                <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Please Select Your Basic Eduction :</label>
+                                <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Select Your Basic Eduction :</label>
                                 <div class="col-sm-5">
                                     <select name="basic_education" id="basic_education" class="form-control">
                                         <option value="">Select</option>
-                                        <option value="43"> B.E/ B. Tech </option>
-                                        <option value="44"> mm </option>
-                                        <option value="45"> B.Sc </option>
-                                        <option value="47"> Diplomo </option>
-                                        <option value="48"> HSC </option>
-                                        <option value="49"> SSLC </option>
-                                        <option value="51"> php </option>
-                                        <option value="52"> MBBS </option>
-                                        <option value="53"> BA </option>
-                                        <option value="54"> B Com </option>
-                                        <option value="55"> B Ed </option>
-                                        <option value="56"> BBA </option>
-                                        <option value="57"> BAMS </option>
-                                        <option value="58"> BHMS </option>
-                                        <option value="59"> Others </option>
-                                        <option value="60"> ICMA </option>
-                                        <option value="61"> M.Com </option>
+                                        @foreach(\App\Models\EducationDetails::pluck('name') as $item)
+                                            <option value="{{ $item }}"> {{ $item }} </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div>
@@ -588,7 +338,7 @@
 
                             <div id="pged" class="form-group" style="display:none;">
 
-                                <label class="col-sm-4 pedit2 text-right">Please Select Your Masters Eduction :</label>
+                                <label class="col-sm-4 pedit2 text-right">Select Your Masters Eduction :</label>
 
                                 <input type="hidden" name="hidnot_pggrad1" id="hidnot_pggrad1" value="">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -650,17 +400,16 @@
 
                             <div id="phed" class="form-group" style="display:none;">
 
-                                <label class="col-sm-4 pedit2 text-right">Please Select Your Doctorate/Phd:</label>
+                                <label class="col-sm-4 pedit2 text-right">Select Your Doctorate/Phd:</label>
 
                                 <input type="hidden" name="hidnot_postpggrad" id="hidnot_postpggrad" value="4">
                                 <div class="col-sm-5">
                                     <select name="doctorate" class="form-control" onChange="doctspec(this.value)">
                                         <option value="0">Select</option>
-                                        <option value="4">Not Pursuing Doctorate/Phd</option>
-                                        <option value="1"> Ph.D/Doctorate </option>
-                                        <option value="2"> MPHIL </option>
-                                        <option value="3"> Other </option>
-                                        <option value="5"> koss </option>
+                                        <option value="Not Pursuing Doctorate/Phd">Not Pursuing Doctorate/Phd</option>
+                                        <option value="Ph.D/Doctorate"> Ph.D/Doctorate </option>
+                                        <option value="MPHIL"> MPHIL </option>
+                                        <option value=" Other"> Other </option>
                                     </select>
                                 </div>
                             </div>
@@ -705,7 +454,7 @@
                                     <small class="regi" id="hid"><a href="javascript:;" onClick="resum()">You may also write or copy-paste your resume here..</a><b>If you do not have your resume presently, you may still continue to create your account.</b>
                                     </small>
                                     <textarea name="textresume" id="textresume" class="form-control adm" rows="5" style="display:none;" placeholder="You can Copy-Paste your resume here (Max 10000 characters). However, recruiters cannot download it. They can only download your jobs profile or your Uploaded Resume. So ensure both of them are updated too."></textarea>
-                                    <small class="pedit3" id="resum" style="display:none;">Please remember to upload your resume as soon as possible after creating your
+                                    <small class="pedit3" id="resum" style="display:none;">Remember to upload your resume as soon as possible after creating your
                                         account. It will make your profile more effective. <b>If you do not have your resume presently, you may still continue to create your account.</b></small>
                                 </div>
                                 <div>
@@ -831,20 +580,20 @@
                 clr=1;
             }
             if(email == ""){
-                $('#emailInfo').html('<span class="error">Please specify your email ID.</span>');
+                $('#emailInfo').html('<span class="error">Specify your email ID.</span>');
                 //$('#email').focus();
                 clr=1;
             }
             else if(!emailReg.test(email)){
-                $('#emailInfo').html('<span class="error"> Please enter a valid email Id</span>');
+                $('#emailInfo').html('<span class="error"> Enter a valid email Id</span>');
                 //$('#email').focus();clr=1;
             }
             if(pass == ""){
-                $('#passwordInfo').html('<span class="error">Please specify a password.</span>');
+                $('#passwordInfo').html('<span class="error">Specify a password.</span>');
                 $('#password').focus();clr=1;
             }
             if(cpass == ""){
-                $('#cpasswordInfo').html('<span class="error">Please specify confirm password.</span>')
+                $('#cpasswordInfo').html('<span class="error">Specify confirm password.</span>')
                 $('#password_confirmation').focus();clr=1;
             }
             if(pass != cpass){
@@ -853,40 +602,40 @@
             }
             if(lastname == ""){
 
-                $('#yournameInfo').html('<span class="error">Please specify you name.</span>');
+                $('#yournameInfo').html('<span class="error">Specify you name.</span>');
                 $('#yourname').focus();
                 clr=1;
             }
 
             if(firstname == ""){
 
-                $('#firstnameInfo').html('<span class="error">Please specify your first name.</span>');
+                $('#firstnameInfo').html('<span class="error">Specify your first name.</span>');
                 $('#first_name').focus();
                 clr=1;
             }
 
             if(lastname == ""){
 
-                $('#lastnameInfo').html('<span class="error">Please specify your last name.</span>');
+                $('#lastnameInfo').html('<span class="error">Specify your last name.</span>');
                 $('#last_name').focus();
                 clr=1;
             }
 
             if(select_country == ""){
 
-                $('#countryInfo').html('<span class="error"> Please select your country.</span>');
+                $('#countryInfo').html('<span class="error"> Select your country.</span>');
                 $('#select_country').focus();
                 clr=1;
             }
             if(state == ""){
 
-                $('#stateInfo').html('<span class="error"> Please select your state.</span>');
+                $('#stateInfo').html('<span class="error"> Select your state.</span>');
                 $('#state').focus();
                 clr=1;
             }
             if(city == ""){
 
-                $('#cityInfo').html('<span class="error">Please select your current city.</span>');
+                $('#cityInfo').html('<span class="error">Select your current city.</span>');
                 $('#city').focus(); clr=1;
             }
             /* else if(!nameReg.test(lnames)){
@@ -898,7 +647,7 @@
             if(mobile_number == ""){
                 //alert("success");
                 // alert(mobile_number.length);
-                $('#mobileInfo').html('<span class="error">Please specify your mobile number.</span>');
+                $('#mobileInfo').html('<span class="error">Specify your mobile number.</span>');
                 $('#mobile_number').focus();clr=1;
             }
 
@@ -915,12 +664,12 @@
             }  */
 
             if(basic_education == ""){
-                $('#basicInfo').html('<span class="error">Please select your basic course.</span>');
+                $('#basicInfo').html('<span class="error">Select your basic course.</span>');
                 $('#basic_education').focus();clr=1;
             }
 
             if(document.getElementById("terms").checked == false){
-                $('#termInfo').html('<span class="error">Please agree to the terms and conditions to continue.</span>');
+                $('#termInfo').html('<span class="error">Agree to the terms and conditions to continue.</span>');
                 $('#terms').focus();clr=1;
             }
             if(clr==0)
@@ -1223,7 +972,7 @@
             {
                 document.register.dob.value='';
                 document.register.dob.focus();
-                alert("Please enter the valid date");
+                alert("Enter the valid date");
             }
 
         }

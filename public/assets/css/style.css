@@ -13291,19 +13291,21 @@ ol.commentlist li .star-rating {
 
 .jp_regis_left {
     float: left;
-    width: 50%;
+    /*width: 50%;*/
     text-align: center;
     background: #ffffff;
     border: 1px solid #e9e9e9;
     border-bottom: 1px solid #34ba00;
     border-right: 0;
+    color: black;
     padding-top: 42px;
+    background: url(../../images/company.jpg) 50% 0 repeat-y;
     padding-bottom: 50px;
 }
 
 .jp_regis_right {
     float: left;
-    width: 50%;
+    /*width: 50%;*/
     padding-top: 42px;
     padding-bottom: 50px;
     background: url(../images/register_bg.jpg) 50% 0 repeat-y;

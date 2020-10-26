@@ -8,7 +8,7 @@
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="#"> Company</a></li>
                         <li class="active">Search</li>
                     </ol>
@@ -18,7 +18,7 @@
                 <!--col-md-7-->
 
                 <div class="col-md-9"><br />
-                    <div class="col-md-9">
+                    <div class="">
                         <div style="color:rgb(56, 112, 159)">
                             <table class="table table-striped">
                                 <tr>

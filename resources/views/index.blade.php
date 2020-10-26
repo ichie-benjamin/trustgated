@@ -107,7 +107,7 @@
 							{{-- <li ><a href="{{ route('searchall') }}">Jobs </a></li>
 							<li ><a href="{{ route('searchall') }}">IIT/IIM Jobs </a></li>
                             <li ><a  href="{{ route('job.type','govt-jobs') }}">Govt.jobs</a></li> --}}
-                            <li ><a href="{{ route('job.type','oversea-jobs') }}"> Oversea jobs</a></li>
+{{--                            <li ><a href="{{ route('job.type','oversea-jobs') }}"> Oversea jobs</a></li>--}}
 							<li ><a href="{{ route('recruiters') }}">Recruiters </a></li>
 							<li ><a href="{{ route('contactus') }}">Contact </a></li>
 
@@ -129,13 +129,14 @@
 					<div class="find-job-bx">
 											<!--<a href="#" class="site-button button-sm">Find Jobs, Employment & Career Opportunities</a>
 						<h2>Search Between More Then <br/> <span class="text-primary">50,000</span> Open Jobs.</h2>-->
-						<h2 style=\\\"\\\\\\\">Search Between More Than&nbsp;<br style=\\\"\\\\\\\" /><span style=\\\"\\\\\\\">50,000</span>&nbsp;Open Jobs.</h2>						<form class="dezPlaceAni" action="#jobsearch.php" method="GET">
+						<h2>Search Between More Than&nbsp;<br/><span>50,000</span>&nbsp;Open Jobs.</h2>
+                        <form class="dezPlaceAni" action="{{ route('jobsearch') }}" method="GET">
 							<div class="row">
 								<div class="col-lg-3 col-md-6">
 									<div class="form-group">
 										<label>Job Title, Keywords, or company</label>
 										<div class="input-group">
-											<input type="text" class="form-control" placeholder="" value='' name="refkeyword">
+											<input type="text" class="form-control" placeholder="" value="{{ request()->get('keyword') }}" name="keyword">
 											<div class="input-group-append">
 											  <span class="input-group-text"><i class="fa fa-search"></i></span>
 											</div>
@@ -146,7 +147,7 @@
 									<div class="form-group">
 										<label>Location</label>
 										<div class="input-group">
-											<input type="text" class="form-control" placeholder="" value='' name="reflocation">
+											<input type="text" class="form-control" placeholder="" value="{{ request()->get('location') }}" name="location">
 											<div class="input-group-append">
 											  <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
 											</div>
@@ -155,27 +156,12 @@
 								</div>
 								<div class="col-lg-2 col-md-6">
 									<div class="form-group">
-										<select name="category">
-											<option value="">Select industry</option>
-														<option value="56"  >Construction</option>
-														<option value="53"  >IT - BPO</option>
-														<option value="50"  >IT-ERP-Oracle</option>
-														<option value="42"  >KPO/Technical Support</option>
-														<option value="34"  >Law Enforcement/Security</option>
-														<option value="35"  >Legal/Law</option>
-														<option value="55"  >Management</option>
-														<option value="36"  >Marketing/Sales</option>
-														<option value="52"  >mech</option>
-														<option value="51"  >Media </option>
-														<option value="37"  >Media/Journalism</option>
-														<option value="54"  >NGO/Social Services</option>
-														<option value="45"  >Others</option>
-														<option value="38"  >Production/Manufacturing/Maintenance</option>
-														<option value="44"  >Strategy / Management Consulting Firms</option>
-														<option value="46"  >test cate</option>
-														<option value="40"  >Tours and Travel/Airline</option>
-														<option value="41"  >Transportation/Logistics</option>
-																	</select>
+                                        <select name="category">
+                                            <option value="">select industry</option>
+                                            @foreach($industries as $item)
+                                                <option value="{{ $item->id }}">{{ $item->category }}</option>
+                                            @endforeach
+                                        </select>
 									</div>
 								</div>
 								<div class="col-lg-2 col-md-6">
@@ -257,7 +243,7 @@
                <ul class="grid-view-caption">
                   <li>
                      <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>{{ $job->city }}</p>
+                        <p><i class="fa fa-map-marker"></i>{{ str_limit($job->city, 10) }}</p>
                      </div>
                   </li>
                   <li>
@@ -304,17 +290,17 @@
 		   <div class="row">
 			  <div class="col-lg-9">
 			     <div class="jp_register_section_main_wrapper">
-                                <div class="jp_regis_left">
+                                <div class="jp_regis_left col-md-6 col-sm-6">
                                     <div class="left_side_box">
 									                                         <img src="/assets/images/regis_icon.png" alt="icon">
 
 										<h4>Im an EMPLOYER</h4>
 <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>                                        <ul>
-                                            <li><a href="#/employer-registration.html"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
+                                            <li> <a href="{{ route('employer.register') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="jp_regis_right">
+                                <div class="jp_regis_right col-md-6 col-sm-12">
                                     <div class="right_img_overlay"></div>
                                     <div class="right_side_box">
 									                                        <img src="/assets/images/regis_icon2.png" alt="icon">
@@ -324,7 +310,7 @@
 
 
                                         <ul>
-                                            <li><a href="#jobseeker-registration.html"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
+                                            <li><a href="{{ route('jobseeker.reg') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
                                         </ul>
                                     </div>
                                     <div class="center_tag">
@@ -419,7 +405,7 @@
                                                     <h4><a href="#">Featured Cities</a></h4>
                                                     <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
                                                 </div>
-											  </div>
+                                               </div>
                                             </div>
                                         </div>
                                     </div>
@@ -460,7 +446,7 @@
 							 						 <div class="clearfix"></div>
 						 <div class="quote-bx m-t30">
 								<div class="quote-info">
-																	<h4>Make a Difference with Your Online Resume!</h4><p>Your resume in minutes with JobBoard resume assistant is ready!</p>									<a href="#jobseeker-registration.html" class="site-button">Create an Account</a>
+																	<h4>Make a Difference with Your Online Resume!</h4><p>Your resume in minutes with JobBoard resume assistant is ready!</p>									<a href="{{ route('jobseeker.reg') }}" class="site-button">Create an Account</a>
 								</div>
 							</div>
 

@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\FunctionalArea;
 use App\Models\IndustryType;
 use App\Models\Job;
+use App\Models\Page;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,26 @@ class HomeController extends Controller
         return view('index', compact('f_areas','industries','companies','jobs','cities'));
     }
 
+    public function terms(){
+        $content = Page::whereTitle('Seeker : Terms and Conditions')->first()->content;
+        return view('pages.terms',compact('content'));
+    }
+
+    public function about(){
+        $content = Page::whereTitle('Seeker : About Us')->first()->content;
+        return view('pages.about',compact('content'));
+    }
+
+    public function privacy(){
+        $content = Page::whereTitle('Seeker : Privacy Policy')->first()->content;
+        return view('pages.privacy',compact('content'));
+    }
+
+    public function faq(){
+        $content = Page::whereTitle('Seeker : FAQ')->first()->content;
+        return view('pages.faq',compact('content'));
+    }
+
     public function recruitersProfile($username){
         $user = User::whereUsername($username)->first();
         $top_recruiters = User::with('company')->whereRoleIs('employer')->get();
@@ -34,7 +55,10 @@ class HomeController extends Controller
     }
 
     public function contactus(){
-        return view('pages.contactus');
+
+        $content = Page::whereTitle('Contact Us')->first()->content;
+
+        return view('pages.contactus', compact('content'));
     }
 
     /**

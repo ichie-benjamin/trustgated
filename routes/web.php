@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobAlertController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\JobseekerController;
 use App\Http\Controllers\admin\TempController;
@@ -12,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
+
+Route::get('/about-us',[HomeController::class, 'about'])->name('about');
+Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
+Route::get('/privacy',[HomeController::class, 'privacy'])->name('privacy');
+Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
+
+
+Route::post('/advance_search',[JobsController::class, 'advanceSearch'])->name('advance_search');
 
 Route::resources([
     'users' => UsersController::class,
@@ -30,6 +39,9 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/employer/login', [UsersController::class,'employerLogin'])->name('employer.login');
 
 });
+
+Route::Resources(['job_alerts' => JobAlertController::class]);
+
 
 Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:jobseeker|admin']], function () {
 
@@ -55,7 +67,7 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::get('/jobs/restore/deleted/job/{slug}/{id}', [JobsController::class, 'restore'])->name('jobs.restore');
     Route::post('/jobs/force/delete/{id}', [JobsController::class, 'forceDelete'])->name('jobs.delete');
     Route::resources([
-        'jobs' => JobsController::class,
+        'jobs' => JobsController::class
         ]);
 });
 
