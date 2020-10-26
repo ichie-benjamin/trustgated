@@ -547,12 +547,12 @@
 
 							 <h5 class="m-b20 text-white">Browse Jobs</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="#jobsearch_all.html">Browse All Jobs</a></li>
-                                <li><a href="#jobsearch_all.html?sch=1">Govt. Jobs</a></li>
-                                <li><a href="#jobsearch_all.html?sch=2">International Jobs</a></li>
-                                <!--<li><a href="job_by_company.html">Jobs by Company</a></li>-->
-                                <li><a href="#job_by_category.html">Jobs by Category</a></li>
-								<li><a href="#job_by_area.html">Jobs by Location</a></li>
+                                <li><a href="{{ route('all_jobs') }}">Browse All Jobs</a></li>
+{{--                                <li><a href="#jobsearch_all.html?sch=1">Govt. Jobs</a></li>--}}
+{{--                                <li><a href="#jobsearch_all.html?sch=2">International Jobs</a></li>--}}
+                                <li><a href="{{ route('company_job') }}">Jobs by Company</a></li>
+                                <li><a href="{{ route('category_job') }}">Jobs by Category</a></li>
+								<li><a href="{{ route('job_by_area') }}">Jobs by Location</a></li>
                             </ul>
                         </div>
 
@@ -565,24 +565,24 @@
 						   <div class="widget border-0">
                             <h5 class="m-b20 text-white">INFORMATION</h5>
                               <ul class="list-2 w10 list-line">
-                                <li><a href="#aboutus.html">About Us </a></li>
-                                <li><a href="#terms.html">Terms & Conditions </a></li>
-                                <li><a href="#privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="#contactus.html">Contact Us</a></li>
-                                <li><a href="#faq.html">Help / FAQ</a></li>
+                                <li><a href="{{ route('about') }}">About Us </a></li>
+                                <li><a href="{{ route('terms') }}">Terms & Conditions </a></li>
+                                <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+                                <li><a href="{{ route('contactus') }}">Contact Us</a></li>
+                                <li><a href="{{ route('faq') }}">Help / FAQ</a></li>
 
                             </ul>
                         </div>
 						 </div>
 						 <div class="col-xl-6">
 						   <div class="widget border-0">
-                            <h5 class="m-b20 text-white">Jobseekers</h5>
-                            <ul class="list-2 w10 list-line">
-                                <li><a href="#jobsseeker-login.html">Login/Register</a></li>
-                            </ul>
+{{--                            <h5 class="m-b20 text-white">Jobseekers</h5>--}}
+{{--                            <ul class="list-2 w10 list-line">--}}
+{{--                                <li><a href="#jobsseeker-login.html">Login/Register</a></li>--}}
+{{--                            </ul>--}}
 							<h5 class="m-b20 text-white">Jobseekers</h5>
 							<ul class="list-2 w10 list-line">
-                                <li><a href="#recruiter-listing.html">Browse All Recruiters</a></li>
+                                <li><a href="{{ route('recruiters') }}">Browse All Recruiters</a></li>
                             </ul>
                         </div>
 
@@ -590,25 +590,25 @@
                        </div>
                     </div>
 
-					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-12">
-                        <div class="widget border-0">
-                            <h5 class="m-b20 text-white">GOVT. JOBS</h5>
-                            <ul class="list-2 w10 list-line">
-                                <li><a href="#jobsearch_all.html?sch=1">US Jobs</a></li>
+{{--					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-12">--}}
+{{--                        <div class="widget border-0">--}}
+{{--                            <h5 class="m-b20 text-white">GOVT. JOBS</h5>--}}
+{{--                            <ul class="list-2 w10 list-line">--}}
+{{--                                <li><a href="#jobsearch_all.html?sch=1">US Jobs</a></li>--}}
 
-                            </ul>
-							<h5 class="m-b30 text-white">OVERSEA JOBS</h5>
-                            <ul class="list-2 w10 list-line">
-                                <li><a href="#jobsearch_all.html?sch=2">US Jobs</a></li>
+{{--                            </ul>--}}
+{{--							<h5 class="m-b30 text-white">OVERSEA JOBS</h5>--}}
+{{--                            <ul class="list-2 w10 list-line">--}}
+{{--                                <li><a href="#jobsearch_all.html?sch=2">US Jobs</a></li>--}}
 
-                            </ul>
-                        </div>
-                    </div>
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-12">
                         <div class="widget border-0">
                             <h5 class="m-b20 text-white">Employers</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="#emp_postjob.html">US Jobs</a></li>
+                                <li><a href="{{ route('jobs.create') }}">Post Job</a></li>
 
                             </ul>
                         </div>
@@ -628,11 +628,11 @@
 					<div class="col-lg-6 text-right">
 					  <div class="widget1">
 					   <ul class="list-inline m-a0">
-								<li><a href="http://www.facebook.com/" class="site-button white facebook circle "><i class="fa fa-facebook"></i></a></li>
-								<li><a href="http://www.googleplus.com/" class="site-button white google-plus circle "><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="http://www.linkedin.com/" class="site-button white linkedin circle "><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="{{ setting('facebook_link') }}" class="site-button white facebook circle "><i class="fa fa-facebook"></i></a></li>
+								<li><a href="{{ setting('google_link') }}" class="site-button white google-plus circle "><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="{{ setting('linkedin_link') }}" class="site-button white linkedin circle "><i class="fa fa-linkedin"></i></a></li>
 								<!--<li><a href="javascript:void(0);" class="site-button white instagram circle "><i class="fa fa-instagram"></i></a></li>-->
-								<li><a href="http://www.twitter.com/" class="site-button white twitter circle "><i class="fa fa-twitter"></i></a></li>
+								<li><a href="{{ setting('twitter_link') }}" class="site-button white twitter circle "><i class="fa fa-twitter"></i></a></li>
 							</ul>
 					   </div>
 					</div>
