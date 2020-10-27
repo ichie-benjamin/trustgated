@@ -12,9 +12,9 @@
 
 
 
-    <!-- FAVICON AND APPLE TOUCH -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-180x180.png">
+    <!-- FAVICONS ICON -->
+    <link rel="icon" href="{{ setting('favicon') }}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ setting('favicon') }}" />
 
     <!-- FONTS -->
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -61,6 +61,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     @yield('css')
+    @yield('style')
 
     <style>
 

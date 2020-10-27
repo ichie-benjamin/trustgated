@@ -5,15 +5,15 @@
                 <div id="content">
                     <div class="container">
                     <ol class="breadcrumb">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                 <li class="active">My Account</li>
                 </ol>
                 <div class="row">
                     <div class="col-md-2 padno">
-    
+
                     @include('layouts.partials.job-sidebar')
     <!--create-job-->
-    
+
                 <!-- PROFILE VISIBILITY -->
                 <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                     <div class="modal-dialog modal-lg" role="document">
@@ -38,7 +38,7 @@
                 </label>
                 </div>
                 </div>
-    
+
                 <div class="form-group m20">
                     <div class="radio visipad15a visicol">
                     <div class="clearfix m10"></div>
@@ -47,7 +47,7 @@
                 </label>
                 </div>
                 </div>
-    
+
                 <div class="form-group m20 ">
                     <div class="radio visipad15 visicol">
                     <div class="clearfix m10"></div>
@@ -59,9 +59,9 @@
                 <div class="form-group m20 visibor">
                     Regardless of the above settings you can continue to apply to jobs advertised on Jobs.com
                 </div>
-    
+
                 <div class="form-group ">
-    
+
                     <div class="col-sm-3 ">
                     <input name="save2" class="btn-blue btn bc3 " value="Save" type="submit">
                     </div>
@@ -69,7 +69,7 @@
                     <div class="btn-blue btn bc3"><a data-dismiss="modal" href="#" style="color:#FFF"> Cancel </a></div>
                 </div>
                 </div>
-    
+
                 </div><!--col-md-10-->
                 </div> <!--row-->
                 </form>
@@ -84,16 +84,16 @@
                 <div class="top-emp-center">
                     <h4>Search Job Agents</h4>
                 </div> <!--top-emp-center-->
-    
+
                 <br>
                 <br>
-    
+
                 <div class="innerpadding">
-    
+
                     <hr class="blue" style="margin: -7px 0px 7px 0px;" />
-    
+
                     <form name="register" id="register" method="post" action="">
-    
+
                     <table width="100%" cellspacing="0" cellpadding="0" align="center" border="0">
                     <tr><td colspan="7" align="center"> <font color="#CC3333"> <b>
                     </b> </font>

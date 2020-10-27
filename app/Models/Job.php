@@ -29,7 +29,7 @@ class Job extends Model
 
     protected $primaryKey = 'id';
 
-    protected $with = ['company','type','user','currency','functional_area'];
+    protected $with = ['company','type','user','currency','functional','industry'];
 
     protected $appends = ['expired','short_description','status','salary'];
     protected $fillable = [
@@ -142,7 +142,7 @@ class Job extends Model
         return $this->belongsTo(IndustryType::class,'industry_id');
     }
 
-    public function functional_area()
+    public function functional()
     {
         return $this->belongsTo(FunctionalArea::class,'functional_area');
     }

@@ -14,8 +14,8 @@
 {{--	<meta name="format-detection" content="telephone=no">--}}
 
 	<!-- FAVICONS ICON -->
-	<link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png" />
+	<link rel="icon" href="{{ setting('favicon') }}" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="{{ setting('favicon') }}" />
 
 	<!-- PAGE TITLE HERE -->
 	<title>Jobs Portal</title>
@@ -102,11 +102,12 @@
                     <!-- main nav -->
                     <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
                         <ul class="nav navbar-nav">
-							<li class="" ><a href="{{ route('searchall') }}">Jobseekers</a></li>
+							<li class="" ><a href="{{ route('searchall') }}">Jobs</a></li>
+{{--							<li class="" ><a href="{{ route('searchall') }}">Jobseekers</a></li>--}}
 							{{-- <li ><a href="{{ route('searchall') }}">Jobs </a></li>
 							<li ><a href="{{ route('searchall') }}">IIT/IIM Jobs </a></li>
                             <li ><a  href="{{ route('job.type','govt-jobs') }}">Govt.jobs</a></li> --}}
-                            <li ><a href="{{ route('job.type','oversea-jobs') }}"> Oversea jobs</a></li>
+{{--                            <li ><a href="{{ route('job.type','oversea-jobs') }}"> Oversea jobs</a></li>--}}
 							<li ><a href="{{ route('recruiters') }}">Recruiters </a></li>
 							<li ><a href="{{ route('contactus') }}">Contact </a></li>
 
@@ -128,13 +129,14 @@
 					<div class="find-job-bx">
 											<!--<a href="#" class="site-button button-sm">Find Jobs, Employment & Career Opportunities</a>
 						<h2>Search Between More Then <br/> <span class="text-primary">50,000</span> Open Jobs.</h2>-->
-						<h2 style=\\\"\\\\\\\">Search Between More Than&nbsp;<br style=\\\"\\\\\\\" /><span style=\\\"\\\\\\\">50,000</span>&nbsp;Open Jobs.</h2>						<form class="dezPlaceAni" action="#jobsearch.php" method="GET">
+						<h2>Search Between More Than&nbsp;<br/><span>50,000</span>&nbsp;Open Jobs.</h2>
+                        <form class="dezPlaceAni" action="{{ route('jobsearch') }}" method="GET">
 							<div class="row">
 								<div class="col-lg-3 col-md-6">
 									<div class="form-group">
 										<label>Job Title, Keywords, or company</label>
 										<div class="input-group">
-											<input type="text" class="form-control" placeholder="" value='' name="refkeyword">
+											<input type="text" class="form-control" placeholder="" value="{{ request()->get('keyword') }}" name="keyword">
 											<div class="input-group-append">
 											  <span class="input-group-text"><i class="fa fa-search"></i></span>
 											</div>
@@ -145,7 +147,7 @@
 									<div class="form-group">
 										<label>Location</label>
 										<div class="input-group">
-											<input type="text" class="form-control" placeholder="" value='' name="reflocation">
+											<input type="text" class="form-control" placeholder="" value="{{ request()->get('location') }}" name="location">
 											<div class="input-group-append">
 											  <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
 											</div>
@@ -154,27 +156,12 @@
 								</div>
 								<div class="col-lg-2 col-md-6">
 									<div class="form-group">
-										<select name="category">
-											<option value="">Select industry</option>
-														<option value="56"  >Construction</option>
-														<option value="53"  >IT - BPO</option>
-														<option value="50"  >IT-ERP-Oracle</option>
-														<option value="42"  >KPO/Technical Support</option>
-														<option value="34"  >Law Enforcement/Security</option>
-														<option value="35"  >Legal/Law</option>
-														<option value="55"  >Management</option>
-														<option value="36"  >Marketing/Sales</option>
-														<option value="52"  >mech</option>
-														<option value="51"  >Media </option>
-														<option value="37"  >Media/Journalism</option>
-														<option value="54"  >NGO/Social Services</option>
-														<option value="45"  >Others</option>
-														<option value="38"  >Production/Manufacturing/Maintenance</option>
-														<option value="44"  >Strategy / Management Consulting Firms</option>
-														<option value="46"  >test cate</option>
-														<option value="40"  >Tours and Travel/Airline</option>
-														<option value="41"  >Transportation/Logistics</option>
-																	</select>
+                                        <select name="category">
+                                            <option value="">select industry</option>
+                                            @foreach($industries as $item)
+                                                <option value="{{ $item->id }}">{{ $item->category }}</option>
+                                            @endforeach
+                                        </select>
 									</div>
 								</div>
 								<div class="col-lg-2 col-md-6">
@@ -213,7 +200,7 @@
 				                <div class="jp_top_jobs_category_wrapper jp_job_cate_left_border jp_job_cate_left_border_bottom col-sm-2">
                     <div class="jp_top_jobs_category">
                         <!--<i class="fa fa-code"></i>-->
-                        <h3><a href="#/jobsearch_all.php?f_area=261">{{ $item->category_functional_area }}</a></h3>
+                        <h3><a href="{{ route('jobsearch') }}?f_area={{ $item->id }}">{{ $item->category_functional_area }}</a></h3>
                         <p>({{ $item->jobs_count }} jobs)</p>
                     </div>
                 </div>
@@ -242,23 +229,25 @@
                <div class="grid-view brows-job-list">
                <div class="brows-job-company-img">
 
-			 <img src="{{ optional($job->company)->logo }}" class="img-responsive" style="" alt="">
-			 			 </div>
+			 <img src="{{ optional($job->company)->logo }}" class="img-responsive img-circle" style="border-radius: 50%" alt="{{ optional($job->company)->name }}">
+               </div>
                <div class="brows-job-position">
 
-                  <h3><a href="{{ route('jobs.job.view',$job->slug) }}">{{ $job->title }}</a></h3>
-                  <p><span>{{ optional($job->company)->name }}</span></p>
+                   <div style="min-height: 60px; max-height: 60px;">
+                       <h3><a href="{{ route('jobs.job.view',$job->slug) }}">{{ substr($job->title,0,30) }}</a></h3>
+                   </div>
+                  <p><span>{{ optional($job->company)->name }} </span></p>
                </div>
-               <div class="job-position"><span class="job-num">0-9 YRS</span></div>
+               <div class="job-position"><span class="job-num">{{ "$job->experience_from - $job->experience_to" }} YRS</span></div>
                <!--<div class="brows-job-type"><span class="part-time">Part Time</span></div>-->
                <ul class="grid-view-caption">
                   <li>
                      <div class="brows-job-location">
-                        <p><i class="fa fa-map-marker"></i>Soledad</p>
+                        <p><i class="fa fa-map-marker"></i>{{ str_limit($job->city, 10) }}</p>
                      </div>
                   </li>
                   <li>
-                     <p><span class="brows-job-sallery"><i class="fa fa-money"></i>1  - 10lakhs </span></p>
+                     <p><span class="brows-job-sallery" style="font-size: 0.8em"><i class="fa fa-money"></i>{{ $job->salary }} </span></p>
                   </li>
                </ul>
             </div>
@@ -279,86 +268,18 @@
 					</div>
 				</div>
 				<div class="row">
-									<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="#jobsearch_all.php?cityfav=Baisi">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic1.jpg)">
-								<div class="city-info">
-									<h5>Baisi</h5>
-									<span>1 Jobs</span>
-								</div>
-							</div>
-						</a>
-					</div>
-														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="#jobsearch_all.php?cityfav=Serchhip">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic2.jpg)">
-								<div class="city-info">
-									<h5>Serchhip</h5>
-									<span>1 Jobs</span>
-								</div>
-							</div>
-						</a>
-					</div>
-														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="#jobsearch_all.php?cityfav=Bastar">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic3.jpg)">
-								<div class="city-info">
-									<h5>Bastar</h5>
-									<span>1 Jobs</span>
-								</div>
-							</div>
-						</a>
-					</div>
-														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="#jobsearch_all.php?cityfav=Jorethang">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic4.jpg)">
-								<div class="city-info">
-									<h5>Jorethang</h5>
-									<span>1 Jobs</span>
-								</div>
-							</div>
-						</a>
-					</div>
-														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="#jobsearch_all.php?cityfav=Gopalasamudram">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic5.jpg)">
-								<div class="city-info">
-									<h5>Gopalasamudram</h5>
-									<span>1 Jobs</span>
-								</div>
-							</div>
-						</a>
-					</div>
-														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="#jobsearch_all.php?cityfav=Ponda%20City">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic6.jpg)">
-								<div class="city-info">
-									<h5>Ponda City</h5>
-									<span>1 Jobs</span>
-								</div>
-							</div>
-						</a>
-					</div>
-														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="#jobsearch_all.php?cityfav=Barbil">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic7.jpg)">
-								<div class="city-info">
-									<h5>Barbil</h5>
-									<span>1 Jobs</span>
-								</div>
-							</div>
-						</a>
-					</div>
-														<div class="col-lg-3 col-sm-6 col-md-6 m-b30">
-						<a href="#jobsearch_all.php?cityfav=Nongpoh">
-							<div class="city-bx align-items-end  d-flex" style="background-image:url(/assets/images/city/pic8.jpg)">
-								<div class="city-info">
-									<h5>Nongpoh</h5>
-									<span>1 Jobs</span>
-								</div>
-							</div>
-						</a>
-					</div>
+                    @foreach ($cities as $item)
+                        <div class="col-lg-3 col-sm-6 col-md-6 m-b30">
+                            <a href="{{ route('jobsearch') }}?city={{ $item->name }}">
+                                <div class="city-bx align-items-end  d-flex" style="background-image:url({{ $item->image }})">
+                                    <div class="city-info">
+                                        <h5>{{ $item->name }}</h5>
+                                        <span>{{ $item->jobs_count }} Jobs</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
 
 				</div>
 			</div>
@@ -369,17 +290,17 @@
 		   <div class="row">
 			  <div class="col-lg-9">
 			     <div class="jp_register_section_main_wrapper">
-                                <div class="jp_regis_left">
+                                <div class="jp_regis_left col-md-6 col-sm-6">
                                     <div class="left_side_box">
 									                                         <img src="/assets/images/regis_icon.png" alt="icon">
 
 										<h4>Im an EMPLOYER</h4>
 <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>                                        <ul>
-                                            <li><a href="#/employer-registration.html"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
+                                            <li> <a href="{{ route('employer.register') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="jp_regis_right">
+                                <div class="jp_regis_right col-md-6 col-sm-12">
                                     <div class="right_img_overlay"></div>
                                     <div class="right_side_box">
 									                                        <img src="/assets/images/regis_icon2.png" alt="icon">
@@ -389,7 +310,7 @@
 
 
                                         <ul>
-                                            <li><a href="#jobseeker-registration.html"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
+                                            <li><a href="{{ route('jobseeker.reg') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
                                         </ul>
                                     </div>
                                     <div class="center_tag">
@@ -484,7 +405,7 @@
                                                     <h4><a href="#">Featured Cities</a></h4>
                                                     <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
                                                 </div>
-											  </div>
+                                               </div>
                                             </div>
                                         </div>
                                     </div>
@@ -506,7 +427,7 @@
                                     <div class="job_categories_content" >
                                         <ul>
                                             @foreach ($industries as $item)
-                                                <li><i class="fa fa-caret-right"></i> <a href="#jobsearch_all.php?category=36">{{ $item->category }}<span>({{ $item->jobs_count }})</span></a></li>
+                                                <li><i class="fa fa-caret-right"></i> <a href="{{ route('jobsearch') }}?category={{ $item->id }}">{{ $item->category }}<span>({{ $item->jobs_count }})</span></a></li>
                                             @endforeach
 
                                         </ul>
@@ -525,7 +446,7 @@
 							 						 <div class="clearfix"></div>
 						 <div class="quote-bx m-t30">
 								<div class="quote-info">
-																	<h4>Make a Difference with Your Online Resume!</h4><p>Your resume in minutes with JobBoard resume assistant is ready!</p>									<a href="#jobseeker-registration.html" class="site-button">Create an Account</a>
+																	<h4>Make a Difference with Your Online Resume!</h4><p>Your resume in minutes with JobBoard resume assistant is ready!</p>									<a href="{{ route('jobseeker.reg') }}" class="site-button">Create an Account</a>
 								</div>
 							</div>
 
@@ -626,12 +547,12 @@
 
 							 <h5 class="m-b20 text-white">Browse Jobs</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="#jobsearch_all.html">Browse All Jobs</a></li>
-                                <li><a href="#jobsearch_all.html?sch=1">Govt. Jobs</a></li>
-                                <li><a href="#jobsearch_all.html?sch=2">International Jobs</a></li>
-                                <!--<li><a href="job_by_company.html">Jobs by Company</a></li>-->
-                                <li><a href="#job_by_category.html">Jobs by Category</a></li>
-								<li><a href="#job_by_area.html">Jobs by Location</a></li>
+                                <li><a href="{{ route('all_jobs') }}">Browse All Jobs</a></li>
+{{--                                <li><a href="#jobsearch_all.html?sch=1">Govt. Jobs</a></li>--}}
+{{--                                <li><a href="#jobsearch_all.html?sch=2">International Jobs</a></li>--}}
+                                <li><a href="{{ route('company_job') }}">Jobs by Company</a></li>
+                                <li><a href="{{ route('category_job') }}">Jobs by Category</a></li>
+								<li><a href="{{ route('job_by_area') }}">Jobs by Location</a></li>
                             </ul>
                         </div>
 
@@ -644,24 +565,24 @@
 						   <div class="widget border-0">
                             <h5 class="m-b20 text-white">INFORMATION</h5>
                               <ul class="list-2 w10 list-line">
-                                <li><a href="#aboutus.html">About Us </a></li>
-                                <li><a href="#terms.html">Terms & Conditions </a></li>
-                                <li><a href="#privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="#contactus.html">Contact Us</a></li>
-                                <li><a href="#faq.html">Help / FAQ</a></li>
+                                <li><a href="{{ route('about') }}">About Us </a></li>
+                                <li><a href="{{ route('terms') }}">Terms & Conditions </a></li>
+                                <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+                                <li><a href="{{ route('contactus') }}">Contact Us</a></li>
+                                <li><a href="{{ route('faq') }}">Help / FAQ</a></li>
 
                             </ul>
                         </div>
 						 </div>
 						 <div class="col-xl-6">
 						   <div class="widget border-0">
-                            <h5 class="m-b20 text-white">Jobseekers</h5>
-                            <ul class="list-2 w10 list-line">
-                                <li><a href="#jobsseeker-login.html">Login/Register</a></li>
-                            </ul>
+{{--                            <h5 class="m-b20 text-white">Jobseekers</h5>--}}
+{{--                            <ul class="list-2 w10 list-line">--}}
+{{--                                <li><a href="#jobsseeker-login.html">Login/Register</a></li>--}}
+{{--                            </ul>--}}
 							<h5 class="m-b20 text-white">Jobseekers</h5>
 							<ul class="list-2 w10 list-line">
-                                <li><a href="#recruiter-listing.html">Browse All Recruiters</a></li>
+                                <li><a href="{{ route('recruiters') }}">Browse All Recruiters</a></li>
                             </ul>
                         </div>
 
@@ -669,25 +590,25 @@
                        </div>
                     </div>
 
-					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-12">
-                        <div class="widget border-0">
-                            <h5 class="m-b20 text-white">GOVT. JOBS</h5>
-                            <ul class="list-2 w10 list-line">
-                                <li><a href="#jobsearch_all.html?sch=1">US Jobs</a></li>
+{{--					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-12">--}}
+{{--                        <div class="widget border-0">--}}
+{{--                            <h5 class="m-b20 text-white">GOVT. JOBS</h5>--}}
+{{--                            <ul class="list-2 w10 list-line">--}}
+{{--                                <li><a href="#jobsearch_all.html?sch=1">US Jobs</a></li>--}}
 
-                            </ul>
-							<h5 class="m-b30 text-white">OVERSEA JOBS</h5>
-                            <ul class="list-2 w10 list-line">
-                                <li><a href="#jobsearch_all.html?sch=2">US Jobs</a></li>
+{{--                            </ul>--}}
+{{--							<h5 class="m-b30 text-white">OVERSEA JOBS</h5>--}}
+{{--                            <ul class="list-2 w10 list-line">--}}
+{{--                                <li><a href="#jobsearch_all.html?sch=2">US Jobs</a></li>--}}
 
-                            </ul>
-                        </div>
-                    </div>
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-12">
                         <div class="widget border-0">
                             <h5 class="m-b20 text-white">Employers</h5>
                             <ul class="list-2 w10 list-line">
-                                <li><a href="#emp_postjob.html">US Jobs</a></li>
+                                <li><a href="{{ route('jobs.create') }}">Post Job</a></li>
 
                             </ul>
                         </div>
@@ -707,11 +628,11 @@
 					<div class="col-lg-6 text-right">
 					  <div class="widget1">
 					   <ul class="list-inline m-a0">
-								<li><a href="http://www.facebook.com/" class="site-button white facebook circle "><i class="fa fa-facebook"></i></a></li>
-								<li><a href="http://www.googleplus.com/" class="site-button white google-plus circle "><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="http://www.linkedin.com/" class="site-button white linkedin circle "><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="{{ setting('facebook_link') }}" class="site-button white facebook circle "><i class="fa fa-facebook"></i></a></li>
+								<li><a href="{{ setting('google_link') }}" class="site-button white google-plus circle "><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="{{ setting('linkedin_link') }}" class="site-button white linkedin circle "><i class="fa fa-linkedin"></i></a></li>
 								<!--<li><a href="javascript:void(0);" class="site-button white instagram circle "><i class="fa fa-instagram"></i></a></li>-->
-								<li><a href="http://www.twitter.com/" class="site-button white twitter circle "><i class="fa fa-twitter"></i></a></li>
+								<li><a href="{{ setting('twitter_link') }}" class="site-button white twitter circle "><i class="fa fa-twitter"></i></a></li>
 							</ul>
 					   </div>
 					</div>

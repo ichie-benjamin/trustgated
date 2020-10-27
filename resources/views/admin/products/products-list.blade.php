@@ -11,23 +11,23 @@
 <div class="br-mainpanel">
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">Dashboard</a>
+            <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
             <span class="breadcrumb-item active">Products Layouts</span>
         </nav>
     </div><!-- br-pageheader -->
     <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
-        <h4 class="tx-gray-800 mg-b-5"> Products</h4>
+        <h4 class="tx-gray-800 mg-b-5"> Job Posting Type</h4>
     </div>
 
     <div class="br-pagebody">
         <p>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Add Product
+                Job Posting Type
             </button>
         </p>
         <div class="collapse" id="collapseExample">
         <div class="br-section-wrapper">
-            <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Product</h6>
+            <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Job Posting Type</h6>
 
             <form action="{{ route('admin.products.store') }}" method="POST">
                 @csrf
@@ -81,6 +81,7 @@
                             <th class="wd-15p"> Days Allowed</th>
                             <th class="wd-20p"> No Of Jobs</th>
                             <th class="wd-20p"> Price</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>

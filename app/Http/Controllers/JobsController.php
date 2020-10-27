@@ -3,31 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\AppliedJob;
-use App\Http\Controllers\admin\Controller;
+use App\Http\Controllers\Controller;
 use App\Models\Company;
-<<<<<<< HEAD
-use App\Models\Job;
-use App\Models\JobCategory;
-use App\Models\Location;
-use App\Models\Type;
-use App\Notifications\NewApplicant;
-use App\User;
-=======
 use App\Models\Country;
+use App\Models\FunctionalArea;
+use App\Models\IndustryType;
 use App\Models\JobCategory;
 use App\Models\Job;
 //use App\Models\Location;
+use App\Models\Location;
 use App\Models\Type;
 use App\Notifications\NewApplicant;
 use Illuminate\Support\Facades\DB;
 use Validator;
 use App\Models\User;
 use Illuminate\Http\Request;
->>>>>>> 856f36a9237caa662c61abaf7241aae0550cd351
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Validator;
 
 class JobsController extends Controller
 {
@@ -37,14 +28,60 @@ class JobsController extends Controller
         return view('pages.job_by_type');
     }
 
+    public function quickSearch(){
+        return view('pages.quicksearch');
+    }
+
     public function CompanyJobs($slug){
         $company = Company::findBySlugOrFail($slug);
-        $jobs = Job::with('industry')->get();
+        $jobs = Job::with('industry')->paginate(10);
         return view('pages.job_by_type', compact('company','jobs'));
     }
 
     public function allJobs(){
-        return view('pages.all_jobs');
+        $jobs = Job::paginate(20);
+        return view('pages.all_jobs',compact('jobs'));
+    }
+
+    public function advanceSearch(Request $request){
+        return $request->all();
+    }
+
+    public function advancedSearch(){
+        $locations = Location::pluck('id','name');
+        return view('pages.advancesearch', compact('locations'));
+    }
+
+    public function jobSearch(Request $request){
+        if($request->has('advancesearch') || $request->has('homeadvsearch')){
+            $location = strip_tags($request->get('location'));
+            $experience = strip_tags($request->get('experience'));
+            $f_areas = strip_tags($request->get('f_areas'));
+            $category = strip_tags($request->get('category'));
+            $salary = strip_tags($request->get('salary'));
+            $keyword = strip_tags($request->get('keyword'));
+
+            $jobs = Job::where('tags','LIKE','%'.$keyword.'%')->where('locations','LIKE','%'.$location.'%')
+                ->orWhere('min_salary',$salary)
+                ->orWhere('functional_area',$f_areas)->orWhere('industry_id',$category)
+                ->latest()->paginate(10);
+        }else if($request->has('city')){
+            $jobs = Job::where('city','LIKE','%'.$request->get('city').'%')->latest()->paginate(10);
+        }else if($request->has('location')){
+         $jobs = Job::where('locations','LIKE','%'.$request->get('location').'%')->latest()->paginate(10);
+        }
+        else if($request->has('f_area')){
+            $jobs = Job::whereFunctionalArea($request->get('f_area'))->inRandomOrder()->paginate(10);
+        }else if($request->has('category')){
+            if($request->has('sort')){
+              $jobs = Job::whereIndustryId($request->get('category'))->latest()->paginate(10);
+            }else{
+                $jobs = Job::whereIndustryId($request->get('category'))->inRandomOrder()->paginate(10);
+            }
+        }else{
+            $jobs = Job::inRandomOrder()->paginate(10);
+        }
+        return view('pages.all_jobs',compact('jobs'));
     }
 
     public function recruiters(){
@@ -56,21 +93,35 @@ class JobsController extends Controller
 
     public function jobByCat(){
 //        $q = $request->get('type');
-        return view('pages.job_by_category');
+        $industries = IndustryType::inRandomOrder()->limit(20)->get();
+        return view('pages.job_by_category', compact('industries'));
     }
 
     public function jobAgentView(){
         return view('pages.job_agent_view');
     }
     public function jobByCompany(){
-        return view('pages.job-by-company');
+        $companies = Company::all();
+        return view('pages.job-by-company', compact('companies'));
     }
      public function overSeasJobs(){
          return view('temp.overseas_jobs');
     }
+      public function categorySearch(Request $request){
+        if($request->has('indus')){
+       $industries = IndustryType::where('category','LIKE','%'.$request->indus.'%')->latest()->get();
+        }else{
+            $industries = IndustryType::all();
+        }
+
+         return view('pages.categorysearch', compact('industries'));
+    }
+
+
 
     public function jobByArea(){
-        return view('pages.job_by_area');
+       $locations = Location::inRandomOrder()->limit('20')->get();
+        return view('pages.job_by_area', compact('locations'));
     }
 
     public function searchAll(){

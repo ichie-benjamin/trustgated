@@ -97,9 +97,22 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-8">
+                            <label class="form-control-label"></label>
+
                             @include('admin.partials.image-uploader',['field' => 'image'])
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group mg-b-10-force">
+                                <label class="form-control-label">Position:  <span class="tx-danger">*</span></label>
+                                <select name="position" class="form-control" required data-placeholder="Choose Status:">
+                                    {{--                                    <option label="Choose Category"></option>--}}
+                                    <option value="job_left">Job Search Left</option>
+                                    <option value="job_right">Job Search Right</option>
+                                    <option value="home_bottom">Home Bottom</option>
+                                </select>
+                            </div>
+                        </div><!-- col-4 -->
                     </div>
 
                     <div class="form-layout-footer">

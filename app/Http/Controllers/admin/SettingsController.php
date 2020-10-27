@@ -41,7 +41,10 @@ SettingsController extends Controller
     }
 
 
-    public function index(){
+    public function index(Request $request){
+        if($request->has('reset')){
+            Setting::truncate();
+        }
         $settings = setting::all();
         if(count($settings) < 5){
             setting(
@@ -61,8 +64,9 @@ SettingsController extends Controller
                     'twitter_link' => 'trustgated',
                     'linkedin_link' => 'trustgated',
                     'facebook_link' => 'trustgated',
-                    'currency_symbol' => 'trustgated',
-                    'video_url' => 'trustgated']
+                    'currency_symbol' => 'USD',
+                    'favicon' => '/assets/images/favicon.png',
+                    'video_url' => '/trustgated']
             )->save();
         }
         return view('admin.settings.index', ['settings' => $settings]);

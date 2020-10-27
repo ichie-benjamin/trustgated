@@ -43,7 +43,7 @@
                         <tr>
                             <td>{{ $i++ }}</td>
                             <td>{{ $state->country->name }}</td>
-                            <td>{{ $state->name }}</td>
+                            <td><a href="{{ route('admin.cities.index') }}?state={{$state->id}}">{{ $state->name }}</a></td>
 
                             <td>
                                 <form action="{{  route('admin.states.destroy', $state) }}" method="POST">

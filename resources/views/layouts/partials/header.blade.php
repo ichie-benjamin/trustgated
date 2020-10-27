@@ -75,7 +75,7 @@
                                   <li><a style="font-size: 15px" href="{{ route('searchall') }}"><i class="fa fa-briefcase" aria-hidden="true"></i> Jobs</a></li>
 {{--                                  <li><a style="font-size: 15px" href="{{ route('searchall') }}"><i class="fa fa-university" aria-hidden="true"></i> IIT/IIM jobs</a></li>--}}
 {{--                                  <li ><a style="font-size: 15px" href="{{ route('job.type','govt-jobs') }}"><i class="fa fa-university" aria-hidden="true"></i> Govt.jobs</a></li>--}}
-                                  <li ><a style="font-size: 15px" href="{{ route('job.type','oversea-jobs') }}"><i class="fa fa-globe" aria-hidden="true"></i> Oversea jobs</a></li>
+{{--                                  <li ><a style="font-size: 15px" href="{{ route('job.type','oversea-jobs') }}"><i class="fa fa-globe" aria-hidden="true"></i> Oversea jobs</a></li>--}}
                                   <li ><a style="font-size: 15px" href="{{ route('recruiters') }}"><i class="fa fa-users" aria-hidden="true"></i> Recruiters</a></li>
   {{--                                <li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/employers-icon.png" /> Employers</a></li>--}}
                                   <li ><a style="font-size: 15px" href="{{ route('contactus') }}"><i class="fa fa-envelope" ></i> Contact us</a></li>
@@ -133,53 +133,28 @@
 
                     <!--<div class="col-sm-1" ></div>-->
                     <div class="col-sm-12" >
-                        <form class="form-inline" action="#" name="homeadvancesearch" method="GET">
+                        <form class="form-inline" action="{{ route('jobsearch') }}" name="homeadvancesearch" method="GET">
 
-                            <div class="form-group serww"><input class="form-control2 " id="keyword" name="refkeyword" type="text"  placeholder="Keywords, Skills, Designation" value=''></div>
-                            <div class="form-group"> <input class="form-control2 " id="location" autocomplete="off" name="reflocation"  type="text" value='' placeholder="Location"></div>
+                            <div class="form-group serww">
+                                <input class="form-control2 " id="keyword" name="keyword" type="text"  placeholder="Keywords, Skills, Designation" value="{{ request()->get('keyword') }}" /></div>
+                            <div class="form-group"> <input class="form-control2 " id="location" autocomplete="off" name="location"  type="text" value="{{ request()->get('location') }}" placeholder="Location"></div>
                             <div class="form-group">
-                                <select id="category" name="category" class="form-control2 ">
+                                <select id="category" name="category" class="form-control2">
                                     <option value="">select industry</option>
-                                    <option value="56"  >Construction</option>
-                                    <option value="53"  >IT - BPO</option>
-                                    <option value="50"  >IT-ERP-Oracle</option>
-                                    <option value="42"  >KPO/Technical Support</option>
-                                    <option value="34"  >Law Enforcement/Security</option>
-                                    <option value="35"  >Legal/Law</option>
-                                    <option value="55"  >Management</option>
-                                    <option value="36"  >Marketing/Sales</option>
-                                    <option value="52"  >mech</option>
-                                    <option value="51"  >Media </option>
-                                    <option value="37"  >Media/Journalism</option>
-                                    <option value="54"  >NGO/Social Services</option>
-                                    <option value="45"  >Others</option>
-                                    <option value="38"  >Production/Manufacturing/Maintenance</option>
-                                    <option value="44"  >Strategy / Management Consulting Firms</option>
-                                    <option value="46"  >test cate</option>
-                                    <option value="40"  >Tours and Travel/Airline</option>
-                                    <option value="41"  >Transportation/Logistics</option>
+                                @foreach($industries as $key => $value)
+                                        <option {{ request()->get('category') == $value ? 'selected' : '' }} value="{{ $value }}">{{ $key }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <select id="experience" name="experience" class="form-control2 " >
-                                    <option value="">Experience</option>
-                                    <option value="1" >0 to 1 Year</option>
-                                    <option value="2" >2 Years</option>
-                                    <option value="3" >3 Years</option>
-                                    <option value="4" >4 Years</option>
-                                    <option value="5" >5 Years</option>
-                                    <option value="6" >6 Years</option>
-                                    <option value="7" >7 Years</option>
-                                    <option value="8" >8 Years</option>
-                                    <option value="9" >9 Years</option>
-                                    <option value="10" >10 Years</option>
-                                    <option value="15" >15 Years</option>
-                                    <option value="20" >20 Years</option>
-                                </select>
-                                <!--<input  class="form-control2 input-lg" type="text" name="exp" placeholder="Experience">--></div>
-                            <div class="form-group text-center"><button  class="search-btn btn-lg btn-block"  id="homeadvsearch" type="submit" name="homeadvsearch" value="Search"> <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/search-icon.png" /> Search</button>
+                                <input class="form-control2 " id="keyword" name="experience" type="text"  placeholder="experience" value="{{ request()->get('experience') }}" />
+
+
+
+                            <!--<input  class="form-control2 input-lg" type="text" name="exp" placeholder="Experience">--></div>
+                            <div class="form-group text-center"><button  class="search-btn btn-lg btn-block"  id="homeadvsearch" type="submit" name="homeadvsearch" value="Search"> <img src="/images/search-icon.png" /> Search</button>
                                 <!--<span class="avd"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" >Advanced Search</a></span>-->
-                                <span class="avd"><a href="advancesearch.html">Advanced Search</a></span>
+                                <span class="avd"><a href="{{ route('advancedsearch') }}">Advanced Search</a></span>
                             </div>
                         </form>
                     </div>
@@ -200,10 +175,10 @@
                     <div class="collapse navbar-collapse" id="navbar-collapse-2">
                         <ul class="nav navbar-nav navbar-left  clearfix sss">
                             <li>Browse jobs :</li>
-                            <li class="active"><a href="{{ route('all_jobs') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/all-jobs-icon.png" /> All jobs</a></li>
-                            <li class=""><a href="{{ route('company_job') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-company-icon.png" /> Job by Company</a></li>
-                            <li class=""><a href="{{ route('category_job') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-category-icon.png" /> Job by Category</a></li>
-                            <li class=""><a href="{{ route('job_by_area') }}"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-location-icon.png" /> Job by Location</a></li>
+                            <li class="active"><a href="{{ route('all_jobs') }}"><i class="fa fa-shopping-bag"></i> All jobs</a></li>
+                            <li class=""><a href="{{ route('company_job') }}"><i class="fa fa-suitcase"></i>Job by Company</a></li>
+                            <li class=""><a href="{{ route('category_job') }}"><i class="fa fa-list"></i>Job by Category</a></li>
+                            <li class=""><a href="{{ route('job_by_area') }}"><i class="fa fa-location-arrow"></i> Job by Location</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div> <!--col-sm-12-->

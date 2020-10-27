@@ -1,6 +1,7 @@
 <?php
 namespace Database\Seeders;
 use App\Models\Company;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
@@ -57,16 +58,18 @@ class LaratrustSeeder extends Seeder
             if(Config::get('laratrust_seeder.create_users')) {
                 $this->command->info("Creating '{$key}' user");
                 // Create default user for each role
-                $user = \App\Models\User::create([
-                    'username' => ucwords(str_replace('_', ' ', $key)),
-                    'email' => $key.'@job.com',
-                    'password' => bcrypt('password'),
-                    'email_verified_at' => Carbon::now()
-                ]);
-                if($key == 'employer'){
-                    Company::create(['user_id'=>$user->id,'name' => 'Test Company']);
+                if (User::where('email', '=', $key . '@job.com')->first() === null){
+                    $user = \App\Models\User::create([
+                        'username' => ucwords(str_replace('_', ' ', $key)),
+                        'email' => $key . '@job.com',
+                        'password' => bcrypt('password'),
+                        'email_verified_at' => Carbon::now()
+                    ]);
+                if ($key == 'employer') {
+                    Company::create(['user_id' => $user->id, 'name' => 'Test Company']);
                 }
                 $user->attachRole($role);
+            }
             }
 
         }

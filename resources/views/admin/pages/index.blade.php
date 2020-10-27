@@ -97,7 +97,7 @@
                                     {{ csrf_field() }}
 
                                     <div class="btn-group justify-center" role="group">
-                                        <a href="{{ route('admin.pages.edit', $page->id ) }}" class="btn btn-primary btn-sm" title="Edit Job">
+                                        <a href="{{ route('admin.pages.edit.page') }}?id={{$page->id}}" class="btn btn-primary btn-sm" title="Edit Job">
                                             <span class="fa fa-edit" aria-hidden="true"></span> Edit CMS
                                         </a>
 

@@ -51,7 +51,7 @@
                 <span class="menu-item-label"> Location Management</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.locations.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-location-arrow tx-22"></i>
                 <span class="menu-item-label"> Job Location</span>
@@ -198,7 +198,7 @@
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-purple wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.dbproducts.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-money-check-alt tx-22"></i>
                 <span class="menu-item-label"> Database Access Price</span>

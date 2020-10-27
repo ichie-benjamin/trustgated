@@ -3,7 +3,8 @@
 
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\admin\JobsController;
+use App\Http\Controllers\JobAlertController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\JobseekerController;
 use App\Http\Controllers\admin\TempController;
 use App\Http\Controllers\UsersController;
@@ -13,16 +14,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
 
+Route::get('/about-us',[HomeController::class, 'about'])->name('about');
+Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
+Route::get('/privacy',[HomeController::class, 'privacy'])->name('privacy');
+Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
+
+
 Route::view('jobseeker-self-service', 'jobseeker-selfservice');
 Route::view('background-verification', 'background-verification');
 Route::view('background-verification-2', 'background-verification2');
 Route::view('background-verification-3', 'background-verification3');
+
+
+Route::post('/advance_search',[JobsController::class, 'advanceSearch'])->name('advance_search');
 
 Route::resources([
     'users' => UsersController::class,
 ]);
 
 Route::post('/update/password',[UsersController::class, 'updatePassword'])->name('update.password');
+
+Route::post('/mail/job',[HomeController::class, 'mailJob'])->name('mail.job');
+Route::post('/mail/employer',[HomeController::class, 'mailEmployer'])->name('mail.employer');
 
 
 Route::get('/jobseeker-registeration', [UsersController::class,'jobseekerReg'])->name('jobseeker.reg');
@@ -36,6 +49,9 @@ Route::group(['middleware' => ['guest']], function () {
 
 });
 
+Route::Resources(['job_alerts' => JobAlertController::class]);
+
+
 Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:jobseeker|admin']], function () {
 
     Route::get('/profile', [JobseekerController::class, 'profile'])->name('jobseeker.profile');
@@ -43,6 +59,8 @@ Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:j
 });
 
 Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:employer|admin']], function () {
+
+    Route::post('/purchase/plan',[HomeController::class, 'purchasePlan'])->name('plan.purchase');
 
 
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');
@@ -60,7 +78,7 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::get('/jobs/restore/deleted/job/{slug}/{id}', [JobsController::class, 'restore'])->name('jobs.restore');
     Route::post('/jobs/force/delete/{id}', [JobsController::class, 'forceDelete'])->name('jobs.delete');
     Route::resources([
-        'jobs' => JobsController::class,
+        'jobs' => JobsController::class
         ]);
 });
 
@@ -73,6 +91,9 @@ Route::get('/job/{slug}', [JobsController::class, 'jobView'])->name('jobs.job.vi
 
 
 Route::get('/jobs-by-area', [JobsController::class,'jobByArea'])->name('job_by_area');
+Route::get('/jobsearch', [JobsController::class,'jobSearch'])->name('jobsearch');
+Route::get('/categorysearch', [JobsController::class,'categorySearch'])->name('categorysearch');
+Route::get('/advancesearch', [JobsController::class,'advancedSearch'])->name('advancedsearch');
 Route::get('/jobs-by-category', [JobsController::class,'jobByCat'])->name('category_job');
 Route::get('/jobs-by-companies', [JobsController::class,'jobByCompany'])->name('company_job');
 Route::get('/searchall', [JobsController::class,'searchAll'])->name('searchall');
@@ -91,11 +112,13 @@ Route::get('/moredetails', [JobseekerController::class,'moredetails'])->name('mo
 Route::get('/jobseeker-profile-edit', [JobseekerController::class,'profileEdit'])->name('jobseeker-edit');
 
 Route::get('/job-agent-view', [JobsController::class,'jobAgentView'])->name('job_agent_view');
+Route::get('/quicksearch', [JobsController::class,'quickSearch'])->name('quicksearch');
 Route::get('/application-history', [JobseekerController::class,'applicationHistory'])->name('application_history');
 Route::get('/manage-follow', [JobseekerController::class,'manageFollow'])->name('manage_follow');
 Route::get('/follow', [JobseekerController::class,'follow'])->name('follow');
 Route::get('/block-companies', [JobseekerController::class,'blockcompanies'])->name('block_companies');
 Route::get('/change-password', [JobseekerController::class,'changePassword'])->name('changepasswordseeker');
+
 
 
 

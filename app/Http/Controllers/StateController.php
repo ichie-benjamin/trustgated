@@ -13,12 +13,16 @@ class StateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        // $states =  ;
+        if($request->has('country')){
+            $id = $request->get('country');
+            $states = State::whereCountryId($id)->get();
+        }else {
+            $states = State::all();
+        }
 
-        return view('admin.service-areas.state-index', ['states' => State::all()]);
+        return view('admin.service-areas.state-index', ['states' => $states]);
     }
 
     /**

@@ -4,9 +4,7 @@
     @include('admin.partials.dt-css')
 @endsection
 
-@section('js')
-    @include('admin.partials.dt-js')
-@endsection
+
 
 @section('content')
 <!-- ########## START: MAIN PANEL ########## -->
@@ -22,8 +20,11 @@
         <h4 class="tx-gray-800 mg-b-5"> Edit {{ $page->title }}</h4>
     </div>
 
+
     <div class="br-pagebody">
-        @if ($errors->any())
+        @include('notification')
+
+    @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -33,33 +34,33 @@
             </div>
         @endif
             <div class="br-section-wrapper">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Editing {{ $page->title }}</h6>
+                <form action="{{ route('admin.pages.edit.page') }}" method="GET">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <select class="form-control select2" data-placeholder="Choose country" name="id">
+                            @foreach ($pages as $item)
+                                <option {{ request()->get('id') == $item->id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-success">View</button>
+                    </div>
+                </div>
+                </form>
 
                 <form action="{{ route('admin.pages.update', $page->id) }}" method="POST">
                     @csrf
                     @method('PATCH')
                     <div class="form-layout form-layout-1">
-                        <div class="row mg-b-25">
-
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
-                                    <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
-                                    <input class="form-control" type="text" value="{{ old('title', optional($page)->title) }}" name="company_name" required placeholder="Enter Title">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
-                                    <label class="form-control-label">URL: <span class="tx-danger">*</span></label>
-                                    <input class="form-control" type="text" value="{{ old('url', optional($page)->url) }}" name="url" required placeholder="Enter Url">
-                                </div>
-                            </div>
-                        </div><!-- row -->
-
                         <div class="row">
                             <div class="col-md-12">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Content : <span class="tx-danger">*</span></label>
-                                <textarea class="form-control" name="content">{{ old('title', optional($page)->content) }}</textarea>
+{{--                                <textarea class="form-control" name="content">{{ old('title', optional($page)->content) }}</textarea>--}}
+
+                                <textarea id="my-editor" name="content" class="form-control">{!! old('content', $page->content) !!}</textarea>
+
                             </div>
                             </div>
                         </div>
@@ -73,4 +74,19 @@
     </div>
 
 
+@endsection
+
+    @section('js')
+
+        <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+        <script>
+            var options = {
+                filebrowserImageBrowseUrl: '/filemanager?type=Images',
+                filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+                filebrowserBrowseUrl: '/filemanager?type=Files',
+                filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+            };
+
+            CKEDITOR.replace('my-editor', options);
+        </script>
 @endsection
