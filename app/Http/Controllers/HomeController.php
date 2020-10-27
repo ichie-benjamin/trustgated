@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailEmployer;
 use App\Mail\SendJobMail;
 use App\Models\City;
 use App\Models\Company;
+use App\Models\EmployerProduct;
 use App\Models\FunctionalArea;
 use App\Models\IndustryType;
 use App\Models\Job;
 use App\Models\Page;
+use App\Models\Products;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -22,6 +26,40 @@ class HomeController extends Controller
         $mail = $request->all();
         Mail::to($request->fmail)->send(new SendJobMail($mail));
         $message = 'Mail successfully sent to Your Friend';
+        return back()->with('success',$message);
+    }
+
+    public function purchasePlan(Request $request){
+        if(!$request->has('job_posting_id') && !$request->has('db_access_id')){
+            return redirect()->back()->with('failure', 'Pls select a package');
+        }
+        if($request->has('job_posting_id') && $request->has('db_access_id')){
+            return 'all';
+
+        }elseif($request->has('job_posting_id')){
+            $product = $request->job_posting_id;
+            $p = Products::findOrFail($product);
+            if($p->price < 1){
+                return redirect()->back()->with('failure', "You can't subscribe to free plan");
+            }
+            $expired_at = Carbon::now()->addDay($p->no_of_days);
+            EmployerProduct::create([
+                'user_id' => auth()->id(),
+                'product_id' => $product,
+                'expired_at' => $expired_at,
+            ]);
+
+        }else{
+            $db_access = $request->db_access_id;
+            return 'db';
+        }
+        return $request->all();
+    }
+
+    public function mailEmployer(Request $request){
+        $mail = $request->all();
+        Mail::to($request->mail)->send(new MailEmployer($mail));
+        $message = 'Mail successfully sent to Recruiter';
         return back()->with('success',$message);
     }
     public function index()

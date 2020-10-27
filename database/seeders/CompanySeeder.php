@@ -16,11 +16,11 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        Company::unguard();
-
-        //disable foreign key check for this connection before running seeders
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Company::truncate();
+//        Company::unguard();
+//
+//        //disable foreign key check for this connection before running seeders
+//        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+//        Company::truncate();
 
         $faker = \Faker\Factory::create();
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\DatabaseProductController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\LocationController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\IndustryTypeController;
 use App\Http\Controllers\LgaController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\StateController;
+use App\Models\DatabaseProduct;
 
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
@@ -55,7 +57,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'settings' => SettingsController::class,
         'categories' => CategoriesController::class,
         'locations' => LocationController::class,
-        'testimonial' => TestimonialController::class
+        'testimonial' => TestimonialController::class,
+        'dbproducts' => DatabaseProductController::class
     ]);
 
 });

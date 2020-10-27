@@ -29,6 +29,7 @@ Route::resources([
 Route::post('/update/password',[UsersController::class, 'updatePassword'])->name('update.password');
 
 Route::post('/mail/job',[HomeController::class, 'mailJob'])->name('mail.job');
+Route::post('/mail/employer',[HomeController::class, 'mailEmployer'])->name('mail.employer');
 
 
 Route::get('/jobseeker-registeration', [UsersController::class,'jobseekerReg'])->name('jobseeker.reg');
@@ -52,6 +53,8 @@ Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:j
 });
 
 Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:employer|admin']], function () {
+
+    Route::post('/purchase/plan',[HomeController::class, 'purchasePlan'])->name('plan.purchase');
 
 
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');

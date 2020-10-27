@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DatabaseProduct;
 use App\Models\EducationDetails;
 use App\Models\Ad;
 use App\Models\Category;
@@ -12,6 +13,7 @@ use App\Models\FunctionalArea;
 use App\Models\IndustryType;
 use App\Models\Location;
 use App\Models\Page;
+use App\Models\Products;
 use App\Models\State;
 use Illuminate\Database\Seeder;
 
@@ -126,6 +128,46 @@ class SiteSeeder extends Seeder
                     'position' => $position,
                 ]);
             }
+        }
+
+        if (Products::where('name', '=', 'Free')->first() === null) {
+            Products::create([
+                'name' => 'Free',
+                'no_of_days' => 15,
+                'no_of_jobs' => 0,
+                'price' => 0,
+            ]);
+        }
+
+        if (Products::where('name', '=', 'Silver Job Posting')->first() === null) {
+            Products::create([
+                'name' => 'Silver Job Posting',
+                'no_of_days' => 90,
+                'no_of_jobs' => 30,
+                'price' => 2700,
+            ]);
+        }
+
+        if (DatabaseProduct::where('name', '=', 'Free')->first() === null) {
+            DatabaseProduct::create([
+                'name' => 'Free',
+                'no_of_days' => 15,
+                'no_of_resumes' => 100,
+                'no_of_emails' => 100,
+                'become_future_list' => 1,
+                'price' => 0,
+            ]);
+        }
+
+        if (DatabaseProduct::where('name', '=', 'Silver')->first() === null) {
+            DatabaseProduct::create([
+                'name' => 'Silver',
+                'no_of_days' => 45,
+                'no_of_resumes' => 20,
+                'no_of_emails' => 3,
+                'become_future_list' => 0,
+                'price' => 500,
+            ]);
         }
 
         if (Currency::where('name', '=', 'Dollar')->first() === null) {
