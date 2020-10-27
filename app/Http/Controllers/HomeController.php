@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendJobMail;
 use App\Models\City;
 use App\Models\Company;
 use App\Models\FunctionalArea;
@@ -12,10 +13,17 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
 
 
 class HomeController extends Controller
 {
+    public function mailJob(Request $request){
+        $mail = $request->all();
+        Mail::to($request->fmail)->send(new SendJobMail($mail));
+        $message = 'Mail successfully sent to Your Friend';
+        return back()->with('success',$message);
+    }
     public function index()
     {
         $cities = Cache::remember('cities', 3600, function () {

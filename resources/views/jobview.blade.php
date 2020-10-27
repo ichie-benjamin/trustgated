@@ -15,8 +15,17 @@
             </ol>
             <div id="nap_msg"></div>
 
+
             <div class="row">
                 <div class="col-sm-9" >
+
+
+
+                    @if(session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}
+                        </div>
+                    @endif
                     <div class="top-emp-center p5">
                         <h4> {{ $job->title }} </h4>
                     </div>
@@ -202,4 +211,79 @@
         </div><!-- container -->
 
     </div><!-- CONTENT -->
+
+
+    <!--CREATE JOB ALERT POPUP-->
+
+    <div class="modal fade bs-example-modal-lg" id="mailjob" tabindex="-1" role="dialog" aria-labelledby="search">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header avd-serbg">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;"><span aria-hidden="true"> <img src="/images/close-icon.png"></span></button>
+                    <h4 class="modal-title mode-tit" id="myModalLabel">Forward Job to Friend</h4>
+                </div>
+                <div class="modal-body avdbg1a">
+                    <form class="form-horizontal m10" method="post" action="{{ route('mail.job') }}">
+                        @csrf
+
+                        <div class="form-group m20">
+                            <label class="col-sm-4 pedit2 text-right mtop4"><span class="red-star">*</span>Your Email: </label>
+                            <div class="col-sm-5">
+                                <input type="text" required class="form-control" placeholder="Enter your email address" name="mail" id="mail"><div id="id1"></div>
+                            </div>
+                        </div>
+                        <div class="form-group m20">
+                            <label class="col-sm-4 pedit2 text-right mtop4"><span class="red-star">*</span>Friend's Email: </label>
+                            <div class="col-sm-5">
+                                <input required type="text" class="form-control" placeholder="Enter your friend's email address" name="fmail" id="fmail"><div id="id2"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  >Subject:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" disabled value="{{ $job->title }}" readonly>
+                                <input type="hidden" name="subject" id="subject" value="{{ $job->title }}" />
+                                <input type="hidden" name="link" value="{{ route('jobs.job.view',$job->slug) }}" />
+                                <div id="id3"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-4 pedit2 text-right mtop4"  >Message:</label>
+                            <div class="col-sm-5">
+                                <textarea class="form-control" required name="message" id="message">  </textarea>
+
+
+                            </div>
+                        </div>
+
+{{--                        <div class="form-group">--}}
+{{--                            <label class="col-sm-4 pedit2 text-right mtop4"  ><span class="red-star">*</span>Enter the captcha:</label>--}}
+{{--                            <div class="col-sm-5">--}}
+{{--                                <input type="text" id="mainCaptcha"/>--}}
+{{--                                <script>Captcha();</script>--}}
+{{--                                <!--<input type="button" id="refresh" value="Refresh" onclick="Captcha();" />-->--}}
+{{--                                <input type="text" id="txtInput" placeholder="Enter correct captcha"/>--}}
+{{--                                <!-- <input id="Button1" type="button" value="Check" onclick="alert(ValidCaptcha());"/>-->--}}
+
+{{--                                <div id='id5'></div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+
+                        <div class="form-group">
+                            <div class="col-sm-12 text-center">
+
+                                <input class="btn-blue btn bc3" value="Send " type="submit"/> </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--CREATE JOB ALERT END-->
+
 @stop

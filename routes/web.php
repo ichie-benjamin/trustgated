@@ -28,6 +28,8 @@ Route::resources([
 
 Route::post('/update/password',[UsersController::class, 'updatePassword'])->name('update.password');
 
+Route::post('/mail/job',[HomeController::class, 'mailJob'])->name('mail.job');
+
 
 Route::get('/jobseeker-registeration', [UsersController::class,'jobseekerReg'])->name('jobseeker.reg');
 
