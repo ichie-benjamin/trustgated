@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
 
+Route::view('jobseeker-self-service', 'jobseeker-selfservice');
+Route::view('background-verification', 'background-verification');
+Route::view('background-verification-2', 'background-verification2');
+Route::view('background-verification-3', 'background-verification3');
+
 Route::resources([
     'users' => UsersController::class,
 ]);
