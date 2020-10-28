@@ -119,7 +119,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-4 pedit">Membership Plan for Job Posting :</label>
                                                 <div class="col-sm-6">
-                                                    <label id="rec_type">{{ optional($user->job_plan)->product->name }} </label>
+                                                    <label id="rec_type">{{ optional($user->job_plan->product)->name }} </label>
                                                 </div>
 
                                             </div>
@@ -137,7 +137,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-4 pedit">Membership plan for Resume Access :</label>
                                                 <div class="col-sm-6">
-                                                    <label id="rec_type">{{ optional($user->access_plan)->access->name }} </label>
+                                                    <label id="rec_type">{{ optional($user->access_plan->access)->name }} </label>
                                                 </div>
 
                                             </div>
