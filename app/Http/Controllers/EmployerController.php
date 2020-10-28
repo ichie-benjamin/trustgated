@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\EmployerAccess;
+use App\Models\EmployerProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,8 +33,29 @@ class EmployerController extends Controller
         return view('employer.sub_user_list');
     }
 
-    public function Transactions(){
-        return view('employer.transaction');
+    public function TransactionPayment($type, $id){
+        if($type === 'access'){
+            $item = EmployerAccess::findOrFail($id);
+            $info = 'Employer Database Access Plan Payment';
+        }else{
+            $item = EmployerProduct::findOrFail($id);
+            $info = 'Job Posting Plan Payment';
+        }
+        if($item->paid){
+            return redirect()->route('employer.transactions')->with('failure','Plan already paid for');
+        }
+        return view('employer.transaction_payment', compact('item', 'type','info'));
+    }
+
+    public function Transactions(Request $request){
+        if($request->has('status')){
+            $products = EmployerProduct::whereUserId(auth()->id())->wherePaid(false)->get();
+            $access = EmployerAccess::whereUserId(auth()->id())->wherePaid(false)->get();
+        }else{
+            $products = EmployerProduct::whereUserId(auth()->id())->get();
+            $access = EmployerAccess::whereUserId(auth()->id())->get();
+        }
+        return view('employer.transaction', compact('products', 'access'));
     }
 
     public function changePassword(){

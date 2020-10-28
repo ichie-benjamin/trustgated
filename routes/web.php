@@ -19,6 +19,9 @@ Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/privacy',[HomeController::class, 'privacy'])->name('privacy');
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
 
+Route::post('/payment/store', 'PaymentController@store')->name('payment.store');
+
+
 
 Route::post('/advance_search',[JobsController::class, 'advanceSearch'])->name('advance_search');
 
@@ -60,6 +63,7 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::get('/profile', [EmployerController::class, 'profile'])->name('employer.profile');
     Route::get('/emp_resume_pack', [EmployerController::class, 'empResumePack'])->name('employer.resume_pack');
     Route::get('/transactions', [EmployerController::class, 'Transactions'])->name('employer.transactions');
+    Route::get('/transaction/payment/{type}/{id}', [EmployerController::class, 'TransactionPayment'])->name('employer.transaction.payment');
     Route::get('/sub_users', [EmployerController::class, 'subUsers'])->name('employer.sub_users');
     Route::get('/add_sub_user', [EmployerController::class, 'addSubUser'])->name('employer.add_sub_user');
 

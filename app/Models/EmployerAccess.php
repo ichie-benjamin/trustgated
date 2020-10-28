@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EmployerProduct extends Model
+class EmployerAccess extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','product_id','expired_at'];
 
-    protected $with = ['product'];
+    protected $fillable = ['user_id','access_id','expired_at'];
+
+    protected $with = ['access'];
 
     protected $dates = [
         'expired_at'
@@ -21,8 +22,8 @@ class EmployerProduct extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
-    public function product()
+    public function access()
     {
-        return $this->belongsTo(Products::class,'product_id');
+        return $this->belongsTo(DatabaseProduct::class,'access_id');
     }
 }

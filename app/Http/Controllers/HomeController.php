@@ -6,6 +6,8 @@ use App\Mail\MailEmployer;
 use App\Mail\SendJobMail;
 use App\Models\City;
 use App\Models\Company;
+use App\Models\DatabaseProduct;
+use App\Models\EmployerAccess;
 use App\Models\EmployerProduct;
 use App\Models\FunctionalArea;
 use App\Models\IndustryType;
@@ -33,10 +35,20 @@ class HomeController extends Controller
         if(!$request->has('job_posting_id') && !$request->has('db_access_id')){
             return redirect()->back()->with('failure', 'Pls select a package');
         }
-        if($request->has('job_posting_id') && $request->has('db_access_id')){
-            return 'all';
-
-        }elseif($request->has('job_posting_id')){
+        if($request->has('db_access_id')){
+            $access = $request->db_access_id;
+            $a = DatabaseProduct::findOrFail($access);
+            if($a->price < 1){
+                return redirect()->back()->with('failure', "You can't subscribe to free plan");
+            }
+            $expired_at = Carbon::now()->addDay($a->no_of_days);
+            EmployerAccess::create([
+                'user_id' => auth()->id(),
+                'access_id' => $access,
+                'expired_at' => $expired_at,
+            ]);
+        }
+        if($request->has('job_posting_id')){
             $product = $request->job_posting_id;
             $p = Products::findOrFail($product);
             if($p->price < 1){
@@ -48,12 +60,9 @@ class HomeController extends Controller
                 'product_id' => $product,
                 'expired_at' => $expired_at,
             ]);
-
-        }else{
-            $db_access = $request->db_access_id;
-            return 'db';
         }
-        return $request->all();
+
+        return redirect()->route('employer.transactions')->with('success','Click on package to proceed to payment');
     }
 
     public function mailEmployer(Request $request){
