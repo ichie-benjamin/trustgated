@@ -61,7 +61,8 @@ class JobsController extends Controller
             $salary = strip_tags($request->get('salary'));
             $keyword = strip_tags($request->get('keyword'));
 
-            $jobs = Job::where('tags','LIKE','%'.$keyword.'%')->where('locations','LIKE','%'.$location.'%')
+            $jobs = Job::where('tags','LIKE','%'.$keyword.'%')->orWhere('title','LIKE','%'.$keyword.'%')
+                ->where('locations','LIKE','%'.$location.'%')
                 ->orWhere('min_salary',$salary)
                 ->orWhere('functional_area',$f_areas)->orWhere('industry_id',$category)
                 ->latest()->paginate(10);
