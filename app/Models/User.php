@@ -65,10 +65,17 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
 
-    protected $appends = ['name','skill','profile_complete','exp','role'];
+    protected $appends = ['name','skill','profile_complete','exp','role','job_plan','access_plan'];
 
     public function getRoleAttribute(){
         return optional($this->roles->first())->name;
+    }
+
+    public function getJobPlanAttribute(){
+        return EmployerProduct::whereUserId($this->id)->wherePaid(true)->orderBy('expired_at', 'desc')->first();
+    }
+    public function getAccessPlanAttribute(){
+        return EmployerAccess::whereUserId($this->id)->wherePaid(true)->orderBy('expired_at', 'desc')->first();
     }
 
     public function url(){

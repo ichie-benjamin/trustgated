@@ -18,6 +18,7 @@ class EmployerController extends Controller
         }elseif(!$company){
             return redirect('home');
         }
+
         return view('employer.profile.index', compact('user','company'));
     }
 

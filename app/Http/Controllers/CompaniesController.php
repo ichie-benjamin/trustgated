@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\admin\Controller;
 use App\Models\Company;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -131,14 +130,14 @@ class CompaniesController extends Controller
             $data = $this->getData($request);
 
             $company = Company::findOrFail($id);
-
-            $data['info'] = request('company-trixFields.content');
-
-            $data['info'] = request('company-trixFields.info');
-            $data['attachment-company-trixFields'] =  request('attachment-company-trixFields');
-            if(strlen($data['info']) < 30){
-                return response()->json('Company info must be at least 20 character', 404);
-            }
+//
+//            $data['info'] = request('company-trixFields.content');
+//
+//            $data['info'] = request('company-trixFields.info');
+//            $data['attachment-company-trixFields'] =  request('attachment-company-trixFields');
+//            if(strlen($data['info']) < 30){
+//                return response()->json('Company info must be at least 20 character', 404);
+//            }
 
             $company->update($data);
 
@@ -161,20 +160,9 @@ class CompaniesController extends Controller
                 $company->logo = $imageUrl;
                 $company->save();
             }
-            $data['company'] = $company;
 
-            DB::table('trix_rich_texts')->update([
-                'model_type' => 'App\Models\Company',
-                'model_id' => $company->id,
-                'field' => 'info',
-                'content' => request('company-trixFields.info')
-            ]);
 
-            $request->session()->flash('message', 'Company successfully posted, awaiting admin verification');
-            $request->session()->flash('message-type', 'success');
-            $data['url'] = route('companies.company.index');
-
-            return response()->json($data, 200);
+            return redirect()->back()->with('success','Company successfully updated');
 
     }
 
@@ -212,6 +200,7 @@ class CompaniesController extends Controller
             'address' => 'required|string|min:1',
             'logo' => 'nullable',
             'website' => 'string|min:1|nullable',
+            'contact_person' => 'string|min:1|nullable',
             'email' => 'string|min:1|nullable',
             'info' => 'nullable',
             'phone' => 'string|min:1|nullable',

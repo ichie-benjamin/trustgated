@@ -128,7 +128,8 @@ class UsersController extends Controller
         $user = User::findOrFail(auth()->user()->id);
         $user->update($data);
 
-        return response()->json($user, 200);
+        return redirect()->back()->with('success','Profile successfully updated');
+
     }
 
     public function getUnreadNots(){

@@ -8,8 +8,8 @@
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="employer-profile-view.php">My Account</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ route('employer.profile')  }}">My Account</a></li>
                         <li class="active">Professional Details</li>
                     </ol>
                 </div>
@@ -38,7 +38,25 @@
                 <div class="col-md-9" >
                     <br />
 
-                    <form class="form-horizontal m10" name='div2' enctype="multipart/form-data">
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>Successful!</strong> {{ session('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+
+                    @if (session('failure'))
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Error!</strong> {{ session('failure') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+
+                    <div>
 
                         <div class="row" >
                             <div id="display1">
@@ -65,12 +83,30 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Phone </label>
+                                                <div class="col-sm-8">
+                                                    <label id="cpname"> {{ $user->mobile_number }}</label>
+                                                </div>
+                                            </div><!--col-md-6-->
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Address </label>
+                                                <div class="col-sm-8">
+                                                    <label id="cpname"> {{ $user->address }}</label>
+                                                </div>
+                                            </div><!--col-md-6-->
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
                                                 <label  class="col-sm-4 pedit">Master Email</label>
                                                 <div class="col-sm-8">
                                                     <label id="cpname"> {{ $user->email }}</label>
                                                 </div>
                                             </div><!--col-md-6-->
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label  class="col-sm-4 pedit">Type </label>
@@ -83,7 +119,16 @@
                                             <div class="form-group">
                                                 <label class="col-sm-4 pedit">Membership Plan for Job Posting :</label>
                                                 <div class="col-sm-6">
-                                                    <label id="rec_type">Free Plan </label>
+                                                    <label id="rec_type">{{ optional($user->job_plan)->product->name }} </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 pedit">Expired at :</label>
+                                                <div class="col-sm-6">
+                                                    <label id="rec_type">{{ optional($user->job_plan)->expired_at->diffforhumans() }} </label>
                                                 </div>
 
                                             </div>
@@ -92,7 +137,16 @@
                                             <div class="form-group">
                                                 <label class="col-sm-4 pedit">Membership plan for Resume Access :</label>
                                                 <div class="col-sm-6">
-                                                    <label id="rec_type">platinum </label>
+                                                    <label id="rec_type">{{ optional($user->access_plan)->access->name }} </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 pedit">Expired at:</label>
+                                                <div class="col-sm-6">
+                                                    <label id="rec_type">{{ optional($user->access_plan)->expired_at->diffforhumans() }} </label>
                                                 </div>
 
                                             </div>
@@ -117,55 +171,89 @@
                                 <div class="top-emp-center">
                                     <h4>Edit Account Details</h4>
                                 </div><br />
-                                <form action="">
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"> User Name  </label>
-                                        <div class="col-sm-8">
-                                            {{ $user->name }}                                 </div>
-                                    </div><!--form-group-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Name </label>
-                                        <div class="col-sm-8">
-                                            <input type="text" required class="form-control" name="company_name" id="cpname1" value="{{ $company->name }}">
+                                <form method="POST" class="form-horizontal m10"  action="{{ route('companies.update', $company->id) }}">
+                                    @csrf
+                                    @method('PATCH')
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"> User Name  </label>
+                                            <div class="col-sm-8">
+                                                {{ $user->name }}                                 </div>
+                                        </div><!--form-group-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Name </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" required class="form-control" name="name" value="{{ $company->name }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Address </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" required class="form-control" name="address" value="{{ $company->address }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit">Company Website </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="website" value="{{ $company->website }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Phone </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" required class="form-control" name="phone" value="{{ $company->phone }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Info </label>
+                                            <div class="col-sm-8">
+                                                <textarea class="form-control" name="info">{{ $company->info }}</textarea>
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Master Email</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" disabled class="form-control" name="email1" id="email1" value="{{ $user->email }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label class="col-sm-4 pedit2"><span class="red-star">*</span>Type </label>
+                                            <label class="radio-inline pedit4">
+                                                <input name="role" @if($user->role == 'employer') checked @endif type="radio" value="employer">Company
+                                            </label>
+                                            {{--                                        <label class="radio-inline pedit4">--}}
+                                            {{--                                            <input name="role" type="radio" @if($user->role == 'consultant') checked @endif  value="consultant" > Consultant--}}
+                                            {{--                                        </label>--}}
+                                            <div id="typeLabel" class="floaterror"></div>
                                         </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Master Email</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" disabled class="form-control" name="email1" id="email1" value="{{ $user->email }}">
+                                    </div>
+
+                                    <div class="col-sm-8">
+
+                                        <div class="col-sm-3 ">
+                                            <input class="btn-blue btn bc" type="submit" name="submits" value="SAVE">
+
                                         </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2"><span class="red-star">*</span>Type </label>
-                                        <label class="radio-inline pedit4">
-                                            <input name="role" @if($user->role == 'employer') checked @endif type="radio" value="employer">Company
-                                        </label>
-                                        <label class="radio-inline pedit4">
-                                            <input name="role" type="radio" @if($user->role == 'consultant') checked @endif  value="consultant" > Consultant
-                                        </label>
-                                        <div id="typeLabel" class="floaterror"></div>
+                                        <div class="col-sm-3 padno">
+                                            <div class="btn-blue btn bc"><a href="{{ route('employer.profile') }}" style="color:#FFF"> Cancel </a> </div><!--<input type="reset" onclick="cls_acc2();" value="Cancel" /><!--</div>-->
+                                            <br>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-sm-8">
-
-                                    <div class="col-sm-3 ">
-                                        <input class="btn-blue btn bc" type="button" name="submits" value="SAVE">
-
-                                    </div>
-                                    <div class="col-sm-3 padno">
-                                        <div class="btn-blue btn bc"><a href="{{ route('employer.profile') }}" style="color:#FFF"> Cancel </a> </div><!--<input type="reset" onclick="cls_acc2();" value="Cancel" /><!--</div>-->
-                                        <br>
-                                    </div>
-                                </div>
-                              </form>
+                                </form>
 
                             </div>
                             <!--col-md-6-->
@@ -175,140 +263,175 @@
                                 <div class="top-emp-center">
                                     <h4>Company Details</h4>
                                 </div><br />
-                                <form class="form-horizontal">
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Industry Type </label>
-                                        <div class="col-sm-8">
-                                            <label id="itype"> {{ $company->type }}</label>
+                                <div class="form-horizontal">
+                                    <div class="col-md-8">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Contact Person  </label>
+                                                <div class="col-sm-8">
+                                                    <label id="uname">{{ $company->contact_person }} </label>
+                                                </div>
+                                            </div><!--form-group-->
                                         </div>
-                                    </div><!--form-group-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Contact Person</label>
-                                        <div class="col-sm-8">
-                                            <label id="cperson">{{ $company->contact_person }}</label>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Company Name </label>
+                                                <div class="col-sm-8">
+                                                    <label id="cpname"> {{ $company->name }}</label>
+                                                </div>
+                                            </div><!--col-md-6-->
                                         </div>
-                                    </div><!--col-md-6-->
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit">Logo</label>
-                                        <div class="col-sm-6">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Company Phone </label>
+                                                <div class="col-sm-8">
+                                                    <label id="cpname"> {{ $company->phone }}</label>
+                                                </div>
+                                            </div><!--col-md-6-->
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Company Address </label>
+                                                <div class="col-sm-8">
+                                                    <label id="cpname"> {{ $company->address }}</label>
+                                                </div>
+                                            </div><!--col-md-6-->
+                                        </div>
 
-                                            <img src="{{ asset($company->logo)}}" height="70" width="100" id="logo" name="logo" style="background:none;" />
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Company Website </label>
+                                                <div class="col-sm-8">
+                                                    <label id="cpname"> {{ $company->website }}</label>
+                                                </div>
+                                            </div><!--col-md-6-->
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Company Info </label>
+                                                <div class="col-sm-8">
+                                                    <label id="cpname"> {{ $company->info }}</label>
+                                                </div>
+                                            </div><!--col-md-6-->
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Master Email</label>
+                                                <div class="col-sm-8">
+                                                    <label id="cpname"> {{ $user->email }}</label>
+                                                </div>
+                                            </div><!--col-md-6-->
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label  class="col-sm-4 pedit">Type </label>
+                                                <div class="col-sm-8">
+                                                    <label id="rec_type"> {{ $user->role }} </label>
+                                                </div>
+                                            </div><!--col-md-6-->
                                         </div>
 
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star"></span>Website</label>
-                                        <div class="col-sm-8">
-                                            <label id="wsite">
-                                                {{ $company->website }}
-                                            </label>
-                                        </div>
-                                    </div><!--form-group-->
-                                </div>
-                                {{-- <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit">Company Profile</label>
-                                        <div class="col-sm-6">
-                                            <label id="cpro"> Not Mentioned </label>
-                                        </div>
-
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <img src="{{ asset($company->logo)}}" width="150" >						</div>
                                     </div>
-                                </div> --}}
 
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><h5><a href="javascript:;" style="color:#0099FF" onclick="div_dis2();"> Edit Company Details </a></h5></label>
-                                        <div class="col-sm-8">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><h5><a href="javascript:;" style="color:#0099FF" onclick="div_dis2();"> Edit Company Details </a></h5></label>
+                                            <div class="col-sm-8">
 
-                                        </div>
-                                    </div><!--form-group-->
+                                            </div>
+                                        </div><!--form-group-->
+                                    </div>
                                 </div>
-                              </form>
 
                                 <!--col-md-6-->
                             </div>
                             <div id="display22" style="display:none">
-                                <form name="form_div" id="form_div" action="logo_upload.php" target="upload_iframe" method="post" enctype="multipart/form-data">
+                                <form method="POST"  id="form_div" class="form-horizontal m10"  action="{{ route('companies.update', $company->id) }}">
+
                                     <div class="top-emp-center">
                                         <h4>Edit Company Details</h4>
                                     </div><br />
+                                    @csrf
+                                    @method('PATCH')
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label  class="col-sm-4 pedit">Industry Type  </label>
+                                            <label  class="col-sm-4 pedit"> User Name  </label>
                                             <div class="col-sm-8">
-                                                <select name="ins" id="ins" class="textbox-med">
-                                                    <option value="">Select</option>
-                                                    <option value="Law Enforcement/Security"  >
-                                                        Law Enforcement/Security </option>
-
-                                                    <option value="Legal/Law"  >
-                                                        Legal/Law </option>
-
-                                                    <option value="Marketing/Sales"  >
-                                                        Marketing/Sales </option>
-
-                                                    <option value="Media/Journalism"  >
-                                                        Media/Journalism </option>
-
-                                                    <option value="Production/Manufacturing/Maintenance"  >
-                                                        Production/Manufacturing/Maintenance </option>
-
-                                                    <option value="Tours and Travel/Airline"  >
-                                                        Tours and Travel/Airline </option>
-
-                                                    <option value="Transportation/Logistics"  >
-                                                        Transportation/Logistics </option>
-
-                                                    <option value="KPO/Technical Support"  >
-                                                        KPO/Technical Support </option>
-
-                                                    <option value="Strategy / Management Consulting Firms"  >
-                                                        Strategy / Management Consulting Firms </option>
-
-                                                    <option value="Others"  >
-                                                        Others </option>
-
-                                                    <option value="test cate"  >
-                                                        test cate </option>
-
-                                                    <option value="IT-ERP-Oracle"  >
-                                                        IT-ERP-Oracle </option>
-
-                                                    <option value="Media "  >
-                                                        Media  </option>
-
-                                                    <option value="mech"  >
-                                                        mech </option>
-
-                                                    <option value="IT - BPO"  >
-                                                        IT - BPO </option>
-
-                                                    <option value="NGO/Social Services"  >
-                                                        NGO/Social Services </option>
-
-                                                    <option value="Management"  >
-                                                        Management </option>
-
-                                                    <option value="Construction"  >
-                                                        Construction </option>
-
-
-                                                </select>
-                                            </div>
+                                                {{ $user->name }}                                 </div>
                                         </div><!--form-group-->
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Name </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" required class="form-control" name="name" value="{{ $company->name }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Address </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" required class="form-control" name="address" value="{{ $company->address }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit">Company Website </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="website" value="{{ $company->website }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Phone </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" required class="form-control" name="phone" value="{{ $company->phone }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Info </label>
+                                            <div class="col-sm-8">
+                                                <textarea class="form-control" name="info">{{ $company->info }}</textarea>
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Master Email</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" disabled class="form-control" name="email1" id="email1" value="{{ $user->email }}">
+                                            </div>
+                                        </div><!--col-md-6-->
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="form-group">
+                                            <label class="col-sm-4 pedit2"><span class="red-star">*</span>Type </label>
+                                            <label class="radio-inline pedit4">
+                                                <input name="role" @if($user->role == 'employer') checked @endif type="radio" value="employer">Company
+                                            </label>
+                                            {{--                                        <label class="radio-inline pedit4">--}}
+                                            {{--                                            <input name="role" type="radio" @if($user->role == 'consultant') checked @endif  value="consultant" > Consultant--}}
+                                            {{--                                        </label>--}}
+                                            <div id="typeLabel" class="floaterror"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="form-group">
                                             <label  class="col-sm-4 pedit"><span class="red-star">*</span>Contact Person</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="cper" id="cper" onKeyUp="chkkabuse(this.id);" value="Liza" >
+                                                <input type="text" class="form-control" name="contact_person" value="{{ $company->contact_person }}" >
                                             </div>
                                         </div><!--col-md-6-->
                                     </div>
@@ -316,40 +439,35 @@
                                         <div class="form-group">
                                             <label  class="col-sm-4 pedit"><span class="red-star">*</span>Logo</label>
                                             <div class="col-sm-8">
-                                                <input class="form-control" type="file" name="logo1" id="logo1" value="Choose" onChange="jsUpload(this);" >
+
                                             </div>
                                         </div><!--col-md-6-->
                                     </div>
-                                    <!--<div class="col-md-8">
-                                          <div class="form-group">
-                                            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Website</label>
-                                            <div class="col-sm-8">
-                                              <input class="form-control" type="text" id="wsite1" name="wsite1" onKeyUp="chkkabuse(this.id);" value="" >
-                                            </div>
-                                          </div>
-                                    </div>-->
+
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label  class="col-sm-4 pedit"><span class="red-star">*</span>Company Profile</label>
                                             <div class="col-sm-8">
-                                                <textarea class="form-control" cols="30" rows="6" id="cpro1" name="cpro1" onKeyUp="chkkabuse(this.id);"></textarea>
+                                                <textarea class="form-control" cols="30" rows="6" name="info">{{ $company->info }}</textarea>
                                             </div>
                                         </div><!--col-md-6-->
                                     </div>
                                     <div class="col-sm-8">
 
-                                        <div class="col-sm-3 ">
-                                            <input class="btn-blue btn bc" type="button" id="submits" name="submits" onClick="save_acc4();" value="SAVE">
+                                        <div class="col-sm-8">
 
-                                        </div>
-                                        <div class="col-sm-3 padno">
-                                            <div class="btn-blue btn bc"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html" style="color:#FFF"> Cancel </a><!--<input type="reset" value="Cancel" onclick="cls_acc4();" /><!--</div>-->
+                                            <div class="col-sm-3 ">
+                                                <input class="btn-blue btn bc" type="submit" name="submits" value="SAVE">
+
                                             </div>
-                                            <br>
+                                            <div class="col-sm-3 padno">
+                                                <div class="btn-blue btn bc"><a href="{{ route('employer.profile') }}" style="color:#FFF"> Cancel </a> </div><!--<input type="reset" onclick="cls_acc2();" value="Cancel" /><!--</div>-->
+                                                <br>
+                                            </div>
                                         </div>
 
-                                        <!-- </form>--->
                                     </div>
+                                </form>
                             </div>
                         </div>
                         <div class="row" >
@@ -361,28 +479,16 @@
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit">Address Label</label>
                                         <div class="col-sm-8">
-                                            <label id="lab">inet </label>
+                                            <label id="lab">{{ $user->address }} </label>
                                         </div>
                                     </div><!--form-group-->
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"> Street Address </label>
 
-                                        <div class="col-sm-8">
-                                            <label id="lab">cbfdgdfgds</label>
-                                        </div>
-                                        <div class="col-sm-1"><!--<i class="fa fa-jpy"></i>--></div>
-                                    </div>
-                                </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit">Country </label>
                                         <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
-
-                                            <label id="con">
-                                            </label>
+                                            {{ $user->country }}
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -392,7 +498,8 @@
                                         <div class="col-sm-8">
                                             <!-- <textarea class="form-control" rows="3"></textarea>-->
                                             <label id="state">
-                                                Kentucky														</label>
+                                                {{ $user->state }}
+                                            </label>
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -402,7 +509,8 @@
                                         <div class="col-sm-8">
                                             <!-- <textarea class="form-control" rows="3"></textarea>-->
                                             <label id="city">
-                                                Ary																				</label>
+                                                {{ $user->city }}
+                                            </label>
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -411,7 +519,7 @@
                                         <label  class="col-sm-4 pedit">Pincode </label>
                                         <div class="col-sm-8">
                                             <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="pin">6575464</label>
+                                            <label id="pin">{{ $user->pincode }}</label>
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -420,20 +528,20 @@
                                         <label  class="col-sm-4 pedit">Mobile Number </label>
                                         <div class="col-sm-8">
                                             <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="mobn">   </label>
+                                            <label id="mobn">  {{ $user->mobile_number }} </label>
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Landline Number</label>
-                                        <div class="col-sm-8">
-                                            <!-- <textarea class="form-control" rows="3"></textarea>-->
-                                            <label id="ph1">
-                                                7856756756 </label>
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
+{{--                                <div class="col-md-8">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label  class="col-sm-4 pedit">Landline Number</label>--}}
+{{--                                        <div class="col-sm-8">--}}
+{{--                                            <!-- <textarea class="form-control" rows="3"></textarea>-->--}}
+{{--                                            <label id="ph1">--}}
+{{--                                                {{7856756756}} </label>--}}
+{{--                                        </div>--}}
+{{--                                    </div><!--col-md-6-->--}}
+{{--                                </div>--}}
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit">Fax </label>
@@ -453,39 +561,34 @@
                                 </div>
                             </div>
                             <div id="display33" style="display:none">
+                                <form method="POST"  id="form_div" class="form-horizontal m10"  action="{{ route('user.update') }}">
                                 <div class="top-emp-center">
                                     <h4>Edit Contact Details</h4>
                                 </div><br />
+                                    @csrf
 
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit"><span class="red-star">*</span>Address Label</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control"id="cplabel" name="cplabel" onKeyUp="chkkabuse(this.id);" value="inet" >
+                                            <input type="text" class="form-control" name="address" value="{{ $user->address }}" >
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit"><span class="red-star">*</span>Street Address</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="adr1" name="adr1" value="cbfdgdfgds">
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
+
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit"><span class="red-star">*</span>Country</label>
                                         <div class="col-sm-8">
 
-                                            <select class="form-control" id="country" onChange="loadXMLDoc(this.value)" >
+                                            <select class="form-control" name="country" id="country" >
 
-                                                <option value="211"   >
-                                                    Bangladesh </option>
-                                                <option value="210"   >
-                                                    India </option>
-                                                <option value="212"   >
-                                                    Pakistan </option>
+                                                @foreach (\App\Models\Country::all() as $item)
+                                                    <option value="{{ $item->name }}">
+                                                        {{ $item->name }}
+                                                    </option>
+                                                @endforeach
+
 
                                             </select>
                                         </div>
@@ -496,110 +599,6 @@
                                         <label class="col-sm-4 pedit"><span class="red-star">*</span>State</label>
                                         <div class="col-sm-8">
 
-                                            <select  class="form-control" name="state1"  id="state1" onChange="loadcity(this.value)">
-                                                string(3) "138"
-                                                <option value="138"  >Alabama</option>
-                                                string(3) "142"
-                                                <option value="142"  >Alaska</option>
-                                                string(3) "246"
-                                                <option value="246"  >Arizona</option>
-                                                string(3) "248"
-                                                <option value="248"  >Arkansas</option>
-                                                string(3) "623"
-                                                <option value="623"  >California</option>
-                                                string(3) "807"
-                                                <option value="807"  >Colorado</option>
-                                                string(3) "813"
-                                                <option value="813"  >Connecticut</option>
-                                                string(3) "904"
-                                                <option value="904"  >Delaware</option>
-                                                string(3) "940"
-                                                <option value="940"  >District of Columbia</option>
-                                                string(4) "1124"
-                                                <option value="1124"  >Florida</option>
-                                                string(4) "1188"
-                                                <option value="1188"  >Georgia</option>
-                                                string(4) "1349"
-                                                <option value="1349"  >Hawaii</option>
-                                                string(4) "1421"
-                                                <option value="1421"  >Idaho</option>
-                                                string(4) "1437"
-                                                <option value="1437"  >Illinois</option>
-                                                string(4) "1451"
-                                                <option value="1451"  >Indiana</option>
-                                                string(4) "1459"
-                                                <option value="1459"  >Iowa</option>
-                                                string(4) "1591"
-                                                <option value="1591"  >Kansas</option>
-                                                string(4) "1653"
-                                                <option value="1653" selected >Kentucky</option>
-                                                string(4) "1993"
-                                                <option value="1993"  >Louisiana</option>
-                                                string(4) "2055"
-                                                <option value="2055"  >Maine</option>
-                                                string(4) "2124"
-                                                <option value="2124"  >Maryland</option>
-                                                string(4) "2136"
-                                                <option value="2136"  >Massachusetts</option>
-                                                string(4) "2190"
-                                                <option value="2190"  >Michigan</option>
-                                                string(4) "2208"
-                                                <option value="2208"  >Minnesota</option>
-                                                string(4) "2222"
-                                                <option value="2222"  >Mississippi</option>
-                                                string(4) "2223"
-                                                <option value="2223"  >Missouri</option>
-                                                string(4) "2248"
-                                                <option value="2248"  >Montana</option>
-                                                string(4) "2367"
-                                                <option value="2367"  >Nebraska</option>
-                                                string(4) "2380"
-                                                <option value="2380"  >Nevada</option>
-                                                string(4) "2383"
-                                                <option value="2383"  >New Hampshire</option>
-                                                string(4) "2385"
-                                                <option value="2385"  >New Jersey</option>
-                                                string(4) "2386"
-                                                <option value="2386"  >New Mexico</option>
-                                                string(4) "2389"
-                                                <option value="2389"  >New York</option>
-                                                string(4) "2454"
-                                                <option value="2454"  >North Carolina</option>
-                                                string(4) "2457"
-                                                <option value="2457"  >North Dakota</option>
-                                                string(4) "2537"
-                                                <option value="2537"  >Ohio</option>
-                                                string(4) "2545"
-                                                <option value="2545"  >Oklahoma</option>
-                                                string(4) "2570"
-                                                <option value="2570"  >Oregon</option>
-                                                string(4) "2684"
-                                                <option value="2684"  >Pennsylvania</option>
-                                                string(4) "2887"
-                                                <option value="2887"  >Rhode Island</option>
-                                                string(4) "3299"
-                                                <option value="3299"  >South Carolina</option>
-                                                string(4) "3301"
-                                                <option value="3301"  >South Dakota</option>
-                                                string(4) "3496"
-                                                <option value="3496"  >Tennessee</option>
-                                                string(4) "3501"
-                                                <option value="3501"  >Texas</option>
-                                                string(4) "3642"
-                                                <option value="3642"  >Utah</option>
-                                                string(4) "3696"
-                                                <option value="3696"  >Vermont</option>
-                                                string(4) "3726"
-                                                <option value="3726"  >Virginia</option>
-                                                string(4) "3769"
-                                                <option value="3769"  >Washington</option>
-                                                string(4) "3784"
-                                                <option value="3784"  >West Virginia</option>
-                                                string(4) "3812"
-                                                <option value="3812"  >Wisconsin</option>
-                                                string(4) "3820"
-                                                <option value="3820"  >Wyoming</option>
-                                            </select><span id="state_span"></span>
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -1420,11 +1419,12 @@
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
+
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit"><span class="red-star">*</span>Pincode</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="pin1" name="pin1" value="6575464">
+                                            <input type="text" class="form-control" id="pin1" name="pincode" value="{{ $user->pincode }}">
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -1432,7 +1432,7 @@
                                     <div class="form-group">
                                         <label  class="col-sm-4 pedit"><span class="red-star">*</span>Mobile Number</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="mobno" name="mobno" value="">
+                                            <input type="text" class="form-control" name="mobile_number" value="{{ $user->mobile_number }}">
                                         </div>
                                     </div><!--col-md-6-->
                                 </div>
@@ -1441,80 +1441,75 @@
                                     <div class="form-group">
                                         <label class="col-sm-4 pedit">Landline Number</label>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control"  placeholder="+91" id="isd1" name="isd1" value="">
+                                            <input type="text" class="form-control"  placeholder="+91" name="land_countrycode" value="{{ $user->land_countrycode }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control"  placeholder="044" id="std1" name="std1" value="" >
+                                            <input type="text" class="form-control"  name="land_areacode" value="{{ $user->land_areacode }}" >
                                         </div>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control"  placeholder="123456" id="ph11" name="ph11" value="7856756756">
+                                            <input type="text" class="form-control"  id="ph11" name="landline_number" value="{{ $user->landline_number }}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label  class="col-sm-4 pedit">Fax</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="fax1" name="fax1" onKeyUp="chkkabuse(this.id);" value="">
-                                        </div>
-                                    </div><!--col-md-6-->
-                                </div>
+
                                 <div class="col-sm-8">
 
                                     <div class="col-sm-3 ">
-                                        <input class="btn-blue btn bc" type="button" id="submits" name="submits" value="SAVE" onClick="save_acc6();">
+                                        <input class="btn-blue btn bc" type="submit" id="submits" value="SAVE" >
 
                                     </div>
                                     <div class="col-sm-3 padno">
-                                        <div class="btn-blue btn bc"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html" style="color:#FFF"> Cancel </a><!-- <input type="reset" value="Cancel" onclick="cls_acc6();" />--></div>
+                                        <div class="btn-blue btn bc"><a href="" style="color:#FFF"> Cancel </a>
+                                        </div>
                                     </div><br>
                                 </div>
+                                </form>
                             </div>
                         </div>
 
-                    </form>
-                </div><!--col-sm-9-->
-            </div><!--row-->
-        </div><!-- container -->
+                    </div><!--col-sm-9-->
+                </div><!--row-->
+            </div><!-- container -->
 
-    </div><!-- CONTENT -->
-    <!--ADVANCED SEARCH POPUP-->
+        </div><!-- CONTENT -->
+        <!--ADVANCED SEARCH POPUP-->
 
-@endsection
+    </div>
+        @endsection
 
-@section('js')
-<script type="text/javascript">
-    function div_dis1()
-    {
+        @section('js')
+            <script type="text/javascript">
+                function div_dis1()
+                {
 //alert("fgd");
-        $("#display1").hide();
-        $("#display11").show();
-        $("#display22").hide();
-        $("#display33").hide();
-        $("#display2").show();
-        $("#display3").show();
-    }
-    function div_dis2()
-    {
+                    $("#display1").hide();
+                    $("#display11").show();
+                    $("#display22").hide();
+                    $("#display33").hide();
+                    $("#display2").show();
+                    $("#display3").show();
+                }
+                function div_dis2()
+                {
 //alert("fgd");
-        $("#display2").hide();
-        $("#display22").show();
-        $("#display11").hide();
-        $("#display33").hide();
-        $("#display1").show();
-        $("#display3").show();
+                    $("#display2").hide();
+                    $("#display22").show();
+                    $("#display11").hide();
+                    $("#display33").hide();
+                    $("#display1").show();
+                    $("#display3").show();
 
-    }
-    function div_dis3()
-    {
+                }
+                function div_dis3()
+                {
 //alert("fgd");
-        $("#display3").hide();
-        $("#display33").show();
-        $("#display11").hide();
-        $("#display22").hide();
-        $("#display1").show();
-        $("#display2").show();
-    }
-</script>
+                    $("#display3").hide();
+                    $("#display33").show();
+                    $("#display11").hide();
+                    $("#display22").hide();
+                    $("#display1").show();
+                    $("#display2").show();
+                }
+            </script>
 
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobAlertController;
@@ -82,8 +83,10 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::get('/jobs/toggle/disabled/{slug}', [JobsController::class, 'toggleDisabled'])->name('jobs.toggle_disabled');
     Route::get('/jobs/restore/deleted/job/{slug}/{id}', [JobsController::class, 'restore'])->name('jobs.restore');
     Route::post('/jobs/force/delete/{id}', [JobsController::class, 'forceDelete'])->name('jobs.delete');
+    Route::post('/user/update', [UsersController::class, 'updateProfile'])->name('user.update');
     Route::resources([
-        'jobs' => JobsController::class
+        'jobs' => JobsController::class,
+        'companies' => CompaniesController::class,
         ]);
 });
 
