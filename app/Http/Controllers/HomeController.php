@@ -24,6 +24,21 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
+    public function AssignPackage(){
+        $users = User::whereRoleIs('employer')->get();
+        $product = Products::whereName('Free')->first();
+        $access =  DatabaseProduct::whereName('Free')->first();
+        foreach ($users as $user){
+            if(EmployerProduct::whereUserId($user->id)->first() == null){
+                EmployerProduct::create(['user_id' => $user->id, 'product_id' => $product->id,'expired_at' => Carbon::now()->addDay($product->no_of_days), 'paid' => true]);
+            }
+            if (EmployerAccess::whereUserId($user->id)->first() == null){
+                EmployerAccess::create(['user_id' => $user->id, 'access_id' => $access->id, 'expired_at' => Carbon::now()->addDay($access->no_of_days), 'paid' => true]);
+            }
+        }
+        return 'Done';
+    }
+
     public function mailJob(Request $request){
         $mail = $request->all();
         Mail::to($request->fmail)->send(new SendJobMail($mail));

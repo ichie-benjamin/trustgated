@@ -42,7 +42,7 @@ return [
         'cities' => ['Baisi','Serchhip','Bastar','Jorethang','Gopalasamudram','Ponda City','Barbil','Nongpoh'],
         'cms' => ['Seeker : Terms and Conditions','Seeker : About Us','Seeker : Privacy Policy','Seeker : Tell a Friend',
             'Seeker : Featured Service','Seeker : Help','Seeker : FAQ','Employer : How to make job post','Employer : Advertise your job','Employer : Fraud Alert',
-            'Employer : Help','Employer : Job Posting','Employer : Database Access','Employer : Spotlight','Employer : Candidate Manager','Contact Us'
+            'Employer : Help','Employer : Job Posting','Employer : Database Access','Employer : Spotlight','Employer : Candidate Manager','Contact Us','contact details'
         ],
         'locations' => [
             'Agartala',

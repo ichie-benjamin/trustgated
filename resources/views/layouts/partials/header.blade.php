@@ -91,13 +91,11 @@
                                         <li ><a href="#"><i class="fa fa-university"></i> Resume Access</a></li>
                                         <li ><a href="{{ route('jobs.create') }}"><i class="fa fa-globe"></i> Post Job</a></li>
                                         <li  ><a href="{{ route('jobs.index') }}"><i class="fa fa-briefcase"></i> Posted Job List</a></li>
-                                        <li ><a href="#"><i class="icon-user4"></i> Transaction List</a></li>
+                                        <li ><a href="{{ route('employer.transactions') }}"><i class="fa fa-bank"></i> Transaction List</a></li>
                                         <!--<li><a href="faq.html">Help / FAQ</a></li>-->
 
                                         <li ><a style="font-size: 15px" href="{{ route('contactus') }}"><i class="fa fa-envelope" ></i> Contact us</a></li>
 
-                                        <!-- <li ><a href="index.html"><i class="fa fa-cogs"></i> Services</a></li>
-                                         <li ><a href="index.html" ><i class="fa fa-plus-circle"></i> More</a>-->
                                         </li>
                                     </ul>
                                     @else
@@ -108,8 +106,8 @@
 {{--                                            <li><a style="font-size: 15px" href="{{ route('searchall') }}"><i class="fa fa-university" aria-hidden="true"></i> IIT/IIM jobs</a></li>--}}
 {{--                                            <li ><a style="font-size: 15px" href="{{ route('job.type','govt-jobs') }}"><i class="fa fa-university" aria-hidden="true"></i> Govt.jobs</a></li>--}}
 {{--                                            <li ><a style="font-size: 15px" href="{{ route('job.type','oversea-jobs') }}"><i class="fa fa-globe" aria-hidden="true"></i> Oversea jobs</a></li>--}}
+
                                             <li ><a style="font-size: 15px" href="{{ route('recruiters') }}"><i class="fa fa-users" aria-hidden="true"></i> Recruiters</a></li>
-                                            {{--                                <li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/employers-icon.png" /> Employers</a></li>--}}
                                             <li ><a style="font-size: 15px" href="{{ route('contactus') }}"><i class="fa fa-envelope" ></i> Contact us</a></li>
                                         </ul>
                                 @endif

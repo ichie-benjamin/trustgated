@@ -47,6 +47,9 @@
                         @csrf
 <input name="pincode" type="hidden">
 
+                        <input type="hidden" name="skill_i_hire">
+
+
                         <div class="col-md-12">
                             <label class="namecover m10">Create Login Details</label>
 

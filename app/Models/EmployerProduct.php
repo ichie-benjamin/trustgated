@@ -9,7 +9,7 @@ class EmployerProduct extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','product_id','expired_at'];
+    protected $fillable = ['user_id','product_id','expired_at','paid'];
 
     protected $with = ['product'];
 

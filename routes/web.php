@@ -63,6 +63,7 @@ Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:j
 
 Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:employer|admin']], function () {
 
+
     Route::post('/purchase/plan',[HomeController::class, 'purchasePlan'])->name('plan.purchase');
 
 
@@ -135,6 +136,12 @@ Route::get('/role/logout', [UsersController::class,'roleLogout'])->name('logout.
 Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+
+Route::get('/assign/plan', [HomeController::class,'AssignPackage']);
+
+
+
 
 Auth::routes(['verify' => true]);
 

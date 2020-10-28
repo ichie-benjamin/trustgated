@@ -8,6 +8,7 @@
             <ol  class="breadcrumb">
                 <li><a href="#">Home</a></li>
                 <li class="active">Employer Registration</li>
+                <li class=""><a href="{{route('jobseeker.reg')}}">Jobseeker Registration</a></li>
             </ol>
 
 
@@ -116,38 +117,36 @@
                                 <div class="col-sm-4">
                                     <input type="text" name="companyname" id="companyname" class="form-control"><div id="companyLabel" class="floaterror"></div>
                                 </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="col-sm-3 pedit2 text-right">SKill You Hire : </label>
                                 <div class="col-sm-4">
-                                    <!--<label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Type : </label>
-                                    <label class="radio-inline pedit4">
-                                      <input type="radio" value="Company" checked="checked" id="c1" onClick="view_ind();" name="comptype"  >Company
-                                    </label>
-                                    <label class="radio-inline pedit4">
-                                      <input type="radio" name="comptype" value="Consultant" id="c2" onClick="hide_ind();"> Consultant
-                                    </label>
-									<div id="typeLabel" class="floaterror"></div>-->
-                                </div>
-                            </div><!--form-group-->
-
-                            <div class="form-group">
-                                <label class="col-sm-3 pedit2 text-right">Company Logo: </label>
-                                <div class="col-sm-5">
-                                    <input type="file" name="fupload" id="fupload" onBlur="this.value=trim(this.value);" onChange="return file_upload(this);">
-                                    <small class="pedit3">Supported Formats: jpg, png, gif. Max file size: 1 Mb</small>
+                                    <input type="text" name="skill_i_hire" class="form-control">
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 text-right">Type : </label>
-                                <div class="col-sm-4">
-                                    <label class="radio-inline pedit4">
-                                        <input type="radio" value="employer" checked="checked" id="c1" name="role" >Company
-                                    </label>
-                                    <label class="radio-inline pedit4">
-                                        <input type="radio" name="role" value="consultant" id="c2"> Consultant
-                                    </label>
-                                </div>
-                                <div id="typeLabel" class="floaterror"></div>
-                            </div>
+                            <!--form-group-->
+
+{{--                            <div class="form-group">--}}
+{{--                                <label class="col-sm-3 pedit2 text-right">Company Logo: </label>--}}
+{{--                                --}}
+{{--                            </div>--}}
+
+                            <input type="hidden" value="employer" checked="checked" id="c1" name="role">
+
+
+                            {{--                            <div class="form-group">--}}
+{{--                                <label class="col-sm-3 text-right">Type : </label>--}}
+{{--                                <div class="col-sm-4">--}}
+{{--                                    <label class="radio-inline pedit4">--}}
+{{--                                        <input type="radio" value="employer" checked="checked" id="c1" name="role" >Company--}}
+{{--                                    </label>--}}
+{{--                                    <label class="radio-inline pedit4">--}}
+{{--                                        <input type="radio" name="role" value="consultant" id="c2"> Consultant--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                                <div id="typeLabel" class="floaterror"></div>--}}
+{{--                            </div>--}}
 
 {{--                            <input name="role" value="employee" type="hidden">--}}
 
@@ -315,17 +314,13 @@
                             <h3 class="line5">Customer Support</h3> <span class="icowhite"><i class="fa fa-phone-square"></i></span>
                         </div>
                         <div class="post-job-content">
-
-                            Landline: 03-3830-1453 <br>
-                            Japan Toll free: 0120-654-100<br>
-                            Email:  support@jobs.com<br>
-
+                          {!! \App\Models\Page::whereTitle('contact details')->first()->content !!}
                         </div><!--post-job-content-->
                     </div><!--create-job-->
 
                     <div class="create-job">
                         <div class="create-job-head calp5">
-                            <h3 class="line5">Request Call Back</h3> <span class="icowhite"> <img src="images/ed.png" alt="Call back"></span>
+                            <h3 class="line5">Request Call Back</h3> <span class="icowhite"> <img src="/images/ed.png" alt="Call back"></span>
                         </div>
                         <div class="post-job-content">
                             Leave your details here and we will get in touch with you:
@@ -385,19 +380,7 @@
                                         </div>
                                     </div>
                                 </div><!--form-group-->
-                                Enter <span class="enqin"> both words </span> below, <span class="enqin">separated by a space.</span> <br>
-                                <span class="regi5"> Can't read the words below?</span> <span class="regi5"><a href="#">Try different words</a> </span> or an  <span class="regi5"><a href="#">audio captcha</a></span>.
-                                <div class="enqin"> </div>
-                                <div class="m10"> <img src="images/capcha.png" alt="capcha"></div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-5">  <label class="enqin" >Text the box</label></div>
-                                        <div class="col-sm-7">  <input type="text" name="box" class="form-control"><div id="id9"></div></div>
-                                    </div>
-                                </div><!--form-group-->
-                                <div class="form-group">
-                                    <span class="regi5"><a href="https://support.google.com/recaptcha/?hl=en#6080904" target="_blank"> What is this ?</a> </span>
-                                </div> <!--form-group-->
+
                                 <div class="form-group">
                                     <input class="btn-blue btn bc submit"  onclick="return requestvalidation();" name="submit" value="Submit" type="submit" >
                                 </div> <!--form-group-->
@@ -407,7 +390,7 @@
                     </div><!--create-job-->
                     <div class="openings">
 
-                        <a  href='' target="_blank"><img src='http://phpscriptsmall.biz/demo/jobsite/images/336x280.png' />Best Jobs Website in Pakistan and India17</a>
+
                     </div><!--openings-->
 
                 </div><!--col-sm-3-->
@@ -419,6 +402,13 @@
 @endsection
 
 @section('js')
+
+    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+
+    <script>
+        $('#lfm').filemanager('image');
+    </script>
+
     <script type="text/javascript">
 
         function rmv_space(val)
