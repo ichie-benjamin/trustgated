@@ -41,7 +41,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resources([
         'countries' => CountryController::class,
         'users' => UsersController::class,
-        'jobs' => JobsController::class,
         'lgas' => LgaController::class,
         'states' => StateController::class,
         'cities' => CityController::class,
@@ -58,7 +57,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'categories' => CategoriesController::class,
         'locations' => LocationController::class,
         'testimonial' => TestimonialController::class,
-        'dbproducts' => DatabaseProductController::class
+        'dbproducts' => DatabaseProductController::class,
+        '/home/jobs' => JobsController::class,
+
     ]);
 
 });

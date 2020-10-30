@@ -314,7 +314,7 @@
                             <h3 class="line5">Customer Support</h3> <span class="icowhite"><i class="fa fa-phone-square"></i></span>
                         </div>
                         <div class="post-job-content">
-                          {!! \App\Models\Page::whereTitle('contact details')->first()->content !!}
+                          {!! optional(\App\Models\Page::whereTitle('contact details')->first())->content !!}
                         </div><!--post-job-content-->
                     </div><!--create-job-->
 

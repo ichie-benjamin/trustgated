@@ -91,8 +91,20 @@ class Job extends Model
     }
 
     public function getLocationsAttribute($value){
-        return json_decode($value) ?: [];
+        if($value){
+            if(is_array($value)){
+                return json_decode($value) ;
+            }else{
+                return  [];
+            }
+        }else{
+            [];
+        }
     }
+
+//    public function getLocationsAttribute($value){
+//        return json_decode($value) ?: [];
+//    }
 
     public function getStatusAttribute(){
         if($this->is_active){
