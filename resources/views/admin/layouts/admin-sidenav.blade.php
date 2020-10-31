@@ -252,6 +252,13 @@
                 <span class="menu-item-label"> Package Purchased</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        <a href="{{ route('admin.v_packages.index') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-box tx-22"></i>
+                <span class="menu-item-label"> Verification Packages</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Employers Access MGT</label>
             <div class="progress ht-5 mg-b-10">
                 <div class="progress-bar bg-success wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>

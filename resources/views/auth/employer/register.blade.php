@@ -6,7 +6,7 @@
         <div class="container">
 
             <ol  class="breadcrumb">
-                <li><a href="#">Home</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
                 <li class="active">Employer Registration</li>
                 <li class=""><a href="{{route('jobseeker.reg')}}">Jobseeker Registration</a></li>
             </ol>

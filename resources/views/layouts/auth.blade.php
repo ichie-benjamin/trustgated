@@ -4,6 +4,22 @@
 
 @include('layouts.partials.head')
 
+<style>
+    .banner-top {
+        background-color: #222845;
+    }
+    #footer {
+        padding: 30px 0 0px;
+        background-color: #222845;
+        color: #d7d7d7;
+    }
+    #footer-bottom {
+        padding: 10px 0;
+        background-color: #222845;
+        color: #d7d7d7;
+    }
+</style>
+
 <body>
 
 
@@ -107,7 +123,7 @@
 @yield('content')
 
 
-    <!-- FOOTER -->
+<!-- FOOTER -->
     <footer>
 
         <div id="footer">
@@ -120,11 +136,11 @@
                         <div class="widget widget-contact">
                             <h4 class="widget-title">Information</h4>
                             <ul>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/aboutus.html" > About Us </a> </li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/terms.html" > Terms & Conditions </a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/privacy-policy.html" > Privacy Policy </a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/contactus.html" > Contact Us </a></li>
-                                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/faq.html" > Help / FAQ </a></li>
+                                <li><a href="{{ route('about') }}" > About Us </a> </li>
+                                <li><a href="{{ route('terms') }}" > Terms & Conditions </a></li>
+                                <li><a href="{{ route('privacy') }}" > Privacy Policy </a></li>
+                                <li><a href="{{ route('contactus') }}" > Contact Us </a></li>
+                                <li><a href="{{ route('faq') }}" > Help / FAQ </a></li>
 
                             </ul>
 
@@ -134,20 +150,16 @@
                     <div class="col-sm-2">
 
                         <div class="widget widget-contact">
-                            <h4 class="widget-title">Jobseekers </h4>
-                            <ul>
-                                <li><a href="jobsseeker-login.html" > Login/Register </a> </li>
-                                <!--<li><a href="#" > Follow Top Recruiters </a></li>
-                                <li><a href="#" > Resume Free Quality Score </a></li>
-                                <li><a href="#" > Career Advice </a></li>
-                                <li><a href="#" > Security Advice </a></li>
-                                <li><a href="#" > Resume Samples </a> </li>
-                                <li><a href="#" > Report a Problem </a></li>-->
-                            </ul>
+                            @guest()
+                                <h4 class="widget-title">Jobseekers </h4>
+                                <ul>
+                                    <li><a href="{{ route('jobseeker.login') }}" > Login/Register </a> </li>
+                                </ul>
+                            @endguest
 
                             <h4 class="widget-title"> Recruiters </h4>
                             <ul>
-                                <li><a href="recruiter-listing.html" > Browse All Recruiters </a> </li>
+                                <li><a href="{{ route('recruiters') }}" > Browse All Recruiters </a> </li>
 
                                 <!--<li><a href="recruiter-listing.html" > Go to OwoRecruiters </a></li>-->
                                 <!--<li><a href="#" > Report a Problem </a></li>-->
@@ -162,14 +174,14 @@
                             <h4 class="widget-title">Browse Jobs</h4>
 
                             <ul>
-                                <li><a href="jobsearch_all.html" > Browse All Jobs </a> </li>
+                                <li><a href="{{ route('all_jobs') }}" > Browse All Jobs </a> </li>
                                 <!--<li><a href="#" > Premium MBA Jobs </a></li>
                                 <li><a href="#" > Premium Engineering Jobs </a></li>-->
-                                <li><a href="jobsearch_all.html?sch=1" > Govt. Jobs </a></li>
-                                <li><a href="jobsearch_all.html?sch=2" > International Jobs </a></li>
-                                <li><a href="job_by_company.html" > Jobs by Company </a> </li>
-                                <li><a href="job_by_category.html" > Jobs by Category </a></li>
-                                <li><a href="job_by_area.html" > Jobs by Location </a></li>
+                                {{--                                <li><a href="jobsearch_all.html?sch=1" > Govt. Jobs </a></li>--}}
+                                {{--                                <li><a href="jobsearch_all.html?sch=2" > International Jobs </a></li>--}}
+                                <li><a href="{{ route('category_job') }}" > Jobs by Company </a> </li>
+                                <li><a href="{{ route('company_job') }}" > Jobs by Category </a></li>
+                                <li><a href="{{ route('job_by_area') }}" > Jobs by Location </a></li>
                             </ul>
 
                         </div><!-- widget-contact -->
@@ -178,19 +190,19 @@
                     <div class="col-sm-2">
 
                         <div class="widget widget-contact">
-                            <h4 class="widget-title">GOVT. JOBS</h4>
-                            <ul>
-                                <li><a href="job_by_location.html?loc=1" > Location </a></li>
-                            </ul>
+                            {{--                            <h4 class="widget-title">GOVT. JOBS</h4>--}}
+                            {{--                            <ul>--}}
+                            {{--                                <li><a href="job_by_location.html?loc=1" > Location </a></li>--}}
+                            {{--                            </ul>--}}
 
-                            <h4 class="widget-title"> Oversea jobs</h4>
-                            <ul>
-                                <li><a href="job_by_location.html?loc=2" > All Countries </a> </li>
-                            </ul>
+                            {{--                            <h4 class="widget-title"> Oversea jobs</h4>--}}
+                            {{--                            <ul>--}}
+                            {{--                                <li><a href="job_by_location.html?loc=2" > All Countries </a> </li>--}}
+                            {{--                            </ul>--}}
 
                             <h4 class="widget-title"> Employers</h4>
                             <ul>
-                                <li><a href="emp_postjob.html" > Post Jobs </a> </li>
+                                <li><a href="{{ route('jobs.create') }}" > Post Jobs </a> </li>
                                 <!--<li><a href="#" > Search Resumes</a> </li>-->
                             </ul>
 
@@ -220,10 +232,10 @@
 
                             <div class="social-media">
 
-                                <a class="facebook" href="http://www.facebook.com" target="_blank"><i class="mt-icons-facebook"></i></a>
-                                <a class="twitter" href="http://www.twitter.com" target="_blank"><i class="mt-icons-twitter"></i></a>
-                                <a class="google" href="http://www.googleplus.com" target="_blank"><i class="mt-icons-google-plus"></i></a>
-                                <a class="linkedin" href="http://www.linkedin.com" target="_blank"><i class="mt-icons-linkedin"></i></a>
+                                <a class="facebook" href="{{ setting('facebook_link') }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a class="twitter" href="{{ setting('twitter_link') }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a class="google" href="{{ setting('google_link') }}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                <a class="linkedin" href="{{ setting('linkedin_link') }}" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </div><!-- social-media -->
                         </div><!-- widget-social -->
                     </div><!-- col -->
@@ -243,7 +255,7 @@
                         <div class="widget widget-text">
 
                             <div  class="copy-right"><p></p>
-                                <!--<p>All rights reserved &copy; 2015 Lead Consulting Group. |  Website Designed by <a target="_blank" href="http://www.phpscriptsmall.com/">Php Scripts Mall Pvt Ltd</a></p>-->
+                                <p>All rights reserved &copy; {{ date('Y') }} {{ setting('site_name') }}</p>
                             </div>
 
                         </div><!-- widget-text -->

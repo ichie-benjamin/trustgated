@@ -4,7 +4,7 @@
 <div id="content">
         <div class="container">
             <ol  class="breadcrumb">
-                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">Home</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
                 <li class="active">Employer's Login</li>
             </ol>
 

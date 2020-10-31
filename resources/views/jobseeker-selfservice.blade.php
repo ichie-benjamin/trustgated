@@ -14,7 +14,15 @@
 <link rel="stylesheet" href="{{ asset('front/css/colors/blue.css') }}">
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 
+    <!-- FAVICONS ICON -->
+    <link rel="icon" href="{{ setting('favicon') }}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ setting('favicon') }}" />
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+
 </head>
 
 <style>
@@ -26,6 +34,20 @@
 
     #footer {
         background-color: #222845!important;
+    }
+
+    .intro-banner .background-image-container {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 100% 60%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        /* left: 10%; */
+        z-index: 10;
+        overflow: hidden;
     }
 
 
@@ -109,6 +131,8 @@
 	<!-- Header / End -->
 
 </header>
+
+
 <div class="clearfix"></div>
 <!-- Header Container / End -->
 
@@ -117,17 +141,17 @@
 <!-- Intro Banner
 ================================================== -->
 <!-- add class "disable-gradient" to enable consistent background overlay -->
-<div class="intro-banner" data-background-image="{{ asset('front/images/home-background.jpg') }}">
+<div class="intro-banner" data-background-image="{{ asset('front/images/home-background.png') }}">
 	<div class="container">
 
 		<!-- Intro Headline -->
 		<div class="row">
 			<div class="col-md-12">
 				<div class="banner-headline">
-					<h3>
-						<strong>Jobseeker Self Service.</strong>
+					<h2>
+						<strong style="color: white">Jobseeker Self Service.</strong>
 
-					</h3>
+					</h2>
 				</div>
 			</div>
 		</div>
@@ -231,7 +255,7 @@
 
 			<div class="col-xl-12">
 				<!-- Section Headline -->
-				<div class="section-headline centered margin-top-0 margin-bottom-35">
+				<div class="section-headline centered margin-top-0 " style="margin-bottom: 75px!important;">
                     <h3 class="text text-warning"><strong>Background Verification</strong></h3>
                     <p>Select one of the Background Verification plans to start verification process.</p>
 				</div>
@@ -240,75 +264,23 @@
 
 			<div class="col-xl-12">
 
-				<!-- Billing Cycle  -->
-				<div class="billing-cycle-radios margin-bottom-70">
-					<div class="radio billed-monthly-radio">
-						<input id="radio-5" name="radio-payment-type" type="radio" checked>
-						<label for="radio-5"><span class="radio-label"></span> Billed Monthly</label>
-					</div>
-
-					<div class="radio billed-yearly-radio">
-						<input id="radio-6" name="radio-payment-type" type="radio">
-						<label for="radio-6"><span class="radio-label"></span> Billed Yearly <span class="small-label">Save 10%</span></label>
-					</div>
-				</div>
-
 				<!-- Pricing Plans Container -->
 				<div class="pricing-plans-container recommended">
 
+                    @foreach($packages as $item)
 					<!-- Plan -->
                     <div class="pricing-plan recommended">
-                        <div class="recommended-badge">Verification Package 1</div>
+                        <div class="recommended-badge">{{ $item->name }}</div>
                         <h4>Job Seeker Self Service</h4>
-                        <p class="margin-top-10">One time fee for one listing or task highlighted in search results.</p>
-                        <div class="pricing-plan-label billed-monthly-label"><strong>$49</strong>/ monthly</div>
-                        <div class="pricing-plan-label billed-yearly-label"><strong>$529</strong>/ yearly</div>
-                        <div class="pricing-plan-features">
-                            <strong>Features of Standard Plan</strong>
                             <ul>
-                                <li>5 Listings</li>
-                                <li>60 Days Visibility</li>
-                                <li>Highlighted in Search Results</li>
+                                <li>{{ $item->employment_verification }} Employment Verification</li>
+                                <li>{{ $item->education_verification }}  Education Verification</li>
+                                <li>{{ $item->reference_verification }}  Reference Verification</li>
                             </ul>
-                        </div>
-                        <a href="pages-checkout-page.html" class="button full-width margin-top-20">Buy Now</a>
+                        <a href="{{ route('background-verification') }}" class="button full-width margin-top-20">Buy Now</a>
                     </div>
 
-					<!-- Plan -->
-					<div class="pricing-plan recommended">
-						<div class="recommended-badge">Verification Package 2</div>
-						<h3>Standard Plan</h3>
-						<p class="margin-top-10">One time fee for one listing or task highlighted in search results.</p>
-						<div class="pricing-plan-label billed-monthly-label"><strong>$49</strong>/ monthly</div>
-						<div class="pricing-plan-label billed-yearly-label"><strong>$529</strong>/ yearly</div>
-						<div class="pricing-plan-features">
-							<strong>Features of Standard Plan</strong>
-							<ul>
-								<li>5 Listings</li>
-								<li>60 Days Visibility</li>
-								<li>Highlighted in Search Results</li>
-							</ul>
-						</div>
-						<a href="pages-checkout-page.html" class="button full-width margin-top-20">Buy Now</a>
-					</div>
-
-					<!-- Plan -->
-                    <div class="pricing-plan recommended">
-                        <div class="recommended-badge">Verification Package 3</div>
-                        <h3>Standard Plan</h3>
-                        <p class="margin-top-10">One time fee for one listing or task highlighted in search results.</p>
-                        <div class="pricing-plan-label billed-monthly-label"><strong>$49</strong>/ monthly</div>
-                        <div class="pricing-plan-label billed-yearly-label"><strong>$529</strong>/ yearly</div>
-                        <div class="pricing-plan-features">
-                            <strong>Features of Standard Plan</strong>
-                            <ul>
-                                <li>5 Listings</li>
-                                <li>60 Days Visibility</li>
-                                <li>Highlighted in Search Results</li>
-                            </ul>
-                        </div>
-                        <a href="pages-checkout-page.html" class="button full-width margin-top-20">Buy Now</a>
-                    </div>
+                    @endforeach
 				</div>
 
 			</div>

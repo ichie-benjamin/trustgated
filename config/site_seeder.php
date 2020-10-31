@@ -18,6 +18,9 @@ return [
         'countries' => [
             'Bangladesh','India','Pakistan'
         ],
+        'v_packages' => [
+            1,2,3
+        ],
         'states' => ['Delhi'],
         'basic_edu' => [
             'B Com',

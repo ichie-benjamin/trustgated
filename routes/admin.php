@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\admin\VerificationPackageController;
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\CountryController;
@@ -58,6 +59,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'locations' => LocationController::class,
         'testimonial' => TestimonialController::class,
         'dbproducts' => DatabaseProductController::class,
+        'v_packages' => VerificationPackageController::class,
         '/home/jobs' => JobsController::class,
 
     ]);

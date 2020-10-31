@@ -24,10 +24,10 @@ Route::post('/payment/store', 'PaymentController@store')->name('payment.store');
 
 
 
-Route::view('jobseeker-self-service', 'jobseeker-selfservice');
-Route::view('background-verification', 'background-verification');
-Route::view('background-verification-2', 'background-verification2');
-Route::view('background-verification-3', 'background-verification3');
+Route::get('jobseeker-self-service', [HomeController::class, 'jobseekerSelfservice'])->name('selfservice');
+Route::view('background-verification', 'background-verification')->name('background-verification');
+Route::view('background-verification/2', 'background-verification2')->name('background-verification-2');
+Route::view('background-verification/3', 'background-verification3')->name('background-verification-3');
 
 
 Route::post('/advance_search',[JobsController::class, 'advanceSearch'])->name('advance_search');

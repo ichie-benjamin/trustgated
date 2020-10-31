@@ -15,6 +15,7 @@ use App\Models\Job;
 use App\Models\Page;
 use App\Models\Products;
 use App\Models\User;
+use App\Models\VerificationPackage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,10 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
+    public function jobseekerSelfservice(){
+        $packages = VerificationPackage::all();
+        return view('jobseeker-selfservice', compact('packages'));
+    }
     public function AssignPackage(){
         $users = User::whereRoleIs('employer')->get();
         $product = Products::whereName('Free')->first();

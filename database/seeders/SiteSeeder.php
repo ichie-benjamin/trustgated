@@ -15,6 +15,7 @@ use App\Models\Location;
 use App\Models\Page;
 use App\Models\Products;
 use App\Models\State;
+use App\Models\VerificationPackage;
 use Illuminate\Database\Seeder;
 
 class SiteSeeder extends Seeder
@@ -36,6 +37,7 @@ class SiteSeeder extends Seeder
         $ads = config('site_seeder.tables.ads');
         $cms = config('site_seeder.tables.cms');
         $basic_edu = config('site_seeder.tables.basic_edu');
+        $v_packages = config('site_seeder.tables.v_packages');
 
 
         foreach ($f_arease as $item) {
@@ -111,6 +113,19 @@ class SiteSeeder extends Seeder
                 EducationDetails::create([
                     'name' => $item,
                     'category' => "under_graduate",
+                ]);
+            }
+        }
+        foreach ($v_packages as $item) {
+            $name = 'Verification Package '. $item;
+            $amount = $item * 1000;
+            if (VerificationPackage::where('name', '=', $name)->first() === null) {
+                VerificationPackage::create([
+                    'name' => $name,
+                    'employment_verification' => $item,
+                    'education_verification' => $item,
+                    'reference_verification' => $item,
+                    'amount' => $amount
                 ]);
             }
         }
