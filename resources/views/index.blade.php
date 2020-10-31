@@ -129,7 +129,7 @@
 					<div class="find-job-bx">
 											<!--<a href="#" class="site-button button-sm">Find Jobs, Employment & Career Opportunities</a>
 						<h2>Search Between More Then <br/> <span class="text-primary">50,000</span> Open Jobs.</h2>-->
-						<h2>Search Between More Than&nbsp;<br/><span>50,000</span>&nbsp;Open Jobs.</h2>
+						<h2 class="text-center">Search Between More Than&nbsp;<br/><span>50,000</span>&nbsp;Open Jobs.</h2>
                         <form class="dezPlaceAni" action="{{ route('jobsearch') }}" method="GET">
 							<div class="row">
 								<div class="col-lg-3 col-md-6">
