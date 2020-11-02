@@ -59,7 +59,41 @@ Route::Resources(['job_alerts' => JobAlertController::class]);
 Route::group(['prefix' => 'jobseeker','middleware' => ['verified','auth','role:jobseeker|admin']], function () {
 
     Route::get('/profile', [JobseekerController::class, 'profile'])->name('jobseeker.profile');
+    Route::get('/manage/employers', [JobseekerController::class, 'employers'])->name('jobseeker.manage.employers');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::get('/edit-employee/{id}', [JobseekerController::class,'editEmployee'])->name('edit_emp');
+    Route::post('/delete-employee/{id}', [JobseekerController::class,'deleteEmployer'])->name('delete_emp');
+
+    Route::post('/job/apply', [JobsController::class,'apply'])->name('job.apply');
+
+
+
+});
+
+
+Route::group(['middleware' => ['verified','auth']], function () {
+
+    Route::post('/user/update/resume', [UsersController::class, 'updateResume'])->name('user.update.resume');
+    Route::post('/user/create/employer', [UsersController::class, 'storeEmployer'])->name('user.create.employer');
+
+    Route::post('/user/update/account', [UsersController::class, 'update'])->name('user.account.update');
+    Route::post('/user/update/summary', [UsersController::class, 'updateSummary'])->name('user.account.summary');
+    Route::post('/user/update/more', [UsersController::class, 'updateMore'])->name('user.update.more');
+
+    Route::post('/user/update/itskills', [UsersController::class, 'updateItskills'])->name('user.update.itskills');
+
+    Route::post('/user/update/avatar', [UsersController::class, 'updateAvatar'])->name('user.update.avatar');
+    Route::post('/user/update/visibility', [UsersController::class, 'updateVisibility'])->name('user.update.visibility');
+
+    Route::get('/edit-summary-info', [UsersController::class,'editSummary'])->name('edit_summary');
+    Route::get('/create-employee', [JobseekerController::class,'createEmployee'])->name('create_emp');
+    Route::get('/edit-resume-detail', [JobseekerController::class,'editResume'])->name('edit_resume_det');
+    Route::get('/itskills', [JobseekerController::class,'itSkills'])->name('itskills');
+    Route::get('/educationdetails', [JobseekerController::class,'eduDetails'])->name('educational_details');
+    Route::get('/moredetails', [JobseekerController::class,'moredetails'])->name('moredetails');
+    Route::get('/jobseeker-profile-edit', [JobseekerController::class,'profileEdit'])->name('jobseeker-edit');
+
 });
 
 Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:employer|admin']], function () {
@@ -111,13 +145,7 @@ Route::get('/jobs/{type}', [JobsController::class,'jobType'])->name('job.type');
 Route::get('/{company}/jobs', [JobsController::class,'CompanyJobs'])->name('company.jobs');
 Route::get('/contact-us', [HomeController::class,'contactus'])->name('contactus');
 
-Route::get('/edit-summary-info', [UsersController::class,'editSummary'])->name('edit_summary');
-Route::get('/create-employee', [JobseekerController::class,'createEmployee'])->name('create_emp');
-Route::get('/edit-resume-detail', [JobseekerController::class,'editResume'])->name('edit_resume_det');
-Route::get('/itskills', [JobseekerController::class,'itSkills'])->name('itskills');
-Route::get('/educationdetails', [JobseekerController::class,'eduDetails'])->name('educational_details');
-Route::get('/moredetails', [JobseekerController::class,'moredetails'])->name('moredetails');
-Route::get('/jobseeker-profile-edit', [JobseekerController::class,'profileEdit'])->name('jobseeker-edit');
+
 
 Route::get('/job-agent-view', [JobsController::class,'jobAgentView'])->name('job_agent_view');
 Route::get('/quicksearch', [JobsController::class,'quickSearch'])->name('quicksearch');

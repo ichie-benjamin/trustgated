@@ -15,7 +15,7 @@
 
 
     <!-- FAVICON AND APPLE TOUCH -->
-    <link rel="shortcut icon" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/asset/images/favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-180x180.png">
 
     <!-- FONTS -->
@@ -56,6 +56,7 @@
     <!-- CUSTOM & PAGES STYLE -->
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/custom.css">
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/pages-style.css">
+
     <style>
 
         ul.acc li {
@@ -104,236 +105,815 @@
     </style>
 
 </head>
-<script type="text/javascript">
-    function chkempty()
-    {
-        if(tinyMCE.get("job_desc").getContent())
-        {
 
-            var idddd = "job_desc";
-            alert(job_desc);
-            chkkabuse();
-
-
-        }
-    }
-
-    function chkkabuse(txtid)
-    {
-
-        var idd = txtid;
-        //alert(idd);
-        var textval =document.getElementById(idd).value;
-        //alert(textval);
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                //alert(xmlhttp.responseText);
-
-                //alert(xmlhttp.responseText);
-                if(xmlhttp.responseText==0)
-                {
-
-                    document.getElementById("name1").innerHTML="<font color='red' style='font-size:12px;'>Don't use abuse words,  </font> ";
-
-                    //document.getElementById('name').focus();
-                    document.getElementById('txtid').value="";
-                }
-                else
-                {
-                    document.getElementById("name1").innerHTML="<font color='#009966' style='font-size:12px;'>good</font>";
-                }
-            }
-        }
-        xmlhttp.open("GET","chkabuse.php?q="+textval,true);
-        xmlhttp.send();
-
-
-    }
-</script>
-<script type="text/javascript">
-    function send_mail(rec_name,rec_mail){
-        document.getElementById('recname').value=rec_name;
-        document.getElementById('recmail').value=rec_mail;
-    }
-</script>
 <body>
-
-<div class="modal fade" id="recruiter-listing-send-message" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: #017BC6; text-align:center;">
-                <button type="button" style="color:#FFF;" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 style="color:#FFF; font-weight:bold;" class="modal-title" id="exampleModalLabel">Send Message To : <input class="btn" type="text" style="font-weight:bold; font-size:16px;" id="recname" readonly></h4>
-            </div>
-            <form action="" method="post">
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="recipient-name" class="control-label">Email ID:</label>
-                        <input type="text" class="form-control" id="recipient-name" name="recipient-name" value="Varsha@gmail.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="control-label">Message:</label>
-                        <textarea class="form-control" id="message-text" name="message-text"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sub-text" class="control-label">Subject:</label>
-                        <textarea class="form-control" id="sub-text" name="sub-text"></textarea>
-                    </div>
-
-                    <input type="hidden" id="recmail" name="recmail"/>
-                </div>
-                <div class="modal-footer">
-
-                    <input type="submit" class="btn-blue btn bc" name="send_mail" value="Send message"/>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 
 <div id="page-wrapper">
 
     <!-- HEADER -->
+    <header>
+        <div id="header-top" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <!-- LOGO -->
+                        <a id="logo" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">
+                            <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="enterprenuer.com">
+                        </a>
+                    </div><!-- col -->
+                    <div class="col-sm-4">
 
-    <div id="header-top" >
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <!-- LOGO -->
-                    <a id="logo" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">
-                        <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/images/logo-1565092795.png" alt="enterprenuer.com">
-                    </a>
-                </div><!-- col -->
-                <div class="col-sm-4">
-                </div><!-- col -->
+                    </div><!-- col -->
+                    <div class="col-sm-5 logme">
+                        <div class="widget widget-pages">
+                            <ul >
+                                <div class="dropdown2">
+                                    <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-profile.html" class="dropbtn2"><i class="fa fa-lock"></i> <strong> Varsha..</strong></a></li>
+                                    <div class="dropdown-content2">
+                                        <a href="jobseeker-profile-edit.php">Edit Profile</a>
+                                        <a href="save-jobs.php">Saved Jobs</a>
+                                        <a href="changepasswordseeker.php">Change Password</a>
 
-                <div class="col-sm-5 logme">
-                    <div class="widget widget-pages">
-                        <ul>
-                            <li>
-                                <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-profile.html">
-                                    <i class="fa fa-user"></i> <strong> Varsha</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout.php">
-                                    <!--<i class="fa fa-pencil-square-o"></i>-->
-                                    <i class="fa fa-sign-out"></i>
-                                    Logout
-                                </a>
-                            </li>
+                                    </div>
+                                </div>
+                                <li> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout.php"><i class="fa fa-sign-out"></i>Logout</a></li>
 
-                        </ul>
+                                <!--<li>
+                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-profile.html">
+                                      <i class="fa fa-user"></i> <strong> Varsha..</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout.php">
+                                        <!--<!--<i class="fa fa-pencil-square-o"></i>-->
+                                <!--<i class="fa fa-sign-out"></i>
+                                  Logout
+                            </a>
+                        </li>-->
+
+                            </ul>
+
+                        </div><!-- widget-pages -->
+
+
+                    </div><!-- col -->
+                </div><!-- row -->
+            </div><!-- container -->
+        </div><!-- header-top -->
+        <div class="banner-top">	 			<div id="header" >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- MENU -->
+                            <nav>
+                                <a id="mobile-menu-button" href="#"><i class="mt-icons-menu"></i></a>
+                                <ul class="menu clearfix" id="menu">
+                                    <!--<li class=" active"><a href="index.html"><i class="fa fa-user"></i> Home</a></li>
+                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/searchall.html"><i class="fa fa-users"></i> Search Jobs</a></li>
+                                    <li ><a href="index.html"><i class="fa fa-university"></i> My Account</a></li>
+                                    <li ><a href="index.html"><i class="fa fa-globe"></i> Institute</a></li>
+                                    <li ><a href="index.html"><i class="fa fa-briefcase"></i> Career Services</a></li>
+                                    <li  class="dropdown" ><a href="index.html"><i class="fa fa-plus-circle"></i> More</a>
+                                        <ul >
+											<li><a href="#">Help / FAQ</a></li>
+											<li><a href="#">Career Advice</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+										</ul>
+                                    </li>-->
+                                    <li><a href="jobseeker-profile.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/job-seeker-icon.png" /> Jobseekers</a></li>
+                                    <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/searchall.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-icon.png" /> Jobs</a></li>
+                                    <li ><a href="jobsearch_all.php?sc=1"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/govt-jobs-icon.png" /> Govt.jobs</a></li>
+                                    <li ><a href="jobsearch_all.php?sc=2"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/oversea-jobs-icon.png" /> Oversea jobs</a></li>
+                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/recruiter-listing.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/recruiters-icon.png" /> Recruiters</a></li>
+                                    <li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/employers-icon.png" /> Employers</a></li>
+                                    <li ><a href="contactus.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/services-icon.png" /> Contact us</a></li>
+
+
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div><!-- col -->
+                    </div><!-- row -->
+                </div><!-- container -->
+            </div><!-- header -->
+            <!-- SEARCH-start -->
+
+            <div class="container hometom">
+                <div class="row">
+                    <div class="col-sm-12" >
+
+                        <!--<div class="col-sm-1" ></div>-->
+                        <div class="col-sm-12" >
+                            <form class="form-inline" action="jobsearch.php" name="homeadvancesearch" method="GET">
+
+                                <div class="form-group serww"><input class="form-control2 " id="keyword" name="refkeyword" type="text"  placeholder="Keywords, Skills, Designation" value=''></div>
+                                <div class="form-group"> <input class="form-control2 " id="location" autocomplete="off" name="reflocation"  type="text" value='' placeholder="Location"></div>
+                                <div class="form-group">
+                                    <select id="category" name="category" class="form-control2 ">
+                                        <option value="">select industry</option>
+                                        <option value="56"  >Construction</option>
+                                        <option value="53"  >IT - BPO</option>
+                                        <option value="50"  >IT-ERP-Oracle</option>
+                                        <option value="42"  >KPO/Technical Support</option>
+                                        <option value="34"  >Law Enforcement/Security</option>
+                                        <option value="35"  >Legal/Law</option>
+                                        <option value="55"  >Management</option>
+                                        <option value="36"  >Marketing/Sales</option>
+                                        <option value="52"  >mech</option>
+                                        <option value="51"  >Media </option>
+                                        <option value="37"  >Media/Journalism</option>
+                                        <option value="54"  >NGO/Social Services</option>
+                                        <option value="45"  >Others</option>
+                                        <option value="38"  >Production/Manufacturing/Maintenance</option>
+                                        <option value="44"  >Strategy / Management Consulting Firms</option>
+                                        <option value="46"  >test cate</option>
+                                        <option value="40"  >Tours and Travel/Airline</option>
+                                        <option value="41"  >Transportation/Logistics</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select id="experience" name="experience" class="form-control2 " >
+                                        <option value="">Experience</option>
+                                        <option value="1" >0 to 1 Year</option>
+                                        <option value="2" >2 Years</option>
+                                        <option value="3" >3 Years</option>
+                                        <option value="4" >4 Years</option>
+                                        <option value="5" >5 Years</option>
+                                        <option value="6" >6 Years</option>
+                                        <option value="7" >7 Years</option>
+                                        <option value="8" >8 Years</option>
+                                        <option value="9" >9 Years</option>
+                                        <option value="10" >10 Years</option>
+                                        <option value="15" >15 Years</option>
+                                        <option value="20" >20 Years</option>
+                                    </select>
+                                    <!--<input  class="form-control2 input-lg" type="text" name="exp" placeholder="Experience">--></div>
+                                <div class="form-group text-center"><button  class="search-btn btn-lg btn-block"  id="homeadvsearch" type="submit" name="homeadvsearch" value="Search"> <img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/search-icon.png" /> Search</button>
+                                    <!--<span class="avd"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" >Advanced Search</a></span>-->
+                                    <span class="avd"><a href="advancesearch.html">Advanced Search</a></span>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
+            </div>            <!--SEARCH-end -->
+            <div id="header-bottom" class="hea" >
+                <div class="container">
+                    <div class="col-sm-12">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span ><i class="fa fa-bars fa-2"></i></span>
+                            </button>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                            <ul class="nav navbar-nav navbar-left  clearfix sss">
+                                <li>Browse jobs :</li>
+                                <li class="active"><a href="jobsearch_all.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/all-jobs-icon.png" /> All jobs</a></li>
+                                <li class=""><a href="job_by_company.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-company-icon.png" /> Job by Company</a></li>
+                                <li class=""><a href="job_by_category.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-category-icon.png" /> Job by Category</a></li>
+                                <li class=""><a href="job_by_area.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-by-location-icon.png" /> Job by Location</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div> <!--col-sm-12-->
+                </div><!--container-->
+            </div><!--header-bottom-->          </div>  <!--banner-top-->
+    </header>
+
+    <!-- HEADER -->
 
 
-                <!-- <div class="text-right botlink5"><a href="#">Job Seeker? Click here</a>  |  Report a Problem</div>-->
-            </div><!-- row -->
-        </div><!-- container -->
-    </div><!-- header-top -->
-    <div id="header" >
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <!-- MENU -->
-                    <nav>
-                        <a id="mobile-menu-button" href="#"><i class="mt-icons-menu"></i></a>
-                        <ul class="menu clearfix" id="menu"><!--class="fa fa-user"-->
 
-                            <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/home.png" /> Home</a></li>
-                            <li ><a href="jobsseeker-login.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/job-seeker-icon.png" /> Jobseekers</a></li>
-                            <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/searchall.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-icon.png" /> Jobs</a></li>
-                            <li ><a href="jobsearch_all.html?sch=4"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/govt-jobs-icon.png" /> IIT/IIM jobs</a></li>
-                            <li ><a href="jobsearch_all.html?sch=1"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/govt-jobs-icon.png" /> Govt.jobs</a></li>
-                            <li ><a href="jobsearch_all.html?sch=2"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/oversea-jobs-icon.png" /> Oversea jobs</a></li>
-                            <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/recruiter-listing.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/recruiters-icon.png" /> Recruiters</a></li>
-                            <!--<li><a href="faq.html">Help / FAQ</a></li>-->
-                            <li  ><a href="contactus.html">Contact</a></li>
-                            <!--<li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/employers-icon.png" /> Employers</a></li>
-                            <li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/services-icon.png" /> Services</a></li>-->
-                            <!--<li  class="dropdown" ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/more-icon.png" /> More</a>
-                                <ul >
-                                    <li><a href="faq.html">Help / FAQ</a></li>
-                                    <li><a href="#">Career Advice</a></li>
-                                    <li><a href="contactus.html">Contact Us</a></li>
-                                </ul>
-                            </li>-->
-                            <!--<li ><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-                            <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/searchall.html"><i class="fa fa-briefcase"></i> Search Jobs </a></li>
-                            <li ><a href="index.html"><i class="fa fa-briefcase"></i> Jobs</a></li>
-                            <li ><a href="index.html"><i class="fa fa-university"></i> Govt.jobs</a></li>
-                            <li ><a href="index.html"><i class="fa fa-globe"></i> Oversea jobs</a></li>
-                            <li  ><a href="recruiter-listing.html"><i class="fa fa-users"></i> Recruiters</a></li>
-                           <!-- <li ><a href="index.html"><i class="icon-user4"></i> Employers</a></li>
-                            <li ><a href="index.html"><i class="fa fa-cogs"></i> Services</a></li>-->
-                            <!--<li ><a href="index.html" ><i class="fa fa-plus-circle"></i> More</a></li>-->
-                        </ul>
-                    </nav>
-                </div><!-- col -->
-            </div><!-- row -->
-        </div><!-- container -->
-    </div><!-- header -->
 
     <!-- CONTENT -->
     <div id="content">
         <div class="container">
-
-
-
-            <ol  class="breadcrumb">
-                <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">Home</a></li>
-                <li class="active">Terms and Conditions</li>
-            </ol>
-
-
-
             <div class="row">
-                <div class="col-sm-9" >
-                    <div class="top-emp-center p5">
-                        <h4>Terms and Conditions</h4>
-                    </div>
-                    <p><strong>Job Seekers</strong><br /><br />12daybiz FastForward Services / Resume Posting / Submission of Resume / Resume Upload / Resume Manager<br />2.Resume Display<br />3.Resume Flash<br />4.Resume Writing<br />5.Jobs on the Move<br />6.Job Mail<br />7.RSS (Really Simple Syndication)<br />8.2daybiz Toolbar<br />9.Applications by Non Registered Users<br />10.2daybiz.com Security Center</p><p><strong>Recruiters</strong></p><p>1.Classified Job listing (single)</p><p>2.Classified Subscriptions for various period</p><p>3.Hot Vacancies (single)</p><p>4.Job Search &amp; Resume Services on SMS</p><p>5.Hot Vacancies Subscriptions</p><p>6.Job Gallery</p><p>7.Best Places to Work<br />8.Manual Shortlisting<br />9.Display of Banners<br />10.e-Apps<br />11.Resdex<br />12.Insta Hire<br />13.Resume Showcase<br /><br />The site is a public site with free access and Info Edge assumes no liability for the quality and genuineness of responses. Info Edge (India) Ltd. cannot monitor the responses that a person may receive in response to information he/she has displayed on the site. The individual/company would have to conduct its own background checks on the bonafide nature of all response(s).<br /><br />Info Edge (India) Ltd. will not be liable on account of any inaccuracy of information on this web site. It is the responsibility of the visitor to further research the information on the site. Any breach of privacy or of the information provided by the consumer to Info Edge (India) Ltd. to be placed on the website by technical or any other means is not the responsibility of Info Edge (India) Ltd. Info Edge (India) Ltd. does not guarantee confidentiality of information provided to it by any person acquiring/using all/any information displayed on the 2daybiz.com website or any of its other websites / domains owned and operated by Info Edge (India) Ltd.<br /><br />Info Edge (India) Ltd. does not share personally identifiable data of any individual with other companies / entities without obtaining permission except with those acting as our agents.. Info Edge (India) Ltd. shall share all such information that it has in its possession in response to legal process, such as a court order or subpoena. The user shall not utilize the services offered by 2daybiz.com/IEIL in any manner so as to impair the interests and functioning of 2daybiz.com/IEIL. The user undertakes not to duplicate, download publish, modify and distribute material on 2daybiz.com unless specifically authorized by IEIL in this regard. The user undertakes not to establish any deep link or other connection to any specific page of 2daybiz.com other than the Home Page without obtaining prior consent of IEIL.<br /><br />The user undertakes to use 2daybiz.com for his/her own purposes. Using content from 2daybiz.com for derivative works with a commercial motive without prior written consent from IEIL is strictly prohibited.<br /><br />2daybiz.com uses technological means to exclude Robots etc from crawling the website and scraping content. The user undertakes not to circumvent these methods.<br /><br />Users undertake that the services offered by 2daybiz.com/ IEIL shall not be utilized to upload, post, email, transmit or otherwise make available either directly or indirectly, any unsolicited bulk e-mail or unsolicited commercial e-mail. IEIL reserves the right to filter and monitor and block the emails sent by you/user using the servers maintained by IEIL to relay emails. All attempts shall be made by IEIL and the user to abide by Inteational Best Practices in containing and eliminating Spam.</p><p>&nbsp;</p>
+                <div class="col-md-0"></div>
+                <div class="col-md-11">
+                    <ol class="breadcrumb">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="jobseeker-profile.html">My Account</a></li>
+                        <li class="active">Edit Details</li>
+                    </ol>
+                </div>
+                <div class="col-md-3">
 
 
-                </div><!--col-sm-9-->
 
-                <div class="col-sm-3" >
+
+
 
                     <div class="create-job">
                         <div class="create-job-head">
-                            <h3> Press Releases </h3>
+                            <h3> My Home</h3>
                         </div>
                         <div class="create-job-content">
-                            <p class="press-p">Lorem Ipsum is simply text of the printing and industry. Lorem Ipsum has been the industry's standard... </p>
-                            <p class="press-date"> October 15, 2015</p>
+                            <div class="inbox-bg">Inbox</div>
+                            <div class="inboxa"><a href="jobseeker-profile-edit.html">Improve Your Profile</a></div>
+                            <!--<div class="inboxa"><a href="#">Recruiter Messages (4)</a></div>-->
 
-                            <p class="press-p">Lorem Ipsum is simply text of the printing and industry. Lorem Ipsum has been the industry's standard...  </p>
-                            <p class="press-date">July 17, 2015 </p>
+                            <div class="inbox-bg">Profile</div>
+                            <div class="inboxa"><a href="jobseeker-profile.html">View Profile</a></div>
+                            <div class="panel-titlea">
+                                <a class="" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
+                                    Update Profile
+                                </a>
+                            </div>
+                            <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"  aria-expanded="true">
+                                <ul class="togg">
+                                    <li><a href="edit_objective_det.php">Summary Details</a></li>
+                                    <!--<li><a href="edit_contact.html">Contact Details </a></li>-->
+                                    <li><a href="create_emp.php">Employer/Designation</a></li>
+                                    <li><a href="edit_resume_det.php">Update Resume</a></li>
+                                    <li><a href="itskills.php">IT Skills</a></li>
+                                    <li><a href="educationdetails.php">Education</a></li>
+                                    <li><a href="moredetails.php">More Details</a></li>
+                                </ul>
+                            </div>
+                            <!--<div class="inboxa"><a href="#">Create/Manage Profiles</a></div>
+                            <div class="inboxa"><a href="#">Profile Performance</a></div>-->
+                            <!--<div class="inboxa"><a href="coverletter.php">Manage Cover Letters</a></div>-->
+                            <div class="inboxa"> <a href="jobseeker-profile.php?upl">Upload Photo</a></div>
 
-                            <p class="press-p">Lorem Ipsum is simply text of the printing and industry. Lorem Ipsum has been the industry's standard...   </p>
-                            <p class="press-date">July 10, 2015</p>
+                            <div class="inboxa"><a href="job_agent_view.php">Manage Search Agents</a></div>
+                            <div class="inbox-bg">Jobs & Applications</div>
+                            <!--<div class="inboxa"><a href="save-jobs.php">Saved Jobs</a></div>-->
+                            <div class="inboxa"><a href="application-history.php">Application History</a></div>
+                            <div class="inbox-bg">Recruiters</div>
+                            <div class="inboxa"><a href="jobs-update.php?updates"> Jobs & Updates</a></div>
+                            <div class="inboxa"><a href="manage_follow.php">Manage Following</a></div>
+                            <div class="inboxa"><a href="follow.php">RecruiterConnection</a></div>
+                            <div class="inbox-bg">Settings</div>
+                            <div class="inboxa"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg1">Visibility Settings</a></div>
+                            <!--<div class="inboxa"><a href="profile_visibility.php">Visibility Settings</a></div>-->
+                            <!-- <div class="inboxa"><a href="communication-settings.php">Communication Settings</a></div>-->
+                            <div class="inboxa"><a href="block-companies.php">Block Companies</a></div>
+                            <div class="inboxa"><a href="changepasswordseeker.html">Change Password</a></div>
+                        </div><!--create-job-content-->
 
-                            <div class="ali-right"> <input class="btn-blue btn" value="View All" type="button"></div>
-                        </div>
                     </div><!--create-job-->
-                    <div class="press-banner img-responsive"><img src="images/agency.jpg" alt="agency" ></div>
-                </div><!--col-sm-3-->
 
+
+                </div><!--col-sm-2-->
+
+                <div class="col-md-9" >
+                    <div class="top-emp-center">
+                        <h4>Edit Education Details</h4>
+                    </div> <!--top-emp-center-->
+                    <form class="form-horizontal m10" name="myform">
+                        <div class="row" >
+                            <div class="col-sm-11" >
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Basic/Graduation:</label>
+                                    <div class="col-sm-8">
+                                        <select name="basicug" id="basicug" class="form-control">
+                                            <option value="">select</option>
+
+                                            <option value='43' selected>B.E/ B. Tech</option>
+
+                                            <option value='44' >mm</option>
+
+                                            <option value='45' >B.Sc</option>
+
+                                            <option value='47' >Diplomo</option>
+
+                                            <option value='48' >HSC</option>
+
+                                            <option value='49' >SSLC</option>
+
+                                            <option value='51' >php</option>
+
+                                            <option value='52' >MBBS</option>
+
+                                            <option value='53' >BA</option>
+
+                                            <option value='54' >B Com</option>
+
+                                            <option value='55' >B Ed</option>
+
+                                            <option value='56' >BBA</option>
+
+                                            <option value='57' >BAMS</option>
+
+                                            <option value='58' >BHMS</option>
+
+                                            <option value='59' >Others</option>
+
+                                            <option value='60' >ICMA</option>
+
+                                            <option value='61' >M.Com</option>
+
+                                        </select>
+
+                                    </div>
+                                    <div>
+                                        <span id="companyInfo"></span>
+                                    </div>
+                                </div><!--form-group-->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star"></span></label>
+                                    <div class="col-sm-8">
+
+                                        <label class="radio-inline">
+                                            <input type="radio" name="basicstatus" id="basicstatus1" value="1" />&nbsp;Full Time
+                                        </label>
+
+
+                                        <label class="radio-inline">
+                                            <input type="radio" name="basicstatus" id="basicstatus2" value="2" />&nbsp;Part Time
+                                        </label>
+
+
+                                        <label class="radio-inline">
+                                            <input type="radio" name="basicstatus" id="basicstatus3" value="3"
+                                            />&nbsp;Correspondence/Distance Learning
+                                        </label>
+
+
+
+                                    </div>
+
+
+                                </div><!--col-md-6-->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Specialization:</label>
+
+                                    <div class="col-sm-8">
+                                        <input type="text" name="ugspec" id="ugspec" class="form-control " placeholder="" value=""/>
+
+
+
+                                    </div><!--col-sm-6-->
+
+
+
+                                    <div>
+                                        <span id="durationInfo"></span>
+                                    </div>
+                                </div><!--form-group-->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>University/Institute:</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="ugcoll" id="ugcoll" class="form-control " placeholder="" value=""/>
+
+                                    </div>
+                                    <div>
+                                        <span id="desigInfo"></span>
+                                    </div>
+                                </div><!--form-group-->
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Year :</label>
+                                    <div class="col-sm-8">
+                                        <select name="ugyear" id="ugyear" class="form-control">
+                                            <option value="">select</option>
+                                            <option value='1960' >1960</option>
+                                            <option value='1961' >1961</option>
+                                            <option value='1962' >1962</option>
+                                            <option value='1963' >1963</option>
+                                            <option value='1964' >1964</option>
+                                            <option value='1965' >1965</option>
+                                            <option value='1966' >1966</option>
+                                            <option value='1967' >1967</option>
+                                            <option value='1968' >1968</option>
+                                            <option value='1969' >1969</option>
+                                            <option value='1970' >1970</option>
+                                            <option value='1971' >1971</option>
+                                            <option value='1972' >1972</option>
+                                            <option value='1973' >1973</option>
+                                            <option value='1974' >1974</option>
+                                            <option value='1975' >1975</option>
+                                            <option value='1976' >1976</option>
+                                            <option value='1977' >1977</option>
+                                            <option value='1978' >1978</option>
+                                            <option value='1979' >1979</option>
+                                            <option value='1980' >1980</option>
+                                            <option value='1981' >1981</option>
+                                            <option value='1982' >1982</option>
+                                            <option value='1983' >1983</option>
+                                            <option value='1984' >1984</option>
+                                            <option value='1985' >1985</option>
+                                            <option value='1986' >1986</option>
+                                            <option value='1987' >1987</option>
+                                            <option value='1988' >1988</option>
+                                            <option value='1989' >1989</option>
+                                            <option value='1990' >1990</option>
+                                            <option value='1991' >1991</option>
+                                            <option value='1992' >1992</option>
+                                            <option value='1993' >1993</option>
+                                            <option value='1994' >1994</option>
+                                            <option value='1995' >1995</option>
+                                            <option value='1996' >1996</option>
+                                            <option value='1997' >1997</option>
+                                            <option value='1998' >1998</option>
+                                            <option value='1999' >1999</option>
+                                            <option value='2000' >2000</option>
+                                            <option value='2001' >2001</option>
+                                            <option value='2002' >2002</option>
+                                            <option value='2003' >2003</option>
+                                            <option value='2004' >2004</option>
+                                            <option value='2005' >2005</option>
+                                            <option value='2006' >2006</option>
+                                            <option value='2007' >2007</option>
+                                            <option value='2008' >2008</option>
+                                            <option value='2009' >2009</option>
+                                            <option value='2010' >2010</option>
+                                            <option value='2011' >2011</option>
+                                            <option value='2012' >2012</option>
+                                            <option value='2013' >2013</option>
+                                            <option value='2014' >2014</option>
+                                            <option value='2015' >2015</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <span id="jobInfo"></span>
+                                    </div>
+                                </div><!--form-group-->
+
+
+
+                                <div class="form-group" id="notice1" >
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right">Post/Graduation:</label>
+                                        <div class="col-sm-8">
+                                            <select name="postpg" id="postpg" class="form-control">
+                                                <option value="">select</option>
+
+                                                <option value='41' >M.A</option>
+
+                                                <option value='42' >M.Arch</option>
+
+                                                <option value='43' >MBA / PGDM / PGDBA</option>
+
+                                                <option value='45' >MCA/PGDCA</option>
+
+                                                <option value='46' >MCM</option>
+
+                                                <option value='47' >M.Com</option>
+
+                                                <option value='48' >M.D/Ms</option>
+
+                                                <option value='49' >M.E/M Tech</option>
+
+                                                <option value='52' >M.H.R.M</option>
+
+                                                <option value='56' >M.P.Ed</option>
+
+                                                <option value='57' >M.Pharm</option>
+
+                                                <option value='58' >M.Phil</option>
+
+                                                <option value='59' >M.S.W</option>
+
+                                                <option value='60' >M.Sc</option>
+
+                                                <option value='61' >M.T.M</option>
+
+                                                <option value='64' >CA/ ICWA/ CS</option>
+
+                                                <option value='65' >not mentioned</option>
+
+                                                <option value='66' >Others</option>
+
+                                                <option value='67' >M.C.S.</option>
+
+                                            </select>
+
+                                        </div>
+                                        <div>
+                                            <span id="companyInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star"></span></label>
+                                        <div class="col-sm-8">
+
+                                            <label class="radio-inline">
+                                                <input type="radio" name="pgstatus" id="pgstatus1" value="1"  />&nbsp;Full Time
+                                            </label>
+
+
+                                            <label class="radio-inline">
+                                                <input type="radio" name="pgstatus" id="pgstatus2" value="2" />&nbsp;Part Time
+                                            </label>
+
+
+                                            <label class="radio-inline">
+                                                <input type="radio" name="pgstatus" id="pgstatus3" value="3" />&nbsp;Correspondence/Distance Learning
+                                            </label>
+
+
+
+                                        </div>
+
+
+                                    </div><!--col-md-6-->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Specialization:</label>
+
+                                        <div class="col-sm-8">
+                                            <input type="text" name="pgspec" id="pgspec" class="form-control " placeholder="" value=""/>
+
+
+
+                                        </div><!--col-sm-6-->
+
+
+
+                                        <div>
+                                            <span id="durationInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>University/Institute:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="pgcoll" id="pgcoll" class="form-control " placeholder="" value=""/>
+
+                                        </div>
+                                        <div>
+                                            <span id="desigInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Year :</label>
+                                        <div class="col-sm-8">
+                                            <select name="pgyear" id="pgyear" class="form-control">
+                                                <option value="">Year</option>
+                                                <option value='1960' >1960</option>
+                                                <option value='1961' >1961</option>
+                                                <option value='1962' >1962</option>
+                                                <option value='1963' >1963</option>
+                                                <option value='1964' >1964</option>
+                                                <option value='1965' >1965</option>
+                                                <option value='1966' >1966</option>
+                                                <option value='1967' >1967</option>
+                                                <option value='1968' >1968</option>
+                                                <option value='1969' >1969</option>
+                                                <option value='1970' >1970</option>
+                                                <option value='1971' >1971</option>
+                                                <option value='1972' >1972</option>
+                                                <option value='1973' >1973</option>
+                                                <option value='1974' >1974</option>
+                                                <option value='1975' >1975</option>
+                                                <option value='1976' >1976</option>
+                                                <option value='1977' >1977</option>
+                                                <option value='1978' >1978</option>
+                                                <option value='1979' >1979</option>
+                                                <option value='1980' >1980</option>
+                                                <option value='1981' >1981</option>
+                                                <option value='1982' >1982</option>
+                                                <option value='1983' >1983</option>
+                                                <option value='1984' >1984</option>
+                                                <option value='1985' >1985</option>
+                                                <option value='1986' >1986</option>
+                                                <option value='1987' >1987</option>
+                                                <option value='1988' >1988</option>
+                                                <option value='1989' >1989</option>
+                                                <option value='1990' >1990</option>
+                                                <option value='1991' >1991</option>
+                                                <option value='1992' >1992</option>
+                                                <option value='1993' >1993</option>
+                                                <option value='1994' >1994</option>
+                                                <option value='1995' >1995</option>
+                                                <option value='1996' >1996</option>
+                                                <option value='1997' >1997</option>
+                                                <option value='1998' >1998</option>
+                                                <option value='1999' >1999</option>
+                                                <option value='2000' >2000</option>
+                                                <option value='2001' >2001</option>
+                                                <option value='2002' >2002</option>
+                                                <option value='2003' >2003</option>
+                                                <option value='2004' >2004</option>
+                                                <option value='2005' >2005</option>
+                                                <option value='2006' >2006</option>
+                                                <option value='2007' >2007</option>
+                                                <option value='2008' >2008</option>
+                                                <option value='2009' >2009</option>
+                                                <option value='2010' >2010</option>
+                                                <option value='2011' >2011</option>
+                                                <option value='2012' >2012</option>
+                                                <option value='2013' >2013</option>
+                                                <option value='2014' >2014</option>
+                                                <option value='2015' >2015</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <span id="jobInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+                                    <div class="col-md-12">
+                                        <div class="ali-left col-md-4 text-right"> <input name="butt2" id="butt2" class="btn-blue btn bc" value="Add Phd/Doctrate" type="button" OnClick="phdemp();"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="phd"  style="display:none;" >
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right">Doctorate/PhD:</label>
+                                        <div class="col-sm-8">
+                                            <select name="phdc" id="phdc" class="form-control">
+                                                <option value="">select</option>
+
+                                                <option value='1' >Ph.D/Doctorate</option>
+
+                                                <option value='2' >MPHIL</option>
+
+                                                <option value='3' >Other</option>
+
+                                                <option value='4' >Not Pursuing Doctorate/Phd</option>
+
+                                                <option value='5' >koss</option>
+
+                                            </select>
+
+                                        </div>
+                                        <div>
+                                            <span id="companyInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star"></span></label>
+                                        <div class="col-sm-8">
+
+                                            <label class="radio-inline">
+                                                <input type="radio" name="phdstatus" id="phdstatus1" value="1" />&nbsp;Full Time
+                                            </label>
+
+
+                                            <label class="radio-inline">
+                                                <input type="radio" name="phdstatus" id="phdstatus2" value="2" />&nbsp;Part Time
+                                            </label>
+
+
+                                            <label class="radio-inline">
+                                                <input type="radio" name="phdstatus" id="phdstatus3" value="3" />&nbsp;Correspondence/Distance Learning
+                                            </label>
+
+
+
+                                        </div>
+
+
+                                    </div><!--col-md-6-->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Specialization:</label>
+
+                                        <div class="col-sm-8">
+                                            <input type="text" name="phdspec" id="phdspec" class="form-control " placeholder="" value=""/>
+
+
+
+                                        </div><!--col-sm-6-->
+
+
+
+                                        <div>
+                                            <span id="durationInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>University/Institute:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="phdcoll" id="phdcoll" class="form-control " placeholder="" value=""/>
+
+                                        </div>
+                                        <div>
+                                            <span id="desigInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Year :</label>
+                                        <div class="col-sm-8">
+                                            <select name="phdyear" id="phdyear" class="form-control">
+                                                <option value="">select</option>
+                                                <option value='1960' >1960</option>
+                                                <option value='1961' >1961</option>
+                                                <option value='1962' >1962</option>
+                                                <option value='1963' >1963</option>
+                                                <option value='1964' >1964</option>
+                                                <option value='1965' >1965</option>
+                                                <option value='1966' >1966</option>
+                                                <option value='1967' >1967</option>
+                                                <option value='1968' >1968</option>
+                                                <option value='1969' >1969</option>
+                                                <option value='1970' >1970</option>
+                                                <option value='1971' >1971</option>
+                                                <option value='1972' >1972</option>
+                                                <option value='1973' >1973</option>
+                                                <option value='1974' >1974</option>
+                                                <option value='1975' >1975</option>
+                                                <option value='1976' >1976</option>
+                                                <option value='1977' >1977</option>
+                                                <option value='1978' >1978</option>
+                                                <option value='1979' >1979</option>
+                                                <option value='1980' >1980</option>
+                                                <option value='1981' >1981</option>
+                                                <option value='1982' >1982</option>
+                                                <option value='1983' >1983</option>
+                                                <option value='1984' >1984</option>
+                                                <option value='1985' >1985</option>
+                                                <option value='1986' >1986</option>
+                                                <option value='1987' >1987</option>
+                                                <option value='1988' >1988</option>
+                                                <option value='1989' >1989</option>
+                                                <option value='1990' >1990</option>
+                                                <option value='1991' >1991</option>
+                                                <option value='1992' >1992</option>
+                                                <option value='1993' >1993</option>
+                                                <option value='1994' >1994</option>
+                                                <option value='1995' >1995</option>
+                                                <option value='1996' >1996</option>
+                                                <option value='1997' >1997</option>
+                                                <option value='1998' >1998</option>
+                                                <option value='1999' >1999</option>
+                                                <option value='2000' >2000</option>
+                                                <option value='2001' >2001</option>
+                                                <option value='2002' >2002</option>
+                                                <option value='2003' >2003</option>
+                                                <option value='2004' >2004</option>
+                                                <option value='2005' >2005</option>
+                                                <option value='2006' >2006</option>
+                                                <option value='2007' >2007</option>
+                                                <option value='2008' >2008</option>
+                                                <option value='2009' >2009</option>
+                                                <option value='2010' >2010</option>
+                                                <option value='2011' >2011</option>
+                                                <option value='2012' >2012</option>
+                                                <option value='2013' >2013</option>
+                                                <option value='2014' >2014</option>
+                                                <option value='2015' >2015</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <span id="jobInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="ali-left col-md-4 text-right"> <input name="butt3" id="butt3" class="btn-blue btn bc" value="Add Certificates obtained" type="button" OnClick="addcerti();"></div>
+                                </div>
+
+
+                                <div class="form-group" id="certificate"  style="display:none;" >
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right">Certificate1:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="certi1" id="certi1" class="form-control " placeholder="" value=""/>
+                                        </div>
+                                        <div>
+                                            <span id="companyInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right">Certificate2:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="certi2" id="certi2" class="form-control " placeholder="" value=""/>
+                                        </div>
+                                        <div>
+                                            <span id="companyInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+                                    <div class="form-group">
+                                        <label class="col-sm-4 pedit2 text-right">Certificate3:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="certi3" id="certi3" class="form-control " placeholder="" value=""/>
+                                        </div>
+                                        <div>
+                                            <span id="companyInfo"></span>
+                                        </div>
+                                    </div><!--form-group-->
+                                </div>
+
+
+                            </div><!--col-md-6-->
+
+                            <div class="col-sm-12 m20">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-3 text-right"><input type="submit" name="save1" class="btn-blue btn bc" value="Save" onclick="return validateform();"></div>
+                                <div class="col-sm-3 "><div class="btn-blue btn bc"><a href="jobseeker-profile.html" style="color:#FFF"> Cancel </a></div></div>
+
+                            </div><!--col-md-12-->
+                        </div>
+                    </form>
+                </div><!--col-sm-9-->
             </div><!--row-->
         </div><!-- container -->
 
@@ -1661,3 +2241,293 @@
 <style>
     .error,.redstar{ color:#F00;   font-size: 12px;}
 </style>
+<script type="text/javascript">
+    function radioemp()
+    {
+        //if(document.getElementById("emptype1").checked==true)
+        //{
+
+        document.getElementById('notice1').style.display='block';
+        document.getElementById('butt1').style.display='none';
+
+        //}
+        //else if(document.getElementById("emptype1").checked==false)
+        //{
+
+        //	document.getElementById('notice1').style.display='none';
+
+        //}
+
+    }
+    function phdemp()
+    {
+        //if(document.getElementById("emptype1").checked==true)
+        //{
+
+        document.getElementById('phd').style.display='block';
+        document.getElementById('butt2').style.display='none';
+
+        //}
+        //else if(document.getElementById("emptype1").checked==false)
+        //{
+
+        //	document.getElementById('notice1').style.display='none';
+
+        //}
+
+    }
+    function addcerti()
+    {
+        //if(document.getElementById("emptype1").checked==true)
+        //{
+
+        document.getElementById('certificate').style.display='block';
+        document.getElementById('butt3').style.display='none';
+
+        //}
+        //else if(document.getElementById("emptype1").checked==false)
+        //{
+
+        //	document.getElementById('notice1').style.display='none';
+
+        //}
+
+    }
+</script>
+<script type="text/javascript">
+    function validateForm1(){
+
+
+        var nameReg = /^[A-Za-z]+$/;
+        var numberReg =  /^[0-9]+$/;
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+        var res_title = $('#res_title').val();
+        var curr_industry = $('#curr_industry').val();
+        var function_area= $('#function_area').val();
+        var role= $('#role').val();
+        var designation1 = $('#designation1').val();
+
+        var annulsal = $('#annulsal').val();
+        var annulsa = $('#annulsa').val();
+        var fromyear = $('#fromyear').val();
+        var frommonth = $('#frommonth').val();
+        var notice = $('#notice').val();
+        var job_profile = $('#job_profile').val();
+        //alert($("#agree").is(':checked'));
+        // var inputVal = new Array(names,address,email,telephone,message,lnames);
+//alert(names);
+        var inputMessage = new Array("Username","Email Address","Password","Confirm password", "Your Full Name","Current Location","City","Mobile Number","Work Experience","Designation","Key Skills","Basic Education","Agree To Terms And Conditions");
+
+        $('.error').hide();
+        var clr=0;
+
+        if(res_title == ""){
+
+            $('#resumeheadInfo').html('<span class="error">Resume Headline is Required</span>');
+            //$('#res_title').focus();
+            clr=1;
+        }
+        if(curr_industry == ""){
+            $('#currentInfo').html('<span class="error">Current Industry is Required</span>');
+            //$('#curr_industry').focus();
+            clr=1;
+        }
+
+        if(function_area == ""){
+            $('#functionalInfo').html('<span class="error">Functional Area is Required</span>');
+            //$('#function_area').focus();
+            clr=1;
+        }
+        if(role == ""){
+            $('#roleInfo').html('<span class="error">Role is Required</span>')
+            //$('#company').focus();
+            clr=1;
+        }
+        /*if(pass != cpass){
+            $('#cpasswordInfo').html('<span class="error">Retype ' + inputMessage[3] + '</span>');
+            $('#confirmpassword').focus();clr=1;
+        }*/
+        /*  if(designation1 == ""){
+
+              $('#desigInfo').html('<span class="error">Designation Required</span>');
+              //$('#designation1').focus();
+          clr=1;
+          } */
+        /*else if(!nameReg.test(names)){
+            $('#nameLabel').html('<span class="error"> Letters only</span>');
+			clr=1;
+        }
+		else if(names.length<=3){
+
+            $('#nameLabel').html('<span class="error">' + inputMessage[0] + ' Should Be atleast 4 characters Long</span>');
+			clr=1;
+        } */
+        if(annulsal == ""){
+
+            $('#salInfo').html('<span class="error"> Annual Salary is Required</span>');
+            //$('#annulsal').focus();
+            clr=1;
+        }
+        /*	if(fromyear == ""){
+
+            $('#durationInfo').html('<span class="error"> Duration is Required</span>');
+            //$('#fromyear').focus();
+            clr=1;
+        }
+        if(frommonth ==""){
+
+            $('#durationInfo').html('<span class="error"> Duration is Required</span>');
+            //$('#frommonth').focus();
+            clr=1;
+        } */
+        /*if(notice == ""){
+        //alert("industry");
+
+            $('#noticeInfo').html('<span class="error">Notice period is Required</span>');
+            //$('#notice').focus();
+            clr=1;
+        } */
+        /* else if(!nameReg.test(lnames)){
+             $('#lnameLabel').html('<span class="error"> Letters only</span>');
+             clr=1;
+         }*/
+
+
+        /* if(job_profile == ""){
+            $('#jobInfo').html('<span class="error">Job Profile Number is Required</span>');
+            //$('#job_profile').focus();
+            clr=1;
+        } */
+
+        if(clr==0)
+        {
+            //alert('ffff');
+
+            document.register1.frmsubvall.value=1;
+            //alert(document.register1.frmsubvall.value);
+
+            document.register1.submit();
+            // alert('ffff');
+            return true;
+            // $('#register').submit();
+        }
+        /* if(clr==0)
+         {
+           //  alert(clr);
+             $('#ckhcartview').fadeIn('slow');
+           //  $('#checkout-heading-mod').show();
+            // $(".checkout-content").slideUp('slow');
+             //document.subfrm.frmsubval.value=1;
+         //document.subfrm.submit();
+         }
+         */
+    }
+    });
+</script>
+<script type="text/javascript">
+    function validateform()
+    {
+        var basicgrad=document.myform.basicug.value;
+        var ugspec=document.myform.ugspec.value;
+        var ugcoll=document.myform.ugcoll.value;
+        var ugyear=document.myform.ugyear.value;
+        var postpg=document.myform.postpg.value;
+        var pgspec=document.myform.pgspec.value;
+        var pgcoll=document.myform.pgcoll.value;
+        var pgyear=document.myform.pgyear.value;
+        var phdc=document.myform.phdc.value;
+        var phdspec=document.myform.phdspec.value;
+        var phdcoll=document.myform.phdcoll.value;
+        var phdyear=document.myform.phdyear.value;
+        //alert(document.myform.ugspec.value);
+
+        if(basicgrad=="")
+        {
+            alert("enter the basic graduation");
+            document.getElementById("basicug").style.borderColor = "red";
+            document.myform.basicug.focus();
+            return false;
+        }
+
+        if(ugspec=="")
+        {
+            alert("enter the ug specialization");
+            document.getElementById("ugspec").style.borderColor = "red";
+            document.myform.ugspec.focus();
+            return false;
+
+        }
+        if(ugcoll=="")
+        {
+            alert("enter the ug university/college");
+            document.getElementById("ugcoll").style.borderColor = "red";
+            document.myform.ugcoll.focus();
+            return false;
+
+        }
+        if(ugyear=="")
+        {
+            alert("enter the ug Year");
+            document.getElementById("ugyear").style.borderColor = "red";
+            document.myform.ugyear.focus();
+            return false;
+
+        }
+        if(postpg!="")
+        {
+            if(pgspec=="")
+            {
+                alert("enter the pg specialization");
+                document.getElementById("pgspec").style.borderColor = "red";
+                document.myform.pgspec.focus();
+                return false;
+
+            }
+            if(pgcoll=="")
+            {
+                alert("enter the pg university/college");
+                document.getElementById("pgcoll").style.borderColor = "red";
+                document.myform.pgcoll.focus();
+                return false;
+
+            }
+            if(pgyear=="")
+            {
+                alert("enter the pg Year");
+                document.getElementById("pgyear").style.borderColor = "red";
+                document.myform.pgyear.focus();
+                return false;
+
+            }
+        }
+
+        if(phdc!="")
+        {
+            if(phdspec=="")
+            {
+                alert("enter the phd specialization");
+                document.getElementById("phdspec").style.borderColor = "red";
+                document.myform.phdspec.focus();
+                return false;
+
+            }
+            if(phdcoll=="")
+            {
+                alert("enter the phd university/college");
+                document.getElementById("phdcoll").style.borderColor = "red";
+                document.myform.phdcoll.focus();
+                return false;
+
+            }
+            if(phdyear=="")
+            {
+                alert("enter the phg Year");
+                document.getElementById("phdyear").style.borderColor = "red";
+                document.myform.phdyear.focus();
+                return false;
+
+            }
+        }
+    }
+</script>

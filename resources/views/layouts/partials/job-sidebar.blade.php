@@ -30,14 +30,14 @@
         <!--<div class="inboxa"><a href="coverletter.php">Manage Cover Letters</a></div>-->
         <div class="inboxa"> <a href="{{ route('jobseeker.profile') }}">Upload Photo</a></div>
 
-        <div class="inboxa"><a href="{{ route('job_agent_view') }}">Manage Search Agents</a></div>
+        <div class="inboxa"><a href="#">Manage Search Agents</a></div>
         <div class="inbox-bg">Jobs & Applications</div>
         <!--<div class="inboxa"><a href="save-jobs.php">Saved Jobs</a></div>-->
         <div class="inboxa"><a href="{{ route('application_history') }}">Application History</a></div>
         <div class="inbox-bg">Recruiters</div>
-        <div class="inboxa"><a href="jobs-update.php?updates"> Jobs & Updates</a></div>
-        <div class="inboxa"><a href="{{ route('manage_follow') }}">Manage Following</a></div>
-        <div class="inboxa"><a href="{{ route('follow') }}">RecruiterConnection</a></div>
+        <div class="inboxa"><a href="{{ route('all_jobs') }}"> Jobs & Updates</a></div>
+{{--        <div class="inboxa"><a href="{{ route('manage_follow') }}">Manage Following</a></div>--}}
+        <div class="inboxa"><a href="{{ route('recruiters') }}">RecruiterConnection</a></div>
         <div class="inbox-bg">Settings</div>
         <div class="inboxa"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg1">Visibility Settings</a></div>
         <!--<div class="inboxa"><a href="profile_visibility.php">Visibility Settings</a></div>-->

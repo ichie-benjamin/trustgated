@@ -11,7 +11,7 @@
 <div class="br-mainpanel">
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">Dashboard</a>
+            <a class="breadcrumb-item" href="{{  route('admin.dashboard') }}">Dashboard</a>
             <span class="breadcrumb-item active"> Packages Layouts</span>
         </nav>
     </div><!-- br-pageheader -->
@@ -23,38 +23,48 @@
         <div class="br-section-wrapper">
             <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Package</h6>
 
-            <form action="{{ route('admin.packages.update', $packages->id) }}" method="POST">
+            <form action="{{ route('admin.v_packages.update', $packages->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-layout form-layout-1">
                     <div class="row mg-b-25">
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-8">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label"> Name: <span class="tx-danger">*</span></label>
                                 <input class="form-control" type="text" value="{{ old('name', optional($packages)->name) }}" name="name" placeholder="Enter Name">
                             </div>
                         </div><!-- col-8 -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
-                                <label class="form-control-label text text-capitalize">No of Days User allowed to access: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" value="{{ old('no_of_users', optional($packages)->no_of_users) }}" name="no_of_users" placeholder="No of Days User allowed to access:">
+                                <label class="form-control-label text text-capitalize"> Employment Verification <span class="tx-danger">*</span></label>
+                                <input class="form-control" value="{{ old('employment_verification', optional($packages)->employment_verification) }}" type="number" name="employment_verification" placeholder="">
                             </div>
                         </div><!-- col-8 -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
-                                <label class="form-control-label"> Price: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" value="{{ old('price', optional($packages)->price) }}" name="price" placeholder="Price">
+                                <label class="form-control-label text text-capitalize"> Education Verification <span class="tx-danger">*</span></label>
+                                <input class="form-control" value="{{ old('education_verification', optional($packages)->education_verification) }}" type="number" name="education_verification" placeholder="">
                             </div>
                         </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            @include('admin.partials.image-uploader',['field' => 'logo','image' => $packages->logo])
-
+                        <div class="col-lg-4">
+                            <div class="form-group mg-b-10-force">
+                                <label class="form-control-label text text-capitalize"> Reference Verification <span class="tx-danger">*</span></label>
+                                <input class="form-control" value="{{ old('reference_verification', optional($packages)->reference_verification) }}" type="number" name="reference_verification" placeholder="">
+                            </div>
+                        </div><!-- col-8 -->
+                        <div class="col-lg-4">
+                            <div class="form-group mg-b-10-force">
+                                <label class="form-control-label"> Amount: <span class="tx-danger">*</span></label>
+                                <input class="form-control" value="{{ old('amount', optional($packages)->amount) }}" type="number" name="amount" placeholder="Amount">
+                            </div>
                         </div><!-- col-8 -->
                     </div><!-- row -->
 
+                </div><!-- row -->
+
                     <div class="form-layout-footer">
-                        <button class="btn btn-primary" type="submit">Submit Form</button>
+                        <button class="btn btn-primary" type="submit">Update</button>
                     </div><!-- form-layout-footer -->
                 </div><!-- form-layout -->
             </form>

@@ -26,6 +26,14 @@
                             {{ session()->get('success') }}
                         </div>
                     @endif
+                        @if (session('failure'))
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Error!</strong> {{ session('failure') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                     <div class="top-emp-center p5">
                         <h4> {{ $job->title }} </h4>
                     </div>
@@ -61,9 +69,21 @@
                                         </ul>
                                         @else
                                             <ul>
-                                                <li>
-                                                    <input type="button" name="31527838551" class="btn-blue btn" value="Apply" id="31527838551" onclick="new_apply(this.id);">
-                                                </li>
+                                                @if (auth()->user()->applied($job->id))
+                                                    <li>
+
+                                                        <button type="button" class="btn-blue btn" >Applied</button>
+
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <form action="{{ route('job.apply') }}" method="POST">
+                                                            @csrf
+                                                            <input value="{{ $job->id }}" name="job_id" type="hidden">
+                                                            <input type="submit" class="btn-blue btn" value="Apply">
+                                                        </form>
+                                                    </li>
+                                                @endif
                                             </ul>
                                         @endguest
                                     </div>

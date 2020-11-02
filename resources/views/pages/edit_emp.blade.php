@@ -22,7 +22,6 @@
                 <!--create-job-->
 
 
-                    <!-- PROFILE VISIBILITY -->
                 </div><!--col-sm-2-->
 
                 <div class="col-md-9" >
@@ -43,7 +42,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Company Name:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" required name="company_name" id="company" class="form-control " placeholder=""/>
+                                        <input type="text" value="{{ old('company_name', optional($employer)->company_name) }}" required name="company_name" id="company" class="form-control " placeholder=""/>
                                     </div>
                                     <div>
                                         <span id="companyInfo"></span>
@@ -55,7 +54,7 @@
                                     <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Duration From:</label>
 
                                     <div class="col-sm-8">
-                                        <input type="number" required name="from" id="company" class="form-control " placeholder=""/>
+                                        <input type="number" value="{{ old('from', optional($employer)->from) }}" required name="from" id="company" class="form-control " placeholder=""/>
                                     </div>
 
                                 </div><!--form-group-->
@@ -64,7 +63,7 @@
                                     <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Duration To:</label>
 
                                     <div class="col-sm-8">
-                                        <input type="number" required name="to" class="form-control " placeholder=""/>
+                                        <input type="number" value="{{ old('to', optional($employer)->to) }}" required name="to" class="form-control " placeholder=""/>
                                     </div>
 
                                 </div><!--form-group-->
@@ -72,7 +71,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Designation :</label>
                                     <div class="col-sm-8">
-                                        <input type="text" required name="designation" id="designation1" class="form-control " placeholder="">
+                                        <input type="text" required value="{{ old('designation', optional($employer)->designation) }}" name="designation" id="designation1" class="form-control " placeholder="">
                                     </div>
                                     <div>
                                         <span id="desigInfo"></span>

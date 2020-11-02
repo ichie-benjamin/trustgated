@@ -34,8 +34,8 @@ class VerificationPackageController extends Controller
 
     public function edit($id)
     {
-        $v_packages = VerificationPackage::findOrFail($id);
-        return view('admin.v_packages.packages-edit', compact('v_packages'));
+        $packages = VerificationPackage::findOrFail($id);
+        return view('admin.v_packages.packages-edit', compact('packages'));
     }
 
     public function update(Request $request, $id)

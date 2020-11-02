@@ -8,8 +8,8 @@
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="employer-profile-view.php">My Account</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="/">My Account</a></li>
                         <li class="active">Change Password</li>
                     </ol>
                 </div>

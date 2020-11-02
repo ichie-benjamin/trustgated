@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AppliedJob;
+use App\Models\Employer;
+use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,12 +12,24 @@ class JobseekerController extends Controller
 {
     public function profile(){
         $user = Auth::user();
-        return view('jobseeker.profile.index', compact('user'));
+        if($user->skills){
+            $jobs = Job::where('skills','LIKE','%'.$user->skills.'%')->latest()->paginate(10);
+        }else {
+            $jobs = Job::latest()->paginate(10);
+        }
+        return view('jobseeker.profile.index', compact('user','jobs'));
     }
-    
+
+    public  function employers(){
+        $employers =  Employer::whereUserId(auth()->id())->get();
+        return view('pages.jobseeker_manage_employer', compact('employers'));
+    }
+
+
     public function profileEdit()
     {
-        return view('pages.jobseeker-profile-edit');
+        $user = Auth::user();
+        return view('pages.jobseeker-profile-edit',compact('user'));
     }
 
     public function changePassword(Type $var = null)
@@ -36,11 +51,13 @@ class JobseekerController extends Controller
     {
         return view('pages.block-companies');
     }
-        
-        
+
+
     public function applicationHistory()
     {
-        return view('pages.application-history');
+        $applications = AppliedJob::where('user_id',auth()->user()->id)->get();
+//        $applications = Job::whereIn('id',$jobs)->get();
+        return view('pages.application-history', compact('applications'));
     }
 
     public function createEmployee()
@@ -48,9 +65,26 @@ class JobseekerController extends Controller
     	 return view('pages.create_emp');
     }
 
+    public function editEmployee($id)
+    {
+        $employer = Employer::findOrFail($id);
+    	 return view('pages.edit_emp', compact('employer'));
+    }
+
+    public function deleteEmployer(Request $request, $id)
+    {
+        $employer = Employer::findOrFail($id);
+
+        $employer->delete();
+
+    	 return redirect()->back()
+             ->with('success', 'employer succesfully deleted');
+    }
+
     public function moredetails()
     {
-        return view('pages.moredetails');
+        $user = Auth::user();
+        return view('pages.moredetails', compact('user'));
     }
 
     public function editResume()

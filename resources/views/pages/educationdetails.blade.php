@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-    
+
+
     <!-- CONTENT -->
     <div id="content">
         <div class="container">
@@ -9,80 +10,16 @@
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="jobseeker-profile.html">My Account</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ route('jobseeker.profile') }}">My Account</a></li>
                         <li class="active">Edit Details</li>
                     </ol>
                 </div>
                 <div class="col-md-3">
 
+
                     @include('layouts.partials.job-sidebar')
-                    <!--create-job-->
 
-                    <!-- PROFILE VISIBILITY -->
-                    <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header avd-serbg">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"> <img src="images/close-icon.png"></span></button>
-                                    <h4 class="modal-title mode-tit" id="myModalLabel">Visibility Settings</h4>
-                                </div>
-                                <div class="modal-body avdbg1a">
-                                    <form class="form-horizontal m10">
-                                        <div class="row visipad">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <div class="visifont"> Your visibility setting currently is:
-                                                        Not Visible</div>
-                                                </div>
-                                                <div class="form-group m20">
-                                                    <div class="radio visipad15 visicol">
-                                                        <div class="clearfix m10"></div>
-                                                        <label> <input type="radio" name="visibility" id="visibility" value="1" />  Visible as Active
-                                                            <div class="visifont2">Your profile will be visible in the Jobs database to recruiters. Recruiters will contact you for suitable job opportunities</div>
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group m20">
-                                                    <div class="radio visipad15a visicol">
-                                                        <div class="clearfix m10"></div>
-                                                        <label> <input type="radio" name="visibility" id="visibility1" value="0" checked/>  Visible as Inactive
-                                                            <div class="visifont2">Your profile will be visible in the Jobs database, but recruiters will be informed that you are not actively looking for jobs. Recruiters may still contact you for job opportunities </div>
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group m20 ">
-                                                    <div class="radio visipad15 visicol">
-                                                        <div class="clearfix m10"></div>
-                                                        <label> <input type="radio" name="visibility" id="visibility2" value="2" />  Not Visible
-                                                            <div class="visifont2">Your profile will not be visible to recruiters. You will not get unadvertised jobs (which comprise up to 40% of all job opportunities on Jobs.com) from recruiters</div>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group m20 visibor">
-                                                    Regardless of the above settings you can continue to apply to jobs advertised on Jobs.com
-                                                </div>
-
-                                                <div class="form-group ">
-
-                                                    <div class="col-sm-3 ">
-                                                        <input name="save2" class="btn-blue btn bc3 " value="Save" type="submit">
-                                                    </div>
-                                                    <div class="col-sm-3 ">
-                                                        <div class="btn-blue btn bc3"><a data-dismiss="modal" href="#" style="color:#FFF"> Cancel </a></div>
-                                                    </div>
-                                                </div>
-
-                                            </div><!--col-md-10-->
-                                        </div> <!--row-->
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- PROFILE VISIBILITY -->
                 </div><!--col-sm-2-->
 
                 <div class="col-md-9" >
@@ -97,76 +34,43 @@
                                 <div class="form-group">
                                     <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Basic/Graduation:</label>
                                     <div class="col-sm-8">
-                                        <select name="basicug" id="basicug" class="form-control">
-                                            <option value="">select</option>
-
-                                            <option value='43' >B.E/ B. Tech</option>
-
-                                            <option value='44' >mm</option>
-
-                                            <option value='45' >B.Sc</option>
-
-                                            <option value='47' >Diplomo</option>
-
-                                            <option value='48' >HSC</option>
-
-                                            <option value='49' >SSLC</option>
-
-                                            <option value='51' >php</option>
-
-                                            <option value='52' >MBBS</option>
-
-                                            <option value='53' >BA</option>
-
-                                            <option value='54' >B Com</option>
-
-                                            <option value='55' >B Ed</option>
-
-                                            <option value='56' >BBA</option>
-
-                                            <option value='57' >BAMS</option>
-
-                                            <option value='58' >BHMS</option>
-
-                                            <option value='59' >Others</option>
-
-                                            <option value='60' >ICMA</option>
-
-                                            <option value='61' >M.Com</option>
-
+                                        <select required name="basic_education" id="basic_education" class="form-control">
+                                            @foreach (\App\Models\EducationDetails::all() as $item)
+                                                <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                            @endforeach
                                         </select>
-
                                     </div>
                                     <div>
                                         <span id="companyInfo"></span>
                                     </div>
                                 </div><!--form-group-->
 
-                                <div class="form-group">
-                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star"></span></label>
-                                    <div class="col-sm-8">
 
-                                        <label class="radio-inline">
-                                            <input type="radio" name="basicstatus" id="basicstatus1" value="1" />&nbsp;Full Time
-                                        </label>
+{{--                                <div class="form-group">--}}
+{{--                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star"></span></label>--}}
+{{--                                    <div class="col-sm-8">--}}
 
-
-                                        <label class="radio-inline">
-                                            <input type="radio" name="basicstatus" id="basicstatus2" value="2" />&nbsp;Part Time
-                                        </label>
+{{--                                        <label class="radio-inline">--}}
+{{--                                            <input type="radio" name="basicstatus" id="basicstatus1" value="1" />&nbsp;Full Time--}}
+{{--                                        </label>--}}
 
 
-                                        <label class="radio-inline">
-                                            <input type="radio" name="basicstatus" id="basicstatus3" value="3"
-                                            />&nbsp;Correspondence/Distance Learning
-                                        </label>
+{{--                                        <label class="radio-inline">--}}
+{{--                                            <input type="radio" name="basicstatus" id="basicstatus2" value="2" />&nbsp;Part Time--}}
+{{--                                        </label>--}}
+
+
+{{--                                        <label class="radio-inline">--}}
+{{--                                            <input type="radio" name="basicstatus" id="basicstatus3" value="3"--}}
+{{--                                            />&nbsp;Correspondence/Distance Learning--}}
+{{--                                        </label>--}}
 
 
 
-                                    </div>
+{{--                                    </div>--}}
 
 
-                                </div><!--col-md-6-->
+{{--                                </div><!--col-md-6-->--}}
 
                                 <div class="form-group">
                                     <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Specialization:</label>
@@ -265,13 +169,9 @@
                                     </div>
                                 </div><!--form-group-->
 
-                                <div class="col-md-12">
-                                    <div class="col-md-4 text-right"><input name="butt1" id="butt1" class="btn-blue btn bc" value="Add Post Graduation" type="button" OnClick="radioemp();"> </div>
-                                    <div class="ali-left col-sm-8"> <!--<input name="butt1" id="butt1" class="btn-blue btn bc" value="Add Post Graduation" type="button" OnClick="radioemp();">--></div>
-                                </div>
 
 
-                                <div class="form-group" id="notice1"  style="display:none;" >
+                                <div class="form-group" id="notice1" >
                                     <div class="form-group">
                                         <label class="col-sm-4 pedit2 text-right">Post/Graduation:</label>
                                         <div class="col-sm-8">
@@ -650,4 +550,43 @@
     </div><!-- CONTENT -->
     <!--ADVANCED SEARCH POPUP-->
 
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        function phdemp()
+        {
+            //if(document.getElementById("emptype1").checked==true)
+            //{
+
+            document.getElementById('phd').style.display='block';
+            document.getElementById('butt2').style.display='none';
+
+            //}
+            //else if(document.getElementById("emptype1").checked==false)
+            //{
+
+            //	document.getElementById('notice1').style.display='none';
+
+            //}
+
+        }
+        function addcerti()
+        {
+            //if(document.getElementById("emptype1").checked==true)
+            //{
+
+            document.getElementById('certificate').style.display='block';
+            document.getElementById('butt3').style.display='none';
+
+            //}
+            //else if(document.getElementById("emptype1").checked==false)
+            //{
+
+            //	document.getElementById('notice1').style.display='none';
+
+            //}
+
+        }
+    </script>
 @endsection

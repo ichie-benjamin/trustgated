@@ -292,7 +292,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right">What are your Key Skills?:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="keyskills" id="keyskills" class="form-control " placeholder=" Enter your areas of expertise/specialization." >
+                                    <input type="text" name="skills" id="keyskills" class="form-control " placeholder=" Enter your areas of expertise/specialization." >
                                 </div>
                                 <div>
                                     <span id="keyInfo"></span>

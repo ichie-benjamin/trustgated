@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employer;
 use App\Models\User;
 
 use App\Rules\MatchOldPassword;
@@ -108,6 +109,88 @@ class UsersController extends Controller
 
     }
 
+    public function updateMore(Request $request)
+    {
+        $user = User::findOrFail(Auth::id());
+
+        $user->update([
+            'job_type'  => $request->job_type,
+            'employment_status' => $request->employment_status,
+            'affirmative_category' => $request->affirmative_category,
+            'affirmative_description' => $request->affirmative_description,
+            'physically_challenged' => $request->physically_challenged,
+            'usa_work_permit' => $request->usa_work_permit,
+            'country_work_permit' => $request->country_work_permit,
+            'language1' => $request->language1,
+            'language1_proficiency' => $request->language1_proficiency,
+            'language1_rws' => $request->language1_rws,
+            'language2' => $request->language2,
+            'language2_proficiency' => $request->language2_proficiency,
+            'language2_rws' => $request->language2_rws,
+            'language3' => $request->language3,
+            'language3_proficiency' => $request->language3_proficiency,
+            'language3_rws' => $request->language3_rws,
+        ]);
+
+        return redirect()->back()->with('success', 'More details Successfully update');
+    }
+
+    public function updateResume(Request $request)
+    {
+        $user = User::findOrFail(Auth::id());
+
+        $user->update(['cv' => $request->resume]);
+
+        return redirect()->back()->with('success', 'Resume Successfully update');
+
+    }
+    public function updateItskills(Request $request)
+    {
+        $user = User::findOrFail(Auth::id());
+
+        $user->update(['it_skills' => $request->it_skills]);
+
+        return redirect()->back()->with('success', 'IT Skills Successfully update');
+
+    }
+
+    public function storeEmployer(Request $request)
+    {
+
+        $data = $this->getEData($request);
+
+        Employer::create($data);
+
+        return redirect()->route('jobseeker.manage.employers')->with('success', 'Employer Successfully create');
+
+    }
+
+    public function updateAvatar(Request $request)
+    {
+        $avatar = $request->avatar;
+
+        Auth::user()->update(['avatar' => $avatar]);
+
+        return redirect()->back()->with('success','Profile image successfully updated');
+    }
+    public function updateSummary(Request $request)
+    {
+        $bio = $request->bio;
+
+        Auth::user()->update(['bio' => $bio]);
+
+        return redirect()->back()->with('success','Profile Summary successfully updated');
+    }
+
+    public function updateVisibility(Request $request)
+    {
+        $visi = $request->visibility;
+
+        Auth::user()->update(['visibility' => $visi]);
+
+        return redirect()->back()->with('success','Profile visibility successfully updated');
+    }
+
     public function updateProfile(Request $request)
     {
         $data = $request->all();
@@ -162,49 +245,31 @@ class UsersController extends Controller
         ]);
     }
 
-    public function edit(Request $request, $id)
-    {
-        $slug = $this->getSlug($request);
-
-        $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
-
-        if (strlen($dataType->model_name) != 0) {
-            $model = app($dataType->model_name);
-
-            // Use withTrashed() if model uses SoftDeletes and if toggle is selected
-            if ($model && in_array(SoftDeletes::class, class_uses_recursive($model))) {
-                $model = $model->withTrashed();
-            }
-            if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
-                $model = $model->{$dataType->scope}();
-            }
-            $dataTypeContent = call_user_func([$model, 'findOrFail'], $id);
-        } else {
-            // If Model doest exist, get data from table name
-            $dataTypeContent = DB::table($dataType->name)->where('id', $id)->first();
-        }
-
-        foreach ($dataType->editRows as $key => $row) {
-            $dataType->editRows[$key]['col_width'] = isset($row->details->width) ? $row->details->width : 100;
-        }
-
-        // If a column has a relationship associated with it, we do not want to show that field
-        $this->removeRelationshipField($dataType, 'edit');
-
-        // Check permission
-        $this->authorize('edit', $dataTypeContent);
-
-        // Check if BREAD is Translatable
-        $isModelTranslatable = is_bread_translatable($dataTypeContent);
-
-        $view = 'voyager::bread.edit-add';
-
-
-        if (view()->exists("voyager::$slug.edit-add")) {
-            $view = "voyager::$slug.edit-add";
-        }
-
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+    public function update(Request $request){
+        $data = $request->all();
+        Auth::user()->update([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'gender' => $data['gender'],
+            'headline' => $data['headline'],
+            'country' => $data['country'],
+            'industry' => $data['industry'],
+            'state' => $data['state'],
+            'city' => $data['city'],
+            'dob' => $data['dob'],
+            'address' => $data['address'],
+            'max_annual_salary' => $data['max_annual_salary'],
+            'min_annual_salary' => $data['min_annual_salary'],
+//            'phone_countrycode' => $data['phone_countrycode'],
+            'mobile_number' => $data['mobile_number'],
+            'land_countrycode' => $data['land_countrycode'],
+            'land_areacode' => $data['land_areacode'],
+            'exp_year' => $data['exp_year'],
+            'exp_month' => $data['exp_month'],
+            'function_area' => $data['function_area'],
+            'skills' => $data['skills'],
+        ]);
+        return redirect()->back()->with('success','Profile successfully updated');
     }
 
     public function store(Request $request){
@@ -219,5 +284,19 @@ class UsersController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
+    }
+
+    protected function getEData(Request $request)
+    {
+        $rules = [
+            'company_name' => 'string|required',
+            'from' => 'integer',
+            'to' => 'integer',
+            'designation' => 'string|min:1',
+            'profile' => 'string|min:1|nullable',
+        ];
+        $data = $request->validate($rules);
+        $data['user_id'] = auth()->id();
+        return $data;
     }
 }

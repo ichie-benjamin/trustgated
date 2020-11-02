@@ -25,9 +25,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'mobile_number',
         'landline_number',
         'fax','gender',
-        'dob',
+        'dob','avatar',
         'function_area',
         'industry',
+        'visibility',
         'exp_year',
         'exp_month',
         'max_annual_salary','land_countrycode','phone_countrycode',
@@ -35,7 +36,17 @@ class User extends Authenticatable implements MustVerifyEmail
  'basic_education',
 'course' ,
  'course2',
- 'course3',
+ 'course3','job_type','employment_status','affirmative_category','affirmative_description','physically_challenged','usa_work_permit','country_work_permit',
+        'language1',
+        'language1_proficiency',
+        'language1_rws',
+        'language2',
+        'language2_proficiency',
+        'language2_rws',
+        'language3',
+        'language3_proficiency',
+        'language3_rws',
+        'it_skills'
     ];
 
     /**
@@ -67,8 +78,82 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $appends = ['name','skill','profile_complete','exp','role','job_plan','access_plan'];
 
+    public function setCountryWorkPermitAttribute($value)
+    {
+        $this->attributes['country_work_permit'] = json_encode($value);
+    }
+    public function setItSkillsAttribute($value)
+    {
+        $this->attributes['it_skills'] = json_encode($value);
+    }
+
+    public function getCountryWorkPermitAttribute($value){
+        if($value){
+            if(is_array($value)){
+                return json_decode($value) ;
+            }else{
+                return  [];
+            }
+        }else{
+            [];
+        }
+    }
+
+    public function setLanguage2RwsAttribute($value)
+    {
+        $this->attributes['language2_rws'] = json_encode($value);
+    }
+
+    public function setLanguage3RwsAttribute($value)
+    {
+        $this->attributes['language3_rws'] = json_encode($value);
+    }
+
+    public function setLanguage1RwsAttribute($value)
+    {
+        $this->attributes['language1_rws'] = json_encode($value);
+    }
+
+    public function getItSkillsAttribute($value){
+        return json_decode($value) ?: [];
+    }
+    public function getLanguage2RwsAttribute($value){
+        return json_decode($value) ?: [];
+    }
+
+    public function getLanguage3RwsAttribute($value){
+        return json_decode($value) ?: [];
+    }
+
+    public function getLanguage1RwsAttribute($value){
+        return json_decode($value) ?: [];
+    }
+
+
+
     public function getRoleAttribute(){
         return optional($this->roles->first())->name;
+    }
+
+    public function visible(){
+        if($this->visibility < 1){
+            return 'not active';
+        }
+        if($this->visibility === 1){
+            return 'active';
+        }
+        if($this->visibility > 1){
+            return 'not visible';
+        }
+    }
+
+    public function applied($job){
+        $applied = AppliedJob::where('user_id',$this->id)->where('job_id',$job)->get();
+        if(count($applied) > 0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public function getJobPlanAttribute(){

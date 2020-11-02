@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-    
+
     <!-- CONTENT -->
     <div id="content">
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="jobseeker-profile.html">My Account</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ route('jobseeker.profile') }}">My Account</a></li>
                 <li class="active">Other Details</li>
             </ol>
             <div class="row">
@@ -17,73 +17,30 @@
                    @include('layouts.partials.job-sidebar')
                     <!--create-job-->
 
-                    <!-- PROFILE VISIBILITY -->
-                    <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header avd-serbg">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"> <img src="images/close-icon.png"></span></button>
-                                    <h4 class="modal-title mode-tit" id="myModalLabel">Visibility Settings</h4>
-                                </div>
-                                <div class="modal-body avdbg1a">
-                                    <form class="form-horizontal m10">
-                                        <div class="row visipad">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <div class="visifont"> Your visibility setting currently is:
-                                                        Not Visible</div>
-                                                </div>
-                                                <div class="form-group m20">
-                                                    <div class="radio visipad15 visicol">
-                                                        <div class="clearfix m10"></div>
-                                                        <label> <input type="radio" name="visibility" id="visibility" value="1" />  Visible as Active
-                                                            <div class="visifont2">Your profile will be visible in the Jobs database to recruiters. Recruiters will contact you for suitable job opportunities</div>
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group m20">
-                                                    <div class="radio visipad15a visicol">
-                                                        <div class="clearfix m10"></div>
-                                                        <label> <input type="radio" name="visibility" id="visibility1" value="0" checked/>  Visible as Inactive
-                                                            <div class="visifont2">Your profile will be visible in the Jobs database, but recruiters will be informed that you are not actively looking for jobs. Recruiters may still contact you for job opportunities </div>
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group m20 ">
-                                                    <div class="radio visipad15 visicol">
-                                                        <div class="clearfix m10"></div>
-                                                        <label> <input type="radio" name="visibility" id="visibility2" value="2" />  Not Visible
-                                                            <div class="visifont2">Your profile will not be visible to recruiters. You will not get unadvertised jobs (which comprise up to 40% of all job opportunities on Jobs.com) from recruiters</div>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group m20 visibor">
-                                                    Regardless of the above settings you can continue to apply to jobs advertised on Jobs.com
-                                                </div>
-
-                                                <div class="form-group ">
-
-                                                    <div class="col-sm-3 ">
-                                                        <input name="save2" class="btn-blue btn bc3 " value="Save" type="submit">
-                                                    </div>
-                                                    <div class="col-sm-3 ">
-                                                        <div class="btn-blue btn bc3"><a data-dismiss="modal" href="#" style="color:#FFF"> Cancel </a></div>
-                                                    </div>
-                                                </div>
-
-                                            </div><!--col-md-10-->
-                                        </div> <!--row-->
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- PROFILE VISIBILITY -->
                 </div><!--col-sm-2-->
-                <form class="form-horizontal m10" name="moredetails" id="moredetails">
+                <form class="form-horizontal m10" method="POST" action="{{ route('user.update.more') }}" name="moredetails" id="moredetails">
+                    @csrf
                     <div class="col-md-10 m10" >
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                <strong>Successful!</strong> {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+
                         <div class="top-emp-center">
                             <h4>Other Details</h4>
                         </div> <!--top-emp-center-->
@@ -104,48 +61,46 @@
                             </div>
 
                             <div class="row m10">
-                                <div class="col-sm-4 "><input type="Text" name="language" id="language" class="form-control"value="" ></div>
+                                <div class="col-sm-4 "><input type="Text" name="language1" id="language" class="form-control"value="{{ $user->language1 }}" ></div>
                                 <div class="col-sm-2 ">
-                                    <select class="form-control" name="proficiencylevel" id="proficiencylevel">
-                                        <option value="">Select </option>
+                                    <select class="form-control" name="language1_proficiency" id="proficiencylevel">
+                                        <option value="{{ $user->language1_proficiency }}">{{ $user->language1_proficiency }} </option>
                                         <option value="Beginner" >Beginner</option>
                                         <option value="Proficient" >Proficient</option>
                                         <option value="Expert" >Expert</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="read" id="read" value="1" ></label></div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="write" id="write" value="1" ></label> </div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="speak" id="speak" value="1" ></label></div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language1_rws[]" id="read" value="Read" ></label></div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language1_rws[]" id="write" value="Write" ></label> </div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language1_rws[]" id="speak" value="Speak" ></label></div>
                             </div>
-
                             <div class="row m10">
-                                <div class="col-sm-4 "><input type="Text" name="language2" id="language2" class="form-control" value="" ></div>
+                                <div class="col-sm-4 "><input type="Text" name="language2" id="language" class="form-control"value="{{ $user->language2 }}" ></div>
                                 <div class="col-sm-2 ">
-                                    <select class="form-control" name="proficiencylevel2" id="proficiencylevel2">
-                                        <option value="">Select </option>
+                                    <select class="form-control" name="language2_proficiency" id="proficiencylevel">
+                                        <option value="{{ $user->language2_proficiency }}">{{ $user->language2_proficiency }} </option>
                                         <option value="Beginner" >Beginner</option>
                                         <option value="Proficient" >Proficient</option>
                                         <option value="Expert" >Expert</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="read2" id="read2" value="1" ></label></div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="write2" id="write2" value="1" ></label> </div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="speak2" id="speak2" value="1" ></label></div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language2_rws[]" id="read" value="Read" ></label></div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language2_rws[]" id="write" value="Write" ></label> </div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language2_rws[]" id="speak" value="Speak" ></label></div>
                             </div>
-
                             <div class="row m10">
-                                <div class="col-sm-4 "><input type="Text" name="language3" id="language3" class="form-control"value="" ></div>
+                                <div class="col-sm-4 "><input type="Text" name="language3" id="language" class="form-control"value="{{ $user->language3 }}" ></div>
                                 <div class="col-sm-2 ">
-                                    <select class="form-control" name="proficiencylevel3" id="proficiencylevel3">
-                                        <option value="">Select </option>
+                                    <select class="form-control" name="language3_proficiency" id="proficiencylevel">
+                                        <option value="{{ $user->language3_proficiency }}">{{ $user->language3_proficiency }} </option>
                                         <option value="Beginner" >Beginner</option>
                                         <option value="Proficient" >Proficient</option>
                                         <option value="Expert" >Expert</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="read3" id="read3" value="1" ></label></div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="write3" id="write3" value="1" ></label> </div>
-                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="speak3" id="speak3" value="1" ></label></div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language3_rws[]" id="read" value="Read" ></label></div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language3_rws[]" id="write" value="Write" ></label> </div>
+                                <div class="col-sm-1 "><label class="checkbox-inline mbt55"><input type="checkbox" name="language3_rws[]" id="speak" value="Speak" ></label></div>
                             </div>
 
 
@@ -153,29 +108,14 @@
 
                         <div class="all-catehead blue">Desired Job</div>
 
-                        <!--  <div class="form-group col-sm-12">
-                             <label class="col-sm-3 pedit2 text-right">Preferred Work Location: </label>
-                             <div class="col-sm-5">
-                                <select multiple class="form-control">
-                                   <option>Nagoya</option>
-                                   <option>Osaka</option>
-                                   <option>Sapporo</option>
-                                   <option>Tokyo</option>
-                                   <option>Yokohama</option>
-                                 </select>
-                                <small class="pedit">Select only up to 3 desired locations.</small>
-                             </div>
-
-                           </div><!--form-group-->
-
                         <div class="form-group col-sm-12">
                             <label class="col-sm-3 pedit2 text-right">Job Type: </label>
                             <div class="col-sm-5">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" name="permanent" id="permanent" value="1"> Permanent
+                                <label class="radio-inline">
+                                    <input required type="radio" @if ($user->job_type == 'permanent') checked @endif name="job_type" id="permanent" value="permanent"> Permanent
                                 </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" name="temporay" id="temporay" value="1" > Temporary/Contractual
+                                <label class="radio-inline">
+                                    <input required @if ($user->job_type == 'temporay') checked @endif  type="radio" name="job_type" id="temporay" value="temporay" > Temporary/Contractual
                                 </label>
                             </div>
                         </div><!--form-group-->
@@ -183,11 +123,11 @@
                         <div class="form-group col-sm-12">
                             <label class="col-sm-3 pedit2 text-right">Employment Status: </label>
                             <div class="col-sm-5">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" name="full" id="full" value="1" >  Full Time
+                                <label class="radio-inline">
+                                    <input @if ($user->employment_status == 'Full time') checked @endif required type="radio" name="employment_status" id="full" value="Full time" >  Full Time
                                 </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" name="part" id="part" value="1" >  Part Time
+                                <label class="radio-inline">
+                                    <input @if ($user->employment_status == 'Part time') checked @endif required type="radio" name="employment_status" id="part" value="Part time" >  Part Time
                                 </label>
                             </div>
                         </div><!--form-group-->
@@ -198,7 +138,7 @@
                         <div class="form-group col-sm-12">
                             <label class="col-sm-3 pedit2 text-right">Category: </label>
                             <div class="col-sm-2">
-                                <select class="form-control" name="categories" id="categories" >
+                                <select  class="form-control" name="affirmative_category" id="categories" >
                                     <option value="">Select </option>
                                     <option value="general" >General</option>
                                     <option value="sc" >SC</option>
@@ -213,10 +153,10 @@
                             <label class="col-sm-3 pedit2 text-right">Physically Challenged: </label>
                             <div class="col-sm-5">
                                 <label class="radio-inline">
-                                    <input type="radio" name="phychallenge" id="phychallenge" value="1"  Onchange="radiophy(this.value);"> Yes
+                                    <input required type="radio" @if ($user->physically_challenged) checked @endif name="physically_challenged" id="phychallenge" value="1"> Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="phychallenge" id="phychallenge2" value="2"  Onchange="radiophy(this.value);"> No
+                                    <input required type="radio" @if (!$user->physically_challenged) checked @endif name="physically_challenged" id="phychallenge2" value="0"> No
                                 </label>
                             </div>
                         </div><!--form-group-->
@@ -224,7 +164,7 @@
                         <div class="form-group col-sm-12" id="desc">
                             <label class="col-sm-3 pedit2 text-right">Description: </label>
                             <div class="col-sm-4">
-                                <textarea class="texcover1" rows="2" name="phydescription" id="counter_selector2" maxlength='150'></textarea>
+                                <textarea class="texcover1" rows="2" name="affirmative_description" id="counter_selector2" maxlength='150'>{{ $user->affirmative_description }}</textarea>
                             </div>
                             <div class="col-md-2"><div id="my_counter2"></div></div>
                         </div><!--form-group-->
@@ -234,8 +174,9 @@
                         <div class="form-group col-sm-12">
                             <label class="col-sm-3 pedit2 text-right">Work Permit for USA: </label>
                             <div class="col-sm-3">
-                                <select class="form-control" name="workusa" id="workusa">
-                                    <option value="">Select</option>
+                                <select class="form-control" name="usa_work_permit" id="workusa">
+                                    <option value="{{ $user->usa_work_permit }}">{{ $user->usa_work_permit }}</option>
+                                    <option value="Have H1 Visa" >Have H1 Visa</option>
                                     <option value="Have H1 Visa" >Have H1 Visa</option>
                                     <option value="Need H1 Visa" >Need H1 Visa</option>
                                     <option value="TN Permit Holder" >TN Permit Holder</option>
@@ -249,7 +190,7 @@
                         <div class="form-group col-sm-12">
                             <label class="col-sm-3 pedit2 text-right">Other Countries: </label>
                             <div class="col-sm-4">
-                                <select multiple rows="2" name="otherco[]" id="otherco" class="form-control">
+                                <select multiple rows="2" name="country_work_permit[]" id="otherco" class="form-control">
 
 
                                     <option selected value="India">India</option>
@@ -291,7 +232,7 @@
 
                         <div class="col-md-12">
                             <div class="col-sm-3"> </div>
-                            <div class="ali-left col-sm-8"> <input class="btn-blue btn bc" value="Complete Profile" name="save1" id="save1" type="submit"></div>
+                            <div class="ali-left col-sm-8"> <input class="btn-blue btn bc" value="Complete Profile" id="save1" type="submit"></div>
                         </div>
                     </div><!--col-sm-10-->
                 </form>

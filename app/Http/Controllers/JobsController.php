@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\AppliedJob;
 use App\Http\Controllers\Controller;
+use App\Models\AppliedJob;
 use App\Models\Company;
 use App\Models\Country;
 use App\Models\FunctionalArea;
@@ -144,43 +144,33 @@ class JobsController extends Controller
     }
 
     public function apply(Request $request){
-        $data = $request->all();
+        $data = [];
+
+        $data['user_id'] = auth()->user()->id;
+        $data['job_id'] = $request->job_id;
+        $data['cv'] = auth()->user()->cv;
+
         $applied = AppliedJob::where('user_id',auth()->user()->id)->where('job_id',$data['job_id'])->get();
         if(count($applied) > 0){
-            return response()->json('You already have a pending application on this job', 404);
-        }
-        if(!$request->has('profile_cv')){
-            $validator = Validator::make($request->all(), [
-                'cv' => 'required|mimes:pdf|max:10000',
-            ]);
 
-            if ($validator->fails()) {
-                return response()->json($validator->messages()->first(), 404);
-            }
+           return redirect()->back()->with('failure','You already have a pending application on this job');
         }
-        if($request->file('cv'))
-        {
-            $file = $request->file('cv');
-            $filename = time() . '.' . $request->file('cv')->extension();
-            $filePath = '/files/uploads/cv/';
-            if (!file_exists(public_path($filePath))) {
-                mkdir(public_path($filePath), 0755, true);
-            }
-            $file->move(public_path($filePath), $filename);
-            $data['cv'] = $filePath.$filename;
-        }elseif($request->has('profile_cv')){
-            $data['cv'] = $request['profile_cv'];
+
+        if(!auth()->user()->cv){
+            return redirect()->back()->with('failure','You cant apply for a job without Resume, Please upload your resume');
         }
-        $data['user_id'] = auth()->user()->id;
+
+//        if($request->has('cv'))
+//        {
+//            $data['cv'] = $request['cv'];
+//        }
+
         AppliedJob::create($data);
         $job = Job::findOrFail($data['job_id']);
         $poster = User::findOrFail($job->user_id);
         $poster->notify(new NewApplicant($job));
         $msg = 'You have successfully applied for '.$job->title;
-        $request->session()->flash('message', $msg);
-        $request->session()->flash('message-type', 'success');
-        $res['url'] = route('jobs.applied');
-        return response()->json($res, 200);
+        return redirect()->back()->with('success',$msg);
     }
 
     public function index()
