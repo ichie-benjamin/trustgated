@@ -352,6 +352,7 @@
 </div><!-- PAGE-WRAPPER -->
 
 
+@auth()
 <!-- PROFILE VISIBILITY -->
 <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -418,6 +419,7 @@
     </div>
 </div>
 <!-- PROFILE VISIBILITY -->
+@endauth
 
 
 <!-- GO TOP -->
