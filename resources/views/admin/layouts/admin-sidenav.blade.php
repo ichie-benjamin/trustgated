@@ -258,6 +258,12 @@
                 <span class="menu-item-label"> Verification Packages</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        <a href="{{ route('admin.forms.index') }}?model=verification_packages" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-remove-format tx-22"></i>
+                <span class="menu-item-label"> Verification Packages Forms</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
 
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Employers Access MGT</label>
             <div class="progress ht-5 mg-b-10">

@@ -8,6 +8,7 @@ use App\Http\Controllers\JobAlertController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\JobseekerController;
 use App\Http\Controllers\admin\TempController;
+use App\Http\Controllers\LocationsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,9 @@ Route::get('/about-us',[HomeController::class, 'about'])->name('about');
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/privacy',[HomeController::class, 'privacy'])->name('privacy');
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
+
+Route::get('/getstates', [LocationsController::class, 'getstates'])->name('ajax.getstates');
+
 
 Route::post('/payment/store', 'PaymentController@store')->name('payment.store');
 
@@ -81,6 +85,8 @@ Route::group(['middleware' => ['verified','auth']], function () {
     Route::post('/user/update/summary', [UsersController::class, 'updateSummary'])->name('user.account.summary');
     Route::post('/user/update/more', [UsersController::class, 'updateMore'])->name('user.update.more');
 
+    Route::get('/user/profile/{username}', [UsersController::class, 'userProfile'])->name('user.profile.public');
+
     Route::post('/user/update/itskills', [UsersController::class, 'updateItskills'])->name('user.update.itskills');
 
     Route::post('/user/update/avatar', [UsersController::class, 'updateAvatar'])->name('user.update.avatar');
@@ -108,6 +114,9 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::get('/transaction/payment/{type}/{id}', [EmployerController::class, 'TransactionPayment'])->name('employer.transaction.payment');
     Route::get('/sub_users', [EmployerController::class, 'subUsers'])->name('employer.sub_users');
     Route::get('/add_sub_user', [EmployerController::class, 'addSubUser'])->name('employer.add_sub_user');
+
+    Route::get('/featured_resume', [EmployerController::class, 'featuredResume'])->name('employer.featured_resumes');
+    Route::post('/search_resume', [EmployerController::class, 'searchResume'])->name('search_resumes');
 
     Route::get('/change/password', [EmployerController::class, 'changePassword'])->name('employer.change_password');
     Route::get('/job/{slug}', [JobsController::class, 'view'])->name('jobs.job.view');

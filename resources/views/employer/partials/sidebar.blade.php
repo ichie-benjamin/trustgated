@@ -15,7 +15,7 @@
                 <div class="inboxa"><a href="{{ route('employer.change_password') }}" >Change Password</a></div>
             </div>
             <div class="inbox-bg">Search Resumes</div>
-            <div class="inboxa"><a href="#" >Featured Resumes</a></div>
+            <div class="inboxa"><a href="{{ route('employer.featured_resumes') }}" >Featured Resumes</a></div>
             <div class="inbox-bg">Jobs & Responses</div>
             <div class="inboxa"><a href="#"  >Job Posted Responses</a></div>
             <div class="inboxa"><a href="{{ route('jobs.create') }}" >Post Jobs</a></div>

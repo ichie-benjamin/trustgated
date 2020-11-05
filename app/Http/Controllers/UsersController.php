@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Validator;
 class UsersController extends Controller
 {
 
+    public function userProfile($username){
+        $user = User::whereUsername($username)->firstOrFail();
+        return view('jobseeker.profile.public',compact('user'));
+    }
+
     public function jobseekerReg(){
         return view('auth.jobseeker-reg');
     }

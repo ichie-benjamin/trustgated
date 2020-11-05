@@ -59,6 +59,14 @@
                                 <input class="form-control" value="{{ old('amount', optional($packages)->amount) }}" type="number" name="amount" placeholder="Amount">
                             </div>
                         </div><!-- col-8 -->
+                        @foreach ($packages->extra as $key => $value)
+                            <div class="col-lg-4">
+                                <div class="form-group mg-b-10-force">
+                                    <label class="form-control-label text-capitalize"> {{ str_replace('_',' ',$key) }}: <span class="tx-danger">*</span></label>
+                                    <input class="form-control"  name="extra[{{$key}}]" value="{{ $value }}">
+                                </div>
+                            </div><!-- col-8 -->
+                        @endforeach
                     </div><!-- row -->
 
                 </div><!-- row -->

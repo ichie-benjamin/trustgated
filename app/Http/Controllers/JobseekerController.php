@@ -13,10 +13,17 @@ class JobseekerController extends Controller
     public function profile(){
         $user = Auth::user();
         if($user->skills){
-            $jobs = Job::where('skills','LIKE','%'.$user->skills.'%')->latest()->paginate(10);
+            $jobs = Job::where('tags','LIKE','%'.$user->skills.'%')->orWhere('city','LIKE','%'.$user->city.'%')
+                ->orWhere('country','LIKE','%'.$user->country.'%')
+                ->latest()->paginate(10);
         }else {
             $jobs = Job::latest()->paginate(10);
         }
+
+        if(!$user->cv){
+            return redirect()->route('edit_resume_det')->with('failure', 'Upload a resume to make your account public');
+        }
+
         return view('jobseeker.profile.index', compact('user','jobs'));
     }
 

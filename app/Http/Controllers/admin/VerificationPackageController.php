@@ -60,6 +60,7 @@ class VerificationPackageController extends Controller
             'education_verification' => 'required',
             'reference_verification' => 'required',
             'amount' => 'required',
+            'extra' => 'nullable',
         ];
         return $request->validate($rules);
     }

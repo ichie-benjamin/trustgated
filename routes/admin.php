@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\DatabaseProductController;
 use App\Http\Controllers\admin\EducationalDetails;
+use App\Http\Controllers\admin\FormsController;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\PackagesController;
@@ -60,6 +61,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
         'testimonial' => TestimonialController::class,
         'dbproducts' => DatabaseProductController::class,
         'v_packages' => VerificationPackageController::class,
+        'forms' => FormsController::class,
         '/home/jobs' => JobsController::class,
 
     ]);

@@ -30,7 +30,7 @@
         <!--<div class="inboxa"><a href="coverletter.php">Manage Cover Letters</a></div>-->
         <div class="inboxa"> <a href="{{ route('jobseeker.profile') }}">Upload Photo</a></div>
 
-        <div class="inboxa"><a href="#">Manage Search Agents</a></div>
+{{--        <div class="inboxa"><a href="#">Manage Search Agents</a></div>--}}
         <div class="inbox-bg">Jobs & Applications</div>
         <!--<div class="inboxa"><a href="save-jobs.php">Saved Jobs</a></div>-->
         <div class="inboxa"><a href="{{ route('application_history') }}">Application History</a></div>
@@ -42,8 +42,9 @@
         <div class="inboxa"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg1">Visibility Settings</a></div>
         <!--<div class="inboxa"><a href="profile_visibility.php">Visibility Settings</a></div>-->
         <!-- <div class="inboxa"><a href="communication-settings.php">Communication Settings</a></div>-->
-        <div class="inboxa"><a href="{{ route('block_companies') }}">Block Companies</a></div>
+{{--        <div class="inboxa"><a href="{{ route('block_companies') }}">Block Companies</a></div>--}}
         <div class="inboxa"><a href="{{ route('changepasswordseeker') }}">Change Password</a></div>
+        <div class="inboxa"><a href="{{ route('selfservice') }}">Jobseeker Selfservice</a></div>
     </div><!--create-job-content-->
 
 </div>

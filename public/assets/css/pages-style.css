@@ -198,12 +198,12 @@
 	padding:0px 0px 10px 0px;
     position: relative;
 }
-.all-catehead{ color:#494949; font-weight:bold; font-size: 13px; line-height:2.6;}
+.all-catehead{ color:#222845; font-weight:bold; font-size: 13px; line-height:2.6;}
 .blue{ color: #017BC6; font-size: 14px;}
 /*.all-category ul li{ list-style-image: none;  list-style-type: none;}
 .all-category ul li:before { content: " \0BB \020"; }*/
 .all-category ul li{ list-style-type: disc;}
-.all-category ul li a { color:#494949; font-size: 13px;  line-height: 2.6;cursor:default;}
+.all-category ul li a { color:#222845; font-size: 13px;  line-height: 2.6;cursor:default;}
 .all-category ul li a:hover { text-decoration:none;}
 
 .ads{ width:100%; padding:10px 0px;}
@@ -250,7 +250,7 @@
 
 
 .create-job{ /*padding: 5px 15px;*/ margin-top:20px;}
-.create-job-head{ background:#494949; padding:0px 0px 0px 10px;}
+.create-job-head{ background:#222845; padding:0px 0px 0px 10px;}
 .create-job-head h1,
 .create-job-head h2,
 .create-job-head h3,
@@ -294,7 +294,7 @@
 
 
 	.refine{ /*padding: 5px 15px;*/ margin-top:20px;}
-.refine-head{ background:#494949; padding:0px 0px 0px 10px;}
+.refine-head{ background:#222845; padding:0px 0px 0px 10px;}
 .refine-head h1,
 .refine-head h2,
 .refine-head h3,

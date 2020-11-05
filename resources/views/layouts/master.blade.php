@@ -45,7 +45,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header avd-serbg">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"> <img src="images/close-icon.png"></span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"> <img src="/images/close-icon.png"></span></button>
                     <h4 class="modal-title mode-tit" id="myModalLabel">Tell us what kind of jobs you want</h4>
                 </div>
                 <div class="modal-body avdbg1a">

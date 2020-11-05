@@ -161,16 +161,8 @@
 </div>
 
     <div class="container mb-5 mt-5 text text-center">
-        <h3 class="text text-center">What is <strong class="text text-warning">Jobseeker Self Service?</strong></h3>
-        <p class="mt-5 mb-3">Make Sure you are a Candidate who is up for the Job</p>.
+         {!! optional(\App\Models\Page::whereTitle('jobseeker_self_service_first')->first())->content !!}
 
-              <p>  When an employer brings a new employee into their business to fill a key role, they are exposed to risk. The business is exposed, as are the stakeholders, investors, clients, current employees and suppliers. To operate successfully, they need to minimize that risk.</p>
-            <p>The key to minimizing that risk is information. It is proved that 15% of background checks in the Asia Pacific in 2018 contained a lie or discrepancy.</p>
-            <p>It is not enough to take an application or CV at face value.</p>
-        <p>Employers need to undertake a thorough and comprehensive background check to put the employer in the best possible position when making a hiring decision.</p>
-        <p>TrustGated specializes in providing businesses with in-depth, impartial information on a candidate’s background and qualifications. All of our screening services are performed under tried and tested processes, and everything we do is subject to numerous quality controls. That means that every piece of information we provide to the employer is completely accurate, allowing them to make recruitment decisions confidently.</p>
-        <p class="mb-5 mt-5">Let’s be Hire Ready.</p>
-        <p>Be a part of the new culture and be Hire Ready. Employers will be happy to have someone available to join instantly and with a completed background check. The service will enable you to complete your background check for prospective employers to view the completed document.</p>
     </div>
 
 
@@ -235,9 +227,10 @@
 			<div class="col-xl-12">
 				<!-- Section Headline -->
 				<div class="section-headline text text-center col-md-8 offset-md-2">
-					<h3 class="text text-center">Be the first to be <strong class="text text-warning">hired</strong>  by companies by doing verification test</h3>
-                    <p>The job market is very competitive. Thousands of people are seeking for jobs every day. TrustGated Verified Certificate gives you many advantages over other candidates, for instance, in first positions when a Company is searching for talent. Be a part of the new culture and be Hire Ready. Employers will be happy to have someone available to join instantly and with a completed background</p>
-				</div>
+
+                    {!! optional(\App\Models\Page::whereTitle('jobseeker_self_service_second')->first())->content !!}
+
+                </div>
 			</div>
 
 
@@ -276,6 +269,12 @@
                                 <li>{{ $item->employment_verification }} Employment Verification</li>
                                 <li>{{ $item->education_verification }}  Education Verification</li>
                                 <li>{{ $item->reference_verification }}  Reference Verification</li>
+                                @if ($item->extra)
+                                        @foreach($item->extra as $value => $key)
+                                            <li class="text-capitalize">{{ $key }}  {{ str_replace('_',' ',$value) }}</li>
+                                        @endforeach
+                                @endif
+
                             </ul>
                         <a href="{{ route('background-verification') }}" class="button full-width margin-top-20">Buy Now</a>
                     </div>

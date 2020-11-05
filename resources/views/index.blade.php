@@ -213,7 +213,6 @@
 		<div class="clearfix"></div>
 
 
-
 <section class="content-inner bg-gray">
    <div class="container">
       <div class="row">
@@ -664,6 +663,8 @@
 <script src="/assets/js/custom1.js"></script><!-- CUSTOM FUCTIONS  -->
 <script src="/assets/js/dz.carousel.js"></script><!-- SORTCODE FUCTIONS  -->
 {{--<script src="/assets/js/dz.ajax.js"></script><!-- CONTACT JS  -->--}}
+
+
 
 </body>
 

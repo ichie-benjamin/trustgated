@@ -11,7 +11,7 @@
 <div class="br-mainpanel">
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">Dashboard</a>
+            <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
             <span class="breadcrumb-item active"> Packages Layouts</span>
         </nav>
     </div><!-- br-pageheader -->
@@ -37,33 +37,41 @@
                         <div class="col-lg-8">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label"> Name: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" name="name" placeholder="Enter Name">
+                                <input class="form-control" required type="text" name="name" placeholder="Enter Name">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label text text-capitalize"> Employment Verification <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" name="employment_verification" placeholder="">
+                                <input class="form-control" required type="number" name="employment_verification" placeholder="">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
-                                <label class="form-control-label text text-capitalize"> Education Verification <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" name="education_verification" placeholder="">
+                                <label class="form-control-label text text-capitalize"> Education Verification </label>
+                                <input class="form-control"  type="number" name="education_verification" placeholder="">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
-                                <label class="form-control-label text text-capitalize"> Reference Verification <span class="tx-danger">*</span></label>
+                                <label class="form-control-label text text-capitalize"> Reference Verification </label>
                                 <input class="form-control" type="number" name="reference_verification" placeholder="">
                             </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label"> Amount: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="number" name="amount" placeholder="Amount">
+                                <input class="form-control" type="number" required name="amount" placeholder="Amount">
                             </div>
                         </div><!-- col-8 -->
+                        @foreach (\App\Models\Form::whereModel('verification_packages')->get() as $item)
+                            <div class="col-lg-4">
+                                <div class="form-group mg-b-10-force">
+                                    <label class="form-control-label text-capitalize"> {{ str_replace('_',' ',$item->name) }}: <span class="tx-danger">*</span></label>
+                                    <input class="form-control" required="{{ $item->required }}" name="extra[{{$item->name}}]" placeholder="{{ str_replace('_',' ',$item->name) }}">
+                                </div>
+                            </div><!-- col-8 -->
+                        @endforeach
                     </div><!-- row -->
 
                     <div class="form-layout-footer">
@@ -87,6 +95,7 @@
                             <th class="wd-15p"> Employment Verification</th>
                             <th class="wd-20p"> Education Verification</th>
                             <th class="wd-20p"> Reference Verification</th>
+                            <th class="wd-20p"> Other</th>
                             <th class="wd-20p"> Amount</th>
                             <th></th>
                         </tr>
@@ -99,6 +108,16 @@
                             <td>{{ $package->no_of_users }}</td>
                             <td>{{ $package->education_verification }}</td>
                             <td>{{ $package->reference_verification }}</td>
+                            @if ($package->extra)
+                                <td class="text-capitalize">
+                                @foreach($package->extra as $value => $key)
+                                    {{ str_replace('_',' ',$value) }} =>  {{ $key }}<br/>
+                                    @endforeach
+                                </td>
+                            @else
+                                <td>[]</td>
+                            @endif
+
                             <td>{{ $package->amount }}</td>
                             <td class="text-center">
                                 <form method="POST" action="{!! route('admin.v_packages.destroy', $package->id) !!}" accept-charset="UTF-8">

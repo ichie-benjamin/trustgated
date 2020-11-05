@@ -49,6 +49,20 @@ class User extends Authenticatable implements MustVerifyEmail
         'it_skills'
     ];
 
+    public $fields = [
+        'cv','first_name','avatar','availability','last_name','min_annual_salary',
+        'program', 'university','address','city','country','state','headline','skills','bio',
+        'mobile_number',
+        'function_area',
+        'industry',
+        'visibility',
+        'exp_year',
+        'exp_month',
+        'basic_education',
+        'course' , 'employment_status','physically_challenged',
+        'language1',
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -154,6 +168,46 @@ class User extends Authenticatable implements MustVerifyEmail
         }else {
             return false;
         }
+    }
+
+    public function resumeView(){
+        return ResumeView::where('jobseeker_id',$this->id)->count();
+    }
+
+    public function resumeDownload(){
+        return ResumeDownload::where('jobseeker_id',$this->id)->count();
+    }
+
+    public function profilePending(){
+        $empty = [];
+        $excludes = ["role_id","program","program_start_date","program_city","landline_number","fax","phone_countrycode","course2","course3","job_type","country_work_permit","language1_proficiency","language2","language2_proficiency","language3","language3_proficiency",'usa_work_permit'];
+        foreach ($this->fillable as $item){
+            if(is_null($this->$item) && !in_array($item, $excludes)){
+                array_push($empty,$item);
+            }
+        }
+       return $empty;
+    }
+
+    public function profileStatus(){
+        $total = count($this->fields);
+        $empty = [];
+        foreach ($this->fields as $item){
+            if(is_null($this->$item)){
+                array_push($empty,$item);
+            }
+        }
+       $filld = $total - count($empty);
+       $gr = (int)(($filld / $total) * 100);
+       if($gr > 100){
+           return 100;
+       }
+       return $gr;
+    }
+
+
+    public function allApplied(){
+        return $applied = AppliedJob::where('user_id',$this->id)->count();
     }
 
     public function getJobPlanAttribute(){

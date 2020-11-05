@@ -97,7 +97,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-4 pedit"><span class="red-star">*</span>Country:</label>
                                         <div class="col-sm-8">
-                                            <select required class="form-control" name="country" id="country">
+                                            <select  name="country" class="form-control country_select select2"  required id="country">
                                                 <option value="">Select Country</option>
                                                 @foreach(\App\Models\Country::all() as $item)
                                                 <option @if ($user->country == $item->name) selected @endif value="{{ $item->name }}" > {{ $item->name }} </option>
@@ -112,11 +112,13 @@
                                     <div class="form-group">
                                         <label class="col-sm-4 pedit"><span class="red-star">*</span>State:</label>
                                         <div class="col-sm-8" id='emp_state'>
-                                            <select required class="form-control" name="state" id="state">
-                                                <option value="">Select State</option>
-                                                @foreach(\App\Models\State::all() as $item)
-                                                    <option @if ($user->state == $item->name) selected @endif value="{{ $item->name }}" > {{ $item->name }} </option>
-                                                @endforeach
+                                            <select required class="form-control  select2 states" name="state" id="state">
+
+                                                @if ($user->state)
+                                                    <option name="state" value="{{ $user->state }}">{{ $user->state }}</option>
+                                                @else
+                                                    <option>Select Country first</option>
+                                                @endif
                                             </select>
                                             <span id="stateInfo"></span>
                                         </div>
@@ -127,13 +129,8 @@
                                 <div id='divcity'>
                                     <div class="form-group">
                                         <label class="col-sm-4 pedit"><span class="red-star">*</span>City:</label>
-                                        <div class="col-sm-8" id='location1'>
-                                            <select required class="form-control" name="city" id="city">
-                                                <option value="">Select City</option>
-                                                @foreach(\App\Models\City::all() as $item)
-                                                    <option @if ($user->city == $item->name) selected @endif value="{{ $item->name }}" > {{ $item->name }} </option>
-                                                @endforeach
-                                            </select>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" placeholder="City" value="{{ $user->city }}">
                                             <span id="cityInfo"></span>
                                         </div>
                                     </div>
@@ -334,5 +331,42 @@
 
     </div><!-- CONTENT -->
     <!--ADVANCED SEARCH POPUP-->
+
+@endsection
+
+
+@section('style')
+    <link rel="stylesheet" href="{{ asset('/css/select2.css') }}">
+@endsection
+
+@section('js')
+
+    <script src="{{ asset('/js/select2.full.js')}}" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.select2').select2({});
+            $(".country_select").on('select2:select', function (e) {
+                let country = e.params.data.id;
+                $.ajax({
+                    url: '{{route('ajax.getstates')}}?country=' + country,
+                    method: 'GET',
+                    error: function () {
+                    },
+                    success: function (response) {
+                        $(".states").empty();
+                        $.each(response.states, function (index, value) {
+                            $(".states").append(`<option value=${value.name}>${value.name}</option>`);
+                        });
+                    },
+                    complete: function () {
+
+                    }
+                });
+            });
+        });
+    </script>
+
 
 @endsection

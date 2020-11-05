@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\EmployerAccess;
 use App\Models\EmployerProduct;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,24 @@ class EmployerController extends Controller
 
     public function empResumePack(){
         return view('employer.resume_pack');
+    }
+
+    public function featuredResume(){
+        return view('employer.featured_resumes');
+    }
+
+    public function searchResume(Request $request){
+        $user = User::whereRoleIs('jobseeker');
+        if($request->has('keyskill')){
+            $user->where('skills','LIKE','%'.$request->get('keyskill').'%')
+                ->orWhere('skills','LIKE','%'.$request->get('keyskill').'%');
+        }
+        $users = $user->paginate(10);
+        if(count($users) < 1){
+            return redirect()->back()->with('failure', 'No match found');
+        }
+
+        return view('employer.resume_search_result', compact('users'));
     }
 
     public function addSubUser(){

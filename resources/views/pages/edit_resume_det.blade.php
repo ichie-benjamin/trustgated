@@ -22,6 +22,15 @@
                 </div><!--col-sm-2-->
 
                 <div class="col-md-9" >
+
+                    @if (session('failure'))
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Error!</strong> {{ session('failure') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     @if (session('success'))
                         <div class="alert alert-success" role="alert">
                             <strong>Successful!</strong> {{ session('success') }}
@@ -53,15 +62,24 @@
                                     </div>
                                 </div><!--form-group-->
 
+                                <div class="col-sm-12">
+
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-3"><input type="submit" name="save1"class="btn-blue btn" value="Save"></div>
+                                        <div class="col-sm-3"><div class="btn-blue btn"><a href="{{ route('jobseeker.profile') }}" style="color:#FFF"> Cancel </a></div></div>
+
+                                </div><!--col-md-12-->
+
 
                             </div><!--col-md-6-->
-                            <div class="col-sm-12">
-                                <div class="col-sm-7">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"><input type="submit" name="save1"class="btn-blue btn" value="Save"></div>
-                                    <div class="col-sm-3"><div class="btn-blue btn"><a href="jobseeker-profile.html" style="color:#FFF"> Cancel </a></div></div>
-                                </div> <!--col-md-6-->
-                            </div><!--col-md-12-->
+                            @if (auth()->user()->cv)
+                                <div class="col-md-5">
+
+                                    <iframe src="{{ auth()->user()->cv }}" width="100%" height="300"></iframe>
+
+                                </div>
+                            @endif
+
                         </div>
                     </form>
                 </div><!--col-sm-9-->

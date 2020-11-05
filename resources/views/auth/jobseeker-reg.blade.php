@@ -130,11 +130,10 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Country: </label>
                                 <div class="col-sm-5">
-{{--                                    onChange="loadXMLDoc(this.value)"--}}
-                                    <select class="form-control" name="country" id="select_country">
-                                        <option value="">Select</option>
-                                        @foreach(\App\Models\Country::all() as $item)
-                                        <option value="{{ $item->name }}"> {{ $item->name }} </option>
+                                    <select name="country" class="form-control country_select select2" data-size="7" title="Select country Type">
+                                        <option>Select Country</option>
+                                        @foreach(\App\Models\Country::pluck('name') as $item)
+                                            <option  value="{{ $item }}">{{ $item }}</option>
                                         @endforeach
                                     </select>
 
@@ -148,12 +147,10 @@
                             <div class="form-group" id="statee">
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>State: </label>
                                 <div class="col-sm-5">
-{{--                                    onChange="loadcity(this.value)"--}}
-                                    <select name="state" class="form-control" id="state" onBlur="trim(this.id)">
-                                        <option value="">Select State</option>
-                                        @foreach(\App\Models\State::all() as $item)
-                                            <option value="{{ $item->name }}"> {{ $item->name }} </option>
-                                        @endforeach
+                                    <select style="width: 100%" class="form-control select2 states" required name="state">
+
+                                        <option>Select Country first</option>
+
                                     </select>
 
                                 </div>
@@ -165,12 +162,7 @@
                             <div class="form-group" id="cityy">
                                 <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>City: </label>
                                 <div class="col-sm-5">
-                                    <select name="city" class="form-control" id="city" onBlur="trim(this.id)">
-                                        <option value="">Select City</option>
-                                        @foreach(\App\Models\City::all() as $item)
-                                            <option value="{{ $item->name }}"> {{ $item->name }} </option>
-                                        @endforeach
-                                    </select>
+                                    <input required type="text" name="city" id="city" class="form-control" placeholder="">
 
                                 </div>
                                 <div>
@@ -292,7 +284,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right">What are your Key Skills?:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" name="skills" id="keyskills" class="form-control " placeholder=" Enter your areas of expertise/specialization." >
+                                    <input type="text" name="keyskills" id="keyskills" class="form-control " placeholder=" Enter your areas of expertise/specialization." >
                                 </div>
                                 <div>
                                     <span id="keyInfo"></span>
@@ -545,7 +537,43 @@
     </div>
 @endsection
 
+
+
+@section('style')
+    <link rel="stylesheet" href="{{ asset('/css/select2.css') }}">
+@endsection
+
 @section('js')
+
+    <script src="{{ asset('/js/select2.full.js')}}" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.select2').select2({});
+            $(".country_select").on('select2:select', function (e) {
+                let country = e.params.data.id;
+                $.ajax({
+                    url: '{{route('ajax.getstates')}}?country=' + country,
+                    method: 'GET',
+                    error: function () {
+                    },
+                    success: function (response) {
+                        $(".states").empty();
+                        $.each(response.states, function (index, value) {
+                            $(".states").append(`<option value=${value.name}>${value.name}</option>`);
+                        });
+                    },
+                    complete: function () {
+
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
     <script type="text/javascript">
         function validateForm(){
             var nameReg = /^[A-Za-z]+$/;

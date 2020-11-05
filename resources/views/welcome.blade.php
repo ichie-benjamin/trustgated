@@ -1,8 +1,9 @@
 
+
 <!doctype html>
 <html lang="en">
 
-<head>
+<head><!-- -->
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +25,7 @@
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/fonts/icomoon.css">
     <link href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/font-n/stylesheet.css" rel="stylesheet" type="text/css" charset="utf-8" />
+
 
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/bootstrap/css/bootstrap.min.css">
@@ -56,7 +58,6 @@
     <!-- CUSTOM & PAGES STYLE -->
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/custom.css">
     <link rel="stylesheet" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/pages-style.css">
-
     <style>
 
         ul.acc li {
@@ -127,29 +128,18 @@
                     <div class="col-sm-5 logme">
                         <div class="widget widget-pages">
                             <ul >
-                                <div class="dropdown2">
-                                    <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-profile.html" class="dropbtn2"><i class="fa fa-lock"></i> <strong> Varsha..</strong></a></li>
-                                    <div class="dropdown-content2">
-                                        <a href="jobseeker-profile-edit.php">Edit Profile</a>
-                                        <a href="save-jobs.php">Saved Jobs</a>
-                                        <a href="changepasswordseeker.php">Change Password</a>
-
-                                    </div>
-                                </div>
-                                <li> <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout.php"><i class="fa fa-sign-out"></i>Logout</a></li>
-
-                                <!--<li>
-                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/jobseeker-profile.html">
-                                      <i class="fa fa-user"></i> <strong> Varsha..</strong>
+                                <li>
+                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html">
+                                        <i class="fa fa-user"></i> <strong> Liza..</strong>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout.php">
-                                        <!--<!--<i class="fa fa-pencil-square-o"></i>-->
-                                <!--<i class="fa fa-sign-out"></i>
-                                  Logout
-                            </a>
-                        </li>-->
+                                    <a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/logout_emp.php">
+                                        <!--<i class="fa fa-pencil-square-o"></i>-->
+                                        <i class="fa fa-sign-out"></i>
+                                        Logout
+                                    </a>
+                                </li>
 
                             </ul>
 
@@ -166,28 +156,18 @@
                         <div class="col-sm-12">
                             <!-- MENU -->
                             <nav>
-                                <a id="mobile-menu-button" href="#"><i class="mt-icons-menu"></i></a>
+                                <a id="mobile-menu-button" style="position:fixed" href="#"><i class="mt-icons-menu"></i></a>
                                 <ul class="menu clearfix" id="menu">
-                                    <!--<li class=" active"><a href="index.html"><i class="fa fa-user"></i> Home</a></li>
-                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/searchall.html"><i class="fa fa-users"></i> Search Jobs</a></li>
-                                    <li ><a href="index.html"><i class="fa fa-university"></i> My Account</a></li>
-                                    <li ><a href="index.html"><i class="fa fa-globe"></i> Institute</a></li>
-                                    <li ><a href="index.html"><i class="fa fa-briefcase"></i> Career Services</a></li>
-                                    <li  class="dropdown" ><a href="index.html"><i class="fa fa-plus-circle"></i> More</a>
-                                        <ul >
-											<li><a href="#">Help / FAQ</a></li>
-											<li><a href="#">Career Advice</a></li>
-                                            <li><a href="#">Contact Us</a></li>
-										</ul>
-                                    </li>-->
-                                    <li><a href="jobseeker-profile.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/job-seeker-icon.png" /> Jobseekers</a></li>
-                                    <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/searchall.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/jobs-icon.png" /> Jobs</a></li>
-                                    <li ><a href="jobsearch_all.php?sc=1"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/govt-jobs-icon.png" /> Govt.jobs</a></li>
-                                    <li ><a href="jobsearch_all.php?sc=2"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/oversea-jobs-icon.png" /> Oversea jobs</a></li>
-                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/recruiter-listing.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/recruiters-icon.png" /> Recruiters</a></li>
-                                    <li ><a href="index.html"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/employers-icon.png" /> Employers</a></li>
-                                    <li ><a href="contactus.php"><img src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//images/services-icon.png" /> Contact us</a></li>
-
+                                    <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_find-candidate.html"><i class="fa fa-users"></i> Find Candidate</a></li>
+                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html"><i class="fa fa-university"></i> Resume Access</a></li>
+                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html"><i class="fa fa-globe"></i> Post Job</a></li>
+                                    <li  ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postedjobs.html"><i class="fa fa-briefcase"></i> Posted Job List</a></li>
+                                    <li ><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html"><i class="icon-user4"></i> Transaction List</a></li>
+                                    <!--<li><a href="faq.html">Help / FAQ</a></li>-->
+                                    <li ><a href="contactus.html">Contact</a></li>
+                                    <!-- <li ><a href="index.html"><i class="fa fa-cogs"></i> Services</a></li>
+                                     <li ><a href="index.html" ><i class="fa fa-plus-circle"></i> More</a>-->
 
                                     </li>
                                 </ul>
@@ -196,6 +176,92 @@
                     </div><!-- row -->
                 </div><!-- container -->
             </div><!-- header -->
+
+            <script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+            <link rel="stylesheet" type="text/css" href="js/jquery.autocomplete.css" />
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+
+                    $("#jobkeywords").autocomplete("keyskillsearch.php", {
+
+                        width: 200,
+                        formatResult: function(data, value) {
+                            return value.split(",")[0];
+                        }
+                    });
+
+                    $("#adv-location").autocomplete("ajax_joblocation.php", {
+
+                        width: 190,
+                        formatResult: function(data, value) {
+                            return value.split(",")[0];
+                        }
+                    });
+
+                    $("#edkeywords").autocomplete("keyskillsearch.php", {
+
+                        width: 200,
+                        formatResult: function(data, value) {
+                            return value.split(",")[0];
+                        }
+                    });
+
+
+                });
+
+            </script>
+
+            <script type="text/javascript">
+                function chkkabuse(txtid)
+                {
+                    //alert(txtid);
+                    var idd = txtid;
+                    //alert(idd);
+                    var textval =document.getElementById(idd).value;
+                    //alert(textval);
+                    if (window.XMLHttpRequest)
+                    {// code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp=new XMLHttpRequest();
+                    }
+                    else
+                    {// code for IE6, IE5
+                        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange=function()
+                    {
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                        {
+                            //alert(xmlhttp.responseText);
+
+                            //alert(xmlhttp.responseText);
+                            if(xmlhttp.responseText==0)
+                            {
+                                document.getElementById(idd).focus();
+                                document.getElementById(idd).value="";
+                                //document.getElementById("name1").innerHTML="<font color='red' style='font-size:12px;'>Don't use abuse words,  </font> ";
+                                alert ("Don't use abuse words");
+
+                            }
+                            else
+                            {
+                                //document.getElementById("name1").innerHTML="<font color='#009966' style='font-size:12px;'>good</font>";
+                            }
+                        }
+                    }
+                    xmlhttp.open("GET","chkabuse.php?q="+textval,true);
+                    xmlhttp.send();
+
+
+                }
+            </script>
+            <style type="text/css">
+                td {
+                    vertical-align:middle;
+                }
+            </style>
+            <link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/empdev.css" />
+            <script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/javascripts/emp/emp.js"> </script>
             <!-- SEARCH-start -->
 
             <div class="container hometom">
@@ -294,623 +360,377 @@
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="jobseeker-profile.html">My Account</a></li>
-                        <li class="active">Edit Details</li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Resume Access</a></li>
+                        <li class="active">Candidate Manager</li>
                     </ol>
                 </div>
+                <script type="text/javascript">
+                    $('.inbox-bg .inboxa').hide(0);
+
+                    $('.inbox-bg').click(function(){
+                        alert('ffff');
+                        if($('.inboxa').hasClass('vis')){
+                            $('.inboxa', this).removeClass('vis');
+                            $('.inboxa', this).hide();
+                        }else{
+                            $('.inboxa', this).addClass('vis');
+                            $('.inboxa', this).show();
+                        }
+                    });
+                    function menu_click1()
+                    {
+                        $('#show1')
+                    }
+                </script>
+
                 <div class="col-md-3">
-
-
-
-
-
-
                     <div class="create-job">
                         <div class="create-job-head">
                             <h3> My Home</h3>
                         </div>
                         <div class="create-job-content">
-                            <div class="inbox-bg">Inbox</div>
-                            <div class="inboxa"><a href="jobseeker-profile-edit.html">Improve Your Profile</a></div>
-                            <!--<div class="inboxa"><a href="#">Recruiter Messages (4)</a></div>-->
+                            <div class="inbox-bg" onclick="return menu_click1();">Administration</div>
+                            <!--<div class="inboxa"><a href="#">Product Settings</a></li> -->
+                            <div id="show1">
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html"  style="color:#00CCFF" >Manage Sub-Users</a></div>
+                                <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html" >Subscription Status</a></div>
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resume_pack.html"  >Product Settings<!--Resume Pack--></a></div>
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"  >Company profile</a></div>
+                                <!--<div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_folders.html" >Manage personal folder</a></div>-->
+                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html" >Change Password</a></div>
+                            </div>
+                            <div class="inbox-bg">Search Resumes</div>
+                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html?featured=yes" >Featured Resumes</a></div>
+                            <!--<div class="inbox	a"><a href="emp_resumeaccess.php?viewall=yes">All Resumes</a></div>-->
 
-                            <div class="inbox-bg">Profile</div>
-                            <div class="inboxa"><a href="jobseeker-profile.html">View Profile</a></div>
+                            <div class="inbox-bg">Jobs & Responses</div>
+                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_find-candidate.html"  >Job Posted Responses</a></div>
+                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html" >Post Jobs</a></div>
+                            <!--<li><a href="#" >Post Jobs to Campuses</a></li> -->
+                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postedjobs.html" >Response Manager</a></div>
+                            <!--<li><a href="#" >Other Media Jobs</a></li>
+                            <li><a href="#" >Upload Resumes</a></li> -->
+
+
+                            <!-- <div class="inbox-bg">Profile</div>
+                            <div class="inboxa"><a href="#">View Profile</a></div>
                             <div class="panel-titlea">
-                                <a class="" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
-                                    Update Profile
-                                </a>
+                            <a class="" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
+                            Update Profile
+                            </a>
                             </div>
                             <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"  aria-expanded="true">
-                                <ul class="togg">
-                                    <li><a href="edit_objective_det.php">Summary Details</a></li>
-                                    <!--<li><a href="edit_contact.html">Contact Details </a></li>-->
-                                    <li><a href="create_emp.php">Employer/Designation</a></li>
-                                    <li><a href="edit_resume_det.php">Update Resume</a></li>
-                                    <li><a href="itskills.php">IT Skills</a></li>
-                                    <li><a href="educationdetails.php">Education</a></li>
-                                    <li><a href="moredetails.php">More Details</a></li>
-                                </ul>
+                            <ul class="togg">
+                            <li><a href="#"> Summary </a></li>
+                            <li><a href="#">Employer/Designation</a></li>
+                            <li><a href="#">Attached Resume</a></li>
+                            <li><a href="#">Attached Resume</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">IT Skills</a></li>
+                            <li><a href="#">Education</a></li>
+                            <li><a href="#">More Details</a></li>
+                            </ul>
                             </div>
-                            <!--<div class="inboxa"><a href="#">Create/Manage Profiles</a></div>
-                            <div class="inboxa"><a href="#">Profile Performance</a></div>-->
-                            <!--<div class="inboxa"><a href="coverletter.php">Manage Cover Letters</a></div>-->
-                            <div class="inboxa"> <a href="jobseeker-profile.php?upl">Upload Photo</a></div>
-
-                            <div class="inboxa"><a href="job_agent_view.php">Manage Search Agents</a></div>
+                            <div class="inboxa"><a href="#">Create/Manage Profiles</a></div>
+                            <div class="inboxa"><a href="#">Profile Performance</a></div>
+                            <div class="inboxa"><a href="#">Manage Cover Letters</a></div>
+                            <div class="inboxa"><a href="#">Upload Photo</a></div>
+                            <div class="inboxa"><a href="#">My Jobs Services</a></div>
                             <div class="inbox-bg">Jobs & Applications</div>
-                            <!--<div class="inboxa"><a href="save-jobs.php">Saved Jobs</a></div>-->
-                            <div class="inboxa"><a href="application-history.php">Application History</a></div>
+                            <div class="inboxa"><a href="#">Saved Jobs</a></div>
+                            <div class="inboxa"><a href="#">Application History</a></div>
                             <div class="inbox-bg">Recruiters</div>
-                            <div class="inboxa"><a href="jobs-update.php?updates"> Jobs & Updates</a></div>
-                            <div class="inboxa"><a href="manage_follow.php">Manage Following</a></div>
-                            <div class="inboxa"><a href="follow.php">RecruiterConnection</a></div>
+                            <div class="inboxa"><a href="#"> Jobs & Updates</a></div>
+                            <div class="inboxa"><a href="#">Manage Following</a></div>
+                            <div class="inboxa"><a href="#">RecruiterConnection</a></div>
                             <div class="inbox-bg">Settings</div>
-                            <div class="inboxa"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg1">Visibility Settings</a></div>
-                            <!--<div class="inboxa"><a href="profile_visibility.php">Visibility Settings</a></div>-->
-                            <!-- <div class="inboxa"><a href="communication-settings.php">Communication Settings</a></div>-->
-                            <div class="inboxa"><a href="block-companies.php">Block Companies</a></div>
-                            <div class="inboxa"><a href="changepasswordseeker.html">Change Password</a></div>
+                            <div class="inboxa"><a href="#">Visibility Settings</a></div>
+                            <div class="inboxa"><a href="#">Communication Settings</a></div>
+                            <div class="inboxa"><a href="#">Block Companies</a></div>
+                            <div class="inboxa"><a href="#">Change Password</a></div> -->
                         </div><!--create-job-content-->
 
                     </div><!--create-job-->
+                </div>
+
+                <!--
+
+                <style>
+                /* accordion */
+
+                .urbangreymenu{
+                    /*width: 190px; */
+                    text-align:left;
+                    border:1px solid #CCC;
+                    padding:7px;
+                    background-color: #FAFAFA;
+                    border-radius: 7px;
+                }
+
+                .urbangreymenu .headerbar{
+                    font: bold 13px Verdana;
+                    text-align:center;
+                    color: #000;
+                    /*border-bottom: 5px #2a78bd solid;*/
+                    color: white;
+                    background: #025680 url(../images/arrowstop.gif) no-repeat 8px 6px;
+                    background-color:#2a78bd;
+                    margin-bottom: 0;
+                    margin-top: 10px;
+                    padding: 7px 0px;
+
+                }
+
+                .urbangreymenu .headerbar a{
+                    text-decoration: none;
+                    color: white;
+                    /*color: #000;*/
+                    display: block;
+                }
+
+                .urbangreymenu ul{
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: 0;
+                }
+
+                .urbangreymenu ul li{
+                    padding-bottom: 2px;
+                }
+
+                .urbangreymenu ul li a{
+                    font: normal 12px Arial;
+                    color: black;
+                    background: #f5f5f5;
+                    display: block;
+                    padding: 5px 0;
+                    line-height: 17px;
+                    padding-left: 8px;
+                    text-decoration: none;
+                }
+
+                .urbangreymenu ul li a:visited{
+                color: black;
+                }
+
+                .urbangreymenu ul li a:hover{
+                /*color: #df5400;*/
+                color: #355774;
+                background: #FAFAFA;
+                -webkit-box-shadow: 0px 0px 3px 1px rgba(75, 75, 75, .2);
+                box-shadow: 0px 0px 3px 1px rgba(75, 75, 75, .2);
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+                }
 
 
-                </div><!--col-sm-2-->
+                /*  accordion End */
 
-                <div class="col-md-9" >
+                </style>-->
+
+                <!--col-sm-2-->
+
+                <div class="col-md-9" ><!--<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/add_sub_user.html" style="float:right; padding:5px;" class="btn-blue">ADD</a>-->
                     <div class="top-emp-center">
-                        <h4>Edit Education Details</h4>
+                        <h4>Candidate Manager</h4>
                     </div> <!--top-emp-center-->
-                    <form class="form-horizontal m10" name="myform">
-                        <div class="row" >
-                            <div class="col-sm-11" >
-
-
-                                <div class="form-group">
-                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Basic/Graduation:</label>
-                                    <div class="col-sm-8">
-                                        <select name="basicug" id="basicug" class="form-control">
-                                            <option value="">select</option>
-
-                                            <option value='43' selected>B.E/ B. Tech</option>
-
-                                            <option value='44' >mm</option>
-
-                                            <option value='45' >B.Sc</option>
-
-                                            <option value='47' >Diplomo</option>
-
-                                            <option value='48' >HSC</option>
-
-                                            <option value='49' >SSLC</option>
-
-                                            <option value='51' >php</option>
-
-                                            <option value='52' >MBBS</option>
-
-                                            <option value='53' >BA</option>
-
-                                            <option value='54' >B Com</option>
-
-                                            <option value='55' >B Ed</option>
-
-                                            <option value='56' >BBA</option>
-
-                                            <option value='57' >BAMS</option>
-
-                                            <option value='58' >BHMS</option>
-
-                                            <option value='59' >Others</option>
-
-                                            <option value='60' >ICMA</option>
-
-                                            <option value='61' >M.Com</option>
-
-                                        </select>
-
+                    <div style="color:#009900; padding:5px;"> 					</div>
+                    <table width="100%">
+                        <tr class="folderhead">
+                            <td class="mangerhead">
+                                <a href="resume_search.php?cont" style="text-decoration:none; color: #017BC6;">
+                                    Search Result
+                                    <hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                    <div class="folder inline">
+                                        ( 1 )
                                     </div>
-                                    <div>
-                                        <span id="companyInfo"></span>
+                                </a>
+                            </td>
+                            <td class="mangerhead">
+                                <a href="resume_search.php?folder=20" style="text-decoration:none; color: #017BC6;">
+                                    folder2				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                    <div class="folder inline">
+                                        ( 0 )
                                     </div>
-                                </div><!--form-group-->
-
-                                <div class="form-group">
-                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star"></span></label>
-                                    <div class="col-sm-8">
-
-                                        <label class="radio-inline">
-                                            <input type="radio" name="basicstatus" id="basicstatus1" value="1" />&nbsp;Full Time
-                                        </label>
-
-
-                                        <label class="radio-inline">
-                                            <input type="radio" name="basicstatus" id="basicstatus2" value="2" />&nbsp;Part Time
-                                        </label>
-
-
-                                        <label class="radio-inline">
-                                            <input type="radio" name="basicstatus" id="basicstatus3" value="3"
-                                            />&nbsp;Correspondence/Distance Learning
-                                        </label>
-
-
-
+                                </a>
+                            </td>
+                            <td class="mangerhead">
+                                <a href="resume_search.php?folder=21" style="text-decoration:none; color: #017BC6;">
+                                    folder3				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                    <div class="folder inline">
+                                        ( 0 )
                                     </div>
-
-
-                                </div><!--col-md-6-->
-
-                                <div class="form-group">
-                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Specialization:</label>
-
-                                    <div class="col-sm-8">
-                                        <input type="text" name="ugspec" id="ugspec" class="form-control " placeholder="" value=""/>
-
-
-
-                                    </div><!--col-sm-6-->
-
-
-
-                                    <div>
-                                        <span id="durationInfo"></span>
+                                </a>
+                            </td>
+                            <td class="mangerhead">
+                                <a href="resume_search.php?folder=22" style="text-decoration:none; color: #017BC6;">
+                                    folder4				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                    <div class="folder inline">
+                                        ( 0 )
                                     </div>
-                                </div><!--form-group-->
-
-                                <div class="form-group">
-                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>University/Institute:</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" name="ugcoll" id="ugcoll" class="form-control " placeholder="" value=""/>
-
+                                </a>
+                            </td>
+                            <td class="mangerhead">
+                                <a href="resume_search.php?folder=23" style="text-decoration:none; color: #017BC6;">
+                                    folder5				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                    <div class="folder inline">
+                                        ( 0 )
                                     </div>
-                                    <div>
-                                        <span id="desigInfo"></span>
+                                </a>
+                            </td>
+                            <td class="mangerhead">
+                                <a href="resume_search.php?folder=24" style="text-decoration:none; color: #017BC6;">
+                                    folder6				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                    <div class="folder inline">
+                                        ( 0 )
                                     </div>
-                                </div><!--form-group-->
-
-
-                                <div class="form-group">
-                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Year :</label>
-                                    <div class="col-sm-8">
-                                        <select name="ugyear" id="ugyear" class="form-control">
-                                            <option value="">select</option>
-                                            <option value='1960' >1960</option>
-                                            <option value='1961' >1961</option>
-                                            <option value='1962' >1962</option>
-                                            <option value='1963' >1963</option>
-                                            <option value='1964' >1964</option>
-                                            <option value='1965' >1965</option>
-                                            <option value='1966' >1966</option>
-                                            <option value='1967' >1967</option>
-                                            <option value='1968' >1968</option>
-                                            <option value='1969' >1969</option>
-                                            <option value='1970' >1970</option>
-                                            <option value='1971' >1971</option>
-                                            <option value='1972' >1972</option>
-                                            <option value='1973' >1973</option>
-                                            <option value='1974' >1974</option>
-                                            <option value='1975' >1975</option>
-                                            <option value='1976' >1976</option>
-                                            <option value='1977' >1977</option>
-                                            <option value='1978' >1978</option>
-                                            <option value='1979' >1979</option>
-                                            <option value='1980' >1980</option>
-                                            <option value='1981' >1981</option>
-                                            <option value='1982' >1982</option>
-                                            <option value='1983' >1983</option>
-                                            <option value='1984' >1984</option>
-                                            <option value='1985' >1985</option>
-                                            <option value='1986' >1986</option>
-                                            <option value='1987' >1987</option>
-                                            <option value='1988' >1988</option>
-                                            <option value='1989' >1989</option>
-                                            <option value='1990' >1990</option>
-                                            <option value='1991' >1991</option>
-                                            <option value='1992' >1992</option>
-                                            <option value='1993' >1993</option>
-                                            <option value='1994' >1994</option>
-                                            <option value='1995' >1995</option>
-                                            <option value='1996' >1996</option>
-                                            <option value='1997' >1997</option>
-                                            <option value='1998' >1998</option>
-                                            <option value='1999' >1999</option>
-                                            <option value='2000' >2000</option>
-                                            <option value='2001' >2001</option>
-                                            <option value='2002' >2002</option>
-                                            <option value='2003' >2003</option>
-                                            <option value='2004' >2004</option>
-                                            <option value='2005' >2005</option>
-                                            <option value='2006' >2006</option>
-                                            <option value='2007' >2007</option>
-                                            <option value='2008' >2008</option>
-                                            <option value='2009' >2009</option>
-                                            <option value='2010' >2010</option>
-                                            <option value='2011' >2011</option>
-                                            <option value='2012' >2012</option>
-                                            <option value='2013' >2013</option>
-                                            <option value='2014' >2014</option>
-                                            <option value='2015' >2015</option>
-                                        </select>
+                                </a>
+                            </td>
+                            <td class="mangerhead">
+                                <a href="resume_search.php?folder=25" style="text-decoration:none; color: #017BC6;">
+                                    folder7				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                    <div class="folder inline">
+                                        ( 0 )
                                     </div>
-                                    <div>
-                                        <span id="jobInfo"></span>
+                                </a>
+                            </td>
+
+                            <td class="mangerhead">
+                                <a id="clickme" href="javascript:void(0);" style="text-decoration:none; color: #017BC6;">
+                                    Personal folder
+                                    <hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                    <div class="folder inline">
+                                        view
                                     </div>
-                                </div><!--form-group-->
+                                </a>
 
+                                <div id="book" class="innermagerhead">
+                                    <a href="#" style="text-decoration:none; color: #017BC6;">
+                                        No folder created
+                                        <hr class="noshade" style="margin:0;">
+                                    </a>
+                                    <hr>
 
+                                    <a href="emp_folders.php">Manage</a> | <a href="emp_folders_new.php">Add folder</a>
 
-                                <div class="form-group" id="notice1" >
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right">Post/Graduation:</label>
-                                        <div class="col-sm-8">
-                                            <select name="postpg" id="postpg" class="form-control">
-                                                <option value="">select</option>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <script language="javascript">
+                        $( "#clickme" ).click(function() {
+                            $( "#book" ).slideToggle( "slow", function() {
+                                // Animation complete.
+                            });
+                        });
 
-                                                <option value='41' >M.A</option>
+                    </script>
 
-                                                <option value='42' >M.Arch</option>
+                    <form method='post' action='mail_preview.php' name='mailform' onSubmit='return ValidateForm()'>
 
-                                                <option value='43' >MBA / PGDM / PGDBA</option>
+                        <div class="candidatelist">
+                            <p><strong>List of candidates</strong></p>
+                            <h6 style="float:right;">
+                                <strong>
+                                    Search Result Candidates Below
+                                </strong>
+                            </h6>
+                            <div class="clear">&nbsp;</div>
+                            <div class="procinfobar" style="margin-top:7px;">
+                                <div class="">
 
-                                                <option value='45' >MCA/PGDCA</option>
-
-                                                <option value='46' >MCM</option>
-
-                                                <option value='47' >M.Com</option>
-
-                                                <option value='48' >M.D/Ms</option>
-
-                                                <option value='49' >M.E/M Tech</option>
-
-                                                <option value='52' >M.H.R.M</option>
-
-                                                <option value='56' >M.P.Ed</option>
-
-                                                <option value='57' >M.Pharm</option>
-
-                                                <option value='58' >M.Phil</option>
-
-                                                <option value='59' >M.S.W</option>
-
-                                                <option value='60' >M.Sc</option>
-
-                                                <option value='61' >M.T.M</option>
-
-                                                <option value='64' >CA/ ICWA/ CS</option>
-
-                                                <option value='65' >not mentioned</option>
-
-                                                <option value='66' >Others</option>
-
-                                                <option value='67' >M.C.S.</option>
-
-                                            </select>
-
-                                        </div>
-                                        <div>
-                                            <span id="companyInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star"></span></label>
-                                        <div class="col-sm-8">
-
-                                            <label class="radio-inline">
-                                                <input type="radio" name="pgstatus" id="pgstatus1" value="1"  />&nbsp;Full Time
-                                            </label>
-
-
-                                            <label class="radio-inline">
-                                                <input type="radio" name="pgstatus" id="pgstatus2" value="2" />&nbsp;Part Time
-                                            </label>
-
-
-                                            <label class="radio-inline">
-                                                <input type="radio" name="pgstatus" id="pgstatus3" value="3" />&nbsp;Correspondence/Distance Learning
-                                            </label>
-
-
-
-                                        </div>
-
-
-                                    </div><!--col-md-6-->
-
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Specialization:</label>
-
-                                        <div class="col-sm-8">
-                                            <input type="text" name="pgspec" id="pgspec" class="form-control " placeholder="" value=""/>
-
-
-
-                                        </div><!--col-sm-6-->
-
-
-
-                                        <div>
-                                            <span id="durationInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>University/Institute:</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="pgcoll" id="pgcoll" class="form-control " placeholder="" value=""/>
-
-                                        </div>
-                                        <div>
-                                            <span id="desigInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-
-
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Year :</label>
-                                        <div class="col-sm-8">
-                                            <select name="pgyear" id="pgyear" class="form-control">
-                                                <option value="">Year</option>
-                                                <option value='1960' >1960</option>
-                                                <option value='1961' >1961</option>
-                                                <option value='1962' >1962</option>
-                                                <option value='1963' >1963</option>
-                                                <option value='1964' >1964</option>
-                                                <option value='1965' >1965</option>
-                                                <option value='1966' >1966</option>
-                                                <option value='1967' >1967</option>
-                                                <option value='1968' >1968</option>
-                                                <option value='1969' >1969</option>
-                                                <option value='1970' >1970</option>
-                                                <option value='1971' >1971</option>
-                                                <option value='1972' >1972</option>
-                                                <option value='1973' >1973</option>
-                                                <option value='1974' >1974</option>
-                                                <option value='1975' >1975</option>
-                                                <option value='1976' >1976</option>
-                                                <option value='1977' >1977</option>
-                                                <option value='1978' >1978</option>
-                                                <option value='1979' >1979</option>
-                                                <option value='1980' >1980</option>
-                                                <option value='1981' >1981</option>
-                                                <option value='1982' >1982</option>
-                                                <option value='1983' >1983</option>
-                                                <option value='1984' >1984</option>
-                                                <option value='1985' >1985</option>
-                                                <option value='1986' >1986</option>
-                                                <option value='1987' >1987</option>
-                                                <option value='1988' >1988</option>
-                                                <option value='1989' >1989</option>
-                                                <option value='1990' >1990</option>
-                                                <option value='1991' >1991</option>
-                                                <option value='1992' >1992</option>
-                                                <option value='1993' >1993</option>
-                                                <option value='1994' >1994</option>
-                                                <option value='1995' >1995</option>
-                                                <option value='1996' >1996</option>
-                                                <option value='1997' >1997</option>
-                                                <option value='1998' >1998</option>
-                                                <option value='1999' >1999</option>
-                                                <option value='2000' >2000</option>
-                                                <option value='2001' >2001</option>
-                                                <option value='2002' >2002</option>
-                                                <option value='2003' >2003</option>
-                                                <option value='2004' >2004</option>
-                                                <option value='2005' >2005</option>
-                                                <option value='2006' >2006</option>
-                                                <option value='2007' >2007</option>
-                                                <option value='2008' >2008</option>
-                                                <option value='2009' >2009</option>
-                                                <option value='2010' >2010</option>
-                                                <option value='2011' >2011</option>
-                                                <option value='2012' >2012</option>
-                                                <option value='2013' >2013</option>
-                                                <option value='2014' >2014</option>
-                                                <option value='2015' >2015</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <span id="jobInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-                                    <div class="col-md-12">
-                                        <div class="ali-left col-md-4 text-right"> <input name="butt2" id="butt2" class="btn-blue btn bc" value="Add Phd/Doctrate" type="button" OnClick="phdemp();"></div>
-                                    </div>
                                 </div>
 
-                                <div class="form-group" id="phd"  style="display:none;" >
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right">Doctorate/PhD:</label>
-                                        <div class="col-sm-8">
-                                            <select name="phdc" id="phdc" class="form-control">
-                                                <option value="">select</option>
+                                <table width="100%">
+                                    <tr style="background-color:#E5E5E5; height:30px; font-size:13px;">
+                                        <td style="width:3%; text-align:center;">
+                                            <label class="checkbox-inline" style="margin-top: -24px; margin-left: 5px; ">
+                                                <input type="checkbox" name="select_all_contacts" id="select_all_contacts" onClick="selectUnselect_contacts(this.form)" class="text1"/>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <strong>Candidate Summary</strong>
+                                        </td>
+                                        <td>
+                                            <strong>Professional Details</strong>
+                                        </td>
+                                        <td>
+                                            <strong>Personal Details</strong>
+                                        </td>
+                                        <td style="width: 15%; text-align:center;">
+                                            Process
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td valign="top" style="width:3%; text-align:center;">
+                                            <label class="checkbox-inline" >
+                                                <input type="checkbox" name="check[]" value="212" />
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <strong>Key Skill :</strong> (
+                                            testing ) <br>
+                                            <strong>Experience :</strong> 1 Year AND 3 Months <br>
+                                            <strong>Last Active on :</strong>
+                                            Monday Jul,13th 2020</td>
+                                        <td>
+                                            <strong></strong>
+                                            <strong>Qualification :</strong>
+                                            ug : B.E/ B. Tech<br>
+                                            <strong>Functional Area :</strong>
+                                            QA<br>
 
-                                                <option value='1' >Ph.D/Doctorate</option>
+                                        </td>
+                                        <td>
+                                            <strong>Name :</strong> ramya  <br>
+                                            <strong>Email :</strong> inetramya@gmail.com <br>
+                                            <strong>Mobile :</strong> 8015097900 <br>
+                                            <strong>Location :</strong>  (Tubarï¿½) </td>
+                                        <td style="width: 15%; text-align:center;">
+                                            <!--<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//seeker/Tubarï¿½/Ramya22#" target="_blank">View Profile</a> -->
+                                            <a href="view_userprofile.php?uname=212" target="_blank">View Profile</a>
+                                            <br>
+                                            <hr class="noshade">
 
-                                                <option value='2' >MPHIL</option>
+                                            <a href="mail_preview.php?userid=aW5ldHJhbXlhQGdtYWlsLmNvbQ==&job_id=resumesearch">Send mail</a>
 
-                                                <option value='3' >Other</option>
-
-                                                <option value='4' >Not Pursuing Doctorate/Phd</option>
-
-                                                <option value='5' >koss</option>
-
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5"><hr></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5">
+                                            <select name="movetofolder" id="movetofolder">
+                                                <option value="">Move to folder</option>
+                                                <option value="19">folder1</option>
+                                                <option value="20">folder2</option>
+                                                <option value="21">folder3</option>
+                                                <option value="22">folder4</option>
+                                                <option value="23">folder5</option>
+                                                <option value="24">folder6</option>
+                                                <option value="25">folder7</option>
                                             </select>
-
-                                        </div>
-                                        <div>
-                                            <span id="companyInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star"></span></label>
-                                        <div class="col-sm-8">
-
-                                            <label class="radio-inline">
-                                                <input type="radio" name="phdstatus" id="phdstatus1" value="1" />&nbsp;Full Time
-                                            </label>
-
-
-                                            <label class="radio-inline">
-                                                <input type="radio" name="phdstatus" id="phdstatus2" value="2" />&nbsp;Part Time
-                                            </label>
+                                            &nbsp;
+                                            <button type="submit" name="movefolderSearched" class="gobtn toosmallbtn">Move now</button>
+                                            &nbsp;
+                                            <button type="submit" name="sendmail" class="gobtn toosmallbtn">Send Mail</button>
+                                            &nbsp;
+                                            <button type="submit" name="export" class="gobtn toosmallbtn">Export to Excel</button>
+                                            <span style="float:right;">
+</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5"><hr></td>
+                                    </tr>
 
 
-                                            <label class="radio-inline">
-                                                <input type="radio" name="phdstatus" id="phdstatus3" value="3" />&nbsp;Correspondence/Distance Learning
-                                            </label>
-
-
-
-                                        </div>
-
-
-                                    </div><!--col-md-6-->
-
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Specialization:</label>
-
-                                        <div class="col-sm-8">
-                                            <input type="text" name="phdspec" id="phdspec" class="form-control " placeholder="" value=""/>
-
-
-
-                                        </div><!--col-sm-6-->
-
-
-
-                                        <div>
-                                            <span id="durationInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>University/Institute:</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="phdcoll" id="phdcoll" class="form-control " placeholder="" value=""/>
-
-                                        </div>
-                                        <div>
-                                            <span id="desigInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-
-
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Year :</label>
-                                        <div class="col-sm-8">
-                                            <select name="phdyear" id="phdyear" class="form-control">
-                                                <option value="">select</option>
-                                                <option value='1960' >1960</option>
-                                                <option value='1961' >1961</option>
-                                                <option value='1962' >1962</option>
-                                                <option value='1963' >1963</option>
-                                                <option value='1964' >1964</option>
-                                                <option value='1965' >1965</option>
-                                                <option value='1966' >1966</option>
-                                                <option value='1967' >1967</option>
-                                                <option value='1968' >1968</option>
-                                                <option value='1969' >1969</option>
-                                                <option value='1970' >1970</option>
-                                                <option value='1971' >1971</option>
-                                                <option value='1972' >1972</option>
-                                                <option value='1973' >1973</option>
-                                                <option value='1974' >1974</option>
-                                                <option value='1975' >1975</option>
-                                                <option value='1976' >1976</option>
-                                                <option value='1977' >1977</option>
-                                                <option value='1978' >1978</option>
-                                                <option value='1979' >1979</option>
-                                                <option value='1980' >1980</option>
-                                                <option value='1981' >1981</option>
-                                                <option value='1982' >1982</option>
-                                                <option value='1983' >1983</option>
-                                                <option value='1984' >1984</option>
-                                                <option value='1985' >1985</option>
-                                                <option value='1986' >1986</option>
-                                                <option value='1987' >1987</option>
-                                                <option value='1988' >1988</option>
-                                                <option value='1989' >1989</option>
-                                                <option value='1990' >1990</option>
-                                                <option value='1991' >1991</option>
-                                                <option value='1992' >1992</option>
-                                                <option value='1993' >1993</option>
-                                                <option value='1994' >1994</option>
-                                                <option value='1995' >1995</option>
-                                                <option value='1996' >1996</option>
-                                                <option value='1997' >1997</option>
-                                                <option value='1998' >1998</option>
-                                                <option value='1999' >1999</option>
-                                                <option value='2000' >2000</option>
-                                                <option value='2001' >2001</option>
-                                                <option value='2002' >2002</option>
-                                                <option value='2003' >2003</option>
-                                                <option value='2004' >2004</option>
-                                                <option value='2005' >2005</option>
-                                                <option value='2006' >2006</option>
-                                                <option value='2007' >2007</option>
-                                                <option value='2008' >2008</option>
-                                                <option value='2009' >2009</option>
-                                                <option value='2010' >2010</option>
-                                                <option value='2011' >2011</option>
-                                                <option value='2012' >2012</option>
-                                                <option value='2013' >2013</option>
-                                                <option value='2014' >2014</option>
-                                                <option value='2015' >2015</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <span id="jobInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="ali-left col-md-4 text-right"> <input name="butt3" id="butt3" class="btn-blue btn bc" value="Add Certificates obtained" type="button" OnClick="addcerti();"></div>
-                                </div>
-
-
-                                <div class="form-group" id="certificate"  style="display:none;" >
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right">Certificate1:</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="certi1" id="certi1" class="form-control " placeholder="" value=""/>
-                                        </div>
-                                        <div>
-                                            <span id="companyInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right">Certificate2:</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="certi2" id="certi2" class="form-control " placeholder="" value=""/>
-                                        </div>
-                                        <div>
-                                            <span id="companyInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-                                    <div class="form-group">
-                                        <label class="col-sm-4 pedit2 text-right">Certificate3:</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="certi3" id="certi3" class="form-control " placeholder="" value=""/>
-                                        </div>
-                                        <div>
-                                            <span id="companyInfo"></span>
-                                        </div>
-                                    </div><!--form-group-->
-                                </div>
-
-
-                            </div><!--col-md-6-->
-
-                            <div class="col-sm-12 m20">
-                                <div class="col-sm-4"></div>
-                                <div class="col-sm-3 text-right"><input type="submit" name="save1" class="btn-blue btn bc" value="Save" onclick="return validateform();"></div>
-                                <div class="col-sm-3 "><div class="btn-blue btn bc"><a href="jobseeker-profile.html" style="color:#FFF"> Cancel </a></div></div>
-
-                            </div><!--col-md-12-->
+                                </table>
+                            </div>
                         </div>
                     </form>
                 </div><!--col-sm-9-->
@@ -918,6 +738,68 @@
         </div><!-- container -->
 
     </div><!-- CONTENT -->
+    <script language="javscript" type="text/javascript">
+        function ValidateForm()
+        {
+            var del_str = "check";
+            var j1=0;
+            for (i=0;i<document.mailform.length;i++){
+                ele = document.mailform.elements[i];
+                ele_name = ele.name;
+                if (ele_name.substring(0,del_str.length) == del_str){
+                    if(ele.checked == true){
+                        j1 = j1 + 1;
+                    }
+                }
+            }
+            if(j1 <1)
+            {
+                alert("Please select atleaset one job seeker");
+                return false;
+            }
+            /*else
+            {
+            alert("Are You Sure You Want To Send Email");
+            }*/
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+        function SetAllCheckBoxes(FormName, FieldName, CheckValue)
+        {
+            if(!document.forms[FormName])
+            {
+
+                return;
+            }
+            var objCheckBoxes = document.forms[FormName].elements[FieldName];
+
+            if(!objCheckBoxes)
+                return;
+            var countCheckBoxes = objCheckBoxes.length;
+            if(!countCheckBoxes)
+            {
+                objCheckBoxes.checked = CheckValue;
+
+            }
+            else
+            {
+// set the check value for all check boxes
+                for(var i = 0; i < countCheckBoxes; i++)
+                {
+                    objCheckBoxes[i].checked = CheckValue;
+                }
+            }
+        }
+
+
+        function selectUnselect_contacts(form)
+        {
+
+            for (var i = 1; i < form.elements.length; i++){
+                eval("form.elements[" + i + "].checked = form.elements[0].checked");
+            }
+        }
+    </script>
     <!--ADVANCED SEARCH POPUP-->
 
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -2241,293 +2123,3 @@
 <style>
     .error,.redstar{ color:#F00;   font-size: 12px;}
 </style>
-<script type="text/javascript">
-    function radioemp()
-    {
-        //if(document.getElementById("emptype1").checked==true)
-        //{
-
-        document.getElementById('notice1').style.display='block';
-        document.getElementById('butt1').style.display='none';
-
-        //}
-        //else if(document.getElementById("emptype1").checked==false)
-        //{
-
-        //	document.getElementById('notice1').style.display='none';
-
-        //}
-
-    }
-    function phdemp()
-    {
-        //if(document.getElementById("emptype1").checked==true)
-        //{
-
-        document.getElementById('phd').style.display='block';
-        document.getElementById('butt2').style.display='none';
-
-        //}
-        //else if(document.getElementById("emptype1").checked==false)
-        //{
-
-        //	document.getElementById('notice1').style.display='none';
-
-        //}
-
-    }
-    function addcerti()
-    {
-        //if(document.getElementById("emptype1").checked==true)
-        //{
-
-        document.getElementById('certificate').style.display='block';
-        document.getElementById('butt3').style.display='none';
-
-        //}
-        //else if(document.getElementById("emptype1").checked==false)
-        //{
-
-        //	document.getElementById('notice1').style.display='none';
-
-        //}
-
-    }
-</script>
-<script type="text/javascript">
-    function validateForm1(){
-
-
-        var nameReg = /^[A-Za-z]+$/;
-        var numberReg =  /^[0-9]+$/;
-        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-
-        var res_title = $('#res_title').val();
-        var curr_industry = $('#curr_industry').val();
-        var function_area= $('#function_area').val();
-        var role= $('#role').val();
-        var designation1 = $('#designation1').val();
-
-        var annulsal = $('#annulsal').val();
-        var annulsa = $('#annulsa').val();
-        var fromyear = $('#fromyear').val();
-        var frommonth = $('#frommonth').val();
-        var notice = $('#notice').val();
-        var job_profile = $('#job_profile').val();
-        //alert($("#agree").is(':checked'));
-        // var inputVal = new Array(names,address,email,telephone,message,lnames);
-//alert(names);
-        var inputMessage = new Array("Username","Email Address","Password","Confirm password", "Your Full Name","Current Location","City","Mobile Number","Work Experience","Designation","Key Skills","Basic Education","Agree To Terms And Conditions");
-
-        $('.error').hide();
-        var clr=0;
-
-        if(res_title == ""){
-
-            $('#resumeheadInfo').html('<span class="error">Resume Headline is Required</span>');
-            //$('#res_title').focus();
-            clr=1;
-        }
-        if(curr_industry == ""){
-            $('#currentInfo').html('<span class="error">Current Industry is Required</span>');
-            //$('#curr_industry').focus();
-            clr=1;
-        }
-
-        if(function_area == ""){
-            $('#functionalInfo').html('<span class="error">Functional Area is Required</span>');
-            //$('#function_area').focus();
-            clr=1;
-        }
-        if(role == ""){
-            $('#roleInfo').html('<span class="error">Role is Required</span>')
-            //$('#company').focus();
-            clr=1;
-        }
-        /*if(pass != cpass){
-            $('#cpasswordInfo').html('<span class="error">Retype ' + inputMessage[3] + '</span>');
-            $('#confirmpassword').focus();clr=1;
-        }*/
-        /*  if(designation1 == ""){
-
-              $('#desigInfo').html('<span class="error">Designation Required</span>');
-              //$('#designation1').focus();
-          clr=1;
-          } */
-        /*else if(!nameReg.test(names)){
-            $('#nameLabel').html('<span class="error"> Letters only</span>');
-			clr=1;
-        }
-		else if(names.length<=3){
-
-            $('#nameLabel').html('<span class="error">' + inputMessage[0] + ' Should Be atleast 4 characters Long</span>');
-			clr=1;
-        } */
-        if(annulsal == ""){
-
-            $('#salInfo').html('<span class="error"> Annual Salary is Required</span>');
-            //$('#annulsal').focus();
-            clr=1;
-        }
-        /*	if(fromyear == ""){
-
-            $('#durationInfo').html('<span class="error"> Duration is Required</span>');
-            //$('#fromyear').focus();
-            clr=1;
-        }
-        if(frommonth ==""){
-
-            $('#durationInfo').html('<span class="error"> Duration is Required</span>');
-            //$('#frommonth').focus();
-            clr=1;
-        } */
-        /*if(notice == ""){
-        //alert("industry");
-
-            $('#noticeInfo').html('<span class="error">Notice period is Required</span>');
-            //$('#notice').focus();
-            clr=1;
-        } */
-        /* else if(!nameReg.test(lnames)){
-             $('#lnameLabel').html('<span class="error"> Letters only</span>');
-             clr=1;
-         }*/
-
-
-        /* if(job_profile == ""){
-            $('#jobInfo').html('<span class="error">Job Profile Number is Required</span>');
-            //$('#job_profile').focus();
-            clr=1;
-        } */
-
-        if(clr==0)
-        {
-            //alert('ffff');
-
-            document.register1.frmsubvall.value=1;
-            //alert(document.register1.frmsubvall.value);
-
-            document.register1.submit();
-            // alert('ffff');
-            return true;
-            // $('#register').submit();
-        }
-        /* if(clr==0)
-         {
-           //  alert(clr);
-             $('#ckhcartview').fadeIn('slow');
-           //  $('#checkout-heading-mod').show();
-            // $(".checkout-content").slideUp('slow');
-             //document.subfrm.frmsubval.value=1;
-         //document.subfrm.submit();
-         }
-         */
-    }
-    });
-</script>
-<script type="text/javascript">
-    function validateform()
-    {
-        var basicgrad=document.myform.basicug.value;
-        var ugspec=document.myform.ugspec.value;
-        var ugcoll=document.myform.ugcoll.value;
-        var ugyear=document.myform.ugyear.value;
-        var postpg=document.myform.postpg.value;
-        var pgspec=document.myform.pgspec.value;
-        var pgcoll=document.myform.pgcoll.value;
-        var pgyear=document.myform.pgyear.value;
-        var phdc=document.myform.phdc.value;
-        var phdspec=document.myform.phdspec.value;
-        var phdcoll=document.myform.phdcoll.value;
-        var phdyear=document.myform.phdyear.value;
-        //alert(document.myform.ugspec.value);
-
-        if(basicgrad=="")
-        {
-            alert("enter the basic graduation");
-            document.getElementById("basicug").style.borderColor = "red";
-            document.myform.basicug.focus();
-            return false;
-        }
-
-        if(ugspec=="")
-        {
-            alert("enter the ug specialization");
-            document.getElementById("ugspec").style.borderColor = "red";
-            document.myform.ugspec.focus();
-            return false;
-
-        }
-        if(ugcoll=="")
-        {
-            alert("enter the ug university/college");
-            document.getElementById("ugcoll").style.borderColor = "red";
-            document.myform.ugcoll.focus();
-            return false;
-
-        }
-        if(ugyear=="")
-        {
-            alert("enter the ug Year");
-            document.getElementById("ugyear").style.borderColor = "red";
-            document.myform.ugyear.focus();
-            return false;
-
-        }
-        if(postpg!="")
-        {
-            if(pgspec=="")
-            {
-                alert("enter the pg specialization");
-                document.getElementById("pgspec").style.borderColor = "red";
-                document.myform.pgspec.focus();
-                return false;
-
-            }
-            if(pgcoll=="")
-            {
-                alert("enter the pg university/college");
-                document.getElementById("pgcoll").style.borderColor = "red";
-                document.myform.pgcoll.focus();
-                return false;
-
-            }
-            if(pgyear=="")
-            {
-                alert("enter the pg Year");
-                document.getElementById("pgyear").style.borderColor = "red";
-                document.myform.pgyear.focus();
-                return false;
-
-            }
-        }
-
-        if(phdc!="")
-        {
-            if(phdspec=="")
-            {
-                alert("enter the phd specialization");
-                document.getElementById("phdspec").style.borderColor = "red";
-                document.myform.phdspec.focus();
-                return false;
-
-            }
-            if(phdcoll=="")
-            {
-                alert("enter the phd university/college");
-                document.getElementById("phdcoll").style.borderColor = "red";
-                document.myform.phdcoll.focus();
-                return false;
-
-            }
-            if(phdyear=="")
-            {
-                alert("enter the phg Year");
-                document.getElementById("phdyear").style.borderColor = "red";
-                document.myform.phdyear.focus();
-                return false;
-
-            }
-        }
-    }
-</script>
