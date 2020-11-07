@@ -125,12 +125,12 @@
                 <span class="menu-item-label"> Seeker's Profile</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-fa fa fa-file-import tx-22"></i>
-                <span class="menu-item-label"> Import Data's</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
+{{--        <a href="#" class="br-menu-link">--}}
+{{--            <div class="br-menu-item">--}}
+{{--                <i class="menu-item-fa fa fa-file-import tx-22"></i>--}}
+{{--                <span class="menu-item-label"> Import Data's</span>--}}
+{{--            </div><!-- menu-item -->--}}
+{{--        </a><!-- br-menu-link -->--}}
         <a href="#" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-universal-access tx-24"></i>
@@ -139,8 +139,8 @@
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="#" class="nav-link">Resume Access</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Inactive Resume Users</a></li>
+            <li class="nav-item"><a href="{{ route('admin.resume.access') }}" class="nav-link">Resume Access</a></li>
+            <li class="nav-item"><a href="{{ route('admin.inactive.resumes') }}" class="nav-link">Inactive Resume Users</a></li>
 
         </ul>
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Manage Employers</label>
@@ -158,7 +158,7 @@
             <li class="nav-item"><a href="{{ route('admin.user.employers') }}" class="nav-link"> Employer's Profile</a></li>
             <li class="nav-item"><a href="{{ route('admin.jobs.index') }}" class="nav-link">Employer's Posted Jobs</a></li>
         </ul>
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.inactive.companies') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-registered tx-22"></i>
                 <span class="menu-item-label"> Inactive Companies</span>
@@ -187,12 +187,12 @@
                 <span class="menu-item-label"> Recruiters</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="menu-item-fa fa fa-university tx-22"></i>
-                <span class="menu-item-label"> Institute</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
+{{--        <a href="#" class="br-menu-link">--}}
+{{--            <div class="br-menu-item">--}}
+{{--                <i class="menu-item-fa fa fa-university tx-22"></i>--}}
+{{--                <span class="menu-item-label"> Institute</span>--}}
+{{--            </div><!-- menu-item -->--}}
+{{--        </a><!-- br-menu-link -->--}}
 
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Price Settings</label>
         <div class="progress ht-5 mg-b-10">
@@ -224,13 +224,13 @@
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-danger wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.employee.db.access.orders') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-database tx-22"></i>
                 <span class="menu-item-label"> Database Access</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.employee.job.access.orders') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-user-md tx-22"></i>
                 <span class="menu-item-label"> Job Posting Access</span>
@@ -246,7 +246,7 @@
                 <span class="menu-item-label"> Packages</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.package.purchased') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-cubes tx-22"></i>
                 <span class="menu-item-label"> Package Purchased</span>
@@ -269,18 +269,19 @@
             <div class="progress ht-5 mg-b-10">
                 <div class="progress-bar bg-success wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <a href="#" class="br-menu-link">
+            <a href="{{ route('admin.employee.db.access') }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="menu-item-fa fa fa-server tx-22"></i>
                     <span class="menu-item-label"> Database Access</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
-            <a href="#" class="br-menu-link">
+            <a href="{{ route('admin.employee.job.access') }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="menu-item-fa fa fa-universal-access tx-22"></i>
                     <span class="menu-item-label"> Job Posting Access</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
+        @section('hide')
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Online Test / Testing</label>
             <div class="progress ht-5 mg-b-10">
                 <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
@@ -303,11 +304,13 @@
                     <span class="menu-item-label"> Training Categories</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
+        @endsection
+
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Ads Management</label>
             <div class="progress ht-5 mg-b-10">
                 <div class="progress-bar bg-success wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <a href="#" class="br-menu-link">
+            <a href="{{ route('admin.ads.index') }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="menu-item-fa fa fa-at tx-22"></i>
                     <span class="menu-item-label"> Ads</span>
@@ -323,6 +326,7 @@
                     <span class="menu-item-label"> Manage Testimonial</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
+        @section('hide')
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Contacts</label>
             <div class="progress ht-5 mg-b-10">
                 <div class="progress-bar bg-purple wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
@@ -345,6 +349,7 @@
                 <span class="menu-item-label"> Copy Right</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        @endsection
         <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Reports</label>
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-warning wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>

@@ -38,6 +38,21 @@
                                 <h3>Expires at : {{ $item->expired_at->format('d-M-Y') }}</h3>
 
                                 <button onclick="pay()" class="btn btn-success">Stripe Payment</button>
+
+                                <form action="{{ route('payment') }}" method="POST" >
+                                    @csrf
+                                    <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                            data-key="{{ env('RAZOR_KEY') }}"
+                                            data-amount="1000"
+                                            data-buttontext="RAZOR PAY"
+                                            data-name="{{ $info }}"
+                                            data-description="{{ $info }}"
+                                            data-image="{{ asset('/images/razorpay.png') }}"
+                                            data-prefill.name="name"
+                                            data-prefill.email="email"
+                                            data-theme.color="#ff7529">
+                                    </script>
+                                </form>
                             </div>
                         </div>
                     </div>

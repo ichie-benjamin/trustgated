@@ -11,7 +11,7 @@
 <div class="br-mainpanel">
     <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-            <a class="breadcrumb-item" href="index.html">Dashbord</a>
+            <a class="breadcrumb-item" href="{{ route('admin.dashboard') }}">Dashbord</a>
             <a class="breadcrumb-item" href="{{ route('admin.industry-type.index') }}">Industry Type</a>
             <span class="breadcrumb-item active">Industry Type Layout</span>
         </nav>

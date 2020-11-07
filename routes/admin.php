@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\VerificationPackageController;
 use App\Http\Controllers\AdminDashboard;
+use App\Http\Controllers\admin\AdminsController;
 use App\Http\Controllers\admin\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\FunctionalAreaController;
@@ -38,6 +39,18 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('settings/store/item', [SettingsController::class, 'storeItem'])->name('settings.store.item');
 
     Route::get('pages/edit/page', [PagesController::class, 'editPage'])->name('pages.edit.page');
+
+    Route::get('resume/access', [AdminsController::class, 'resumeAccess'])->name('resume.access');
+    Route::get('inactive/resumes', [AdminsController::class, 'inactiveResumes'])->name('inactive.resumes');
+    Route::post('resume/search', [AdminsController::class, 'resumeSearch'])->name('resume.search');
+    Route::get('inactive/companies', [AdminsController::class, 'inactiveCompanies'])->name('inactive.companies');
+
+    Route::get('employee/database/access', [AdminsController::class, 'employeeDBAccess'])->name('employee.db.access');
+    Route::get('employee/database/order', [AdminsController::class, 'employeeDBAccessOrders'])->name('employee.db.access.orders');
+    Route::get('employee/job/access/order', [AdminsController::class, 'employeeJobAccessOrders'])->name('employee.job.access.orders');
+    Route::get('employee/job/access', [AdminsController::class, 'employeeJobAccess'])->name('employee.job.access');
+
+    Route::get('package/purchased', [AdminsController::class, 'packagePurchased'])->name('package.purchased');
 
 
     Route::resources([

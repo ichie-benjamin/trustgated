@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
 
+Route::get('payment-razorpay', 'PaymentController@create')->name('paywithrazorpay');
+Route::post('payment', 'PaymentController@payment')->name('payment');
+
 Route::get('/about-us',[HomeController::class, 'about'])->name('about');
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/privacy',[HomeController::class, 'privacy'])->name('privacy');
