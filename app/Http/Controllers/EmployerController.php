@@ -33,11 +33,18 @@ class EmployerController extends Controller
 
     public function searchResume(Request $request){
         $user = User::whereRoleIs('jobseeker');
-        if($request->has('keyskill')){
-            $user->where('skills','LIKE','%'.$request->get('keyskill').'%')
-                ->orWhere('skills','LIKE','%'.$request->get('keyskill').'%');
+        if ($request->get('show_all')){
+            $users = $user->paginate(10);
+            return view('employer.resume_search_result', compact('users'));
         }
-        $users = $user->paginate(10);
+        if($request->get('keyskill')){
+       $user->where('first_name','LIKE','%'.$request->get('keyskill').'%')
+                ->orWhere('last_name','LIKE','%'.$request->get('keyskill').'%')
+                ->orWhere('skills','LIKE','%'.$request->get('keyskill').'%')
+                ->orWhere('username','LIKE','%'.$request->get('keyskill').'%');
+        }
+
+        $users = $user->whereRoleIs('jobseeker')->paginate(10);
         if(count($users) < 1){
             return redirect()->back()->with('failure', 'No match found');
         }

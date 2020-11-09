@@ -766,7 +766,7 @@
                                     <label  class="col-sm-4 pedit">Show</label>
                                     <div class="col-sm-8">
                                         <label class="radio-inline">
-                                            <input name="show_all" type="radio" value="0" style="display:inline" /> All Candidates
+                                            <input name="show_all" type="radio" value="1" style="display:inline" /> All Candidates
                                         </label>
                                         <label class="radio-inline">
                                             <input name="show_new" type="radio" value="1" style="display:inline" /> New Registrations only
