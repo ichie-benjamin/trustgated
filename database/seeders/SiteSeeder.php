@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Currency;
+use App\Models\Form;
 use App\Models\FunctionalArea;
 use App\Models\IndustryType;
 use App\Models\Location;
@@ -38,6 +39,9 @@ class SiteSeeder extends Seeder
         $cms = config('site_seeder.tables.cms');
         $basic_edu = config('site_seeder.tables.basic_edu');
         $v_packages = config('site_seeder.tables.v_packages');
+        $page_1 = config('site_seeder.tables.employments');
+        $page_2 = config('site_seeder.tables.educations');
+        $page_3 = config('site_seeder.tables.reference');
 
 
         foreach ($f_arease as $item) {
@@ -126,6 +130,75 @@ class SiteSeeder extends Seeder
                     'education_verification' => $item,
                     'reference_verification' => $item,
                     'amount' => $amount
+                ]);
+            }
+        }
+        $row = 0;
+        foreach ($page_1 as $item) {
+            $row++;
+            $rows = 12;
+            $type = 'text';
+            $model = 'verification_user_forms';
+            if ($item == 'country'){ $type = 'country'; }else if ($item == 'state'){ $type = 'state'; }elseif($item == 'write_about_your_reference'){ $type = 'textarea';}elseif($item == 'degree_to_be_verified'){$type = 'file';}
+            if($row < 4){
+                $rows = 4;
+            }else if ($row > 7 && $row < 12){
+                $rows = 6;
+            }
+            if (Form::where('model', '=', $model)->where('name','=',$item)->wherePage(1)->first() === null) {
+                Form::create([
+                    'name' => $item,
+                    'model' => $model,
+                    'required' => true,
+                    'rows' => $rows,
+                    'type' => $type,
+                    'page' => 1
+                ]);
+            }
+        }
+        $row_2 = 0;
+        foreach ($page_2 as $item) {
+            $row_2++;
+            $rows = 12;
+            $type = 'text';
+            $model = 'verification_user_forms';
+            if ($item == 'country'){ $type = 'country'; }else if ($item == 'state'){ $type = 'state'; }elseif($item == 'write_about_your_reference'){ $type = 'textarea';}elseif($item == 'degree_to_be_verified'){$type = 'file';}
+            if($row_2 < 4){
+                $rows = 4;
+            }else if ($row_2 > 8 && $row_2 < 13){
+                $rows = 6;
+            }
+            if (Form::where('model', '=', $model)->where('name','=',$item)->wherePage(2)->first() === null) {
+                Form::create([
+                    'name' => $item,
+                    'model' => $model,
+                    'required' => true,
+                    'type' => $type,
+                    'rows' => $rows,
+                    'page' => 2
+                ]);
+            }
+        }
+        $row_3 = 0;
+        foreach ($page_3 as $item) {
+            $row_3++;
+            $rows = 12;
+            $type = 'text';
+            if ($item == 'country'){ $type = 'country'; }else if ($item == 'state'){ $type = 'state'; }elseif($item == 'write_about_your_reference'){ $type = 'textarea';}elseif($item == 'degree_to_be_verified'){$type = 'file';}
+            $model = 'verification_user_forms';
+            if($row_3 < 4){
+                $rows = 4;
+            }else if ($row_3 > 3 && $row_3 < 8){
+                $rows = 6;
+            }
+            if (Form::where('model', '=', $model)->where('name','=',$item)->wherePage(3)->first() === null) {
+                Form::create([
+                    'name' => $item,
+                    'model' => $model,
+                    'required' => true,
+                    'rows' => $rows,
+                    'type' => $type,
+                    'page' => 3
                 ]);
             }
         }

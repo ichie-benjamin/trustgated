@@ -17,6 +17,8 @@ class CreateFormsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('model');
+            $table->string('type')->default('text');
+            $table->integer('rows')->nullable();
             $table->boolean('required');
             $table->integer('page')->default(1);
             $table->timestamps();

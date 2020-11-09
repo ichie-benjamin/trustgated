@@ -22,7 +22,7 @@
             <!--<li><a href="#" >Post Jobs to Campuses</a></li> -->
             <div class="inboxa"><a href="{{ route('jobs.index') }}" >Response Manager</a></div>
 
-            <div class="inboxa"><a href="{{ route('selfservice') }}" >Jobseeker Selfservice </a></div>
+            <div class="inboxa"><a href="{{ route('bg_verification') }}" >Background Verification Request </a></div>
 
         </div><!--create-job-content-->
 

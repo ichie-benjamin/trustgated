@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EmployerAccess;
+use App\Models\EmployerProduct;
 use App\Models\Job;
+use App\Models\UserBackgroundVerification;
 use Carbon\Carbon;
 use Cartalyst\Stripe\Stripe;
 use Illuminate\Http\Request;
@@ -41,13 +44,27 @@ class PaymentController extends Controller
     {
         $input = $request->all();
 
+        $type = $request->type;
+
+        $id = $request->item;
+
         $api = new Api(env('RAZOR_KEY'), env('RAZOR_SECRET'));
 
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
 
         if(count($input)  && !empty($input['razorpay_payment_id'])) {
             try {
-                $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount']));
+           $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount']));
+
+                if($type === 'access'){
+                    $item = EmployerAccess::findOrFail($id);
+                    $item->paid = true;
+                    $item->save();
+                }else{
+                    $item = EmployerProduct::findOrFail($id);
+                    $item->paid = true;
+                    $item->save();
+                }
 
             } catch (\Exception $e) {
                 return  $e->getMessage();
@@ -57,6 +74,36 @@ class PaymentController extends Controller
         }
 
         \Session::put('success', 'Payment successful');
+//        return  'jekkkk';
+        return redirect()->route('employer.transactions');
+    }
+    public function verificationPayment(Request $request)
+    {
+        $input = $request->all();
+
+        $id = $request->id;
+
+        $api = new Api(env('RAZOR_KEY'), env('RAZOR_SECRET'));
+
+        $payment = $api->payment->fetch($input['razorpay_payment_id']);
+
+        if(count($input)  && !empty($input['razorpay_payment_id'])) {
+            try {
+           $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount'=>$payment['amount']));
+
+                    $item = UserBackgroundVerification::findOrFail($id);
+                    $item->paid = true;
+                    $item->save();
+
+            } catch (\Exception $e) {
+                return  $e->getMessage();
+                \Session::put('error',$e->getMessage());
+                return redirect()->back();
+            }
+        }
+
+        \Session::put('success', 'Payment successful');
+//        return  'jekkkk';
         return redirect()->back();
     }
 }

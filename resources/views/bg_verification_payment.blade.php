@@ -149,7 +149,7 @@
 			<div class="col-md-12">
 				<div class="banner-headline">
 					<h2>
-						<strong style="color: white">Jobseeker Self Service.</strong>
+						<strong style="color: white">Background Verification Payment</strong>
 
 					</h2>
 				</div>
@@ -161,133 +161,47 @@
 </div>
 
     <div class="container mb-5 mt-5 text text-center">
-         {!! optional(\App\Models\Page::whereTitle('jobseeker_self_service_first')->first())->content !!}
+        <img class="img-thumbnail" style="height: 100px; width: 100px" src="/images/su.png">
 
-    </div>
-
-
-<!-- Content
-================================================== -->
-<!-- Category Boxes -->
-<div class="section margin-top-65">
-	<div class="container">
-
-	</div>
-</div>
-<!-- Category Boxes / End -->
-
-    <div class="section gray padding-top-70 padding-bottom-75">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-xl-12">
-                    <div class="counters-container">
-
-                        <!-- Counter -->
-                        <div class="single-counter">
-                            <i class="fa fa-certificate"></i>
-                            <div class="counter-inner">
-                                <h3><span class="counter">386</span></h3>
-                                <span class="counter-title">TrustGated Certificate Verified</span>
-                            </div>
-                        </div>
-
-                        <!-- Counter -->
-                        <div class="single-counter">
-                            <i class="fa fa-users"></i>
-                            <div class="counter-inner">
-                                <h3><span class="counter">543</span></h3>
-                                <span class="counter-title">TrustGated Verified Users</span>
-                            </div>
-                        </div>
-
-                        <!-- Counter -->
-                        <div class="single-counter">
-                            <i class="fa fa-building"></i>
-                            <div class="counter-inner">
-                                <h3><span class="counter">300</span></h3>
-                                <span class="counter-title">TrustGated Partnered Companies</span>
-                            </div>
-                        </div>
+        <div class="col-md-12 mt-4">
+            <h3>Your {{ $package->name }} form succesfully submitted</h3>
+            <h3 class="mt-4 mb-4">Amount : {{ $package->amount }}</h3>
 
 
-                    </div>
-                </div>
-            </div>
+            @if ($user_bg->paid)
+                <div class="alert col-10 alert-warning">Verification Package Paid</div>
+
+                <a class="mt-4 btn btn-success" href="{{ url('/') }}">Go Home</a>
+
+            @else
+
+                <form action="{{ route('verification.payment') }}" method="POST">
+                    @csrf
+
+                    <input type="hidden" name="razorpay_payment_id" value="verification_package_{{ $user_bg->id }}" >
+
+                    <input type="hidden" name="id" value="{{ $user_bg->id }}" >
+
+                    <script src="https://checkout.razorpay.com/v1/checkout.js"
+                            data-key="{{ env('RAZOR_KEY') }}"
+                            data-amount="{{ $package->amount * 100 }}"
+                            data-buttontext="PAY WITH RAZOR PAY"
+                            data-name="{{ $package->name }} payment"
+                            data-description="{{ $package->name }} payment"
+                            data-image="{{ asset('/images/razorpay.png') }}"
+                            data-prefill.name="{{ auth()->user()->name }}"
+                            data-prefill.email="{{ auth()->user()->email }}"
+                            data-theme.color="#009688">
+                    </script>
+                </form>
+
+
+            @endif
+
         </div>
+
     </div>
 
-    <br>
-
-<!-- Highest Rated Freelancers -->
-<div class="section gray padding-top-65 padding-bottom-70 full-width-carousel-fix">
-	<div class="container">
-		<div class="row">
-
-			<div class="col-xl-12">
-				<!-- Section Headline -->
-				<div class="section-headline text text-center col-md-8 offset-md-2">
-
-                    {!! optional(\App\Models\Page::whereTitle('jobseeker_self_service_second')->first())->content !!}
-
-                </div>
-			</div>
-
-
-
-		</div>
-	</div>
-</div>
-<!-- Highest Rated Freelancers / End-->
-
-
-<!-- Membership Plans -->
-<div class="section padding-top-60 padding-bottom-75">
-	<div class="container">
-		<div class="row">
-
-			<div class="col-xl-12">
-				<!-- Section Headline -->
-				<div class="section-headline centered margin-top-0 " style="margin-bottom: 75px!important;">
-                    <h3 class="text text-warning"><strong>Background Verification</strong></h3>
-                    <p>Select one of the Background Verification plans to start verification process.</p>
-				</div>
-			</div>
-
-
-			<div class="col-xl-12">
-
-				<!-- Pricing Plans Container -->
-				<div class="pricing-plans-container recommended">
-
-                    @foreach($packages as $item)
-					<!-- Plan -->
-                    <div class="pricing-plan recommended">
-                        <div class="recommended-badge">{{ $item->name }}</div>
-                        <h4>Job Seeker Self Service</h4>
-                            <ul>
-                                <li>{{ $item->employment_verification }} Employment Verification</li>
-                                <li>{{ $item->education_verification }}  Education Verification</li>
-                                <li>{{ $item->reference_verification }}  Reference Verification</li>
-                                @if ($item->extra)
-                                        @foreach($item->extra as $value => $key)
-                                            <li class="text-capitalize">{{ $key }}  {{ str_replace('_',' ',$value) }}</li>
-                                        @endforeach
-                                @endif
-
-                            </ul>
-                        <a href="{{ route('background-verification') }}?package={{$item->id}}" class="button full-width margin-top-20">Buy Now</a>
-                    </div>
-
-                    @endforeach
-				</div>
-
-			</div>
-
-		</div>
-	</div>
-</div>
-<!-- Membership Plans / End-->
 
 <!-- Footer
 ================================================== -->

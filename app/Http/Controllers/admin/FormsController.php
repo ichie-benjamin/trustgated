@@ -14,6 +14,13 @@ class FormsController extends Controller
         return view('admin.forms.index', compact('forms'));
     }
 
+    public function backgroundIndex()
+    {
+        $model = 'verification_user_forms';
+        $forms = Form::whereModel($model)->get();
+        return view('admin.forms.background_verification_index', compact('forms','model'));
+    }
+
 
     public function create()
     {
@@ -45,7 +52,12 @@ class FormsController extends Controller
     public function update(Request $request, $id)
     {
         $form = Form::findOrFail($id);
-        $form->update($this->getData($request));
+        $data = $this->getData($request);
+        $data['name'] = strtolower(str_replace(' ','_',$data['name']));
+        $form->update($data);
+        if($data['model'] == 'verification_user_forms'){
+            return redirect()->route('admin.background.form.index');
+        }
         return redirect()->route('admin.forms.index');
     }
 
@@ -62,6 +74,8 @@ class FormsController extends Controller
             'name' => 'required','string',
             'required' => 'required','integer',
             'page' => 'nullable',
+            'rows' => 'nullable',
+            'type' => 'nullable',
             'model' => 'nullable','model',
         ];
 

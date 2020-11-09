@@ -149,7 +149,7 @@
 			<div class="col-md-12">
 				<div class="banner-headline">
 					<h2>
-						<strong style="color: white">Jobseeker Self Service.</strong>
+						<strong style="color: white">Background Verification Request</strong>
 
 					</h2>
 				</div>
@@ -161,7 +161,7 @@
 </div>
 
     <div class="container mb-5 mt-5 text text-center">
-         {!! optional(\App\Models\Page::whereTitle('jobseeker_self_service_first')->first())->content !!}
+         {!! optional(\App\Models\Page::whereTitle('employer_self_service_first')->first())->content !!}
 
     </div>
 
@@ -228,7 +228,7 @@
 				<!-- Section Headline -->
 				<div class="section-headline text text-center col-md-8 offset-md-2">
 
-                    {!! optional(\App\Models\Page::whereTitle('jobseeker_self_service_second')->first())->content !!}
+                    {!! optional(\App\Models\Page::whereTitle('employer_self_service_second')->first())->content !!}
 
                 </div>
 			</div>
@@ -264,7 +264,7 @@
 					<!-- Plan -->
                     <div class="pricing-plan recommended">
                         <div class="recommended-badge">{{ $item->name }}</div>
-                        <h4>Job Seeker Self Service</h4>
+                        <h4>Background Verification Request Service</h4>
                             <ul>
                                 <li>{{ $item->employment_verification }} Employment Verification</li>
                                 <li>{{ $item->education_verification }}  Education Verification</li>

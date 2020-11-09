@@ -9,6 +9,7 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\JobseekerController;
 use App\Http\Controllers\admin\TempController;
 use App\Http\Controllers\LocationsController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
 
-Route::get('payment-razorpay', 'PaymentController@create')->name('paywithrazorpay');
-Route::post('payment', 'PaymentController@payment')->name('payment');
+Route::get('payment-razorpay',  [PaymentController::class,'create'])->name('paywithrazorpay');
+Route::post('payment', [PaymentController::class,'payment'])->name('payment');
+Route::post('verification/payment', [PaymentController::class,'verificationPayment'])->name('verification.payment');
 
 Route::get('/about-us',[HomeController::class, 'about'])->name('about');
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
@@ -32,9 +34,18 @@ Route::post('/payment/store', 'PaymentController@store')->name('payment.store');
 
 
 Route::get('jobseeker-self-service', [HomeController::class, 'jobseekerSelfservice'])->name('selfservice');
-Route::view('background-verification', 'background-verification')->name('background-verification');
-Route::view('background-verification/2', 'background-verification2')->name('background-verification-2');
-Route::view('background-verification/3', 'background-verification3')->name('background-verification-3');
+Route::get('background-verification-request', [HomeController::class, 'backgroundVerificationRequest'])->name('bg_verification');
+Route::get('background-verification-payment/{id}', [HomeController::class, 'backgroundVerificationPayment'])->name('bg_verification_pay');
+Route::get('background-verification', [HomeController::class,'backgroundVerification'])->name('background-verification');
+Route::get('background-verification/2/{id}', [HomeController::class,'backgroundVerification2'])->name('background-verification-2');
+Route::get('background-verification/3/{id}', [HomeController::class,'backgroundVerification3'])->name('background-verification-3');
+
+Route::post('background-edu-store', [HomeController::class,'storeEdu'])->name('store.edu');
+Route::post('background-employment-store', [HomeController::class,'storeEmployment'])->name('store.employment');
+Route::post('background-ref-store', [HomeController::class,'storeRef'])->name('store.ref');
+
+//Route::view('background-verification/2', 'background-verification2')->name('background-verification-2');
+//Route::view('background-verification/3', 'background-verification3')->name('background-verification-3');
 
 
 Route::post('/advance_search',[JobsController::class, 'advanceSearch'])->name('advance_search');

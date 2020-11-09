@@ -39,19 +39,31 @@
 
                                 <button onclick="pay()" class="btn btn-success">Stripe Payment</button>
 
-                                <form action="{{ route('payment') }}" method="POST" >
+                                <form action="{{ route('payment') }}" method="POST">
                                     @csrf
-                                    <script src="https://checkout.razorpay.com/v1/checkout.js"
-                                            data-key="{{ env('RAZOR_KEY') }}"
-                                            data-amount="1000"
-                                            data-buttontext="RAZOR PAY"
-                                            data-name="{{ $info }}"
-                                            data-description="{{ $info }}"
-                                            data-image="{{ asset('/images/razorpay.png') }}"
-                                            data-prefill.name="name"
-                                            data-prefill.email="email"
-                                            data-theme.color="#ff7529">
-                                    </script>
+                                    <input type="hidden" name="type" value="{{ $type }}" >
+                                    <input type="hidden" name="item" value="{{ $item->id }}" >
+
+                                    @if (!$item->paid)
+                                        <input type="hidden" name="razorpay_payment_id" value="{{ $item->id }}" >
+
+                                        <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                                data-key="{{ env('RAZOR_KEY') }}"
+                                                data-amount="{{ ($type === 'access' ? $item->access->price : $item->product->price) * 100 }}"
+                                                data-buttontext="RAZOR PAY"
+                                                data-name="{{ $info }}"
+                                                data-description="{{ $info }}"
+                                                data-image="{{ asset('/images/razorpay.png') }}"
+                                                data-prefill.name="{{ auth()->user()->name }}"
+                                                data-prefill.email="{{ auth()->user()->email }}"
+                                                data-theme.color="#009688">
+                                        </script>
+
+                                    @else
+                                        <button type="button" class="btn btn-success">Paid</button>
+                                    @endif
+
+
                                 </form>
                             </div>
                         </div>

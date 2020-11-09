@@ -52,6 +52,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::get('package/purchased', [AdminsController::class, 'packagePurchased'])->name('package.purchased');
 
+    Route::get('background/forms', [FormsController::class, 'backgroundIndex'])->name('background.form.index');
+
 
     Route::resources([
         'countries' => CountryController::class,

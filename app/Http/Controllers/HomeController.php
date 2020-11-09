@@ -12,9 +12,11 @@ use App\Models\EmployerProduct;
 use App\Models\FunctionalArea;
 use App\Models\IndustryType;
 use App\Models\Job;
+use App\Models\Packages;
 use App\Models\Page;
 use App\Models\Products;
 use App\Models\User;
+use App\Models\UserBackgroundVerification;
 use App\Models\VerificationPackage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -28,6 +30,47 @@ class HomeController extends Controller
     public function jobseekerSelfservice(){
         $packages = VerificationPackage::all();
         return view('jobseeker-selfservice', compact('packages'));
+    }
+    public function backgroundVerification(Request $request){
+    $package = VerificationPackage::findOrFail($request->package);
+        return view('background-verification', compact('package'));
+    }
+    public function backgroundVerificationPayment($id){
+  $user_bg = UserBackgroundVerification::findOrFail($id);
+$package = VerificationPackage::findOrFail($user_bg->package_id);
+        return view('bg_verification_payment', compact('user_bg','package'));
+    }
+    public function backgroundVerification2($id){
+    $package = VerificationPackage::findOrFail($id);
+        return view('background-verification2', compact('package'));
+    }
+
+    public function storeEmployment(Request $request){
+        $request->session()->put('employments', $request['employments']);
+        return redirect()->route('background-verification-2',$request['package']);
+    }
+    public function storeEdu(Request $request){
+        $request->session()->put('educations', $request['educations']);
+        return redirect()->route('background-verification-3',$request['package']);
+    }
+    public function storeRef(Request $request){
+        $request->session()->put('ref', $request['ref']);
+        $data['reference'] = $request->session()->get('ref');
+        $data['employments'] = $request->session()->get('employments');
+        $data['educations'] = $request->session()->get('educations');
+        $data['package_id'] = $request['package'];
+        $data['user_id'] = auth()->user()->id;
+        $bg = UserBackgroundVerification::create($data);
+        return redirect()->route('bg_verification_pay',$bg->id);
+    }
+
+    public function backgroundVerification3($id){
+    $package = VerificationPackage::findOrFail($id);
+        return view('background-verification3', compact('package'));
+    }
+    public function backgroundVerificationRequest(){
+        $packages = VerificationPackage::all();
+        return view('bg_verification_request', compact('packages'));
     }
     public function AssignPackage(){
         $users = User::whereRoleIs('employer')->get();
