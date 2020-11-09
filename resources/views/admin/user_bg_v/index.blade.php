@@ -40,7 +40,7 @@
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10"> Background Verification Submissions</h6>
 
                 <div class="table-wrapper">
-                    <table id="datatable1" class="table display table-condensed responsive nowrap">
+                    <table id="datatable1" class="table display table-condensed table-bordered responsive nowrap">
                         <thead>
                         <tr>
                             <th class="wd-5p"> S.No</th>

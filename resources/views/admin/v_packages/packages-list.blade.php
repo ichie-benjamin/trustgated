@@ -87,7 +87,7 @@
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10"> Packages List</h6>
 
                 <div class="table-wrapper">
-                    <table id="datatable1" class="table display responsive nowrap">
+                    <table id="datatable1" class="table display table-bordered responsive nowrap">
                         <thead>
                         <tr>
                             <th class="wd-15p">S.No</th>
@@ -115,7 +115,7 @@
                                     @endforeach
                                 </td>
                             @else
-                                <td>[]</td>
+                                <td>0</td>
                             @endif
 
                             <td>{{ $package->amount }}</td>
