@@ -21,6 +21,8 @@ class CreateUserBackgroundVerificationsTable extends Migration
             $table->text('educations')->nullable();
             $table->text('reference')->nullable();
             $table->boolean('paid')->default(0);
+            $table->boolean('approved')->default(0);
+            $table->string('user_type')->default('jobseeker');
             $table->timestamps();
         });
     }

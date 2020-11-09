@@ -59,7 +59,7 @@
                                     <tr style="background-color:#009900; color:#000; ">
                                         <td class="text-center"  style="border-right:2px solid #FFF; width: 20%;"><b>POSTED DATE & TIME</b></td>
                                         <td height="35"  class="text-center" style="border-right:2px solid #FFF;  width: 40%;"><b>JOB TITLE</b></td>
-                                        <td height="35"  class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>Job Type</b></td>
+                                        <td height="35"  class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>Industry</b></td>
                                         <td height="35"  class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>Locations</b></td>
                                         <td class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>RESPONSES</b></td>
                                         <td class="text-center" style="border-right:2px solid #FFF; width: 25%;"><b>ACTION</b></td>
@@ -81,8 +81,12 @@
 
                                         </td>
 
-                                        <td class="text-center">{{ $job->type_id }}</td>
-                                        <td class="text-center">{{ count($job->locations) }}</td>
+                                        <td class="text-center">{{ optional($job->industry)->category }}</td>
+                                        <td class="text-center">
+                                            @foreach($job->locations as $item)
+                                                {{ $item }},
+                                            @endforeach
+                                        </td>
                                         <td class="text-center">{{ count($job->applied_job) }}</td>
                                         @if ($job->trashed())
                                             <td class="text-center">

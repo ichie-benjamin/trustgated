@@ -171,7 +171,11 @@
             @if ($user_bg->paid)
                 <div class="alert col-10 alert-warning">Verification Package Paid</div>
 
-                <a class="mt-4 btn btn-success" href="{{ url('/') }}">Go Home</a>
+            @if ($user_bg->user_type == 'employer')
+                    <a class="mt-4 btn btn-success" href="{{ route('employer.profile') }}">Go to Profile</a>
+                @else
+                    <a class="mt-4 btn btn-success" href="{{ route('jobseeker.profile') }}">Go to Profile</a>
+                @endif
 
             @else
 

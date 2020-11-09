@@ -313,6 +313,18 @@
             </a><!-- br-menu-link -->
         @endsection
 
+
+        <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Background Verification</label>
+        <div class="progress ht-5 mg-b-10">
+            <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <a href="{{ route('admin.background.submissions') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-text-width tx-22"></i>
+                <span class="menu-item-label"> Jobseekers Submissions</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+
             <label style="font-size: 14px" class="sidebar-label pd-x-15 mg-t-25 mg-b-10 tx-info op-9"> Ads Management</label>
             <div class="progress ht-5 mg-b-10">
                 <div class="progress-bar bg-success wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>

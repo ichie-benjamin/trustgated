@@ -27,6 +27,14 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
+    public function modifyJob(){
+        $jobs = Job::all();
+        foreach ($jobs as $job){
+            $job->locations = ['Aizwel','Ajmar','Akola'];
+            $job->save();
+        }
+        return 'done';
+    }
     public function jobseekerSelfservice(){
         $packages = VerificationPackage::all();
         return view('jobseeker-selfservice', compact('packages'));
@@ -60,6 +68,7 @@ $package = VerificationPackage::findOrFail($user_bg->package_id);
         $data['educations'] = $request->session()->get('educations');
         $data['package_id'] = $request['package'];
         $data['user_id'] = auth()->user()->id;
+        $data['user_type'] = auth()->user()->role;
         $bg = UserBackgroundVerification::create($data);
         return redirect()->route('bg_verification_pay',$bg->id);
     }

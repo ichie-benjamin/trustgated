@@ -239,6 +239,17 @@ if(!$companies){
         return view('jobs.manage_candidates',compact('applied','job'));
     }
 
+    public function response($id){
+//        $applied = AppliedJob::where('job_id',$id)->get();
+//        $job = Job::findOrFail($id);
+        $users = User::all();
+        if(count($users) < 1){
+            return redirect()->route('jobs.index');
+        }
+        return view('employer.jobs.applications', compact('users'));
+//        return view('employer.jobs.applications',compact('applied','job'));
+    }
+
     public function show($slug)
     {
         $job = Job::findBySlugOrFail($slug);

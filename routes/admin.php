@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\PagesController;
 use App\Http\Controllers\admin\ProductsController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\admin\TestimonialController;
+use App\Http\Controllers\admin\UserBackgroundVerificationController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\VerificationPackageController;
 use App\Http\Controllers\AdminDashboard;
@@ -25,6 +26,7 @@ use App\Http\Controllers\LgaController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\StateController;
 use App\Models\DatabaseProduct;
+use App\Models\UserBackgroundVerification;
 
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
@@ -53,6 +55,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('package/purchased', [AdminsController::class, 'packagePurchased'])->name('package.purchased');
 
     Route::get('background/forms', [FormsController::class, 'backgroundIndex'])->name('background.form.index');
+
+    Route::get('background/submissions', [UserBackgroundVerificationController::class, 'index'])->name('background.submissions');
+
+    Route::get('background/submission/{id}', [UserBackgroundVerificationController::class, 'show'])->name('background.submission');
+    Route::get('background/approve/{id}', [UserBackgroundVerificationController::class, 'approve'])->name('background.approve');
 
 
     Route::resources([

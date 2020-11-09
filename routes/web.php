@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
+
+
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
 
 Route::get('payment-razorpay',  [PaymentController::class,'create'])->name('paywithrazorpay');
@@ -136,10 +138,14 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::get('/job/{slug}', [JobsController::class, 'view'])->name('jobs.job.view');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+    Route::get('/job/{id}/responses', [JobsController::class, 'response'])->name('job.response');
+
+
     Route::get('/jobs/deleted', [JobsController::class, 'deleted'])->name('jobs.deleted');
     Route::get('/jobs/toggle/disabled/{slug}', [JobsController::class, 'toggleDisabled'])->name('jobs.toggle_disabled');
     Route::get('/jobs/restore/deleted/job/{slug}/{id}', [JobsController::class, 'restore'])->name('jobs.restore');
     Route::post('/jobs/force/delete/{id}', [JobsController::class, 'forceDelete'])->name('jobs.delete');
+
     Route::post('/user/update', [UsersController::class, 'updateProfile'])->name('user.update');
     Route::resources([
         'jobs' => JobsController::class,
@@ -198,4 +204,6 @@ Route::get('/assign/plan', [HomeController::class,'AssignPackage']);
 
 
 Auth::routes(['verify' => true]);
+
+Route::get('/2365/modify/jobs',[HomeController::class, 'modifyJob'])->name('home');
 

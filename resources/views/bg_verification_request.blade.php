@@ -141,24 +141,25 @@
 <!-- Intro Banner
 ================================================== -->
 <!-- add class "disable-gradient" to enable consistent background overlay -->
-<div class="intro-banner" data-background-image="{{ asset('front/images/home-background.png') }}">
-	<div class="container">
 
-		<!-- Intro Headline -->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="banner-headline">
-					<h2>
-						<strong style="color: white">Background Verification Request</strong>
+{{--<div class="intro-banner" data-background-image="{{ asset('front/images/home-background.png') }}">--}}
+{{--	<div class="container">--}}
 
-					</h2>
-				</div>
-			</div>
-		</div>
+{{--		<!-- Intro Headline -->--}}
+{{--		<div class="row">--}}
+{{--			<div class="col-md-12">--}}
+{{--				<div class="banner-headline">--}}
+{{--					<h2>--}}
+{{--						<strong style="color: white">Background Verification Request</strong>--}}
+
+{{--					</h2>--}}
+{{--				</div>--}}
+{{--			</div>--}}
+{{--		</div>--}}
 
 
-	</div>
-</div>
+{{--	</div>--}}
+{{--</div>--}}
 
     <div class="container mb-5 mt-5 text text-center">
          {!! optional(\App\Models\Page::whereTitle('employer_self_service_first')->first())->content !!}

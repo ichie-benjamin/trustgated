@@ -92,13 +92,9 @@ class Job extends Model
 
     public function getLocationsAttribute($value){
         if($value){
-            if(is_array($value)){
-                return json_decode($value) ;
-            }else{
-                return  [];
-            }
+            return json_decode($value, true);
         }else{
-            [];
+           return [];
         }
     }
 

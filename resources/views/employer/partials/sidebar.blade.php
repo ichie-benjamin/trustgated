@@ -11,7 +11,7 @@
                 <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
                 <div class="inboxa"><a href="{{ route('employer.transactions') }}">Subscription Status</a></div>
                 <div class="inboxa"><a href="{{ route('employer.resume_pack') }}">Product Settings<!--Resume Pack--></a></div>
-                <div class="inboxa"><a href="{{ route('employer.profile') }}" style="color:#00CCFF"  >Company profile</a></div>
+                <div class="inboxa"><a href="{{ route('employer.profile') }}">Company profile</a></div>
                 <div class="inboxa"><a href="{{ route('employer.change_password') }}" >Change Password</a></div>
             </div>
             <div class="inbox-bg">Search Resumes</div>

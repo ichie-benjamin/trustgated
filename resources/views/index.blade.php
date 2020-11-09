@@ -37,6 +37,9 @@
 
 
 	<style>
+        .find-job-bx .form-control{
+            padding-top: 20px;
+        }
 [aria-expanded="false"] > .expanded,
 [aria-expanded="true"] > .collapsed {
   display: none;
@@ -74,7 +77,7 @@
                         <div class="extra-cell">
 
 @guest()
-                            <a href="{{ route('jobseeker.login') }}" class="site-button"><i class="fa fa-user"></i>Login</a>
+                            <a href="{{ route('jobseeker.login') }}" class="site-button"><i class="fa fa-user"></i> Login</a>
                             <a href="{{ route('jobseeker.register') }}" title="READ MORE" rel="bookmark" class="site-button"><i class="fa fa-lock"></i> Register </a>
 @endguest
 @auth

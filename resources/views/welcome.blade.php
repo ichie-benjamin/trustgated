@@ -261,9 +261,72 @@
                 }
             </style>
             <link rel="stylesheet" type="text/css" href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/assets/css/empdev.css" />
+            <script language="javscript" type="text/javascript">
+                function ValidateForm()
+                {
+                    var del_str = "check";
+                    var j1=0;
+                    for (i=0;i<document.mailform.length;i++){
+                        ele = document.mailform.elements[i];
+                        ele_name = ele.name;
+                        if (ele_name.substring(0,del_str.length) == del_str){
+                            if(ele.checked == true){
+                                j1 = j1 + 1;
+                            }
+                        }
+                    }
+                    if(j1 <1)
+                    {
+                        alert("Please select atleaset one job seeker");
+                        return false;
+                    }
+                    /*else
+                    {
+                    alert("Are You Sure You Want To Send Email");
+                    }*/
+                }
+            </script>
+            <script language="javascript" type="text/javascript">
+                function SetAllCheckBoxes(FormName, FieldName, CheckValue)
+                {
+                    if(!document.forms[FormName])
+                    {
+
+                        return;
+                    }
+                    var objCheckBoxes = document.forms[FormName].elements[FieldName];
+
+                    if(!objCheckBoxes)
+                        return;
+                    var countCheckBoxes = objCheckBoxes.length;
+                    if(!countCheckBoxes)
+                    {
+                        objCheckBoxes.checked = CheckValue;
+
+                    }
+                    else
+                    {
+                        // set the check value for all check boxes
+                        for(var i = 0; i < countCheckBoxes; i++)
+                        {
+                            objCheckBoxes[i].checked = CheckValue;
+                        }
+                    }
+                }
+
+
+                function selectUnselect_contacts(form)
+                {
+
+                    for (var i = 1; i < form.elements.length; i++){
+                        eval("form.elements[" + i + "].checked = form.elements[0].checked");
+                    }
+
+                }
+
+            </script>
             <script type="text/javascript" src="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/javascripts/emp/emp.js"> </script>
             <!-- SEARCH-start -->
-
             <div class="container hometom">
                 <div class="row">
                     <div class="col-sm-12" >
@@ -278,6 +341,7 @@
                                     <select id="category" name="category" class="form-control2 ">
                                         <option value="">select industry</option>
                                         <option value="56"  >Construction</option>
+                                        <option value="57"  >health check</option>
                                         <option value="53"  >IT - BPO</option>
                                         <option value="50"  >IT-ERP-Oracle</option>
                                         <option value="42"  >KPO/Technical Support</option>
@@ -322,7 +386,9 @@
                         </div>
                     </div>
                 </div>
-            </div>            <!--SEARCH-end -->
+            </div>
+            <!--SEARCH-end -->
+
             <div id="header-bottom" class="hea" >
                 <div class="container">
                     <div class="col-sm-12">
@@ -361,445 +427,222 @@
                 <div class="col-md-11">
                     <ol class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Resume Access</a></li>
+                        <li><a href="#">My Account</a></li>
                         <li class="active">Candidate Manager</li>
                     </ol>
                 </div>
-                <script type="text/javascript">
-                    $('.inbox-bg .inboxa').hide(0);
 
-                    $('.inbox-bg').click(function(){
-                        alert('ffff');
-                        if($('.inboxa').hasClass('vis')){
-                            $('.inboxa', this).removeClass('vis');
-                            $('.inboxa', this).hide();
-                        }else{
-                            $('.inboxa', this).addClass('vis');
-                            $('.inboxa', this).show();
-                        }
-                    });
-                    function menu_click1()
-                    {
-                        $('#show1')
-                    }
-                </script>
 
-                <div class="col-md-3">
-                    <div class="create-job">
-                        <div class="create-job-head">
-                            <h3> My Home</h3>
-                        </div>
-                        <div class="create-job-content">
-                            <div class="inbox-bg" onclick="return menu_click1();">Administration</div>
-                            <!--<div class="inboxa"><a href="#">Product Settings</a></li> -->
-                            <div id="show1">
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/sub_user_managment.html"  style="color:#00CCFF" >Manage Sub-Users</a></div>
-                                <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_transaction.html" >Subscription Status</a></div>
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resume_pack.html"  >Product Settings<!--Resume Pack--></a></div>
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/employer-profile-view.html"  >Company profile</a></div>
-                                <!--<div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_folders.html" >Manage personal folder</a></div>-->
-                                <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/changepassword.html" >Change Password</a></div>
+                <div class="col-md-12">
+                    <div class="box radius" style="margin-left:3px; ">
+                        <div class="innerpadding">
+                            <div style="float:right; padding:5px 2px;">
+                                Job Tittle : <strong>New Job</strong>
                             </div>
-                            <div class="inbox-bg">Search Resumes</div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_resumeaccess.html?featured=yes" >Featured Resumes</a></div>
-                            <!--<div class="inbox	a"><a href="emp_resumeaccess.php?viewall=yes">All Resumes</a></div>-->
-
-                            <div class="inbox-bg">Jobs & Responses</div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_find-candidate.html"  >Job Posted Responses</a></div>
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postjob.html" >Post Jobs</a></div>
-                            <!--<li><a href="#" >Post Jobs to Campuses</a></li> -->
-                            <div class="inboxa"><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/emp_postedjobs.html" >Response Manager</a></div>
-                            <!--<li><a href="#" >Other Media Jobs</a></li>
-                            <li><a href="#" >Upload Resumes</a></li> -->
-
-
-                            <!-- <div class="inbox-bg">Profile</div>
-                            <div class="inboxa"><a href="#">View Profile</a></div>
-                            <div class="panel-titlea">
-                            <a class="" role="button" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
-                            Update Profile
-                            </a>
+                            <div class="top-emp-center">
+                                <h4>Candidate Manager</h4>
                             </div>
-                            <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel"  aria-expanded="true">
-                            <ul class="togg">
-                            <li><a href="#"> Summary </a></li>
-                            <li><a href="#">Employer/Designation</a></li>
-                            <li><a href="#">Attached Resume</a></li>
-                            <li><a href="#">Attached Resume</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">IT Skills</a></li>
-                            <li><a href="#">Education</a></li>
-                            <li><a href="#">More Details</a></li>
-                            </ul>
-                            </div>
-                            <div class="inboxa"><a href="#">Create/Manage Profiles</a></div>
-                            <div class="inboxa"><a href="#">Profile Performance</a></div>
-                            <div class="inboxa"><a href="#">Manage Cover Letters</a></div>
-                            <div class="inboxa"><a href="#">Upload Photo</a></div>
-                            <div class="inboxa"><a href="#">My Jobs Services</a></div>
-                            <div class="inbox-bg">Jobs & Applications</div>
-                            <div class="inboxa"><a href="#">Saved Jobs</a></div>
-                            <div class="inboxa"><a href="#">Application History</a></div>
-                            <div class="inbox-bg">Recruiters</div>
-                            <div class="inboxa"><a href="#"> Jobs & Updates</a></div>
-                            <div class="inboxa"><a href="#">Manage Following</a></div>
-                            <div class="inboxa"><a href="#">RecruiterConnection</a></div>
-                            <div class="inbox-bg">Settings</div>
-                            <div class="inboxa"><a href="#">Visibility Settings</a></div>
-                            <div class="inboxa"><a href="#">Communication Settings</a></div>
-                            <div class="inboxa"><a href="#">Block Companies</a></div>
-                            <div class="inboxa"><a href="#">Change Password</a></div> -->
-                        </div><!--create-job-content-->
+                            <br />
+                            <hr class="blue" style="margin: -7px 0px 7px 0px;" />
 
-                    </div><!--create-job-->
-                </div>
-
-                <!--
-
-                <style>
-                /* accordion */
-
-                .urbangreymenu{
-                    /*width: 190px; */
-                    text-align:left;
-                    border:1px solid #CCC;
-                    padding:7px;
-                    background-color: #FAFAFA;
-                    border-radius: 7px;
-                }
-
-                .urbangreymenu .headerbar{
-                    font: bold 13px Verdana;
-                    text-align:center;
-                    color: #000;
-                    /*border-bottom: 5px #2a78bd solid;*/
-                    color: white;
-                    background: #025680 url(../images/arrowstop.gif) no-repeat 8px 6px;
-                    background-color:#2a78bd;
-                    margin-bottom: 0;
-                    margin-top: 10px;
-                    padding: 7px 0px;
-
-                }
-
-                .urbangreymenu .headerbar a{
-                    text-decoration: none;
-                    color: white;
-                    /*color: #000;*/
-                    display: block;
-                }
-
-                .urbangreymenu ul{
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
-                    margin-bottom: 0;
-                }
-
-                .urbangreymenu ul li{
-                    padding-bottom: 2px;
-                }
-
-                .urbangreymenu ul li a{
-                    font: normal 12px Arial;
-                    color: black;
-                    background: #f5f5f5;
-                    display: block;
-                    padding: 5px 0;
-                    line-height: 17px;
-                    padding-left: 8px;
-                    text-decoration: none;
-                }
-
-                .urbangreymenu ul li a:visited{
-                color: black;
-                }
-
-                .urbangreymenu ul li a:hover{
-                /*color: #df5400;*/
-                color: #355774;
-                background: #FAFAFA;
-                -webkit-box-shadow: 0px 0px 3px 1px rgba(75, 75, 75, .2);
-                box-shadow: 0px 0px 3px 1px rgba(75, 75, 75, .2);
-                -webkit-border-radius: 3px;
-                border-radius: 3px;
-                }
-
-
-                /*  accordion End */
-
-                </style>-->
-
-                <!--col-sm-2-->
-
-                <div class="col-md-9" ><!--<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/add_sub_user.html" style="float:right; padding:5px;" class="btn-blue">ADD</a>-->
-                    <div class="top-emp-center">
-                        <h4>Candidate Manager</h4>
-                    </div> <!--top-emp-center-->
-                    <div style="color:#009900; padding:5px;"> 					</div>
-                    <table width="100%">
-                        <tr class="folderhead">
-                            <td class="mangerhead">
-                                <a href="resume_search.php?cont" style="text-decoration:none; color: #017BC6;">
-                                    Search Result
-                                    <hr style="margin:-2px 25px 7px 25px; border-width:2px;">
-                                    <div class="folder inline">
-                                        ( 1 )
-                                    </div>
-                                </a>
-                            </td>
-                            <td class="mangerhead">
-                                <a href="resume_search.php?folder=20" style="text-decoration:none; color: #017BC6;">
-                                    folder2				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
-                                    <div class="folder inline">
-                                        ( 0 )
-                                    </div>
-                                </a>
-                            </td>
-                            <td class="mangerhead">
-                                <a href="resume_search.php?folder=21" style="text-decoration:none; color: #017BC6;">
-                                    folder3				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
-                                    <div class="folder inline">
-                                        ( 0 )
-                                    </div>
-                                </a>
-                            </td>
-                            <td class="mangerhead">
-                                <a href="resume_search.php?folder=22" style="text-decoration:none; color: #017BC6;">
-                                    folder4				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
-                                    <div class="folder inline">
-                                        ( 0 )
-                                    </div>
-                                </a>
-                            </td>
-                            <td class="mangerhead">
-                                <a href="resume_search.php?folder=23" style="text-decoration:none; color: #017BC6;">
-                                    folder5				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
-                                    <div class="folder inline">
-                                        ( 0 )
-                                    </div>
-                                </a>
-                            </td>
-                            <td class="mangerhead">
-                                <a href="resume_search.php?folder=24" style="text-decoration:none; color: #017BC6;">
-                                    folder6				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
-                                    <div class="folder inline">
-                                        ( 0 )
-                                    </div>
-                                </a>
-                            </td>
-                            <td class="mangerhead">
-                                <a href="resume_search.php?folder=25" style="text-decoration:none; color: #017BC6;">
-                                    folder7				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
-                                    <div class="folder inline">
-                                        ( 0 )
-                                    </div>
-                                </a>
-                            </td>
-
-                            <td class="mangerhead">
-                                <a id="clickme" href="javascript:void(0);" style="text-decoration:none; color: #017BC6;">
-                                    Personal folder
-                                    <hr style="margin:-2px 25px 7px 25px; border-width:2px;">
-                                    <div class="folder inline">
-                                        view
-                                    </div>
-                                </a>
-
-                                <div id="book" class="innermagerhead">
-                                    <a href="#" style="text-decoration:none; color: #017BC6;">
-                                        No folder created
-                                        <hr class="noshade" style="margin:0;">
-                                    </a>
-                                    <hr>
-
-                                    <a href="emp_folders.php">Manage</a> | <a href="emp_folders_new.php">Add folder</a>
-
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                    <script language="javascript">
-                        $( "#clickme" ).click(function() {
-                            $( "#book" ).slideToggle( "slow", function() {
-                                // Animation complete.
-                            });
-                        });
-
-                    </script>
-
-                    <form method='post' action='mail_preview.php' name='mailform' onSubmit='return ValidateForm()'>
-
-                        <div class="candidatelist">
-                            <p><strong>List of candidates</strong></p>
-                            <h6 style="float:right;">
-                                <strong>
-                                    Search Result Candidates Below
-                                </strong>
-                            </h6>
-                            <div class="clear">&nbsp;</div>
-                            <div class="procinfobar" style="margin-top:7px;">
-                                <div class="">
-
-                                </div>
-
-                                <table width="100%">
-                                    <tr style="background-color:#E5E5E5; height:30px; font-size:13px;">
-                                        <td style="width:3%; text-align:center;">
-                                            <label class="checkbox-inline" style="margin-top: -24px; margin-left: 5px; ">
-                                                <input type="checkbox" name="select_all_contacts" id="select_all_contacts" onClick="selectUnselect_contacts(this.form)" class="text1"/>
-                                            </label>
+                            <div class="procinfobar table-responsive" >
+                                <table width="100%" class="">
+                                    <tr class="folderhead">
+                                        <td class="mangerhead">
+                                            <a href="candidate_manager.html?jid=31602575081&folder=19" style="text-decoration:none;">
+                                                folder1				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                                <div class="folder inline">
+                                                    ( 1 )
+                                                </div>
+                                            </a>
                                         </td>
-                                        <td>
-                                            <strong>Candidate Summary</strong>
+                                        <td class="mangerhead">
+                                            <a href="candidate_manager.html?jid=31602575081&folder=20" style="text-decoration:none;">
+                                                folder2				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                                <div class="folder inline">
+                                                    ( 0 )
+                                                </div>
+                                            </a>
                                         </td>
-                                        <td>
-                                            <strong>Professional Details</strong>
+                                        <td class="mangerhead">
+                                            <a href="candidate_manager.html?jid=31602575081&folder=21" style="text-decoration:none;">
+                                                folder3				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                                <div class="folder inline">
+                                                    ( 0 )
+                                                </div>
+                                            </a>
                                         </td>
-                                        <td>
-                                            <strong>Personal Details</strong>
+                                        <td class="mangerhead">
+                                            <a href="candidate_manager.html?jid=31602575081&folder=22" style="text-decoration:none;">
+                                                folder4				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                                <div class="folder inline">
+                                                    ( 0 )
+                                                </div>
+                                            </a>
                                         </td>
-                                        <td style="width: 15%; text-align:center;">
-                                            Process
+                                        <td class="mangerhead">
+                                            <a href="candidate_manager.html?jid=31602575081&folder=23" style="text-decoration:none;">
+                                                folder5				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                                <div class="folder inline">
+                                                    ( 0 )
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td class="mangerhead">
+                                            <a href="candidate_manager.html?jid=31602575081&folder=24" style="text-decoration:none;">
+                                                folder6				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                                <div class="folder inline">
+                                                    ( 0 )
+                                                </div>
+                                            </a>
+                                        </td>
+                                        <td class="mangerhead">
+                                            <a href="candidate_manager.html?jid=31602575081&folder=25" style="text-decoration:none;">
+                                                folder7				<hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                                <div class="folder inline">
+                                                    ( 0 )
+                                                </div>
+                                            </a>
+                                        </td>
+
+                                        <td class="mangerhead">
+                                            <a id="clickme" href="javascript:void(0);" style="text-decoration:none;">
+                                                Personal folder
+                                                <hr style="margin:-2px 25px 7px 25px; border-width:2px;">
+                                                <div class="folder inline">
+                                                    view
+                                                </div>
+                                            </a>
+
+                                            <div id="book" class="innermagerhead">
+                                                <a href="#" style="text-decoration:none;">
+                                                    No folder created
+                                                    <hr class="noshade" style="margin:0;">
+                                                </a>
+                                                <hr>
+
+                                                <a href="emp_folders.html">Manage</a> | <a href="emp_folders_new.html">Add folder</a>
+
+                                            </div>
                                         </td>
                                     </tr>
-                                    <tr >
-                                        <td valign="top" style="width:3%; text-align:center;">
-                                            <label class="checkbox-inline" >
-                                                <input type="checkbox" name="check[]" value="212" />
-                                            </label>
-                                        </td>
-                                        <td>
+                                </table>
+                            </div>
+
+                            <br/>
+                            <form method='post' action='mail_preview.php' name='mailform' onSubmit='return ValidateForm()'>
+                                <div class="candidatelist table-responsive procinfobar " style="">
+                                    <p><strong>List of Applicatipons For This Job</strong></p>
+                                    <h6 style="float:right;"><strong>folder1 Candidates Below</strong></h6>
+                                    <div class="clear">&nbsp;</div>
+
+
+                                    <style>
+                                        .well {
+                                            min-height: 30px !important;
+                                            padding: 5px 0px !important;
+                                            margin-bottom: 20px;
+                                            background-color: #f5f5f5;
+                                            border: 1px solid #e3e3e3;
+                                            /* border-radius: 4px; */
+                                            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+                                            box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+                                        }
+                                    </style>
+
+                                    <div class="col-md-12">
+                                        <div class="well ">
+                                            <div class="col-md-1"><input type="checkbox" name="select_all_contacts" id="select_all_contacts" onClick="selectUnselect_contacts(this.form)" class="text1"/></div>
+                                            <div class="col-md-3" style="color:#337ab7"><strong>Candidate Summary</strong></div>
+                                            <div class="col-md-3" style="color:#337ab7"><strong>Professional Details</strong></div>
+                                            <div class="col-md-3" style="color:#337ab7"><strong>Personal Details</strong></div>
+                                            <div class="col-md-2" style="color:#337ab7"><strong>Process</strong></div>
+                                        </div>
+
+
+                                        <div class="col-md-1"><input type="checkbox" name="check[]" value="104" /></div>
+                                        <div class="col-md-3">
                                             <strong>Key Skill :</strong> (
-                                            testing ) <br>
-                                            <strong>Experience :</strong> 1 Year AND 3 Months <br>
+                                            Nil )<br>
+                                            <strong>Experience :</strong> Fresher<br>
                                             <strong>Last Active on :</strong>
-                                            Monday Jul,13th 2020</td>
-                                        <td>
+                                            Monday Nov,09th 2020<br><strong>Applied on :</strong> Monday Nov,09th 2020       </div><!--col-md-2------------------------------>
+                                        <div class="col-md-3">
+
                                             <strong></strong>
                                             <strong>Qualification :</strong>
-                                            ug : B.E/ B. Tech<br>
+                                            ug : B.E/ B. Tech				<br>
                                             <strong>Functional Area :</strong>
-                                            QA<br>
+                                            Technical Architect				<br>
 
-                                        </td>
-                                        <td>
-                                            <strong>Name :</strong> ramya  <br>
-                                            <strong>Email :</strong> inetramya@gmail.com <br>
-                                            <strong>Mobile :</strong> 8015097900 <br>
-                                            <strong>Location :</strong>  (Tubarï¿½) </td>
-                                        <td style="width: 15%; text-align:center;">
-                                            <!--<a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal//seeker/Tubarï¿½/Ramya22#" target="_blank">View Profile</a> -->
-                                            <a href="view_userprofile.php?uname=212" target="_blank">View Profile</a>
+                                        </div><!--col-md-3------------------------------>
+                                        <div class="col-md-3">
+                                            <strong>Name :</strong> Varsha  <br>
+                                            <strong>Email :</strong> Varsha@gmail.com <br>
+                                            <strong>Mobile :</strong> 9841300660 <br>
+                                            <strong>Location :</strong>        </div><!--col-md-3------------------------------>
+                                        <div class="col-md-2">
+
+                                            <a href="view_userprofile.php?uname=296" target="_blank">View Profile</a>
                                             <br>
                                             <hr class="noshade">
 
-                                            <a href="mail_preview.php?userid=aW5ldHJhbXlhQGdtYWlsLmNvbQ==&job_id=resumesearch">Send mail</a>
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5"><hr></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5">
-                                            <select name="movetofolder" id="movetofolder">
-                                                <option value="">Move to folder</option>
-                                                <option value="19">folder1</option>
-                                                <option value="20">folder2</option>
-                                                <option value="21">folder3</option>
-                                                <option value="22">folder4</option>
-                                                <option value="23">folder5</option>
-                                                <option value="24">folder6</option>
-                                                <option value="25">folder7</option>
-                                            </select>
-                                            &nbsp;
-                                            <button type="submit" name="movefolderSearched" class="gobtn toosmallbtn">Move now</button>
-                                            &nbsp;
-                                            <button type="submit" name="sendmail" class="gobtn toosmallbtn">Send Mail</button>
-                                            &nbsp;
-                                            <button type="submit" name="export" class="gobtn toosmallbtn">Export to Excel</button>
-                                            <span style="float:right;">
-</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5"><hr></td>
-                                    </tr>
+                                            <hr class="noshade">
+                                            <!--<a href="resume/" target="_blank">Resume</a>-->
+                                            <a><!--href='resume_download.php?resume=resume/1604235212_Antoine App Timeline.pdf'>-->
+                                                Resume
+                                            </a>
+
+                                        </div><!--col-md-2------------------------------>
 
 
-                                </table>
-                            </div>
+
+
+                                    </div><!--col-md-12--------------------------------------->
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-6" style="margin:10px;">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <input type="hidden" name="jobid" value="31602575081">
+                                                        <select name="movetofolder" id="movetofolder"  >
+                                                            <option value="">Move to folder</option>
+                                                            <option value="19">folder1</option>
+                                                            <option value="20">folder2</option>
+                                                            <option value="21">folder3</option>
+                                                            <option value="22">folder4</option>
+                                                            <option value="23">folder5</option>
+                                                            <option value="24">folder6</option>
+                                                            <option value="25">folder7</option>
+                                                        </select>	</td><td><button type="submit" name="movefolder" class="gobtn toosmallbtn">Move now</button>
+                                                    </td><td>
+                                                        <button type="submit" name="sendmail" class="gobtn toosmallbtn ">Send Mail</button>
+                                                        <span style="float:right;">
+				</span></td>
+                                                </tr>
+                                            </table>
+                                            <table>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div><!--col-sm-9-->
+
+                        <div class="clear">&nbsp;</div>
+
+                    </div>
+                </div>
+                <!--col-sm-9-->
             </div><!--row-->
         </div><!-- container -->
 
     </div><!-- CONTENT -->
-    <script language="javscript" type="text/javascript">
-        function ValidateForm()
-        {
-            var del_str = "check";
-            var j1=0;
-            for (i=0;i<document.mailform.length;i++){
-                ele = document.mailform.elements[i];
-                ele_name = ele.name;
-                if (ele_name.substring(0,del_str.length) == del_str){
-                    if(ele.checked == true){
-                        j1 = j1 + 1;
-                    }
-                }
-            }
-            if(j1 <1)
-            {
-                alert("Please select atleaset one job seeker");
-                return false;
-            }
-            /*else
-            {
-            alert("Are You Sure You Want To Send Email");
-            }*/
-        }
-    </script>
-    <script language="javascript" type="text/javascript">
-        function SetAllCheckBoxes(FormName, FieldName, CheckValue)
-        {
-            if(!document.forms[FormName])
-            {
-
-                return;
-            }
-            var objCheckBoxes = document.forms[FormName].elements[FieldName];
-
-            if(!objCheckBoxes)
-                return;
-            var countCheckBoxes = objCheckBoxes.length;
-            if(!countCheckBoxes)
-            {
-                objCheckBoxes.checked = CheckValue;
-
-            }
-            else
-            {
-// set the check value for all check boxes
-                for(var i = 0; i < countCheckBoxes; i++)
-                {
-                    objCheckBoxes[i].checked = CheckValue;
-                }
-            }
-        }
-
-
-        function selectUnselect_contacts(form)
-        {
-
-            for (var i = 1; i < form.elements.length; i++){
-                eval("form.elements[" + i + "].checked = form.elements[0].checked");
-            }
-        }
-    </script>
     <!--ADVANCED SEARCH POPUP-->
 
     <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -990,6 +833,7 @@
                                     <option value="">Select</option>
 
                                     <option value="56">Construction</option>
+                                    <option value="57">health check</option>
                                     <option value="53">IT - BPO</option>
                                     <option value="50">IT-ERP-Oracle</option>
                                     <option value="42">KPO/Technical Support</option>
@@ -1371,7 +1215,7 @@
                                 <select name="indus" id="indus" class="form-control " placeholder="Select the industry where you want to work">
                                     <option value=''>-&nbsp;Select&nbsp;-</option>
 
-                                    <option value='Construction'>Construction</option><option value='IT - BPO'>IT - BPO</option><option value='IT-ERP-Oracle'>IT-ERP-Oracle</option><option value='KPO/Technical Support'>KPO/Technical Support</option><option value='Law Enforcement/Security'>Law Enforcement/Security</option><option value='Legal/Law'>Legal/Law</option><option value='Management'>Management</option><option value='Marketing/Sales'>Marketing/Sales</option><option value='mech'>mech</option><option value='Media '>Media </option><option value='Media/Journalism'>Media/Journalism</option><option value='NGO/Social Services'>NGO/Social Services</option><option value='Others'>Others</option><option value='Production/Manufacturing/Maintenance'>Production/Manufacturing/Maintenance</option><option value='Strategy / Management Consulting Firms'>Strategy / Management Consulting Firms</option><option value='test cate'>test cate</option><option value='Tours and Travel/Airline'>Tours and Travel/Airline</option><option value='Transportation/Logistics'>Transportation/Logistics</option>								</select>
+                                    <option value='Construction'>Construction</option><option value='health check'>health check</option><option value='IT - BPO'>IT - BPO</option><option value='IT-ERP-Oracle'>IT-ERP-Oracle</option><option value='KPO/Technical Support'>KPO/Technical Support</option><option value='Law Enforcement/Security'>Law Enforcement/Security</option><option value='Legal/Law'>Legal/Law</option><option value='Management'>Management</option><option value='Marketing/Sales'>Marketing/Sales</option><option value='mech'>mech</option><option value='Media '>Media </option><option value='Media/Journalism'>Media/Journalism</option><option value='NGO/Social Services'>NGO/Social Services</option><option value='Others'>Others</option><option value='Production/Manufacturing/Maintenance'>Production/Manufacturing/Maintenance</option><option value='Strategy / Management Consulting Firms'>Strategy / Management Consulting Firms</option><option value='test cate'>test cate</option><option value='Tours and Travel/Airline'>Tours and Travel/Airline</option><option value='Transportation/Logistics'>Transportation/Logistics</option>								</select>
 
                             </div>
                             <div><span id="industryinfo"></span></div>
@@ -1588,7 +1432,7 @@
 
                         <div class="widget widget-text">
 
-                            <div  class="copy-right"><p></p>
+                            <div  class="copy-right"><p><h2>testing</h2></p>
                                 <!--<p>All rights reserved &copy; 2015 Lead Consulting Group. |  Website Designed by <a target="_blank" href="http://www.phpscriptsmall.com/">Php Scripts Mall Pvt Ltd</a></p>-->
                             </div>
 
@@ -2123,3 +1967,12 @@
 <style>
     .error,.redstar{ color:#F00;   font-size: 12px;}
 </style>
+<script language="javascript">
+    $( "#clickme" ).click(function() {
+
+        $( "#book" ).slideToggle( "slow", function() {
+            // Animation complete.
+        });
+    });
+
+</script>

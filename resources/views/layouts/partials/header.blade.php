@@ -152,7 +152,7 @@
                             <!--<input  class="form-control2 input-lg" type="text" name="exp" placeholder="Experience">--></div>
                             <div class="form-group text-center"><button  class="search-btn btn-lg btn-block"  id="homeadvsearch" type="submit" name="homeadvsearch" value="Search"> <img src="/images/search-icon.png" /> Search</button>
                                 <!--<span class="avd"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" >Advanced Search</a></span>-->
-                                <span class="avd"><a href="{{ route('advancedsearch') }}">Advanced Search</a></span>
+                                <span class="avd"><a href="{{ route('advancedsearch') }}"> Advanced Search</a></span>
                             </div>
                         </form>
                     </div>
@@ -174,8 +174,8 @@
                         <ul class="nav navbar-nav navbar-left  clearfix sss">
                             <li>Browse jobs :</li>
                             <li class="active"><a href="{{ route('all_jobs') }}"><i class="fa fa-shopping-bag"></i> All jobs</a></li>
-                            <li class=""><a href="{{ route('company_job') }}"><i class="fa fa-suitcase"></i>Job by Company</a></li>
-                            <li class=""><a href="{{ route('category_job') }}"><i class="fa fa-list"></i>Job by Category</a></li>
+                            <li class=""><a href="{{ route('company_job') }}"><i class="fa fa-suitcase"></i> Job by Company</a></li>
+                            <li class=""><a href="{{ route('category_job') }}"><i class="fa fa-list"></i> Job by Category</a></li>
                             <li class=""><a href="{{ route('job_by_area') }}"><i class="fa fa-location-arrow"></i> Job by Location</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->

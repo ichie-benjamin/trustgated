@@ -10,8 +10,8 @@ class UserBackgroundVerificationController extends Controller
 {
     public function index()
     {
-        $v_packages = UserBackgroundVerification::all();
-        return view('admin.user_bg_v.packages-list', compact('user_bg_v'));
+        $users = UserBackgroundVerification::all();
+        return view('admin.user_bg_v.index', compact('users'));
     }
 
     public function create()
@@ -29,7 +29,15 @@ class UserBackgroundVerificationController extends Controller
 
     public function show($id)
     {
-        //
+        $item = UserBackgroundVerification::findOrFail($id);
+        return view('admin.user_bg_v.show', compact('item'));
+    }
+    public function approve($id)
+    {
+        $item = UserBackgroundVerification::findOrFail($id);
+        $item->approved = true;
+        $item->save();
+        return redirect()->back()->with('success','Background Submission Successfully Approved');
     }
 
     public function edit($id)

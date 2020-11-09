@@ -13300,17 +13300,17 @@ ol.commentlist li .star-rating {
     color: black;
     padding-top: 42px;
     background: url(../../images/company.jpg) 50% 0 repeat-y;
-    padding-bottom: 50px;
+    padding-bottom: 42px;
 }
 
 .jp_regis_right {
     float: left;
     /*width: 50%;*/
     padding-top: 42px;
-    padding-bottom: 50px;
+    padding-bottom: 42px;
     background: url(../images/register_bg.jpg) 50% 0 repeat-y;
-    background-position": center 0;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     position: relative;
     text-align: center;

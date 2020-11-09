@@ -11,6 +11,20 @@ class UserBackgroundVerification extends Model
 
     protected $guarded = [];
 
+    protected $with = ['user','package'];
+
+    protected $appends = ['status'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function package()
+    {
+        return $this->belongsTo(VerificationPackage::class,'package_id');
+    }
+
     public function setEducationsAttribute($value)
     {
         $this->attributes['Educations'] = json_encode($value);
@@ -22,6 +36,14 @@ class UserBackgroundVerification extends Model
             return [];
         }else {
             return json_decode($value);
+        }
+    }
+
+    public function getStatusAttribute(){
+        if($this->approved){
+            return 'approved';
+        }else {
+            return 'pending';
         }
     }
     public function setEmploymentsAttribute($value)

@@ -97,13 +97,13 @@ class PaymentController extends Controller
 
             } catch (\Exception $e) {
                 return  $e->getMessage();
-                \Session::put('error',$e->getMessage());
+//                \Session::put('error',$e->getMessage());
                 return redirect()->back();
             }
         }
 
-        \Session::put('success', 'Payment successful');
+//        \Session::put('success', 'Payment successful');
 //        return  'jekkkk';
-        return redirect()->back();
+        return redirect()->back()->with('success','Payment successful');
     }
 }
