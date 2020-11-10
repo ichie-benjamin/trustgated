@@ -77,11 +77,13 @@
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-9">
                                     <button type="submit" name="submit" id="submit" class="btn-blue btn bcL">Login</button>
+                                </div>
 
+                                <div class="col-sm-offset-3 col-sm-9">
 
+                                    <a href="{{ route('social.login','facebook') }}?role=jobseeker" class="btn-blue btn bcL" ><i class="fa fa-facebook"></i>  Login with Facebook</a>
 
-                                    <a href="#" onclick="alert('Facebook Login is currently disable for demo purpose');" class="btn-blue btn bcL" >Login with Facebook</a>
-                                    <a href="#"  onclick="alert('Google  Login is currently disable for demo purpose');" class="btn-blue btn bcL" >Login with Google</a>
+                                    <a href="{{ route('social.login','google') }}?role=jobseeker" class="btn-blue btn bcL" ><i class="fa fa-google"></i> Login with Google</a>
 
 
 

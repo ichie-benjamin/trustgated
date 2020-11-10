@@ -10,8 +10,14 @@ use App\Http\Controllers\JobseekerController;
 use App\Http\Controllers\admin\TempController;
 use App\Http\Controllers\LocationsController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SocialAuthController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+
+
+
+Route::get('login/{provider}', [SocialAuthController::class,'redirect'])->name('social.login');
+Route::get('login/{provider}/callback', [SocialAuthController::class,'callback']);
 
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
@@ -102,6 +108,7 @@ Route::group(['middleware' => ['verified','auth']], function () {
     Route::post('/user/update/more', [UsersController::class, 'updateMore'])->name('user.update.more');
 
     Route::get('/user/profile/{username}', [UsersController::class, 'userProfile'])->name('user.profile.public');
+    Route::get('/user/download/resume/{username}', [UsersController::class, 'downloadResume'])->name('user.resume.download');
 
     Route::post('/user/update/itskills', [UsersController::class, 'updateItskills'])->name('user.update.itskills');
 
@@ -199,9 +206,6 @@ Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], funct
 
 
 Route::get('/assign/plan', [HomeController::class,'AssignPackage']);
-
-
-
 
 Auth::routes(['verify' => true]);
 

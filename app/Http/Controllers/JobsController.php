@@ -240,13 +240,13 @@ if(!$companies){
     }
 
     public function response($id){
-//        $applied = AppliedJob::where('job_id',$id)->get();
-//        $job = Job::findOrFail($id);
-        $users = User::all();
-        if(count($users) < 1){
+       $applied = AppliedJob::with('user')->where('job_id',$id)->get();
+        $job = Job::findOrFail($id);
+
+        if(count($applied) < 1){
             return redirect()->route('jobs.index');
         }
-        return view('employer.jobs.applications', compact('users'));
+        return view('employer.jobs.applications', compact('applied','job'));
 //        return view('employer.jobs.applications',compact('applied','job'));
     }
 

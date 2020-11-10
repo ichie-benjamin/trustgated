@@ -87,7 +87,11 @@
                                                 {{ $item }},
                                             @endforeach
                                         </td>
-                                        <td class="text-center">{{ count($job->applied_job) }}</td>
+                                        @if(count($job->applied_job) > 0)
+                                        <td class="text-center"><a href="{{ route('job.response',$job->id) }}" >{{ count($job->applied_job) }}</a></td>
+                                            @else
+                                                <td class="text-center">{{ count($job->applied_job) }}</td>
+                                            @endif
                                         @if ($job->trashed())
                                             <td class="text-center">
                                                 <form method="POST" action="{!! route('jobs.delete', $job->id) !!}" accept-charset="UTF-8">

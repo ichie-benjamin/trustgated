@@ -78,6 +78,16 @@
                                 <div class="col-sm-offset-3 col-sm-9">
                                     <button type="submit"  name="submit" id="submit" class="btn-blue btn bcL">Login</button>
                                 </div>
+
+                                <div class="col-sm-offset-3 col-sm-9">
+
+                                    <a href="{{ route('social.login','facebook') }}?role=employer" class="btn-blue btn bcL" ><i class="fa fa-facebook"></i>  Login with Facebook</a>
+
+                                    <a href="{{ route('social.login','google') }}?role=employer" class="btn-blue btn bcL" ><i class="fa fa-google"></i> Login with Google</a>
+
+
+
+                                </div>
                             </div>
 
                         </form>

@@ -171,7 +171,8 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <iframe src="{{ $user->cv }}" width="100%" height="500"></iframe>
+                    <iframe src="{{ $user->cv }}" width="100%" height="400"></iframe>
+                    <a class="btn btn-success mt-5" href="{{ route('user.resume.download',$user->username) }}">Download Resume</a>
                 </div>
             </div>
         </div>
