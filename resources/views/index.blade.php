@@ -137,7 +137,7 @@
 							<div class="row">
 								<div class="col-lg-3 col-md-6">
 									<div class="form-group">
-										<label>Job Title, Keywords, or company</label>
+										<label>Job Title, Keywords, or Company</label>
 										<div class="input-group">
 											<input type="text" class="form-control" placeholder="" value="{{ request()->get('keyword') }}" name="keyword">
 											<div class="input-group-append">
@@ -160,7 +160,7 @@
 								<div class="col-lg-2 col-md-6">
 									<div class="form-group">
                                         <select name="category">
-                                            <option value="">select industry</option>
+                                            <option value="">Select Industry</option>
                                             @foreach($industries as $item)
                                                 <option value="{{ $item->id }}">{{ $item->category }}</option>
                                             @endforeach
