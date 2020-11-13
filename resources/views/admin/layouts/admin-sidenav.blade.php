@@ -100,6 +100,12 @@
                 <span class="menu-item-label"> General Setting</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        <a href="{{ route('admin.settings.home') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-house-user tx-22"></i>
+                <span class="menu-item-label"> Home Settings</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
         <a href="{{ route('admin.cities.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-location-arrow tx-22"></i>

@@ -61,6 +61,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('background/submission/{id}', [UserBackgroundVerificationController::class, 'show'])->name('background.submission');
     Route::get('background/approve/{id}', [UserBackgroundVerificationController::class, 'approve'])->name('background.approve');
 
+    Route::get('settings/home', [SettingsController::class, 'home'])->name('settings.home');
+
 
     Route::resources([
         'countries' => CountryController::class,

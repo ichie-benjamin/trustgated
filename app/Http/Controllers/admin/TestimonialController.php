@@ -61,7 +61,7 @@ class TestimonialController extends Controller
             'name' => 'required',
             'designation' => 'required',
             'description' => 'required',
-            'testimonial_image' => 'nullable',
+            'testimonial_image' => 'required',
         ];
         return $request->validate($rules);
     }

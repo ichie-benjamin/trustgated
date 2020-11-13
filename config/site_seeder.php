@@ -21,6 +21,7 @@ return [
         'v_packages' => [
             1,2,3
         ],
+        'testimonials' => ['Vidhya','John','Roshy'],
         'states' => ['Delhi'],
         'basic_edu' => [
             'B Com',
