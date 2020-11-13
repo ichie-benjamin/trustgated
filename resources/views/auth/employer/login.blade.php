@@ -76,7 +76,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-9">
-                                    <button type="submit"  name="submit" id="submit" class="btn-blue btn bcL">Login</button>
+                                    <button type="submit"  name="submit" id="submit" class="btn-blue btn-block btn bcL">Login</button>
                                 </div>
 
                                 <div class="col-sm-offset-3 col-sm-9">

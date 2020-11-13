@@ -295,6 +295,7 @@
 			     <div class="jp_register_section_main_wrapper">
                                 <div class="jp_regis_left col-md-6 col-sm-6">
                                     <div class="left_side_box">
+{{--									                                         <img src="{{ \App\Models\Banner::select('placement','banner')->wherePlacement('home_employer_bg') }}" alt="icon">--}}
 									                                         <img src="/assets/images/regis_icon.png" alt="icon">
 
 										<h4>{{ setting('banner_1_head') }}</h4>

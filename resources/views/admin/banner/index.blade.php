@@ -59,6 +59,8 @@
                                 <select name="placement" class="form-control" required data-placeholder="Choose placement:">
                                     <option value="home_page">Home Page</option>
                                     <option value="job_view">Job View</option>
+                                    <option value="home_employer_bg">Home Employer bg</option>
+                                    <option value="home_jobseeker_bg">Home Jobseeker bg</option>
                                 </select>
                             </div>
                         </div>
