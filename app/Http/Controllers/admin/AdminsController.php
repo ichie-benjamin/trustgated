@@ -22,6 +22,35 @@ class AdminsController extends Controller
         return view('admin.users.user-list', compact('users','title'));
     }
 
+    public function jobseekerNewsletter(){
+        $title = 'Jobseeker';
+        $users = User::whereRoleIs('jobseeker')->get();
+        return view('admin.users.newsletter', compact('users','title'));
+    }
+
+    public function employerNewsletter(){
+        $title = 'Employer';
+        $users = User::whereRoleIs('employer')->get();
+        return view('admin.users.newsletter', compact('users','title'));
+    }
+
+    public function newsletterSubmit(Request $request){
+        $user_ids = $request->users;
+        $request->session()->put('user_ids',$user_ids);
+        $title = $request->title;
+        return view('admin.users.submit', compact('user_ids','title'));
+
+    }
+
+    public function newsletterSend(Request $request){
+        $user_ids = $request->session()->get('user_ids');
+        $title = $request->title;
+        $users = User::whereIn('id',$user_ids)->get();
+        return redirect()->route('admin.jobseeker.newsletter')->with('success','Mails successfully sent');
+//        return view('admin.users.submit', compact('user_ids','title'));
+
+    }
+
     public function inactiveCompanies(){
         $title = 'Inactive Companies';
         $jobs = Job::pluck('company_id');

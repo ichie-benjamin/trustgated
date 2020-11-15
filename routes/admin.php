@@ -63,6 +63,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::get('settings/home', [SettingsController::class, 'home'])->name('settings.home');
 
+    Route::get('jobseeker/newsletter', [AdminsController::class, 'jobseekerNewsletter'])->name('jobseeker.newsletter');
+    Route::get('employer/newsletter', [AdminsController::class, 'employerNewsletter'])->name('employer.newsletter');
+    Route::post('newsletter/submit', [AdminsController::class, 'newsletterSubmit'])->name('newsletter.submit');
+
+    Route::post('newsletter/send', [AdminsController::class, 'newsletterSend'])->name('newsletter.send');
+
 
     Route::resources([
         'countries' => CountryController::class,
