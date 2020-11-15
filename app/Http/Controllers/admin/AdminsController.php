@@ -36,6 +36,9 @@ class AdminsController extends Controller
 
     public function newsletterSubmit(Request $request){
         $user_ids = $request->users;
+        if(!$user_ids){
+            return redirect()->back()->with('failure', 'Please select a user');
+        }
         $request->session()->put('user_ids',$user_ids);
         $title = $request->title;
         return view('admin.users.submit', compact('user_ids','title'));
