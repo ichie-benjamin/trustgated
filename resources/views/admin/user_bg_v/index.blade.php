@@ -68,6 +68,15 @@
 {{--                                    {{ csrf_field() }}--}}
 
 
+                                @if ($user->user_type === 'employer')
+                                    @if ($user->document)
+                                        <a href="{{ route('admin.background.upload', $user->id ) }}" class="btn btn-success btn-sm">View File</a>
+                                    @else
+                                        <a href="{{ route('admin.background.upload', $user->id ) }}" class="btn btn-success btn-sm">Upload File</a>
+                                    @endif
+                                @endif
+
+                                @if ($user->user_type !== 'employer')
                                 @if ($user->approved)
                                     <a href="#" class="btn btn-success btn-sm">
                                         Approved
@@ -76,6 +85,7 @@
                                     <a href="{{ route('admin.background.submission', $user->id ) }}" class="btn btn-success btn-sm">
                                         Approve
                                     </a>
+                                @endif
                                 @endif
 
 

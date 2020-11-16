@@ -25,6 +25,17 @@
                                 <span id="id1"></span></div>
                         </div>
 
+                        @if ($errors->any())
+
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form method="POST" class="form-horizontal" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
@@ -50,6 +61,13 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-3  control-label efs"></label>
+                                <div class="col-sm-9">
+                            {!! app('captcha')->display() !!}
                                 </div>
                             </div>
 

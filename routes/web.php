@@ -43,6 +43,7 @@ Route::post('/payment/store', 'PaymentController@store')->name('payment.store');
 
 Route::get('jobseeker-self-service', [HomeController::class, 'jobseekerSelfservice'])->name('selfservice');
 Route::get('background-verification-request', [HomeController::class, 'backgroundVerificationRequest'])->name('bg_verification');
+Route::get('background-verification-response', [HomeController::class, 'backgroundVerificationResponse'])->name('bg_verification_response');
 Route::get('background-verification-payment/{id}', [HomeController::class, 'backgroundVerificationPayment'])->name('bg_verification_pay');
 Route::get('background-verification', [HomeController::class,'backgroundVerification'])->name('background-verification');
 Route::get('background-verification/2/{id}', [HomeController::class,'backgroundVerification2'])->name('background-verification-2');

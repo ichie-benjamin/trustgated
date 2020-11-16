@@ -11,6 +11,36 @@ use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
+    protected  $fields = [
+        'username','first_name','availability','last_name', 'email','min_annual_salary',
+        'program', 'university','program_start_date','program_city','address','city','country','state','headline','skills','bio',
+        'pincode',
+        'mobile_number',
+        'landline_number',
+        'fax','gender',
+        'dob',
+        'function_area',
+        'industry',
+        'visibility',
+        'exp_year',
+        'exp_month',
+        'max_annual_salary','land_countrycode','phone_countrycode',
+        'land_areacode',
+        'basic_education',
+        'course' ,
+        'course2',
+        'course3','job_type','employment_status','affirmative_category','affirmative_description','physically_challenged','usa_work_permit','country_work_permit',
+        'language1',
+        'language1_proficiency',
+        'language1_rws',
+        'language2',
+        'language2_proficiency',
+        'language2_rws',
+        'language3',
+        'language3_proficiency',
+        'language3_rws',
+        'it_skills'
+    ];
     public function admins(){
         $title = 'admin';
         $users = User::whereRoleIs('admin')->get();
@@ -87,6 +117,14 @@ class UsersController extends Controller
         return view('admin.users.edit', compact('user', 'admin_roles'));
     }
 
+
+    public function show($username)
+    {
+        $fields = $this->fields;
+        $user = User::whereUsername($username)->firstOrFail();
+        return view('admin.users.show', compact('user','fields'));
+    }
+
     public function update(Request $request, User $user)
     {
         $this->validate($request, [
@@ -143,6 +181,6 @@ class UsersController extends Controller
 
         }
 
-        return back()->with('success', 'Admin User deleted.');
+        return back()->with('success', 'User account deleted.');
     }
 }

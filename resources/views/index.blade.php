@@ -334,84 +334,21 @@
 
                                 <div class="item">
                                     <div class="row">
+                                        @foreach($highlights as $item)
 									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 <div class="jp_best_deal_main_cont_wrapper ">
 											   <div class="row">
                                                 <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-search"></i>
+                                                    <i class="{{ $item->icon }}"></i>
                                                 </div>
                                                 <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Search a Jobs</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
+                                                    <h4><a href="#">{{ $item->head }}</a></h4>
+                                                    <p>{{ $item->body }}</p>
                                                 </div>
 												</div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper1">
-											 <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-users"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Apply a Good Job</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-												</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper2 ">
-											   <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-shield"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Job Security</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-												</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper2 ">
-											   <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-user"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Top Employers</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-											  </div>
-                                            </div>
-                                        </div>
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper2 ">
-											   <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-bell-o"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Job Notifications</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-											  </div>
-                                            </div>
-                                        </div>
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper2 ">
-											   <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-building"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Featured Cities</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-                                               </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
 

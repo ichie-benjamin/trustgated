@@ -252,13 +252,6 @@
 
                                 </div><div id="pincodeLabel" class="floaterror"></div>
                             </div><!--form-group-->
-                            <!-- <div class="form-group">
-                              <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span> Mobile Number : </label>
-                              <div class="col-sm-4">
-                                <input type="text" name="mobileno" id="mobileno" maxlength="15" class="form-control" onKeyPress="return checkIt(event);" maxlength="10" onBlur="Trim(this.id)" />
-
-                              </div><div id="mobileLabel" class="floaterror"></div>
-                             </div>-->
                             <div class="form-group ">
                                 <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span>Contact Number : </label>
                                 <div class="col-sm-4">
@@ -282,6 +275,12 @@
                                     <div class="checkbox"> <label class="pedit2"> <input type="checkbox" id="news" name="news" value="1" checked="checked">  I want to receive promotions on my email id. </label> </div>
                                 </div>
                             </div><!--form-group-->
+                            <div class="form-group">
+                                <label  class="col-sm-3  control-label efs"></label>
+                                <div class="col-sm-9">
+                                    {!! app('captcha')->display() !!}
+                                </div>
+                            </div>
                             <div class="form-group ">
 
                                 <div class="col-sm-3 ">

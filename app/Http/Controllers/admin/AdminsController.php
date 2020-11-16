@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Newsletter;
 use App\Models\Company;
 use App\Models\EmployerAccess;
 use App\Models\EmployerProduct;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AdminsController extends Controller
 {
@@ -48,7 +50,12 @@ class AdminsController extends Controller
     public function newsletterSend(Request $request){
         $user_ids = $request->session()->get('user_ids');
         $title = $request->title;
-        $users = User::whereIn('id',$user_ids)->get();
+        $data['subject'] = $request->subject;
+        $data['content'] = $request->message;
+        $users = User::select('id','email')->whereIn('id',$user_ids)->get();
+        foreach ($users as $user){
+            Mail::to($user->email)->send(new Newsletter($data));
+        }
         return redirect()->route('admin.jobseeker.newsletter')->with('success','Mails successfully sent');
 //        return view('admin.users.submit', compact('user_ids','title'));
 

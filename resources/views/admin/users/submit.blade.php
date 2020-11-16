@@ -41,10 +41,19 @@
                         <div class="row">
                             <div class="col-md-12">
                             <div class="form-group mg-b-10-force">
+                                <label class="form-control-label">Subject : <span class="tx-danger">*</span></label>
+{{--                                <textarea class="form-control" name="content">{{ old('title', optional($page)->content) }}</textarea>--}}
+
+                                <input class="form-control" name="title" required>
+
+                            </div>
+                            </div>
+                                <div class="col-md-12">
+                            <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Content : <span class="tx-danger">*</span></label>
 {{--                                <textarea class="form-control" name="content">{{ old('title', optional($page)->content) }}</textarea>--}}
 
-                                <textarea id="my-editor" name="content" class="form-control">{!! old('content') !!}</textarea>
+                                <textarea required id="my-editor" name="message" class="form-control">{!! old('message') !!}</textarea>
 
                             </div>
                             </div>

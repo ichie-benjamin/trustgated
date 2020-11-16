@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\DatabaseProductController;
 use App\Http\Controllers\admin\EducationalDetails;
 use App\Http\Controllers\admin\FormsController;
+use App\Http\Controllers\admin\HighlighController;
 use App\Http\Controllers\admin\JobsController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\PackagesController;
@@ -29,7 +30,7 @@ use App\Models\DatabaseProduct;
 use App\Models\UserBackgroundVerification;
 
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
+Route::group(['middleware' => ['auth','role:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::get('dashboard', AdminDashboard::class)->name('dashboard');
 
 //    User Listing
@@ -59,6 +60,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('background/submissions', [UserBackgroundVerificationController::class, 'index'])->name('background.submissions');
 
     Route::get('background/submission/{id}', [UserBackgroundVerificationController::class, 'show'])->name('background.submission');
+    Route::get('background/upload/{id}', [UserBackgroundVerificationController::class, 'upload'])->name('background.upload');
+    Route::post('background/upload/store', [UserBackgroundVerificationController::class, 'storeUpload'])->name('background.upload.store');
     Route::get('background/approve/{id}', [UserBackgroundVerificationController::class, 'approve'])->name('background.approve');
 
     Route::get('settings/home', [SettingsController::class, 'home'])->name('settings.home');
@@ -72,6 +75,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::resources([
         'countries' => CountryController::class,
+        'highlights' => HighlighController::class,
         'users' => UsersController::class,
         'lgas' => LgaController::class,
         'states' => StateController::class,

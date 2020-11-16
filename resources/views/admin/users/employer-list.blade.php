@@ -23,17 +23,26 @@
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10" style="padding-bottom: 50px">{{ $title }} User List <a href="{{ route('admin.users.create') }}?r={{ $title }}"><button class="btn btn-success" style="float: right"> Add New</button></a></h6>
 
                 <div class="table-wrapper">
-                    <table id="datatable1" class="table display responsive nowrap">
+                    <table id="datatable1" class="table table-bordered display responsive nowrap">
                         <thead>
                         <tr>
                             <th class="wd-5p">S/N</th>
                             <th class="wd-15p">Username</th>
                             <th class="wd-15p">Photo</th>
-                            <th class="wd-30p">Company Name</th>
-                            <th class="wd-15p">DB Access</th>
-                            <th class="wd-10p">Posted Jobs</th>
+                            @if ($title == 'employer')
+                                <th class="wd-30p">Company Name</th>
+                                <th class="wd-15p">DB Access</th>
+                                <th class="wd-10p">Posted Jobs</th>
+                            @else
+                                <th class="wd-15p">Designation</th>
+                                <th class="wd-15p">Skills</th>
+
+                            @endif
+
 {{--                            <th class="wd-15p">Phone</th>--}}
 
+                            <th class="wd-10p">Reg Date</th>
+                            <th class="wd-10p">Verified</th>
                             <th class="wd-10p">Action</th>
 
                         </tr>
@@ -46,12 +55,21 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $count++ }}</td>
-                                <td>{{ $user->username }}</td>
+                                <td><a href="{{ route('admin.users.show',$user->username) }}"> {{ $user->username }}</a></td>
                                 <td><img height="40" src="{{ $user->avatar }}"></td>
+                                @if ($title == 'employer')
                                 <td>{{ optional(\App\Models\Company::whereUserId($user->id)->first())->name }}</td>
-{{--                                <td>{{ $user->phone }}</td>--}}
-                                <td>{{ 'Nill' }}</td>
+                                <td>{{ optional($user->access_plan->access)->name }}</td>
                                 <td>{{ \App\Models\Job::whereUserId($user->id)->count() }}</td>
+                                @else
+                                    <td>{{ $user->industry }}</td>
+                                    <td>
+                                        {{ $user->skills }}
+                                    </td>
+                                @endif
+                                <td>{{ $user->created_at->format('Y-m-d') }}</td>
+                                <td>{{ $user->email_verified_at ? 'YES' : 'NO'}}</td>
+
                                 <td>
                                     <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Edit User"><em class="fa fa-edit"></em></a>
                                     <a href="{{ route('admin.users.destroy', $user) }}" onclick="destroyUser(event)" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><em class="fa fa-trash"></em>

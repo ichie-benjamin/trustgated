@@ -32,6 +32,17 @@
                             </div>
                         </div>
 
+                        @if ($errors->any())
+
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form name="register" method="POST" class="form-horizontal" action="{{ route('login') }}">
                             @csrf
 
@@ -62,8 +73,14 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-sm-offset-3 col-sm-9  click-here">
+                                <label  class="col-sm-3  control-label efs"></label>
+                                <div class="col-sm-9">
+                                    {!! app('captcha')->display() !!}
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9  click-here">
 
 
                                     <span class="pull-left" style="font-size:14px;"> New Clients  <a href="{{ route('employer.register') }}">Register Now</a></span>
@@ -76,7 +93,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-9">
-                                    <button type="submit"  name="submit" id="submit" class="btn-blue btn-block btn bcL">Login</button>
+                                    <button type="submit"  name="submit" id="submit" class="btn-blue btn-bloc btn bcL">Login</button>
                                 </div>
 
                                 <div class="col-sm-offset-3 col-sm-9">
@@ -166,18 +183,6 @@
                             <p>
                                 Innovative recruitment solutions now on the mobile. Hire the right, relevant candidates almost instantly through SMS.</p>
 
-                        </div>
-                    </div><!--create-job-->
-                    <div class="create-job">
-                        <div class="create-job-head">
-                            <h3> Advertise Your Job </h3>
-                        </div>
-                        <div class="create-job-content">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
-                            <div  class="advertise"><img class="img-responsive" src="images/employer-login-ads.jpg" alt="Fidelity"></div>
-                            <!--<div class="ali-right"> <input class="btn-blue btn bc" value="Know More" type="button"></div>-->
                         </div>
                     </div><!--create-job-->
 

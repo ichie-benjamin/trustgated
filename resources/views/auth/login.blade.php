@@ -72,6 +72,7 @@
                             <input type="hidden" checked type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
 
+                            {!! app('captcha')->display($attributes) !!}
 
 
                             <div class="form-group">

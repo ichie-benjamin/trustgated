@@ -23,6 +23,7 @@
             <div class="inboxa"><a href="{{ route('jobs.index') }}" >Response Manager</a></div>
 
             <div class="inboxa"><a href="{{ route('bg_verification') }}" >Background Verification Request </a></div>
+            <div class="inboxa"><a href="{{ route('bg_verification_response') }}" >Background Verification Response </a></div>
 
         </div><!--create-job-content-->
 

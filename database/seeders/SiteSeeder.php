@@ -11,6 +11,7 @@ use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Form;
 use App\Models\FunctionalArea;
+use App\Models\Highligh;
 use App\Models\IndustryType;
 use App\Models\Location;
 use App\Models\Page;
@@ -45,6 +46,7 @@ class SiteSeeder extends Seeder
         $page_2 = config('site_seeder.tables.educations');
         $page_3 = config('site_seeder.tables.reference');
         $testimonials = config('site_seeder.tables.testimonials');
+        $highlights = config('site_seeder.tables.highlights');
 
 
         foreach ($f_arease as $item) {
@@ -133,6 +135,15 @@ class SiteSeeder extends Seeder
                     'education_verification' => $item,
                     'reference_verification' => $item,
                     'amount' => $amount
+                ]);
+            }
+        }
+        foreach ($highlights as $item) {
+            if (Highligh::where('head', '=', $item['head'])->first() === null) {
+                Highligh::create([
+                    'icon' => $item['icon'],
+                    'head' => $item['head'],
+                    'body' => $item['body'],
                 ]);
             }
         }

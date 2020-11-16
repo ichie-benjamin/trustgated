@@ -473,6 +473,14 @@
                                     <div class="checkbox"> <label class="pedit2"> <input type="checkbox" checked> Other Promotions/ Special Offers </label> </div>
                                 </div>
                             </div><!--form-group-->
+
+                            <div class="form-group">
+                                <label  class="col-sm-3  control-label efs"></label>
+                                <div class="col-sm-9">
+                                    {!! app('captcha')->display() !!}
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="checkbox"> <label class="pedit2"> <input type="checkbox" name="terms" id="terms"> <small> I have read and understood and agree to the <span class="regi"><a href="terms.php" target="_blank">Terms and Conditions</a></span> governing the use of Jobs.com.</small></label> </div>
                                 <div>
