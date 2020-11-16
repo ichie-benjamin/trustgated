@@ -37,6 +37,12 @@
 
 
 	<style>
+        @media screen and (max-width: 600px) {
+            .hide-mobile {
+                visibility: hidden;
+                display: none;
+            }
+        }
         .find-job-bx .form-control{
             padding-top: 20px;
         }
@@ -317,7 +323,7 @@
                                             <li><a href="{{ route('jobseeker.reg') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
                                         </ul>
                                     </div>
-                                    <div class="center_tag">
+                                    <div class="center_tag hide-mobile">
                                         <p>OR</p>
                                     </div>
                                 </div>
