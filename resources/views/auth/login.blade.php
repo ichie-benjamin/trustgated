@@ -72,6 +72,7 @@
                             <input type="hidden" checked type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
 
+                            {!! app('captcha')->display($attributes) !!}
 
 
                             <div class="form-group">
@@ -82,7 +83,7 @@
                                 <div class="col-sm-12">
 
 
-                                    <a href="#" onclick="alert('Facebook Login is currently disable for demo purpose');" class="btn-blue btn bcL" >Login with Facebook</a>
+                                    <a href="{{ route('social.login','facebook') }}" class="btn-blue btn bcL" >Login with Facebooks</a>
                                     <a href="#"  onclick="alert('Google  Login is currently disable for demo purpose');" class="btn-blue btn bcL" >Login with Google</a>
 
 

@@ -100,10 +100,22 @@
                 <span class="menu-item-label"> General Setting</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        <a href="{{ route('admin.settings.home') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-house-user tx-22"></i>
+                <span class="menu-item-label"> Home Settings</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
         <a href="{{ route('admin.cities.index') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-location-arrow tx-22"></i>
                 <span class="menu-item-label">Cities</span>
+            </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a href="{{ route('admin.highlights.index') }}" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="menu-item-fa fa fa-highlighter tx-22"></i>
+                <span class="menu-item-label">Home Highlights</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
 
@@ -181,13 +193,13 @@
         <div class="progress ht-5 mg-b-10">
             <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.jobseeker.newsletter') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-chalkboard-teacher tx-22"></i>
                 <span class="menu-item-label"> Job Seekers</span>
             </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('admin.employer.newsletter') }}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-fa fa fa-user-tie tx-22"></i>
                 <span class="menu-item-label"> Recruiters</span>

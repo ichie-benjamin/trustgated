@@ -14,6 +14,7 @@ class UserBackgroundVerificationController extends Controller
         return view('admin.user_bg_v.index', compact('users'));
     }
 
+
     public function create()
     {
         return view('admin.user_bg_v.index');
@@ -27,10 +28,23 @@ class UserBackgroundVerificationController extends Controller
         return redirect()->route('admin.user_bg_v.index');
     }
 
+    public function storeUpload(Request $request)
+    {
+        $data = $this->getDData($request);
+        $item = UserBackgroundVerification::findOrFail($data['id']);
+        $item->update(['document' => $data['document']]);
+        return redirect()->route('admin.background.submissions')->with('success','Document Uploaded');
+    }
+
     public function show($id)
     {
         $item = UserBackgroundVerification::findOrFail($id);
         return view('admin.user_bg_v.show', compact('item'));
+    }
+    public function upload($id)
+    {
+        $item = UserBackgroundVerification::findOrFail($id);
+        return view('admin.user_bg_v.upload', compact('item'));
     }
     public function approve($id)
     {
@@ -69,6 +83,15 @@ class UserBackgroundVerificationController extends Controller
             'reference_verification' => 'required',
             'amount' => 'required',
             'extra' => 'nullable',
+        ];
+        return $request->validate($rules);
+    }
+
+    protected function getDData(Request $request)
+    {
+        $rules = [
+            'id' => 'required',
+            'document' => 'required',
         ];
         return $request->validate($rules);
     }

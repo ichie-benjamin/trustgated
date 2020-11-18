@@ -37,6 +37,12 @@
 
 
 	<style>
+        @media screen and (max-width: 600px) {
+            .hide-mobile {
+                visibility: hidden;
+                display: none;
+            }
+        }
         .find-job-bx .form-control{
             padding-top: 20px;
         }
@@ -132,12 +138,12 @@
 					<div class="find-job-bx">
 											<!--<a href="#" class="site-button button-sm">Find Jobs, Employment & Career Opportunities</a>
 						<h2>Search Between More Then <br/> <span class="text-primary">50,000</span> Open Jobs.</h2>-->
-						<h2 class="text-center">Search Between More Than&nbsp;<br/><span>50,000</span>&nbsp;Open Jobs.</h2>
+						<h2 class="text-center">{!! setting('first_banner_text')  !!} </h2>
                         <form class="dezPlaceAni" action="{{ route('jobsearch') }}" method="GET">
 							<div class="row">
 								<div class="col-lg-3 col-md-6">
 									<div class="form-group">
-										<label>Job Title, Keywords, or company</label>
+										<label>Job Title, Keywords, or Company</label>
 										<div class="input-group">
 											<input type="text" class="form-control" placeholder="" value="{{ request()->get('keyword') }}" name="keyword">
 											<div class="input-group-append">
@@ -160,7 +166,7 @@
 								<div class="col-lg-2 col-md-6">
 									<div class="form-group">
                                         <select name="category">
-                                            <option value="">select industry</option>
+                                            <option value="">Select Industry</option>
                                             @foreach($industries as $item)
                                                 <option value="{{ $item->id }}">{{ $item->category }}</option>
                                             @endforeach
@@ -221,7 +227,7 @@
       <div class="row">
          <div class="col-sm-12 main-heading">
             <!--<p>200 New Jobs</p>-->
-            <h2>New &amp; Random <span>Jobs</span></h2>
+            <h2>{!! setting('job_list_heading') !!}</h2>
          </div>
       </div>
 
@@ -265,8 +271,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 section-head text-center">
-						<h2 class="m-b5">Featured Cities</h2>
-						<h6 class="fw4 m-b0"> Featured Cities Added Jobs</h6>
+						<h2 class="m-b5">{{ setting('featured_cities') }}</h2>
+{{--						<h6 class="fw4 m-b0"> Featured Cities Added Jobs</h6>--}}
+						<h6 class="fw4 m-b0"> {{ setting('featured_cities_sub') }}</h6>
 					</div>
 				</div>
 				<div class="row">
@@ -294,10 +301,11 @@
 			     <div class="jp_register_section_main_wrapper">
                                 <div class="jp_regis_left col-md-6 col-sm-6">
                                     <div class="left_side_box">
+{{--									                                         <img src="{{ \App\Models\Banner::select('placement','banner')->wherePlacement('home_employer_bg') }}" alt="icon">--}}
 									                                         <img src="/assets/images/regis_icon.png" alt="icon">
 
-										<h4>Im an EMPLOYER</h4>
-<p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>                                        <ul>
+										<h4>{{ setting('banner_1_head') }}</h4>
+<p>{!! setting('banner_1_text') !!}</p>                                        <ul>
                                             <li> <a href="{{ route('employer.register') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS COMPANY</a></li>
                                         </ul>
                                     </div>
@@ -306,8 +314,8 @@
                                     <div class="right_img_overlay"></div>
                                     <div class="right_side_box">
 									                                        <img src="/assets/images/regis_icon2.png" alt="icon">
-                                        <h4>Im an candidate</h4>
-                                        <p>Signed in companies are able to post new<br> job offers, searching for candidate...</p>
+                                        <h4>{{ setting('banner_2_head') }}</h4>
+                                        <p>{!! setting('banner_2_text') !!}</p>
 
 
 
@@ -315,7 +323,7 @@
                                             <li><a href="{{ route('jobseeker.reg') }}"><i class="fa fa-plus-circle"></i> &nbsp;REGISTER AS CANDIDATE</a></li>
                                         </ul>
                                     </div>
-                                    <div class="center_tag">
+                                    <div class="center_tag hide-mobile">
                                         <p>OR</p>
                                     </div>
                                 </div>
@@ -326,90 +334,27 @@
 
                        <div class="jp_best_deal_slider_main_wrapper">
                         <div class="jp_best_deal_heading_wrapper">
-                            <h2>Offering the best Deals</h2>
+                            <h2>{{ setting('deals_head') }}</h2>
                         </div>
                         <div class="jp_best_deal_slider_wrapper">
 
                                 <div class="item">
                                     <div class="row">
+                                        @foreach($highlights as $item)
 									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 <div class="jp_best_deal_main_cont_wrapper ">
 											   <div class="row">
                                                 <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-search"></i>
+                                                    <i class="{{ $item->icon }}"></i>
                                                 </div>
                                                 <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Search a Jobs</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
+                                                    <h4><a href="#">{{ $item->head }}</a></h4>
+                                                    <p>{{ $item->body }}</p>
                                                 </div>
 												</div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper1">
-											 <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-users"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Apply a Good Job</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-												</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper2 ">
-											   <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-shield"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Job Security</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-												</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper2 ">
-											   <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-user"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Top Employers</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-											  </div>
-                                            </div>
-                                        </div>
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper2 ">
-											   <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-bell-o"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Job Notifications</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-											  </div>
-                                            </div>
-                                        </div>
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="jp_best_deal_main_cont_wrapper jp_best_deal_main_cont_wrapper2 ">
-											   <div class="row">
-                                                <div class="jp_best_deal_icon_sec col-sm-2">
-                                                    <i class="fa fa-building"></i>
-                                                </div>
-                                                <div class="jp_best_deal_cont_sec col-sm-10">
-                                                    <h4><a href="#">Featured Cities</a></h4>
-                                                    <p>Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...</p>
-                                                </div>
-                                               </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -436,14 +381,40 @@
                                     </div>
                          </div>
 						 <div class="clearfix"></div>
-						 						 <div class="candidates-are-sys m-t30">
+
+                  <div class="candidates-are-sys m-t30">
 								<div class="candidates-bx">
-									<div class="testimonial-pic radius"><img src="/art_photo/1472533219.png" alt="" width="100" height="100"></div>
-									<div class="testimonial-text">
-										<p><p>"Donec sagittis et massa at rutrum. Proin eleifend nunc interdum tortor malesuada molestie."</p> </p>
-									</div>
-									<div class="testimonial-detail"> <strong class="testimonial-name">John</strong> <span class="testimonial-position">Branding Manager</span> </div>
-								</div>
+
+                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @php
+                                                $i = 0;
+                                                @endphp
+                                            @foreach(\App\Models\Testimonial::latest()->limit(4)->get() as $item)
+                                                @php
+                                                $i++
+                                                @endphp
+                                            <div class="carousel-item {{ $i == '1' ? 'active' : '' }}">
+                                                <div class="testimonial-pic radius"><img src="{{ $item->testimonial_image }}" alt="" width="100" height="100"></div>
+                                                <div class="testimonial-text">
+                                                    <p>{{ $item->description }} </p>
+                                                </div>
+                                                <div class="testimonial-detail"> <strong class="testimonial-name">{{ $item->name }}</strong> <span class="testimonial-position">{{ $item->designation }}</span> </div>
+
+                                            </div>
+                                            @endforeach
+                                        </div>
+
+                                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
 							</div>
 							 						 <div class="clearfix"></div>
 						 <div class="quote-bx m-t30">

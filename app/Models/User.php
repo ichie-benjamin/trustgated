@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
@@ -13,6 +14,8 @@ class User extends Authenticatable implements MustVerifyEmail
     use LaratrustUserTrait;
     use HasFactory, Notifiable;
 
+    use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'username','role_id','cv','first_name','avatar','availability','last_name', 'email', 'password','min_annual_salary',
         'program', 'university','program_start_date','program_city','address','city','country','state','headline','skills','bio',
-        'pincode',
+        'pincode','provider_id','provider',
         'mobile_number',
         'landline_number',
         'fax','gender',
@@ -61,6 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'basic_education',
         'course' , 'employment_status','physically_challenged',
         'language1',
+        'email_verified_at'
     ];
 
     /**

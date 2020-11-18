@@ -11,13 +11,16 @@ use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Form;
 use App\Models\FunctionalArea;
+use App\Models\Highligh;
 use App\Models\IndustryType;
 use App\Models\Location;
 use App\Models\Page;
 use App\Models\Products;
 use App\Models\State;
+use App\Models\Testimonial;
 use App\Models\VerificationPackage;
 use Illuminate\Database\Seeder;
+use PHPUnit\Util\Test;
 
 class SiteSeeder extends Seeder
 {
@@ -42,6 +45,8 @@ class SiteSeeder extends Seeder
         $page_1 = config('site_seeder.tables.employments');
         $page_2 = config('site_seeder.tables.educations');
         $page_3 = config('site_seeder.tables.reference');
+        $testimonials = config('site_seeder.tables.testimonials');
+        $highlights = config('site_seeder.tables.highlights');
 
 
         foreach ($f_arease as $item) {
@@ -133,6 +138,15 @@ class SiteSeeder extends Seeder
                 ]);
             }
         }
+        foreach ($highlights as $item) {
+            if (Highligh::where('head', '=', $item['head'])->first() === null) {
+                Highligh::create([
+                    'icon' => $item['icon'],
+                    'head' => $item['head'],
+                    'body' => $item['body'],
+                ]);
+            }
+        }
         $row = 0;
         foreach ($page_1 as $item) {
             $row++;
@@ -214,6 +228,32 @@ class SiteSeeder extends Seeder
                     'status' => true,
                     'image' => "/assets/images/ads/".$item.'.jpg',
                     'position' => $position,
+                ]);
+            }
+        }
+
+        foreach ($testimonials as $item) {
+            if($item == 'Vidhya'){
+                $description = 'One of the best informatical site people can attain the benefits through this site';
+                $des = 'Manager';
+                $img = '/images/test/1.jpg';
+            }
+            if($item == 'John'){
+                $description = 'Donec sagittis et massa at rutrum. Proin eleifend nunc interdum tortor malesuada molestie';
+                $des = 'Branding Manager';
+                $img = '/images/test/2.jpg';
+            }
+            if($item == 'Roshy'){
+                $description = 'Donec sagittis et massa at rutrum. Proin eleifend nunc interdum tortor malesuada molestie';
+                $des = 'Developer';
+                $img = '/images/test/3.png';
+            }
+            if (Testimonial::where('name', '=', $item)->first() === null) {
+                Testimonial::create([
+                    'name' => $item,
+                    'designation' => $des,
+                    'description' => $description,
+                    'testimonial_image' => $img,
                 ]);
             }
         }

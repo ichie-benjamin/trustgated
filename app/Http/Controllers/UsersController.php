@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employer;
+use App\Models\ResumeDownload;
+use App\Models\ResumeView;
 use App\Models\User;
 
 use App\Rules\MatchOldPassword;
@@ -18,8 +20,28 @@ class UsersController extends Controller
 {
 
     public function userProfile($username){
+        $view = ResumeView::whereEmployerId(auth()->id())->get();
         $user = User::whereUsername($username)->firstOrFail();
+        if(count($view) < 1){
+            ResumeView::create([
+                'employer_id' => auth()->user()->id,
+                'jobseeker_id' => $user->id,
+            ]);
+        }
         return view('jobseeker.profile.public',compact('user'));
+    }
+
+    public function downloadResume($username){
+
+        $user = User::whereUsername($username)->firstOrFail();
+        $download = ResumeDownload::whereEmployerId(auth()->user()->id)->get();
+        if(count($download) < 1){
+            ResumeDownload::create([
+                'employer_id' => auth()->user()->id,
+                'jobseeker_id' => $user->id,
+            ]);
+        }
+        return redirect()->to($user->cv);
     }
 
     public function jobseekerReg(){

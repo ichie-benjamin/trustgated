@@ -41,6 +41,9 @@ SettingsController extends Controller
     }
 
 
+    public function home(Request $request){
+        return view('admin.settings.home');
+    }
     public function index(Request $request){
         if($request->has('reset')){
             Setting::truncate();

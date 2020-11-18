@@ -13371,7 +13371,7 @@ ol.commentlist li .star-rating {
 .right_side_box h4 {
     font-size: 20px;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
     text-transform: uppercase;
     padding-top: 15px;
     position: relative;
@@ -13379,7 +13379,7 @@ ol.commentlist li .star-rating {
 
 .right_side_box p {
     padding-top: 50px;
-    color: #ffffffa3;
+    color: #000000;
 }
 
 

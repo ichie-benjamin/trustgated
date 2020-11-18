@@ -16,7 +16,7 @@
         <div id="content">
 			<div class="container">
                 <ol class="breadcrumb">
-                  <li><a href="index.php">Home</a></li>
+                  <li><a href="{{ url('/') }}">Home</a></li>
                   <li class="active">My Account</li>
                 </ol>
 				<div class="row">

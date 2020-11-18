@@ -21,6 +21,15 @@ return [
         'v_packages' => [
             1,2,3
         ],
+        'highlights' => [
+            ['icon' => 'fa fa-search','head' => 'Search a Jobs','body' => 'Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...'],
+            ['icon' => 'fa fa-users','head' => 'Apply a Good Job','body' => 'Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...'],
+            ['icon' => 'fa fa-users','head' => 'Top Employers','body' => 'Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...'],
+            ['icon' => 'fa fa-shield','head' => 'Job Security','body' => 'Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...'],
+            ['icon' => 'fa fa-bell-o','head' => 'Job Notifications','body' => 'Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...'],
+            ['icon' => 'fa fa-bell-o','head' => 'Featured Cities','body' => 'Proin gravida nibh vel velit auctr akshay Aenean sollicitudin...'],
+        ],
+        'testimonials' => ['Vidhya','John','Roshy'],
         'states' => ['Delhi'],
         'basic_edu' => [
             'B Com',

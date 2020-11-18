@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\admin\UserBackgroundVerificationController;
 use App\Mail\MailEmployer;
 use App\Mail\SendJobMail;
 use App\Models\City;
@@ -10,6 +11,7 @@ use App\Models\DatabaseProduct;
 use App\Models\EmployerAccess;
 use App\Models\EmployerProduct;
 use App\Models\FunctionalArea;
+use App\Models\Highligh;
 use App\Models\IndustryType;
 use App\Models\Job;
 use App\Models\Packages;
@@ -81,6 +83,15 @@ $package = VerificationPackage::findOrFail($user_bg->package_id);
         $packages = VerificationPackage::all();
         return view('bg_verification_request', compact('packages'));
     }
+
+    public function backgroundVerificationResponse(){
+        $bgs = UserBackgroundVerification::whereUserId(auth()->id())->get();
+        if(count($bgs) < 1){
+            return redirect()->route('bg_verification');
+        }
+        return view('bg_verification_response', compact('bgs'));
+    }
+
     public function AssignPackage(){
         $users = User::whereRoleIs('employer')->get();
         $product = Products::whereName('Free')->first();
@@ -148,11 +159,14 @@ $package = VerificationPackage::findOrFail($user_bg->package_id);
         $cities = Cache::remember('cities', 3600, function () {
             return City::withCount('jobs')->whereFeatured(1)->get();
         });
+        $highlights = Cache::remember('highlights', 36000, function () {
+            return Highligh::all();
+        });
         $companies = Company::select('name','logo','slug')->limit('18')->get();
         $f_areas = FunctionalArea::withCount('jobs')->whereFeatured(1)->inRandomOrder()->limit(6)->get();
         $industries = IndustryType::withCount('jobs')->orderBy('jobs_count', 'desc')->limit(12)->get();
         $jobs = Job::latest()->limit(8)->get();
-        return view('index', compact('f_areas','industries','companies','jobs','cities'));
+        return view('index', compact('f_areas','industries','companies','jobs','cities','highlights'));
     }
 
     public function terms(){
