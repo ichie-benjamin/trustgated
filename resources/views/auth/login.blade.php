@@ -25,6 +25,17 @@
                                 <span id="id1"></span></div>
                         </div>
 
+                        @if ($errors->any())
+
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form method="POST" class="form-horizontal" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
@@ -51,6 +62,13 @@
                                     </span>
                                     @enderror
                                 </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-3  control-label efs"></label>
+                                <div class="col-sm-9">
+                                    {!! app('captcha')->display() !!}
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -72,7 +90,6 @@
                             <input type="hidden" checked type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
 
-                            {!! app('captcha')->display($attributes) !!}
 
 
                             <div class="form-group">
@@ -80,11 +97,11 @@
                                     <button type="submit" name="submit" id="submit" class="btn-blue btn bcL">Login</button>
                                 </div>
 
-                                <div class="col-sm-12">
+                                <div class="col-sm-offset-3 col-sm-9">
 
+                                    <a href="{{ route('social.login','facebook') }}?role=jobseeker" class="btn-blue btn bcL" ><i class="fa fa-facebook"></i>  Login with Facebook</a>
 
-                                    <a href="{{ route('social.login','facebook') }}" class="btn-blue btn bcL" >Login with Facebooks</a>
-                                    <a href="#"  onclick="alert('Google  Login is currently disable for demo purpose');" class="btn-blue btn bcL" >Login with Google</a>
+                                    <a href="{{ route('social.login','google') }}?role=jobseeker" class="btn-blue btn bcL" ><i class="fa fa-google"></i> Login with Google</a>
 
 
 

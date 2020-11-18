@@ -153,7 +153,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span> Industry Type : </label>
                                 <div class="col-sm-4">
-                                    <select class="form-control" name="industry_type" id="Industry_Type">
+                                    <select class="form-control select2" name="industry_type" id="Industry_Type">
                                         <option value="">select</option>
                                         <option value="Construction"> Construction </option>
                                         <option value="IT - BPO"> IT - BPO </option>
@@ -206,44 +206,48 @@
                             </div><!--form-group-->
 
                             <div class="form-group">
-                                <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span> Country : </label>
+                                <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span>Country: </label>
                                 <div class="col-sm-4">
-                                    <select class="form-control" name="country" id="select_country">
-                                        <option value="">Select</option>
-                                        <option value="Bangladesh"> Bangladesh </option>
-                                        <option value="India"> India </option>
-                                        <option value="Pakistan"> Pakistan </option>
+                                    <select name="country" class="form-control country_select select2" data-size="7" title="Select country Type">
+                                        <option>Select Country</option>
+                                        @foreach(\App\Models\Country::pluck('name') as $item)
+                                            <option  value="{{ $item }}">{{ $item }}</option>
+                                        @endforeach
                                     </select>
 
-                                </div><div id="countryLabel" class="floaterror"></div>
+                                </div>
+                                <div>
+                                    <span id="countryInfo"></span>
+                                </div>
                             </div><!--form-group-->
 
 
-                            <div class="form-group">
-                                <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span> State : </label>
+                            <div class="form-group" id="statee">
+                                <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span>State: </label>
                                 <div class="col-sm-4">
-                                    <select name="state" class="form-control" id="state">
-                                        <option value="">Select State</option>
-                                        <option value="Bangladesh"> Bangladesh </option>
-                                        <option value="India"> India </option>
-                                        <option value="Pakistan"> Pakistan </option>
+                                    <select style="width: 100%" class="form-control select2 states" required name="state">
+
+                                        <option>Select Country first</option>
+
                                     </select>
 
-                                </div><div id="stateLabel" class="floaterror"></div>
+                                </div>
+                                <div>
+                                    <span id="stateInfo"></span>
+                                </div>
                             </div><!--form-group-->
 
-                            <div class="form-group">
-                                <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span> City : </label>
+                            <div class="form-group" id="cityy">
+                                <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span>City: </label>
                                 <div class="col-sm-4">
-                                    <select name="city" class="form-control" id="city">
-                                        <option value="">Select City</option>
-                                        <option value="Bangladesh"> Bangladesh </option>
-                                        <option value="India"> India </option>
-                                        <option value="Pakistan"> Pakistan </option>
-                                    </select>
+                                    <input required type="text" name="city" id="city" class="form-control" placeholder="">
 
-                                </div><div id="cityLabel" class="floaterror"></div>
+                                </div>
+                                <div>
+                                    <span id="cityInfo"></span>
+                                </div>
                             </div><!--form-group-->
+
 
                             <div class="form-group">
                                 <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span> Pincode : </label>
@@ -400,7 +404,40 @@
     </div><!-- CONTENT -->
 @endsection
 
+
+@section('style')
+    <link rel="stylesheet" href="{{ asset('/css/select2.css') }}">
+@endsection
+
 @section('js')
+
+    <script src="{{ asset('/js/select2.full.js')}}" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.select2').select2({});
+            $(".country_select").on('select2:select', function (e) {
+                let country = e.params.data.id;
+                $.ajax({
+                    url: '{{route('ajax.getstates')}}?country=' + country,
+                    method: 'GET',
+                    error: function () {
+                    },
+                    success: function (response) {
+                        $(".states").empty();
+                        $.each(response.states, function (index, value) {
+                            $(".states").append(`<option value=${value.name}>${value.name}</option>`);
+                        });
+                    },
+                    complete: function () {
+
+                    }
+                });
+            });
+        });
+    </script>
+
 
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 

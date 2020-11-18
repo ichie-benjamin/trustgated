@@ -504,7 +504,7 @@
 
                     <div class="create-job">
                         <div class="create-job-head text-center padno">
-                            <h3 class="line5">Why become a member of Jobs.com?</h3>
+                            <h3 class="line5">Why become a member of {{ env('APP_URL') }}?</h3>
                         </div>
                         <div class="post-job-content">
                             Jobs helps passive and active jobseekers find better jobs.
