@@ -74,7 +74,7 @@ class RegisterController extends Controller
                 'regex:/[A-Z]/',      // must contain at least one uppercase letter
                 'regex:/[0-9]/',      // must contain at least one digit
                 'regex:/[@$!%*#?&]/'],
-            'g-recaptcha-response' => ['required|captcha']
+            'g-recaptcha-response' => ['required','captcha']
 
         ]);
     }
