@@ -126,6 +126,14 @@ class RegisterController extends Controller
                 'type' => $data['industry_type'],
                 'contact_person' => $data['Contact_Person'],
                 ]);
+
+                $product = Products::whereName('Free')->first();
+                $access =  DatabaseProduct::whereName('Free')->first();
+
+                EmployerProduct::create(['user_id' => $user->id, 'product_id' => $product->id,'expired_at' => Carbon::now()->addDay($product->no_of_days), 'paid' => true]);
+
+                EmployerAccess::create(['user_id' => $user->id, 'access_id' => $access->id, 'expired_at' => Carbon::now()->addDay($access->no_of_days), 'paid' => true]);
+          
         }
         return $user;
     }
