@@ -77,7 +77,9 @@
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-9">
                                     <button type="submit" name="submit" id="submit" class="btn-blue btn bcL">Login</button>
+                                </div>
 
+                                <div class="col-sm-12">
 
 
                                     <a href="#" onclick="alert('Facebook Login is currently disable for demo purpose');" class="btn-blue btn bcL" >Login with Facebook</a>
