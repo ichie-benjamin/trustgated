@@ -408,7 +408,7 @@ $companies = Company::pluck('name','id')->all();
             'city' => 'string|min:1|nullable',
             'state' => 'string|min:1|nullable',
             'address' => 'string|min:5|required',
-            'type_id',
+            'type_id' => 'nullable',
 'industry_id' => 'required',
 'job_to'  => 'nullable',
 'functional_area' => 'nullable',
@@ -425,6 +425,7 @@ $companies = Company::pluck('name','id')->all();
         $data['is_active'] = false;
         $data['category_id'] = $data['industry_id'];
         $data['location_id'] = $data['industry_id'];
+        $data['type_id'] = 1;
         $data['user_id'] = auth()->user()->id;
         $data['is_apply_here'] = true;
 
