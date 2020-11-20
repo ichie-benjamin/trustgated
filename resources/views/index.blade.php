@@ -202,7 +202,9 @@
 				</div>
 
             </div>
-						<div class="jp_banner_jobs_categories_wrapper">
+
+
+            <div class="hide-mobile jp_banner_jobs_categories_wrapper">
                <div class="container">
 			    <div class="row">
                     @foreach($f_areas as $item)

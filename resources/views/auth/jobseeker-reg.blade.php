@@ -269,7 +269,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 pedit2 text-right">Designation :</label>
                                 <div class="col-sm-5">
-                                    <select name="function_area" id="function_area" class="form-control">
+                                    <select name="function_area" id="function_area" class="form-control select2">
                                         <option value="">select</option>
                                         @foreach($f_areas as $item => $value)
                                             <option value="{{ $item }}"> {{ $item }} </option>
