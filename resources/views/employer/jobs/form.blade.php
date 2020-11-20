@@ -457,17 +457,17 @@
     </div>
 
 
-    <div class="col-md-9">
-        <div class="form-group">
-            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Job To:  </label>
-            <div class="col-sm-8">
-                <label class="radio-inline"><input checked type="radio" name="job_to" value="1">Govt Jobs</label>
-                <label class="radio-inline"><input type="radio" name="job_to" value="2">Oversea Jobs</label>
-                <label class="radio-inline"><input type="radio" name="job_to" value="4">IIT Jobs</label>
-                <label class="radio-inline"><input type="radio" name="job_to" value="3">Others</label>
-            </div>
-        </div>
-    </div>
+{{--    <div class="col-md-9">--}}
+{{--        <div class="form-group">--}}
+{{--            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Job To:  </label>--}}
+{{--            <div class="col-sm-8">--}}
+{{--                <label class="radio-inline"><input checked type="radio" name="job_to" value="1">Govt Jobs</label>--}}
+{{--                <label class="radio-inline"><input type="radio" name="job_to" value="2">Oversea Jobs</label>--}}
+{{--                <label class="radio-inline"><input type="radio" name="job_to" value="4">IIT Jobs</label>--}}
+{{--                <label class="radio-inline"><input type="radio" name="job_to" value="3">Others</label>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
 </div>
