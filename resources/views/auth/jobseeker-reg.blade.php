@@ -440,22 +440,7 @@
                                 <div class="col-sm-5">
                                 </div>
                             </div><!--form-group-->
-                            <label class="namecover m10">Upload your detailed resume</label>
-                            <div class="form-group">
-                                <label class="col-sm-4 pedit2 text-right">Upload your Resume Document : </label>
-                                <div class="col-sm-5">
-                                    <input type="file" name="fupload" id="fupload" onBlur="this.value=trim(this.value);" onChange="return file_upload(this);">
-                                    <small class="pedit3">Supported Formats: doc, docx, rtf, pdf. Max file size: 1 Mb</small>
-                                    <small class="regi" id="hid"><a href="javascript:;" onClick="resum()">You may also write or copy-paste your resume here..</a><b>If you do not have your resume presently, you may still continue to create your account.</b>
-                                    </small>
-                                    <textarea name="textresume" id="textresume" class="form-control adm" rows="5" style="display:none;" placeholder="You can Copy-Paste your resume here (Max 10000 characters). However, recruiters cannot download it. They can only download your jobs profile or your Uploaded Resume. So ensure both of them are updated too."></textarea>
-                                    <small class="pedit3" id="resum" style="display:none;">Remember to upload your resume as soon as possible after creating your
-                                        account. It will make your profile more effective. <b>If you do not have your resume presently, you may still continue to create your account.</b></small>
-                                </div>
-                                <div>
-                                    <span id="resumeInfo"></span>
-                                </div>
-                            </div><!--form-group-->
+        
                             <label class="namecover m10">Mailer and Privacy Settings</label>
 
 
@@ -504,7 +489,7 @@
 
                     <div class="create-job">
                         <div class="create-job-head text-center padno">
-                            <h3 class="line5">Why become a member of Jobs.com?</h3>
+                            <h3 class="line5">Why become a member of {{ setting('site_name') }}?</h3>
                         </div>
                         <div class="post-job-content">
                             Jobs helps passive and active jobseekers find better jobs.

@@ -156,12 +156,14 @@ $package = VerificationPackage::findOrFail($user_bg->package_id);
     }
     public function index()
     {
-        $cities = Cache::remember('cities', 3600, function () {
-            return City::withCount('jobs')->whereFeatured(1)->get();
-        });
-        $highlights = Cache::remember('highlights', 36000, function () {
-            return Highligh::all();
-        });
+//        $cities = Cache::remember('cities', 3600, function () {
+//            return City::withCount('jobs')->whereFeatured(1)->get();
+//        });
+        $cities = City::withCount('jobs')->whereFeatured(1)->get();
+//        $highlights = Cache::remember('highlights', 3600, function () {
+//            return Highligh::all();
+//        });
+        $highlights = Highligh::all();
         $companies = Company::select('name','logo','slug')->limit('18')->get();
         $f_areas = FunctionalArea::withCount('jobs')->whereFeatured(1)->inRandomOrder()->limit(6)->get();
         $industries = IndustryType::withCount('jobs')->orderBy('jobs_count', 'desc')->limit(12)->get();

@@ -10,6 +10,11 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\DatabaseProduct;
+use App\Models\EmployerAccess;
+use App\Models\EmployerProduct;
+use App\Models\Products;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -74,7 +79,7 @@ class RegisterController extends Controller
                 'regex:/[A-Z]/',      // must contain at least one uppercase letter
                 'regex:/[0-9]/',      // must contain at least one digit
                 'regex:/[@$!%*#?&]/'],
-            'g-recaptcha-response' => ['required|captcha']
+            'g-recaptcha-response' => ['required','captcha']
 
         ]);
     }
@@ -126,6 +131,14 @@ class RegisterController extends Controller
                 'type' => $data['industry_type'],
                 'contact_person' => $data['Contact_Person'],
                 ]);
+
+                $product = Products::whereName('Free')->first();
+                $access =  DatabaseProduct::whereName('Free')->first();
+
+                EmployerProduct::create(['user_id' => $user->id, 'product_id' => $product->id,'expired_at' => Carbon::now()->addDay($product->no_of_days), 'paid' => true]);
+
+                EmployerAccess::create(['user_id' => $user->id, 'access_id' => $access->id, 'expired_at' => Carbon::now()->addDay($access->no_of_days), 'paid' => true]);
+
         }
         return $user;
     }
