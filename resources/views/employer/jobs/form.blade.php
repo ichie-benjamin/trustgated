@@ -60,7 +60,7 @@
                <select name="industry_id" id="industry_id" class="form-control select2">
                     <option value="">select</option>
                     @foreach(\App\Models\IndustryType::pluck('id','category') as $item => $value)
-                        <option value="{{ $item }}"> {{ $item }} </option>
+                        <option value="{{ $value }}"> {{ $item }} </option>
                     @endforeach
                 </select>
 
@@ -75,7 +75,7 @@
                 <select name="function_area" id="function_area" class="form-control select2">
                     <option value="">select Functional Area</option>
                     @foreach(\App\Models\FunctionalArea::pluck('id','category_functional_area') as $item => $value)
-                        <option value="{{ $item }}"> {{ $item }} </option>
+                        <option value="{{ $value }}"> {{ $item }} </option>
                     @endforeach
                 </select>
             </div>
