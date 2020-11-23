@@ -120,7 +120,7 @@
                 <div class="col-md-0"></div>
                 <div class="col-md-11">
                     <ol class="breadcrumb">
-                        <li><a href="http://74.124.215.220/~demolin/demo/entrepreneur_job_portal/">Home</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="#"> Jobs</a></li>
                         <li class="active">Search Results</li>
                     </ol>
@@ -140,7 +140,7 @@
 
                         </div>
                     </div>
-                    <div class="openings">
+                    {{-- <div class="openings">
                         <a href="http://192.168.1.50/sindhu/job/job-portal"><img src="admin/uploads/banner/banner-1552284433.jpg" alt="ads"></a>
                     </div>
                     <div class="openings">
@@ -148,7 +148,7 @@
                     </div>
                     <div class="openings">
                         <a href="http://192.168.1.50/sindhu/job/job-portal"><img src="admin/uploads/banner/banner-1552284419.jpg" alt="ads"></a>
-                    </div>
+                    </div> --}}
 
                 </div>
                 <!--

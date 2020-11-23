@@ -57,10 +57,11 @@
         <div class="form-group">
             <label class="col-sm-4 pedit"><span class="red-star">*</span>Industry :</label>
             <div class="col-sm-8">
+
                <select name="industry_id" id="industry_id" class="form-control select2">
                    <option value="" style="display: none;" {{ old('industry_id', optional($job)->industry_id ?: '') == '' ? 'selected' : '' }} disabled selected>Select Industry...</option>
                @foreach(\App\Models\IndustryType::pluck('id','category') as $item => $value)
-                        <option {{ old('industry_id', optional($job)->industry_id) == $key ? 'selected' : '' }} value="{{ $value }}"> {{ $item }} </option>
+                        <option {{ old('industry_id', optional($job)->industry_id) == $value ? 'selected' : '' }} value="{{ $value }}"> {{ $item }} </option>
                     @endforeach
                 </select>
 
@@ -100,9 +101,9 @@
         <div class="col-md-9" >
             <div class="form-group">
                 <label  class="col-sm-4 pedit"><span class="red-star">*</span>Expire Date :</label>
-
                 <div class="col-sm-8">
-                    <input required type="date" name="closing_date" id="closing_date" class="form-control" value="{{ old('closing_date', optional($job)->closing_date) }}" style=""/>
+{{ optional($job)->closing_date }}
+                    <input  type="date" name="closing_date" id="closing_date" class="form-control" value="{{ old('closing_date', optional($job)->closing_date) }}" style=""/>
                     {!! $errors->first('closing_date', '<p class="help-block">:message</p>') !!}
                 </div>
                 <div class="col-sm-1"><!--<i class="fa fa-jpy"></i>--></div>
@@ -131,8 +132,9 @@
         <div class="form-group">
             <label  class="col-sm-4 pedit"><span class="red-star">*</span>Keywords :</label>
             <div class="col-sm-8">
-                <input required type="text" name="keywords" id="keywords" class="form-control" value="{{ old('keywords', optional($job)->keywords) }}" style=""/>
-                {!! $errors->first('keywords', '<p class="help-block">:message</p>') !!}
+                <input required type="text" name="tags" id="keywords" class="form-control" value="{{ old('tags', optional($job)->tags) }}" style=""/>
+                {!! $errors->first('tags', '<p class="help-block">:message</p>') !!}
+                <p>Separate with comma</p>
             </div>
         </div>
     </div><!--col-md-6-->
@@ -142,12 +144,13 @@
     <div class="form-group">
         <label class="col-sm-4 pedit"><span class="red-star">*</span>Country: </label>
         <div class="col-sm-8">
+          
             <select name="country" class="form-control country_select select2" data-size="7" title="Select country Type">
-                <option>Select Country</option>
+                {{-- <option>Select Country</option> --}}
                 <option value="" style="display: none;" {{ old('country', optional($job)->country ?: '') == '' ? 'selected' : '' }} disabled selected>select Country.</option>
 
             @foreach(\App\Models\Country::pluck('name') as $item)
-                    <option {{ old('functional_area', optional($job)->functional_area) == $item ? 'selected' : '' }} value="{{ $item }}">{{ $item }}</option>
+                    <option {{ old('country', optional($job)->country) == $item ? 'selected' : '' }} value="{{ $item }}">{{ $item }}</option>
                 @endforeach
             </select>
 
@@ -165,7 +168,7 @@
         <div class="col-sm-8">
             <select style="width: 100%" class="form-control select2 states" required name="state">
 
-                <option value="{{ old('state', optional($job)->country ?: '')}}">{{ old('state', optional($job)->country ?: 'Select Country First')}}</option>
+                <option value="{{ old('state', optional($job)->state ?: '')}}">{{ old('state', optional($job)->state ?: 'Select Country First')}}</option>
 {{--                <option>Select Country first</option>--}}
 
             </select>
@@ -496,13 +499,14 @@
             <label  class="col-sm-4 pedit"><span class="red-star">*</span>Experience :  </label>
             <div class="col-sm-2">
                 <select required name="experience_from" class="sub_heading2" style="">
-                    <option value="" selected="selected">Year</option>
-                    <option value="0" selected="selected">
+                    <option value="{{ old('experience_from', optional($job)->experience_from) }}" selected="selected">{{ old('experience_from', optional($job)->experience_from) ?? 'Select Year' }}</option>
+                    <option value="0">
                         0										</option>
                     <option value="1" >
-                        1										</option>
+                        1										
+                    </option>
                     <option value="2" >
-                        2										</option>
+                        2</option>
                     <option value="3" >
                         3										</option>
                     <option value="4" >
@@ -564,9 +568,11 @@
             <div class="col-sm-1" style="float:left !important;">Year</div>
             <div class="col-sm-1">To</div>
             <div class="col-sm-2">
+                
                 <select required name="experience_to" class="text1" id="exp_to" style="">
-                    <option value="" selected="selected"></option>
-                    <option value="0" selected="selected">
+                    <option value="{{ old('experience_to', optional($job)->experience_to) }}" selected="selected">{{ old('experience_to', optional($job)->experience_to) ?? 'Select Year' }}</option>
+                    
+                    <option value="0">
                         0										</option>
                     <option value="1" >
                         1										</option>

@@ -46,24 +46,25 @@
                                 <h6>Description</h6>
                                 <hr>
                                 <strong class="text-justify">
-                                    Job description
+                                    {{ $job->description }}
                                 </strong>
+                                <hr>
+
                                 <table width="100%">
                                     <tr>
                                         <td width="25%">
-                                            Role
+                                            Industry
                                         </td>
                                         <td width="74%">
-                                            {{ $job->role }}		</td>
+                                            {{ optional($job->industry)->category }}	</td>
                                     </tr>
+                                   
                                     <tr>
                                         <td width="25%">
-                                            Location
+                                            State
                                         </td>
                                         <td width="74%">
-                                            @foreach ($job->locations as $item)
-                                                {{ $item }},
-                                            @endforeach
+                                            {{ $job->state }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -79,7 +80,7 @@
                                             Functional Area
                                         </td>
                                         <td width="74%">
-                                            Accessory Designer				</td>
+                                          {{ $job->functional->category_functional_area}}			</td>
                                     </tr>
                                     <tr>
                                         <td width="25%">
@@ -109,13 +110,7 @@
                                         <td width="74%">
                                             {{ $job->company->name }}				</td>
                                     </tr>
-                                    <tr>
-                                        <td width="25%">
-                                            Industry Type
-                                        </td>
-                                        <td width="74%">
-                                            NGO/Social Services				</td>
-                                    </tr>
+                                   
                                     <tr>
                                         <td width="25%">
                                             Website
@@ -159,7 +154,7 @@
 
                         <hr class="noshade">
 
-                        <div class="box radius" style="margin-left: 4px; width:99.3%;">
+                        {{-- <div class="box radius" style="margin-left: 4px; width:99.3%;">
                             <div style="padding:9px;">
                                 <h6>Candidate Information</h6>
                                 <hr>
@@ -173,7 +168,7 @@
                                     </tr>
                                 </table>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <hr class="noshade">
 
@@ -206,9 +201,9 @@
 
                         <div class="box radius" style="margin-left: 4px; width:99.3%;">
                             <div style="padding:9px; text-align:center;">
-                                <a href="{{ route('jobs.edit',$job->slug) }}" class="gobtn toosmallbtn" onClick="return confirm('Do you realy want to edit this job ?');">Edit</a>
+                                <a href="{{ route('jobs.edit',$job->slug) }}" class="gobtn toosmallbtn">Edit</a>
                                 &nbsp;&nbsp;
-                                <a href="#" class="gobtn toosmallbtn" onClick="return confirm('Do you realy want to delete this job ?');">Delete</a>
+                                {{-- <a href="#" class="gobtn toosmallbtn" onClick="return confirm('Do you realy want to delete this job ?');">Delete</a> --}}
                             </div>
                         </div>
 

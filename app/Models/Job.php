@@ -35,6 +35,8 @@ class Job extends Model
     protected $fillable = [
                   'title',
                   'slug',
+                  'country',
+                  'state',
                   'featured',
                   'featured_on',
                   'featured_expires',
@@ -60,7 +62,7 @@ class Job extends Model
                   'hide_address',
                   'candidate_description',
                   'experience_from',
-                  'experience_to','city','state',
+                  'experience_to','city',
                   'qualification','industry_id'
               ];
 

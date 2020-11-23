@@ -60,7 +60,7 @@
                                         <td class="text-center"  style="border-right:2px solid #FFF; width: 20%;"><b>POSTED DATE & TIME</b></td>
                                         <td height="35"  class="text-center" style="border-right:2px solid #FFF;  width: 40%;"><b>JOB TITLE</b></td>
                                         <td height="35"  class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>Industry</b></td>
-                                        <td height="35"  class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>Locations</b></td>
+                                        <td height="35"  class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>State</b></td>
                                         <td class="text-center" style="border-right:2px solid #FFF; width: 5%;"><b>RESPONSES</b></td>
                                         <td class="text-center" style="border-right:2px solid #FFF; width: 25%;"><b>ACTION</b></td>
                                     </tr>
@@ -83,9 +83,10 @@
 
                                         <td class="text-center">{{ optional($job->industry)->category }}</td>
                                         <td class="text-center">
-                                            @foreach($job->locations as $item)
+                                            {{ $job->state}}
+                                            {{-- @foreach($job->locations as $item)
                                                 {{ $item }},
-                                            @endforeach
+                                            @endforeach --}}
                                         </td>
                                         @if(count($job->applied_job) > 0)
                                         <td class="text-center"><a href="{{ route('job.response',$job->id) }}" >{{ count($job->applied_job) }}</a></td>

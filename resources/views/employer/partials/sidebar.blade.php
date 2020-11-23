@@ -17,7 +17,7 @@
             <div class="inbox-bg">Search Resumes</div>
             <div class="inboxa"><a href="{{ route('employer.featured_resumes') }}" >Featured Resumes</a></div>
             <div class="inbox-bg">Jobs & Responses</div>
-            <div class="inboxa"><a href="#"  >Job Posted Responses</a></div>
+            <div class="inboxa"><a href="{{ route('jobs.index') }}"  > Posted Jobs</a></div>
             <div class="inboxa"><a href="{{ route('jobs.create') }}" >Post Jobs</a></div>
             <!--<li><a href="#" >Post Jobs to Campuses</a></li> -->
             <div class="inboxa"><a href="{{ route('jobs.index') }}" >Response Manager</a></div>

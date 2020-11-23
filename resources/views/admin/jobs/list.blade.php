@@ -66,7 +66,7 @@
                                             </a>
                                             @if ($item->is_disabled)
                                                 <a href="{{ route('jobs.toggle_disabled', $item->slug ) }}" class="btn btn-success btn-sm" title="activate job">
-                                                    <span class="fa fa-check-circle" aria-hidden="true"></span>
+                                                    <span class="fa fa-check" aria-hidden="true"></span>
                                                 </a>
                                             @else
                                                 <a href="{{ route('jobs.toggle_disabled', $item->slug) }}" class="btn btn-warning btn-sm" title="deactivate job">

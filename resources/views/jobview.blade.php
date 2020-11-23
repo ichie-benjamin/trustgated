@@ -47,10 +47,7 @@
                                     <div class="col-md-2">
 
 
-                                        <div class="save-job">
-                                            <a href="javascript:;"><i class="fa fa-floppy-o"></i> Save Job</a>
-                                        </div>
-
+                             
 
                                     </div>
                                     <div class="entry-meta mtop40">
@@ -102,7 +99,7 @@
                             </div>
                             <hr />
                             <div class="m5">
-                                <div><span class="label lco"> Salary:</span> <span class="label lco-n"> {{ $job->salary }} As per rules of Industry</span></div>
+                                <div><span class="label lco"> Salary:</span> <span class="label lco-n"> {{ $job->salary }}</span></div>
                                 <div><span class="label lco">Industry:</span> <span class="label lco-n"> {{ optional($job->industry)->category }}</span></div>
                                 <div><span class="label lco">Functional Area:</span> <span class="label lco-n">{{ optional($job->functional)->category_functional_area }}</span></div>
                                 <div><span class="label lco">Job Posted On:</span> <span class="label lco-n">{{ $job->created_at->format('Y-m-d') }}</span></div>
@@ -110,18 +107,7 @@
                                 <div><span class="label lco">Role:</span> <span class="label lco-n">Interior Designer</span></div>-->
                             </div>
                         </div>
-                        <div class="col-sm-12 m5">
-                            <div class="all-catehead blue">Key Skills</div>
-                            <div class="key">
-                                <ul>
-                                    <li><input class="btn-grey btn" value="SOFTWARE" type="button"></li>
-                                    <li><input class="btn-grey btn" value="CSS" type="button"></li>
-                                    <li><input class="btn-grey btn" value="JAVA" type="button"></li>
-                                    <li><input class="btn-grey btn" value="HTML" type="button"></li>
-                                </ul>
-                            </div>
-
-                        </div>
+         
                         <div class="col-sm-12 m5">
                             <div class="all-catehead blue"> Desired Candidate Profile</div>
                             <div class="enq">Education :</div>

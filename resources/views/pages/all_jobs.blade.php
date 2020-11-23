@@ -20,27 +20,7 @@
 
 
               <div class="col-md-7">
-                  <div class=" tab-content " >
-                      <div class="col-md-8" >
-                          <form class="form-inline" method='GET'>
-                              <div class="form-group ">
-                                  <label >Sort by </label>
-                                  <select class="form-control input-sm " name="view_ord" id="view_ord" onchange='sortit(this.value);'>
-                                      <option  value="ASC" >Ascending </option>
-                                      <option  value="DESC">Descending</option>
-                                  </select>
-
-                              </div>
-                              <div class="form-group select-arrow">
-                                  <label >Show</label>
-                                  <select class="form-control input-sm" name="view_num" id="view_num" onchange='sortcount(this.value);'>
-                                      <option  value="5">5</option>
-                                      <option selected="selected" value="10">10</option>
-                                      <option  value="15">15</option></select>
-                              </div>
-                          </form>
-                      </div>  <!--list-bga-->
-                  </div>
+                 
 
 
                   @foreach($jobs as $job)

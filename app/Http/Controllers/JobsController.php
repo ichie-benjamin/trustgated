@@ -304,7 +304,7 @@ $companies = Company::pluck('name','id')->all();
 
     public function update($id, Request $request)
     {
-            $data = $this->getData($request);
+           $data = $this->getData($request);
             $job = Job::findOrFail($id);
 
 
