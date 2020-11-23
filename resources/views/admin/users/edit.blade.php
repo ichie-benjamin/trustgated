@@ -36,6 +36,18 @@
                         @enderror
                     </div>
                     </div><!-- row -->
+                    <div class="row">
+                    <label class="col-sm-4 form-control-label">Last Name: <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input id="last_name" type="text" placeholder="Last name" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ $user->last_name }}" required autocomplete="last_name" autofocus>
+
+                        @error('last_name')
+                            <span class="invalid-feedback" role="alert">
+                                <small><strong>{{ $message }}</strong></small>
+                            </span>
+                        @enderror
+                    </div>
+                    </div><!-- row -->
 
                     <div class="row mg-t-20">
                     <label class="col-sm-4 form-control-label">Email: <span class="tx-danger">*</span></label>
@@ -74,6 +86,7 @@
                             @enderror
                         </div>
                     </div>
+
 
                     @if (auth()->user()->hasRole('super_admin'))
                         <div class="row mg-t-20">
@@ -117,7 +130,21 @@
 
                         </select>
                     </div>
-                    </div><!-- col-4 -->
+                    </div>
+
+                        <div class="row mg-t-20">
+                            <label class="col-sm-4 form-control-label">Address <span class="tx-danger">*</span></label>
+                            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                                <input id="address" type="text" placeholder="address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}" required  autocomplete="address" autofocus />
+
+                                @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <small><strong>{{ $message }}</strong></small>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                     <div class="form-layout-footer mg-t-30">
                     <button class="btn btn-info">Submit Form</button>
                     <input type="reset" class="btn btn-secondary" value="Cancel">

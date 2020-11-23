@@ -35,7 +35,7 @@
                         <div class="pd-25 d-flex align-items-center">
                             <i class="ion ion-person tx-60 lh-0 tx-white op-7"></i>
                             <div class="mg-l-20">
-                                <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total Employees</p>
+                                <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total Employers</p>
                                 <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{ $employers }}</p>
 {{--                                <span class="tx-11 tx-roboto tx-white-6">$390,212 before tax</span>--}}
                             </div>
@@ -110,11 +110,20 @@
                                     <img src="{{ $item->avatar }}" class="wd-40 rounded-circle" alt="{{ $item->username }}">
                                 </td>
                                 <td>
-                                    <h6 class="tx-inverse tx-14 mg-b-0">{{ $item->name }}</h6>
+                                    <h6 class="tx-inverse tx-14 mg-b-0"><a href="{{ route('admin.users.show',$item->username) }}"> {{ $item->name }}</a></h6>
                                     <span class="tx-12">@ {{ $item->username }}</span>
                                 </td>
                                 <td>{{ $item->created_at->format('M d Y') }}</td>
-                                <td class="pd-r-0-force tx-center"><a href="#" class="tx-gray-600"><i class="icon ion-more tx-18 lh-0"></i></a></td>
+{{--                                <td class="pd-r-0-force tx-center"><a href="#" class="tx-gray-600"><i class="icon ion-more tx-18 lh-0"></i></a></td>--}}
+                                <td>
+                                    <a href="{{ route('admin.users.edit', $item) }}" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Edit User"><em class="fa fa-edit"></em></a>
+                                    <a href="{{ route('admin.users.destroy', $item) }}" onclick="destroyUser(event)" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><em class="fa fa-trash"></em>
+                                        <form id="delete-customer-form" action="{{ route('admin.users.destroy', $item) }}" method="POST" class="d-none">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
                             </tbody>
@@ -138,11 +147,20 @@
                                         <img src="{{ $item->avatar }}" class="wd-40 rounded-circle" alt="{{ $item->username }}">
                                     </td>
                                     <td>
-                                        <h6 class="tx-inverse tx-14 mg-b-0">{{ $item->name }}</h6>
+                                        <h6 class="tx-inverse tx-14 mg-b-0"><a href="{{ route('admin.users.show',$item->username) }}"> {{ $item->name }}</a></h6>
                                         <span class="tx-12">@ {{ $item->username }}</span>
                                     </td>
                                     <td>{{ $item->created_at->format('M d Y') }}</td>
-                                    <td class="pd-r-0-force tx-center"><a href="#" class="tx-gray-600"><i class="icon ion-more tx-18 lh-0"></i></a></td>
+                                    <td>
+                                        <a href="{{ route('admin.users.edit', $item) }}" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Edit User"><em class="fa fa-edit"></em></a>
+                                        <a href="{{ route('admin.users.destroy', $item) }}" onclick="destroyUser(event)" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><em class="fa fa-trash"></em>
+                                            <form id="delete-customer-form" action="{{ route('admin.users.destroy', $item) }}" method="POST" class="d-none">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                        </a>
+                                    </td>
+{{--                                    <td class="pd-r-0-force tx-center"><a href="#" class="tx-gray-600"><i class="icon ion-more tx-18 lh-0"></i></a></td>--}}
                                 </tr>
                             @endforeach
                             </tbody>
