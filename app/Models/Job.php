@@ -84,7 +84,7 @@ class Job extends Model
 
 
     public function getSalaryAttribute(){
-       return "$this->min_salary - $this->max_salary ". optional($this->currency)->code ;
+       return "$this->min_salary - $this->max_salary";
     }
 
     public function setLocationsAttribute($value)

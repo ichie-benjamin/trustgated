@@ -213,5 +213,5 @@ Route::get('/assign/plan', [HomeController::class,'AssignPackage']);
 
 Auth::routes(['verify' => true]);
 
-Route::get('/2365/modify/jobs',[HomeController::class, 'modifyJob'])->name('home');
+// Route::get('/2365/modify/jobs',[HomeController::class, 'modifyJob'])->name('home');
 

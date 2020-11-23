@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin-app')
 
-@section('css')
+@section('style')
     @include('admin.partials.dt-css')
 @endsection
 
@@ -27,16 +27,16 @@
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10" style="padding-bottom: 50px">Jobs List
 {{--                    <a href="{{ route('admin.jobs.create') }}"><button class="btn btn-success" style="float: right"> Add New</button></a>--}}
                 </h6>
-                <div class="table-wrapper">
-                    <table id="datatable1" class="table table-condensed table-bordered display responsive nowrap">
+                <div class="table-wrapper table-responsive">
+                    <table id="datatable1" class="table table-condensed table-bordered display responsive nowra">
                         <thead>
                         <tr>
                             <th class="">S/N</th>
-                            <th class="wd-30p">Title</th>
-                            <th class="wd-10p">Type</th>
+                            <th class="wd-20p">Title</th>
+                            <th class="wd-10p">Industry</th>
                             <th class="wd-15p">Company</th>
                             <th class="wd-15p">Date Posted</th>
-                            <th class="wd-20p">Keywords</th>
+                            {{-- <th class="wd-20p">Keywords</th> --}}
                             <th class="wd-10p">Response</th>
                             <th class="wd-20p">Action</th>
                             {{--                            <th></th>--}}
@@ -47,11 +47,18 @@
                         @foreach ($jobs as $item)
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{ $item->title }}</td>
-                                <td>{{ $item->type_id }}</td>
+                                <td>{{ $item->title }}
+                                <br>
+                                @if($item->is_active)
+                                <span class="badge badge-success">Activated</span>
+                                @else
+                                <span class="badge badge-danger">Not Active</span>
+                                @endif
+                                </td>
+                                <td>{{ optional($item->industry)->category }}</td>
                                 <td>{{ optional($item->company)->name }}</td>
                                 <td>{{ $item->created_at->format('d-M-Y')}}</td>
-                                <td>{{ $item->keywords }}</td>
+                                {{-- <td>{{ $item->keywords }}</td> --}}
                                 <td>{{ count($item->applied_job) }}</td>
 
 
@@ -64,14 +71,15 @@
                                             <a href="{{ route('jobs.show', $item->slug ) }}" target="_blank" class="btn btn-info btn-sm" title="Public View">
                                                 <span class="fa fa-eye" aria-hidden="true"></span>
                                             </a>
-                                            @if ($item->is_disabled)
-                                                <a href="{{ route('jobs.toggle_disabled', $item->slug ) }}" class="btn btn-success btn-sm" title="activate job">
-                                                    <span class="fa fa-check" aria-hidden="true"></span>
-                                                </a>
-                                            @else
-                                                <a href="{{ route('jobs.toggle_disabled', $item->slug) }}" class="btn btn-warning btn-sm" title="deactivate job">
+                                            @if ($item->is_active)
+                                            
+                                                <a href="{{ route('admin.jobs.toggle_disabled', $item->slug) }}" class="btn btn-warning btn-sm" title="deactivate job">
                                                     <span class="fa fa-remove" aria-hidden="true"></span>
                                                 </a>
+                                            @else
+                                            <a href="{{ route('admin.jobs.toggle_disabled', $item->slug ) }}" class="btn btn-success btn-sm" title="activate job">
+                                                <span class="fa fa-check" aria-hidden="true"></span>
+                                            </a>
                                             @endif
 
                                             <a href="{{ route('admin.jobs.edit', $item->slug ) }}" class="btn btn-primary btn-sm" title="Edit Job">

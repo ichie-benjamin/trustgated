@@ -72,6 +72,8 @@ Route::group(['middleware' => ['auth','role:admin'], 'prefix' => 'admin', 'as' =
 
     Route::post('newsletter/send', [AdminsController::class, 'newsletterSend'])->name('newsletter.send');
 
+    Route::get('/jobs/toggle/disabled/{slug}', [JobsController::class, 'toggleDisabled'])->name('jobs.toggle_disabled');
+    
 
     Route::resources([
         'countries' => CountryController::class,
