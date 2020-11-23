@@ -28,7 +28,7 @@
                     <dt>Industry:</dt>
                     <dd> {{ optional($job->industry)->category }}</dd>
                     <dt>Key Skills: </dt>
-                    <dd>sales management, marketing, marketing executive, sales manager, sales executive, sales officer, marketing manager, business development manager</dd>
+                    <dd>{{ $job->tags }} </dd>
                     <dt>Job Description:  </dt>
                     <dd>{{ $job->short_description }}</dd>
                 </dl>

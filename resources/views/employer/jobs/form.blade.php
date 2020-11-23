@@ -130,7 +130,7 @@
 
     <div class="col-md-9" >
         <div class="form-group">
-            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Keywords :</label>
+            <label  class="col-sm-4 pedit"><span class="red-star">*</span>Key Skills :</label>
             <div class="col-sm-8">
                 <input required type="text" name="tags" id="keywords" class="form-control" value="{{ old('tags', optional($job)->tags) }}" style=""/>
                 {!! $errors->first('tags', '<p class="help-block">:message</p>') !!}
