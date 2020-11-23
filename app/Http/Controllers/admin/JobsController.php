@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\Job;
+use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {

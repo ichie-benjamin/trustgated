@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin-app')
 
-@section('css')
+@section('style')
     @include('admin.partials.dt-css')
 @endsection
 

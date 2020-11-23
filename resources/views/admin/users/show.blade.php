@@ -56,7 +56,7 @@
 
                         </tbody>
                     </table>
-                    <a href="" class="btn btn-success">Edit User</a>
+                    <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-success">Edit User</a>
                 </div><!-- table-wrapper -->
             </div>
         </div>

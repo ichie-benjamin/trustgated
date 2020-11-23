@@ -37,6 +37,16 @@
 
                                 @csrf
 
+                    
+
+                                <input name="_method" type="hidden" value="PUT">
+
+                                <input name="user_id" type="hidden" value="{{ $job->user_id }}">
+
+                                <input name="company_id" type="hidden" value="{{ $job->company_id }}">
+
+                                
+
                                 <div class="row">
 
                                     <div class="card card-body">

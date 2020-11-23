@@ -28,11 +28,11 @@
                 <div class="form-group {{ $errors->has('type_id') ? 'has-error' : '' }}">
                     <label for="type_id" class="col-md-12 control-label">Industrial Type</label>
                     <div class="col-md-12">
-                        <select class="form-control" id="type_id" name="type_id">
+                        <select class="form-control" id="industry_id" name="industry_id">
                             <option value="" style="display: none;" {{ old('type_id', optional($job)->type_id ?: '') == '' ? 'selected' : '' }} disabled selected>Select type</option>
-                            @foreach ($types as $key => $type)
-                                <option value="{{ $key }}" {{ old('type_id', optional($job)->type_id) == $key ? 'selected' : '' }}>
-                                    {{ $type }}
+                            @foreach ($industries as $key => $value)
+                                <option value="{{ $value }}" {{ old('industry_id', optional($job)->industry_id) == $value ? 'selected' : '' }}>
+                                    {{ $key }}
                                 </option>
                             @endforeach
                         </select>
@@ -45,16 +45,16 @@
                 <div class="form-group {{ $errors->has('type_id') ? 'has-error' : '' }}">
                     <label for="type_id" class="col-md-12 control-label">Functional Area</label>
                     <div class="col-md-12">
-                        <select class="form-control" id="type_id" name="type_id">
-                            <option value="" style="display: none;" {{ old('type_id', optional($job)->type_id ?: '') == '' ? 'selected' : '' }} disabled selected>Select type</option>
-                            @foreach ($types as $key => $type)
-                                <option value="{{ $key }}" {{ old('type_id', optional($job)->type_id) == $key ? 'selected' : '' }}>
-                                    {{ $type }}
+                        <select class="form-control" id="type_id" name="functional_area">
+                            <option value="" style="display: none;" {{ old('functional_area', optional($job)->functional_area ?: '') == '' ? 'selected' : '' }} disabled selected>Select type</option>
+                            @foreach ($f_areas as $key => $val)
+                                <option value="{{ $val }}" {{ old('functional_area', optional($job)->functional_area) == $val ? 'selected' : '' }}>
+                                    {{ $key }}
                                 </option>
                             @endforeach
                         </select>
 
-                        {!! $errors->first('type_id', '<p class="help-block">:message</p>') !!}
+                        {!! $errors->first('functional_area', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            {{-- <div class="col-md-6">
 <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
     <label for="category_id" class="col-md-12 control-label">Category</label>
     <div class="col-md-12">
@@ -92,8 +92,10 @@
         {!! $errors->first('category_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-            </div>
-            <div class="col-md-6">
+            </div> --}}
+
+
+            {{-- <div class="col-md-6">
                 <div class="form-group {{ $errors->has('location_id') ? 'has-error' : '' }}">
                     <label for="location_id" class="col-md-12 control-label">Location</label>
                     <div class="col-md-12">
@@ -109,7 +111,7 @@
                         {!! $errors->first('location_id', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
 
@@ -136,8 +138,27 @@
                         <div class="form-group {{ $errors->has('closing_date') ? 'has-error' : '' }}">
                             <label for="closing_date" class="col-md-12 control-label">Closing Date</label>
                             <div class="col-md-12">
-                                <input class="form-control" name="closing_date" type="text" id="closing_date" value="{{ old('closing_date', optional($job)->closing_date) }}" placeholder="Enter closing date here...">
+                                <input class="form-control" name="closing_date" type="date" id="closing_date" value="{{ old('closing_date', optional($job)->closing_date) }}" placeholder="Enter closing date here...">
                                 {!! $errors->first('closing_date', '<p class="help-block">:message</p>') !!}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group {{ $errors->has('tags') ? 'has-error' : '' }}">
+                            <label for="tags" class="col-md-12 control-label">Key Skills</label>
+                            <div class="col-md-12">
+                                <input class="form-control" name="tags" type="text" id="tags" value="{{ old('tags', optional($job)->tags) }}" minlength="1" placeholder="Enter Tags here...">
+                                {!! $errors->first('tags', '<p class="help-block">:message</p>') !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
+                            <label for="address" class="col-md-12 control-label">Address</label>
+                            <div class="col-md-12">
+                                <input class="form-control" name="address" type="text" id="address" value="{{ old('address', optional($job)->address) }}" minlength="1" placeholder="Enter address here...">
+                                {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
                             </div>
                         </div>
                     </div>
