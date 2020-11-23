@@ -37,6 +37,15 @@
 
 
 	<style>
+        .brows-job-position {
+            height: 120px;
+        }
+        .max-p {
+            width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         @media screen and (max-width: 600px) {
             .hide-mobile {
                 visibility: hidden;
@@ -257,7 +266,7 @@
                      </div>
                   </li>
                   <li>
-                     <p><span class="brows-job-sallery" style="font-size: 0.8em"><i class="fa fa-money"></i>{{ $job->salary }} </span></p>
+                     <p><span class="brows-job-sallery" style="font-size: 0.8em"><i class="fa fa-money"></i>{{ str_limit($job->salary,13) }} </span></p>
                   </li>
                </ul>
             </div>

@@ -48,7 +48,7 @@ class Company extends Model
     protected $fillable = [
                   'user_id',
                   'name','logo','address','email','website','phone','slug','info',
-                  'address','type','contact_person'
+                  'address','type','contact_person','skill_i_hire'
               ];
 
     /**

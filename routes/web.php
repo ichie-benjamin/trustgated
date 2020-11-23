@@ -59,6 +59,8 @@ Route::post('background-ref-store', [HomeController::class,'storeRef'])->name('s
 
 Route::post('/advance_search',[JobsController::class, 'advanceSearch'])->name('advance_search');
 
+Route::get('/company/{id}/jobs',[JobsController::class, 'companyAllJobs'])->name('company.all.jobs');
+
 Route::resources([
     'users' => UsersController::class,
 ]);
@@ -158,6 +160,7 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::resources([
         'jobs' => JobsController::class,
         'companies' => CompaniesController::class,
+        'jobs' => jobsController::class,
         ]);
 });
 

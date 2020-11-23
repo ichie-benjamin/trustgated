@@ -154,26 +154,28 @@
                                 <label class="col-sm-3 pedit2 text-right"><span class="red-star">*</span> Industry Type : </label>
                                 <div class="col-sm-4">
                                     <select class="form-control select2" name="industry_type" id="Industry_Type">
-                                        <option value="">select</option>
-                                        <option value="Construction"> Construction </option>
-                                        <option value="IT - BPO"> IT - BPO </option>
-                                        <option value="IT-ERP-Oracle"> IT-ERP-Oracle </option>
-                                        <option value="KPO/Technical Support"> KPO/Technical Support </option>
-                                        <option value="Law Enforcement/Security"> Law Enforcement/Security </option>
-                                        <option value="Legal/Law"> Legal/Law </option>
-                                        <option value="Management"> Management </option>
-                                        <option value="Marketing/Sales"> Marketing/Sales </option>
-                                        <option value="mech"> mech </option>
-                                        <option value="Media "> Media  </option>
-                                        <option value="Media/Journalism"> Media/Journalism </option>
-                                        <option value="NGO/Social Services"> NGO/Social Services </option>
-                                        <option value="Others"> Others </option>
-                                        <option value="Production/Manufacturing/Maintenance"> Production/Manufacturing/Maintenance </option>
-                                        <option value="Strategy / Management Consulting Firms"> Strategy / Management Consulting Firms </option>
-                                        <option value="test cate"> test cate </option>
-                                        <option value="Tours and Travel/Airline"> Tours and Travel/Airline </option>
-                                        <option value="Transportation/Logistics"> Transportation/Logistics </option>
+                                    @foreach ($industries as $key => $value)
+                                            <option value="{{ $key }}">{{ $key }}</option>
+                                        @endforeach
                                     </select>
+{{--                                        <option value="Construction"> Construction </option>--}}
+{{--                                        <option value="IT - BPO"> IT - BPO </option>--}}
+{{--                                        <option value="IT-ERP-Oracle"> IT-ERP-Oracle </option>--}}
+{{--                                        <option value="KPO/Technical Support"> KPO/Technical Support </option>--}}
+{{--                                        <option value="Law Enforcement/Security"> Law Enforcement/Security </option>--}}
+{{--                                        <option value="Legal/Law"> Legal/Law </option>--}}
+{{--                                        <option value="Management"> Management </option>--}}
+{{--                                        <option value="Marketing/Sales"> Marketing/Sales </option>--}}
+{{--                                        <option value="mech"> mech </option>--}}
+{{--                                        <option value="Media "> Media  </option>--}}
+{{--                                        <option value="Media/Journalism"> Media/Journalism </option>--}}
+{{--                                        <option value="NGO/Social Services"> NGO/Social Services </option>--}}
+{{--                                        <option value="Others"> Others </option>--}}
+{{--                                        <option value="Production/Manufacturing/Maintenance"> Production/Manufacturing/Maintenance </option>--}}
+{{--                                        <option value="Strategy / Management Consulting Firms"> Strategy / Management Consulting Firms </option>--}}
+{{--                                        <option value="test cate"> test cate </option>--}}
+{{--                                        <option value="Tours and Travel/Airline"> Tours and Travel/Airline </option>--}}
+{{--                                        <option value="Transportation/Logistics"> Transportation/Logistics </option>--}}
 
 {{--                                    <div id="industry_alternate" style="display:none;">--}}
 {{--                                        <input type="hidden" name="industry_type" id="Industry_Type" value="Consultant">--}}

@@ -33,11 +33,15 @@
                 <div class="col-md-9" >
 
                     <div style="color:#009900; padding:5px;"> 					</div>
-                    <form class="form-horizontal m10" action="{{ route('jobs.store') }}" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal m10" action="{{ route('jobs.update', $job->id) }}" method="post" enctype="multipart/form-data">
 
                         @csrf
 
-                        @include('employer.jobs.form')
+                        <input name="_method" type="hidden" value="PUT">
+                        @include ('employer.jobs.form', [
+                                                    'job' => $job,
+                                                  ])
+
 
                         <div class="row">
                             <div class="col-sm-12">

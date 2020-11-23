@@ -141,26 +141,26 @@ class CompaniesController extends Controller
 
             $company->update($data);
 
-            if ($request->has('logo')){
-                $this->validate($request, ['logo' => 'image']);
-                $file = $request->file('logo');
-                $folder = 'u/';
-                $uniqid = uniqid();
-                $mainFileName = $uniqid . '.' . $file->getClientOriginalExtension();
-                if (!file_exists(public_path($folder))) {
-                    mkdir(public_path($folder), 0755, true);
-                }
-                $image = Image::make($request->file('logo'))
-                    ->fit(300, 300, function ($constraint) {
-                        $constraint->aspectRatio();
-                        $constraint->upsize();
-                    })
-                    ->save(public_path($folder) . $mainFileName);
-                $imageUrl = '/' . $folder . $mainFileName;
-                $company->logo = $imageUrl;
-                $company->save();
-            }
-
+//            if ($request->has('logo')){
+//                $this->validate($request, ['logo' => 'image']);
+//                $file = $request->file('logo');
+//                $folder = 'u/';
+//                $uniqid = uniqid();
+//                $mainFileName = $uniqid . '.' . $file->getClientOriginalExtension();
+//                if (!file_exists(public_path($folder))) {
+//                    mkdir(public_path($folder), 0755, true);
+//                }
+//                $image = Image::make($request->file('logo'))
+//                    ->fit(300, 300, function ($constraint) {
+//                        $constraint->aspectRatio();
+//                        $constraint->upsize();
+//                    })
+//                    ->save(public_path($folder) . $mainFileName);
+//                $imageUrl = '/' . $folder . $mainFileName;
+//                $company->logo = $imageUrl;
+//                $company->save();
+//            }
+//
 
             return redirect()->back()->with('success','Company successfully updated');
 
@@ -201,6 +201,7 @@ class CompaniesController extends Controller
             'logo' => 'nullable',
             'website' => 'string|min:1|nullable',
             'contact_person' => 'string|min:1|nullable',
+            'type' => 'string|nullable',
             'email' => 'string|min:1|nullable',
             'info' => 'nullable',
             'phone' => 'string|min:1|nullable',

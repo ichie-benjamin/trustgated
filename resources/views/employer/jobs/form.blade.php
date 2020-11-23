@@ -58,9 +58,9 @@
             <label class="col-sm-4 pedit"><span class="red-star">*</span>Industry :</label>
             <div class="col-sm-8">
                <select name="industry_id" id="industry_id" class="form-control select2">
-                    <option value="">select</option>
-                    @foreach(\App\Models\IndustryType::pluck('id','category') as $item => $value)
-                        <option value="{{ $value }}"> {{ $item }} </option>
+                   <option value="" style="display: none;" {{ old('industry_id', optional($job)->industry_id ?: '') == '' ? 'selected' : '' }} disabled selected>Select Industry...</option>
+               @foreach(\App\Models\IndustryType::pluck('id','category') as $item => $value)
+                        <option {{ old('industry_id', optional($job)->industry_id) == $key ? 'selected' : '' }} value="{{ $value }}"> {{ $item }} </option>
                     @endforeach
                 </select>
 
@@ -73,9 +73,10 @@
             <div class="col-sm-8">
 
                 <select name="function_area" id="function_area" class="form-control select2">
-                    <option value="">select Functional Area</option>
-                    @foreach(\App\Models\FunctionalArea::pluck('id','category_functional_area') as $item => $value)
-                        <option value="{{ $value }}"> {{ $item }} </option>
+{{--                    <option value="">select Functional Area</option>--}}
+{{--                    <option value="{{ old('function_area', optional($job)->function_area ?: '') }}" selected>{{ old('function_area')}} {{  optional($job)->function_area ?? '' }}</option>--}}
+                @foreach(\App\Models\FunctionalArea::pluck('id','category_functional_area') as $item => $value)
+                        <option {{ old('functional_area', optional($job)->functional_area) == $value ? 'selected' : '' }} value="{{ $value }}"> {{ $item }} </option>
                     @endforeach
                 </select>
             </div>
@@ -143,8 +144,10 @@
         <div class="col-sm-8">
             <select name="country" class="form-control country_select select2" data-size="7" title="Select country Type">
                 <option>Select Country</option>
-                @foreach(\App\Models\Country::pluck('name') as $item)
-                    <option  value="{{ $item }}">{{ $item }}</option>
+                <option value="" style="display: none;" {{ old('country', optional($job)->country ?: '') == '' ? 'selected' : '' }} disabled selected>select Country.</option>
+
+            @foreach(\App\Models\Country::pluck('name') as $item)
+                    <option {{ old('functional_area', optional($job)->functional_area) == $item ? 'selected' : '' }} value="{{ $item }}">{{ $item }}</option>
                 @endforeach
             </select>
 
@@ -162,7 +165,8 @@
         <div class="col-sm-8">
             <select style="width: 100%" class="form-control select2 states" required name="state">
 
-                <option>Select Country first</option>
+                <option value="{{ old('state', optional($job)->country ?: '')}}">{{ old('state', optional($job)->country ?: 'Select Country First')}}</option>
+{{--                <option>Select Country first</option>--}}
 
             </select>
 
@@ -177,7 +181,7 @@
     <div class="form-group" id="cityy">
         <label class="col-sm-4 pedit2 "><span class="red-star">*</span>City: </label>
         <div class="col-sm-8">
-            <input required type="text" name="city" id="city" class="form-control" placeholder="">
+            <input required type="text" name="city" id="city" value="{{ old('city', optional($job)->city) }}" class="form-control" placeholder="">
 
         </div>
         <div>

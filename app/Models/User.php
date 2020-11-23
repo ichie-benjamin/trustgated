@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
+use Yadahan\AuthenticationLog\AuthenticationLogable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use LaratrustUserTrait;
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, AuthenticationLogable;
 
     use SoftDeletes;
 

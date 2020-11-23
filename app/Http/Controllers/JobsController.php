@@ -85,6 +85,11 @@ class JobsController extends Controller
         return view('pages.all_jobs',compact('jobs'));
     }
 
+    public function companyAllJobs($id){
+        $jobs = Job::whereCompanyId($id)->inRandomOrder()->paginate(20);
+        return view('pages.all_jobs',compact('jobs'));
+    }
+
     public function recruiters(){
         $users = User::with('company')->whereRoleIs('employer')->get();
         $top_recruiters = User::with('company')->whereRoleIs('employer')->get();
@@ -303,26 +308,12 @@ $companies = Company::pluck('name','id')->all();
             $job = Job::findOrFail($id);
 
 
-        $data['description'] = request('job-trixFields.description');
-        $data['attachment-job-trixFields'] =  request('attachment-job-trixFields');
-        if(strlen($data['description']) < 30){
-            return response()->json('Job description must be at least 20 character', 404);
-        }
         $job->update($data);
 
-        DB::table('trix_rich_texts')->update([
-            'model_type' => 'App\Models\Job',
-            'model_id' => $job->id,
-            'field' => 'description',
-            'content' => request('job-trixFields.description')
-        ]);
 
+        return redirect()->route('jobs.index')
+            ->with('success_message', 'Job successfully modified, awaiting admin verification.');
 
-        $request->session()->flash('message', 'Job successfully updated, awaiting admin verification');
-        $request->session()->flash('message-type', 'success');
-        $data['url'] = route('jobs.my_listings');
-
-        return response()->json($data, 200);
     }
 
 
@@ -424,7 +415,7 @@ $companies = Company::pluck('name','id')->all();
 
         $data['is_active'] = false;
         $data['category_id'] = $data['industry_id'];
-        $data['location_id'] = $data['industry_id'];
+//        $data['location_id'] = $data['industry_id'];
         $data['type_id'] = 1;
         $data['user_id'] = auth()->user()->id;
         $data['is_apply_here'] = true;

@@ -129,6 +129,7 @@ class RegisterController extends Controller
                 'name' => $data['companyname'],
                 'address' => $data['address'],
                 'type' => $data['industry_type'],
+                'skill_i_hire' => $data['skill_i_hire'],
                 'contact_person' => $data['Contact_Person'],
                 ]);
 

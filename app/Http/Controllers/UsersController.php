@@ -275,26 +275,27 @@ class UsersController extends Controller
     public function update(Request $request){
         $data = $request->all();
         Auth::user()->update([
+            'avatar' => $data['avatar'] ?? '',
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'gender' => $data['gender'],
-            'headline' => $data['headline'],
+            'headline' => $data['headline'] ?? '',
             'country' => $data['country'],
-            'industry' => $data['industry'],
+            'industry' => $data['industry'] ?? '',
             'state' => $data['state'],
             'city' => $data['city'],
-            'dob' => $data['dob'],
+            'dob' => $data['dob'] ?? '',
             'address' => $data['address'],
-            'max_annual_salary' => $data['max_annual_salary'],
-            'min_annual_salary' => $data['min_annual_salary'],
+            'max_annual_salary' => $data['max_annual_salary'] ?? '',
+            'min_annual_salary' => $data['min_annual_salary'] ?? '',
 //            'phone_countrycode' => $data['phone_countrycode'],
             'mobile_number' => $data['mobile_number'],
-            'land_countrycode' => $data['land_countrycode'],
-            'land_areacode' => $data['land_areacode'],
-            'exp_year' => $data['exp_year'],
-            'exp_month' => $data['exp_month'],
-            'function_area' => $data['function_area'],
-            'skills' => $data['skills'],
+            'land_countrycode' => $data['land_countrycode'] ?? '',
+            'land_areacode' => $data['land_areacode'] ?? '',
+            'exp_year' => $data['exp_year'] ?? '',
+            'exp_month' => $data['exp_month'] ?? '',
+            'function_area' => $data['function_area'] ?? '',
+            'skills' => $data['skills'] ?? '',
         ]);
         return redirect()->back()->with('success','Profile successfully updated');
     }
