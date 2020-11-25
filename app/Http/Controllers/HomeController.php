@@ -17,6 +17,7 @@ use App\Models\Job;
 use App\Models\Packages;
 use App\Models\Page;
 use App\Models\Products;
+use App\Models\Testimonial;
 use App\Models\User;
 use App\Models\UserBackgroundVerification;
 use App\Models\VerificationPackage;
@@ -37,6 +38,21 @@ class HomeController extends Controller
         }
         return 'done';
     }
+
+    public function testimonial(){
+        return view('testimonial');
+    }
+    public function testimonialStore(Request $request){
+        $data = $request->all();
+        Testimonial::create([
+            'name' => $data['name'],
+            'designation' => $data['designation'],
+            'description' => $data['description'],
+            'testimonial_image' => auth()->user()->avatar,
+        ]);
+        return redirect()->back()->with('success','Testimonial successfully submitted');
+    }
+
     public function jobseekerSelfservice(){
         $packages = VerificationPackage::all();
         return view('jobseeker-selfservice', compact('packages'));

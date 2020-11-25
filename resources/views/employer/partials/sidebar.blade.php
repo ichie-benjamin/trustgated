@@ -7,6 +7,7 @@
             <div class="inbox-bg" onclick="return menu_click1();">Administration</div>
             <!--<div class="inboxa"><a href="#">Product Settings</a></li> -->
             <div id="show1">
+                <div class="inboxa"><a href="{{ route('testimonial') }}">Add Testimony</a></div>
                 <div class="inboxa"><a href="{{ route('employer.sub_users') }}">Manage Sub-Users</a></div>
                 <!--<li><a href="emp_resume_pack.php?id=91">Set Access Time</a></li>-->
                 <div class="inboxa"><a href="{{ route('employer.transactions') }}">Subscription Status</a></div>

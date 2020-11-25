@@ -24,6 +24,9 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 
 
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
+Route::get('/testimonial',[HomeController::class, 'testimonial'])->name('testimonial');
+
+Route::post('/testimonial/store',[HomeController::class, 'testimonialStore'])->name('testimonial.store');
 
 Route::get('payment-razorpay',  [PaymentController::class,'create'])->name('paywithrazorpay');
 Route::post('payment', [PaymentController::class,'payment'])->name('payment');

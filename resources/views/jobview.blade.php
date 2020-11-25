@@ -47,7 +47,7 @@
                                     <div class="col-md-2">
 
 
-                             
+
 
                                     </div>
                                     <div class="entry-meta mtop40">
@@ -59,9 +59,9 @@
                                         @guest()
                                         <ul>
 
-                                            <li><a href="jobsseeker-login.html?jid=31527847435&setcok" target="_blank" onClick="javascript:window.close();">
+                                            <li><a href="{{ route('jobseeker.login') }}" >
                                                     <input type="button" name="loginto" value="Login to Apply"  class="btn-blue btn"/></a></li>
-                                            <li><a href="jobseeker-registration.html?setco" class="btn-gre btn"> Register and Apply </a></li>
+                                            <li><a href="{{ route('jobseeker.register') }}" class="btn-gre btn"> Register and Apply </a></li>
                                             <!--<li><input class="btn-gray btn" value="Apply without Registration" type="button"> </li>-->
                                         </ul>
                                         @else
@@ -107,7 +107,7 @@
                                 <div><span class="label lco">Role:</span> <span class="label lco-n">Interior Designer</span></div>-->
                             </div>
                         </div>
-         
+
                         <div class="col-sm-12 m5">
                             <div class="all-catehead blue"> Desired Candidate Profile</div>
                             <div class="enq">Education :</div>

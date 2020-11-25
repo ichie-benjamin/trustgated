@@ -3,7 +3,9 @@
         <h3> My Home</h3>
     </div>
     <div class="create-job-content">
-        <div class="inbox-bg">Inbox</div>
+{{--        <div class="inbox-bg">Inbox</div>--}}
+        <div class="inboxa"><a href="{{ route('testimonial') }}">Add Testimony</a></div>
+
         <div class="inboxa"><a href="{{ route('jobseeker-edit') }}">Improve Your Profile</a></div>
         <!--<div class="inboxa"><a href="#">Recruiter Messages (4)</a></div>-->
 
