@@ -50,8 +50,8 @@ class AdminsController extends Controller
     public function newsletterSend(Request $request){
         $user_ids = $request->session()->get('user_ids');
         $title = $request->title;
-        $data['subject'] = $request->subject;
-        $data['content'] = $request->message;
+        $data['subject'] = $title;
+        $data['message'] = $request->message;
         $users = User::select('id','email')->whereIn('id',$user_ids)->get();
         foreach ($users as $user){
             Mail::to($user->email)->send(new Newsletter($data));

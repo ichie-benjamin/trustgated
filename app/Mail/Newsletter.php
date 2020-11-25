@@ -18,7 +18,7 @@ class Newsletter extends Mailable
     }
     public function build()
     {
-        return $this->subject('Message from '. $this->mess['sender'])
-            ->view('emails.employer', ['mess' => $this->mess]);
+        return $this->subject($this->mess['subject'].' From Trustgated Jobsite')
+            ->view('emails.newsletter', ['data' => $this->mess]);
     }
 }
