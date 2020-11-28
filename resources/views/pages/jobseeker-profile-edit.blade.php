@@ -130,7 +130,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-4 pedit"><span class="red-star">*</span>City:</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="City" value="{{ $user->city }}">
+                                            <input type="text"  name="city" class="form-control" placeholder="City" value="{{ $user->city }}">
                                             <span id="cityInfo"></span>
                                         </div>
                                     </div>
