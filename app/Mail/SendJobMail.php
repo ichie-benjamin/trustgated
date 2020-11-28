@@ -20,7 +20,7 @@ class SendJobMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Your Friend Suggested '. $this->mess['subject'])
+        return $this->subject('Your Job Suggested '. $this->mess['subject'])
             ->view('emails.message', ['mess' => $this->mess]);
     }
 }

@@ -12,6 +12,7 @@ use App\Models\JobCategory;
 use App\Models\Job;
 //use App\Models\Location;
 use App\Models\Location;
+use App\Models\ResumeView;
 use App\Models\Type;
 use App\Notifications\NewApplicant;
 use Illuminate\Support\Facades\DB;
@@ -53,34 +54,40 @@ class JobsController extends Controller
     }
 
     public function jobSearch(Request $request){
-        if($request->has('advancesearch') || $request->has('homeadvsearch')){
-            $location = strip_tags($request->get('location'));
-            $experience = strip_tags($request->get('experience'));
-            $f_areas = strip_tags($request->get('f_areas'));
-            $category = strip_tags($request->get('category'));
-            $salary = strip_tags($request->get('salary'));
-            $keyword = strip_tags($request->get('keyword'));
-
-            $jobs = Job::where('tags','LIKE','%'.$keyword.'%')->orWhere('title','LIKE','%'.$keyword.'%')
-                ->where('locations','LIKE','%'.$location.'%')
-                ->orWhere('min_salary',$salary)
-                ->orWhere('functional_area',$f_areas)->orWhere('industry_id',$category)
+        if($request->has('quick')){
+            $key = $request->get('quick');
+          $jobs = Job::where('tags','LIKE','%'.$key.'%')->orWhere('title','LIKE','%'.$key.'%')
+                ->orWhere('tags','LIKE','%'.$key.'%')
                 ->latest()->paginate(10);
-        }else if($request->has('city')){
-            $jobs = Job::where('city','LIKE','%'.$request->get('city').'%')->latest()->paginate(10);
-        }else if($request->has('location')){
-         $jobs = Job::where('locations','LIKE','%'.$request->get('location').'%')->latest()->paginate(10);
-        }
-        else if($request->has('f_area')){
-            $jobs = Job::whereFunctionalArea($request->get('f_area'))->inRandomOrder()->paginate(10);
-        }else if($request->has('category')){
-            if($request->has('sort')){
-              $jobs = Job::whereIndustryId($request->get('category'))->latest()->paginate(10);
-            }else{
-                $jobs = Job::whereIndustryId($request->get('category'))->inRandomOrder()->paginate(10);
+        }else {
+            if ($request->has('advancesearch') || $request->has('homeadvsearch')) {
+                $location = strip_tags($request->get('location'));
+                $experience = strip_tags($request->get('experience'));
+                $f_areas = strip_tags($request->get('f_areas'));
+                $category = strip_tags($request->get('category'));
+                $salary = strip_tags($request->get('salary'));
+                $keyword = strip_tags($request->get('keyword'));
+
+                $jobs = Job::where('tags', 'LIKE', '%' . $keyword . '%')->orWhere('title', 'LIKE', '%' . $keyword . '%')
+                    ->where('locations', 'LIKE', '%' . $location . '%')
+                    ->orWhere('min_salary', $salary)
+                    ->orWhere('functional_area', $f_areas)->orWhere('industry_id', $category)
+                    ->latest()->paginate(10);
+            } else if ($request->has('city')) {
+                $jobs = Job::where('city', 'LIKE', '%' . $request->get('city') . '%')->latest()->paginate(10);
+            } else if ($request->has('location')) {
+                $jobs = Job::where('locations', 'LIKE', '%' . $request->get('location') . '%')->latest()->paginate(10);
+            } else if ($request->has('f_area')) {
+                $jobs = Job::whereFunctionalArea($request->get('f_area'))->inRandomOrder()->paginate(10);
+            } else if ($request->has('category')) {
+                if ($request->has('sort')) {
+                    $jobs = Job::whereIndustryId($request->get('category'))->latest()->paginate(10);
+                } else {
+                    $jobs = Job::whereIndustryId($request->get('category'))->inRandomOrder()->paginate(10);
+                }
+            } else {
+                $jobs = Job::inRandomOrder()->paginate(10);
             }
-        }else{
-            $jobs = Job::inRandomOrder()->paginate(10);
         }
         return view('pages.all_jobs',compact('jobs'));
     }
@@ -197,6 +204,23 @@ class JobsController extends Controller
 
     public function create(Request $request)
     {
+        if(auth()->user()->job_plan){
+            $jobs = Job::select(['created_at','user_id'])->whereUserId(auth()->id())->where('created_at','>=',auth()->user()->job_plan->updated_at)->count();
+            if(auth()->user()->job_plan->expired){
+                return redirect()->route('employer.resume_pack')->with('failure','Current Job Posting Access Expired, Please Purchase a package to continue posting jobs');
+            }
+            if(auth()->user()->job_plan->product){
+                if($jobs > auth()->user()->job_plan->product->no_of_jobs){
+                    return redirect()->route('employer.resume_pack')->with('failure',"You have exhausted the no. of jobs for this plan, upgrade to continue posting jobs");
+                }
+            }else{
+                return redirect()->route('employer.resume_pack')->with('failure','Purchase Job Posting Access to continue posting jobs');
+            }
+        }else{
+            return redirect()->route('employer.resume_pack')->with('failure','Purchase Job Posting Access to continue posting jobs');
+        }
+
+
         $job = null;
 //        $users = User::pluck('id','id')->all();
 $types = Type::pluck('name','id')->all();

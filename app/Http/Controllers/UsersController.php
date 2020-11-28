@@ -20,6 +20,23 @@ class UsersController extends Controller
 {
 
     public function userProfile($username){
+
+        if(auth()->user()->access_plan){
+            $views = ResumeView::whereEmployerId(auth()->id())->where('created_at','>=',auth()->user()->access_plan->updated_at)->count();
+            if(auth()->user()->access_plan->expired){
+                return redirect()->route('employer.resume_pack')->with('failure','Current Resume Access Expired, Please Purchase a package to continue view resume');
+            }
+            if(auth()->user()->access_plan->access){
+                if($views > auth()->user()->access_plan->access->no_of_resumes){
+                    return redirect()->route('employer.resume_pack')->with('failure',"You have exhausted the no. of resume view for this plan, purchase a plan to continue viewing resumes");
+                }
+            }else{
+                return redirect()->route('employer.resume_pack')->with('failure','Purchase Resume Access to continue viewing resumes');
+            }
+        }else{
+            return redirect()->route('employer.resume_pack')->with('failure','Purchase Resume Access to continue viewing resumes');
+        }
+
         $view = ResumeView::whereEmployerId(auth()->id())->get();
         $user = User::whereUsername($username)->firstOrFail();
         if(count($view) < 1){
@@ -32,6 +49,24 @@ class UsersController extends Controller
     }
 
     public function downloadResume($username){
+
+
+        if(auth()->user()->access_plan){
+            $views = ResumeView::whereEmployerId(auth()->id())->where('created_at','>=',auth()->user()->access_plan->updated_at)->count();
+            if(auth()->user()->access_plan->expired){
+                return redirect()->route('employer.resume_pack')->with('failure','Current Resume Access Expired, Please Purchase a package to continue view resume');
+            }
+            if(auth()->user()->access_plan->access){
+                if($views > auth()->user()->access_plan->access->no_of_resumes){
+                    return redirect()->route('employer.resume_pack')->with('failure',"You have exhausted the no. of resume view for this plan, purchase a plan to continue viewing resumes");
+                }
+            }else{
+                return redirect()->route('employer.resume_pack')->with('failure','Purchase Resume Access to continue viewing resumes');
+            }
+        }else{
+            return redirect()->route('employer.resume_pack')->with('failure','Purchase Resume Access to continue viewing resumes');
+        }
+
 
         $user = User::whereUsername($username)->firstOrFail();
         $download = ResumeDownload::whereEmployerId(auth()->user()->id)->get();

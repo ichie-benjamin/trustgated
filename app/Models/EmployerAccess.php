@@ -11,7 +11,9 @@ class EmployerAccess extends Model
     use HasFactory;
 
 
-    protected $fillable = ['user_id','access_id','expired_at','paid','expired'];
+    protected $fillable = ['user_id','access_id','expired_at','paid','expired_at'];
+
+    protected $appends = ['expired'];
 
     protected $with = ['access'];
 

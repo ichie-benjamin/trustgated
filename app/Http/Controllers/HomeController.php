@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\admin\UserBackgroundVerificationController;
+use App\Mail\ContactMail;
 use App\Mail\MailEmployer;
 use App\Mail\SendJobMail;
 use App\Models\City;
@@ -37,6 +38,13 @@ class HomeController extends Controller
             $job->save();
         }
         return 'done';
+    }
+
+    public function storeContact(Request $request){
+        $data = $request->all();
+        Mail::to('support@trustgated.com')->send(new ContactMail($data));
+        return redirect()->back()->with('success','Message successfully sent');
+
     }
 
     public function testimonial(){

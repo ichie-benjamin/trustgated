@@ -14,6 +14,8 @@ class EmployerProduct extends Model
 
     protected $with = ['product'];
 
+    protected $appends = ['expired'];
+
     protected $dates = [
         'expired_at'
     ];

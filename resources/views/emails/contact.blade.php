@@ -80,7 +80,7 @@
                                             </td>
                                             <td>
                                                 <p><strong>Phone No. </strong>{{ $contact['phone'] }}<br /></p>
-                                                <p><strong>Location. </strong>{{ $contact['location'] }}<br /></p>
+
                                             </td>
                                             <td>
                                                 <p><strong>Message :</strong> {{ $contact['message'] }}<br /></p>

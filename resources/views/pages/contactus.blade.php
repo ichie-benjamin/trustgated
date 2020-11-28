@@ -15,9 +15,54 @@
             </ol>
 
             <div class="row">
-                <div class="col-sm-9" >
-                    {!! $content !!}
-{{--                    <div class="top-emp-center p5">--}}
+                <div class="col-sm-12" >
+{{--                    {!! $content !!}--}}
+
+                    <div class="create-job">
+                        <div class="create-job-head">
+                            <h3> Enquiry Form </h3>
+                        </div>
+                        <div class="create-job-content">
+
+                            @if (session('success'))
+                                <div class="alert alert-success" role="alert">
+                                    <strong>Successful!</strong> {{ session('success') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+
+                            <p ></p>
+                            <form  action="{{ route('contact.store') }}" method="post">
+                                @csrf
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required id="fullname" name="name" value="" placeholder="*Name"><div id='id1'></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" required id="email" name="email"  placeholder="Email"><div id='id2'></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required id="mobile" name="phone" maxlength="10" placeholder="*Phone"><div id='id3'></div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required id="mobile" name="subject" maxlength="10" placeholder="*Subject"><div id='id3'></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" required name="message" rows="3" placeholder="*Message"></textarea><div id='id4'></div>
+                                </div>
+
+                                <!--<div class="g-recaptcha" data-sitekey="6LdwJCMUAAAAAENeQP_xGsG-VFH4vNd1OGHGs8Wy"></div>-->
+                                <div class="ali-right">
+                                    <input class="btn-blue btn" type="submit" name="Submits"  value="Submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div><!--create-job-->
+
+
+                    {{--                    <div class="top-emp-center p5">--}}
 {{--                        <h4>Contact Us</h4>--}}
 {{--                    </div>--}}
 {{--                    <div class="row">--}}
@@ -92,52 +137,12 @@
 
                 </div><!--col-sm-9-->
 
-                <div class="col-sm-3" >
+{{--                <div class="col-sm-3" >--}}
 
-                    <div class="create-job">
-                        <div class="create-job-head">
-                            <h3> Enquiry Form </h3>
-                        </div>
-                        <div class="create-job-content">
+{{--                    --}}
 
-                            <p ></p>
-                            <form  action="" name="formreg" id="formreg" method="post" onsubmit="return ChkContact()">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="fullname" name="fullname" value="" placeholder="*Name"><div id='id1'></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="email" name="email"  placeholder="Email"><div id='id2'></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="mobile" name="mobile" maxlength="10" placeholder="*Phone"><div id='id3'></div>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" id="message" name="message" rows="3" placeholder="*Message"></textarea><div id='id4'></div>
-                                </div>
-                                <div class="form-group">
-
-
-                                    <input type="text" id="mainCaptcha"/>
-                                    <script>Captcha();</script>
-
-                                    <input type="text" id="txtInput" placeholder="Enter above code"/>
-                                    <!--<input id="Button1" type="button" value="Check" onclick="alert(ValidCaptcha());"/>-->
-
-
-                                    <div id='id5'></div>
-                                </div>
-                                <!--<div class="g-recaptcha" data-sitekey="6LdwJCMUAAAAAENeQP_xGsG-VFH4vNd1OGHGs8Wy"></div>-->
-                                <div class="ali-right">
-                                    <input  type="hidden" id="formsubmit" name="formsubmit" value="add">
-                                    <input class="btn-blue btn" type="submit" name="Submits"  value="Submit" onclick="return ValidCaptcha();" >
-                                </div>
-                            </form>
-                        </div>
-                    </div><!--create-job-->
-
-                    <div class="press-banner img-responsive"><img src="images/agency.jpg"  alt="agency"></div>
-
-                </div><!--col-sm-3-->
+{{--                </div>--}}
+                <!--col-sm-3-->
 
             </div><!--row-->
         </div><!-- container -->

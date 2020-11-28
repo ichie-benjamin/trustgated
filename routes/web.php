@@ -22,6 +22,8 @@ Route::get('login/{provider}/callback', [SocialAuthController::class,'callback']
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
 
+Route::post('/contact/storeemp_resume_pack',[HomeController::class, 'storeContact'])->name('contact.store');
+
 
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
 Route::get('/testimonial',[HomeController::class, 'testimonial'])->name('testimonial');
