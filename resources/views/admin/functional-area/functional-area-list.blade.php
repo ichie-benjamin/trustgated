@@ -26,6 +26,8 @@
                 Add Functional Area
             </button>
         </p>
+        @include('notification')
+
         <div class="collapse" id="collapseExample">
         <div class="br-section-wrapper">
             <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Functional Area</h6>

@@ -23,13 +23,23 @@
     <div class="br-pagebody">
         <div class="br-section-wrapper">
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form action="{{ route('admin.functional-area.update', $functional_area->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-layout form-layout-1">
                     <div class="row mg-b-25">
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Functional Area: <span class="tx-danger">*</span></label>
                                 <input class="form-control" type="text" name="category_functional_area" value="{{old('category_functional_area', optional($functional_area)->category_functional_area)}}" placeholder="Enter functional area">
@@ -43,6 +53,15 @@
                                     @foreach (\App\Models\Category::all() as $item)
                                         <option value="{{ $item->id }}" @if (old('category_id') == $item->id) selected="selected" @endif>{{ $item->name }}</option>
                                     @endforeach
+                                </select>
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-md-3">
+                            <div class="form-group mg-b-10-force">
+                                <label class="form-control-label">Featured <span class="tx-danger">*</span></label>
+                                <select name="featured" class="form-control " data-placeholder="Choose Status:">
+                                    <option {{ $functional_area->featured ? 'selected' : '' }} value="1">Yes</option>
+                                    <option {{ !$functional_area->featured ? 'selected' : '' }} value="0">No</option>
                                 </select>
                             </div>
                         </div><!-- col-4 -->

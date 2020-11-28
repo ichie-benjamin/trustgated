@@ -25,7 +25,7 @@ class FunctionalAreaController extends Controller
     {
         $data = $this->getData($request);
         FunctionalArea::create($data);
-        return redirect()->route('admin.functional-area.index');
+        return redirect()->route('admin.functional-area.index')->with('success','Functional Area successfully added');
     }
 
     public function show(FunctionalArea $functionalArea)
