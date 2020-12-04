@@ -198,7 +198,7 @@
 
 
 
-                            <div class="ali-right"> <a class="btn-blue btn" href="{{ route('searchall') }}">View All</a></div>
+                            <div class="ali-right"> <a class="btn-blue btn" href="{{ route('similar') }}">View All</a></div>
                         </div>
                     </div>
 

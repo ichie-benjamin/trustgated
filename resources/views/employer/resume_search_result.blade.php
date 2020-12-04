@@ -79,9 +79,9 @@
                                         <td>
                                             <strong>Professional Details</strong>
                                         </td>
-                                        <td>
-                                            <strong>Personal Details</strong>
-                                        </td>
+{{--                                        <td>--}}
+{{--                                            <strong>Personal Details</strong>--}}
+{{--                                        </td>--}}
                                         <td style="width: 15%; text-align:center;">
                                             Process
                                         </td>
@@ -97,7 +97,7 @@
                                             <strong>Key Skill :</strong> ({{ $user->skills }}) <br>
                                             <strong>Experience :</strong> {{ $user->exp }} <br>
                                             <strong>Last Active on :</strong>
-                                            {{ $user->updated_at->format('d M Y') }}</td>
+                                            {{ $user->lastLoginAt() }}</td>
                                         <td>
                                             <strong></strong>
                                             <strong>Qualification :</strong>
@@ -106,18 +106,18 @@
                                             {{ $user->functional_area }}<br>
 
                                         </td>
-                                        <td>
-                                            <strong>Name :</strong>{{ $user->name }} <br>
-                                            <strong>Email :</strong>{{ $user->email }} <br>
-                                            <strong>Mobile :</strong>{{ $user->mobile_number }}<br>
-                                            <strong>Location :</strong> {{ $user->city }} </td>
+{{--                                        <td>--}}
+{{--                                            <strong>Name :</strong>{{ $user->name }} <br>--}}
+{{--                                            <strong>Email :</strong>{{ $user->email }} <br>--}}
+{{--                                            <strong>Mobile :</strong>{{ $user->mobile_number }}<br>--}}
+{{--                                            <strong>Location :</strong> {{ $user->city }} </td>--}}
                                         <td style="width: 15%; text-align:center;">
 
                                             <a href="{{ route('user.profile.public', $user->username) }}" target="">View Profile</a>
                                             <br>
                                             <hr class="noshade">
 
-                                            <a href="#">Send mail</a>
+{{--                                            <a href="#">Send mail</a>--}}
 
                                         </td>
                                     </tr>

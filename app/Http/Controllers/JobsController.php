@@ -16,6 +16,7 @@ use App\Models\ResumeView;
 use App\Models\Type;
 use App\Notifications\NewApplicant;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Validator;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -290,7 +291,22 @@ if(!$companies){
     {
         $job = Job::findBySlugOrFail($slug);
 
+        Session::put('job', $job);
+
         return view('jobview', compact('job'));
+    }
+
+    public function similar()
+    {
+        $job = Session::get('job');
+
+            $jobs = Job::where('tags', 'LIKE', '%' . $job->tags . '%')
+                ->where('locations', 'LIKE', '%' . $job->locations . '%')
+                ->orWhere('functional_area', $job->functional_area)->orWhere('industry_id', $job->industry_id)
+                ->latest()->paginate(10);
+
+        return view('pages.all_jobs',compact('jobs'));
+
     }
 
     public function view($slug)

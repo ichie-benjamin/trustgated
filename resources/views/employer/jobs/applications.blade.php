@@ -84,8 +84,8 @@
                                     </div><!--col-md-3------------------------------>
                                     <div class="col-md-3">
                                         <strong>Name :</strong>  {{ $item->user->name }}	  <br>
-                                        <strong>Email :</strong>  {{ $item->user->email }}	<br>
-                                        <strong>Mobile :</strong>  {{ $item->user->mobile_number }}	 <br>
+                                        <strong>Email :</strong>  xxxxxxxxxxxxxxxx	<br>
+                                        <strong>Mobile :</strong>  xxxxxxxxxxxxxxx	 <br>
                                         <strong>Address :</strong>   {{ $item->user->address }}     </div><!--col-md-3------------------------------>
                                     <div class="col-md-3">
 

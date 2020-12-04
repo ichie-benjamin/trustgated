@@ -6,11 +6,14 @@
 @endsection
 
 @section('content')
+
     <div class="br-mainpanel">
         <div class="pd-30">
             <h4 class="tx-gray-800 mg-b-5">{{ setting('site_name') }}</h4>
 {{--            <p class="mg-b-0">Do big things with Bracket, the responsive bootstrap 4 admin template.</p>--}}
         </div><!-- d-flex -->
+
+        @include('notification')
 
         <div class="br-pagebody mg-t-5 pd-x-30">
             <div class="row row-sm">
@@ -117,7 +120,7 @@
 {{--                                <td class="pd-r-0-force tx-center"><a href="#" class="tx-gray-600"><i class="icon ion-more tx-18 lh-0"></i></a></td>--}}
                                 <td>
                                     <a href="{{ route('admin.users.edit', $item) }}" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Edit User"><em class="fa fa-edit"></em></a>
-                                    <a href="{{ route('admin.users.destroy', $item) }}" onclick="destroyUser(event)" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><em class="fa fa-trash"></em>
+                                    <a href="" onclick="destroyUser(event)" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Delete"><em class="fa fa-trash"></em>
                                         <form id="delete-customer-form" action="{{ route('admin.users.destroy', $item) }}" method="POST" class="d-none">
                                             @csrf
                                             @method('DELETE')
@@ -280,4 +283,14 @@
             }
         });
     </script>
+            <script>
+                function destroyUser(e) {
+                    e.preventDefault();
+
+                    if (confirm('Are you sure you want to remove this user entirely from the system ? '))
+                        document.getElementById('delete-customer-form').submit()
+                    else
+                        return false;
+                }
+            </script>
 @endsection

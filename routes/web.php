@@ -19,12 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('login/{provider}', [SocialAuthController::class,'redirect'])->name('social.login');
 Route::get('login/{provider}/callback', [SocialAuthController::class,'callback']);
 
-
 Route::get('/',[HomeController::class, 'index'])->name('home');
+
+Route::get('/similar/jobs',[JobsController::class, 'similar'])->name('similar');
 
 Route::post('/contact/storeemp_resume_pack',[HomeController::class, 'storeContact'])->name('contact.store');
 
 
+Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
 Route::get('/home',[HomeController::class, 'index'])->name('auth.home');
 Route::get('/testimonial',[HomeController::class, 'testimonial'])->name('testimonial');
 

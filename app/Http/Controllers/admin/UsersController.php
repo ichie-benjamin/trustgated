@@ -172,7 +172,8 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         try {
-            $user->delete();
+            $user->forcedelete();
+//            $user->delete();
             // $customer->profile->delete(); // delete corresponding user profile
 
         } catch(\Exception $e) {
