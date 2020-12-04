@@ -197,6 +197,21 @@ class UsersController extends Controller
         return redirect()->back()->with('success', 'More details Successfully update');
     }
 
+    public function updateEducation(Request $request)
+    {
+        $user = User::findOrFail(Auth::id());
+
+        $user->update([
+
+            'basic_education' => $request->basic_education,
+//            'university' => $request->university,
+            'industry' => $request->industry,
+            'course' => $request->course,
+        ]);
+
+        return redirect()->back()->with('success', 'Educational Details Successfully update');
+    }
+
     public function updateResume(Request $request)
     {
         $user = User::findOrFail(Auth::id());

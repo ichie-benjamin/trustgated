@@ -23,10 +23,30 @@
                 </div><!--col-sm-2-->
 
                 <div class="col-md-9" >
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>Successful!</strong> {{ session('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <div class="top-emp-center">
                         <h4>Edit Education Details</h4>
                     </div> <!--top-emp-center-->
-                    <form class="form-horizontal m10" name="myform">
+                    <form class="form-horizontal m10" method="POST" action="{{ route('user.update.education') }}">
+                        @csrf
+
                         <div class="row" >
                             <div class="col-sm-11" >
 
@@ -36,7 +56,7 @@
                                     <div class="col-sm-8">
                                         <select required name="basic_education" id="basic_education" class="form-control">
                                             @foreach (\App\Models\EducationDetails::all() as $item)
-                                                <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                <option {{ auth()->user()->basic_education == $item->name ? 'selected' : '' }} value="{{ $item->name }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -76,9 +96,11 @@
                                     <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Specialization:</label>
 
                                     <div class="col-sm-8">
-                                        <input type="text" name="ugspec" id="ugspec" class="form-control " placeholder="" value=""/>
-
-
+                                        <select required name="industry" id="industry" class="form-control">
+                                            @foreach ($industries as $key => $value)
+                                                <option {{ auth()->user()->industry == $key ? 'selected' : '' }} value="{{ $key }}">{{ $key }}</option>
+                                            @endforeach
+                                        </select>
 
                                     </div><!--col-sm-6-->
 
@@ -89,87 +111,26 @@
                                     </div>
                                 </div><!--form-group-->
 
+{{--                                <div class="form-group">--}}
+{{--                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>University/Institute:</label>--}}
+{{--                                    <div class="col-sm-8">--}}
+{{--                                        <input type="text" name="university" id="university" class="form-control " placeholder="" value="{{ auth()->user()->university }}"/>--}}
+
+{{--                                    </div>--}}
+{{--                                    <div>--}}
+{{--                                        <span id="desigInfo"></span>--}}
+{{--                                    </div>--}}
+{{--                                </div><!--form-group-->--}}
                                 <div class="form-group">
-                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>University/Institute:</label>
+                                    <label class="col-sm-4 pedit2 text-right">Program /Course of study:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" name="ugcoll" id="ugcoll" class="form-control " placeholder="" value=""/>
+                                        <input type="text"  name="course" id="program" class="form-control " placeholder="" value="{{ auth()->user()->course }}"/>
 
                                     </div>
-                                    <div>
-                                        <span id="desigInfo"></span>
-                                    </div>
+
                                 </div><!--form-group-->
 
-
-                                <div class="form-group">
-                                    <label class="col-sm-4 pedit2 text-right"><span class="red-star">*</span>Year :</label>
-                                    <div class="col-sm-8">
-                                        <select name="ugyear" id="ugyear" class="form-control">
-                                            <option value="">select</option>
-                                            <option value='1960' >1960</option>
-                                            <option value='1961' >1961</option>
-                                            <option value='1962' >1962</option>
-                                            <option value='1963' >1963</option>
-                                            <option value='1964' >1964</option>
-                                            <option value='1965' >1965</option>
-                                            <option value='1966' >1966</option>
-                                            <option value='1967' >1967</option>
-                                            <option value='1968' >1968</option>
-                                            <option value='1969' >1969</option>
-                                            <option value='1970' >1970</option>
-                                            <option value='1971' >1971</option>
-                                            <option value='1972' >1972</option>
-                                            <option value='1973' >1973</option>
-                                            <option value='1974' >1974</option>
-                                            <option value='1975' >1975</option>
-                                            <option value='1976' >1976</option>
-                                            <option value='1977' >1977</option>
-                                            <option value='1978' >1978</option>
-                                            <option value='1979' >1979</option>
-                                            <option value='1980' >1980</option>
-                                            <option value='1981' >1981</option>
-                                            <option value='1982' >1982</option>
-                                            <option value='1983' >1983</option>
-                                            <option value='1984' >1984</option>
-                                            <option value='1985' >1985</option>
-                                            <option value='1986' >1986</option>
-                                            <option value='1987' >1987</option>
-                                            <option value='1988' >1988</option>
-                                            <option value='1989' >1989</option>
-                                            <option value='1990' >1990</option>
-                                            <option value='1991' >1991</option>
-                                            <option value='1992' >1992</option>
-                                            <option value='1993' >1993</option>
-                                            <option value='1994' >1994</option>
-                                            <option value='1995' >1995</option>
-                                            <option value='1996' >1996</option>
-                                            <option value='1997' >1997</option>
-                                            <option value='1998' >1998</option>
-                                            <option value='1999' >1999</option>
-                                            <option value='2000' >2000</option>
-                                            <option value='2001' >2001</option>
-                                            <option value='2002' >2002</option>
-                                            <option value='2003' >2003</option>
-                                            <option value='2004' >2004</option>
-                                            <option value='2005' >2005</option>
-                                            <option value='2006' >2006</option>
-                                            <option value='2007' >2007</option>
-                                            <option value='2008' >2008</option>
-                                            <option value='2009' >2009</option>
-                                            <option value='2010' >2010</option>
-                                            <option value='2011' >2011</option>
-                                            <option value='2012' >2012</option>
-                                            <option value='2013' >2013</option>
-                                            <option value='2014' >2014</option>
-                                            <option value='2015' >2015</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <span id="jobInfo"></span>
-                                    </div>
-                                </div><!--form-group-->
-
-
+                                @section('hide')
 
                                 <div class="form-group" id="notice1" >
                                     <div class="form-group">
@@ -532,13 +493,16 @@
                                     </div><!--form-group-->
                                 </div>
 
+                                @stop
 
                             </div><!--col-md-6-->
 
                             <div class="col-sm-12 m20">
                                 <div class="col-sm-4"></div>
-                                <div class="col-sm-3 text-right"><input type="submit" name="save1" class="btn-blue btn bc" value="Save" onclick="return validateform();"></div>
-                                <div class="col-sm-3 "><div class="btn-blue btn bc"><a href="jobseeker-profile.html" style="color:#FFF"> Cancel </a></div></div>
+                                <div class="col-sm-3 text-right"><input type="submit" class="btn-blue btn bc" value="Save"></div>
+{{--                                <div class="col-sm-3 "><div class="btn-blue btn bc"><a href="" style="color:#FFF"> Cancel </a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
                             </div><!--col-md-12-->
                         </div>

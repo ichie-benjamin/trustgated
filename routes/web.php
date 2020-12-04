@@ -116,6 +116,7 @@ Route::group(['middleware' => ['verified','auth']], function () {
     Route::post('/user/update/account', [UsersController::class, 'update'])->name('user.account.update');
     Route::post('/user/update/summary', [UsersController::class, 'updateSummary'])->name('user.account.summary');
     Route::post('/user/update/more', [UsersController::class, 'updateMore'])->name('user.update.more');
+    Route::post('/user/update/education', [UsersController::class, 'updateEducation'])->name('user.update.education');
 
     Route::get('/user/profile/{username}', [UsersController::class, 'userProfile'])->name('user.profile.public');
     Route::get('/user/download/resume/{username}', [UsersController::class, 'downloadResume'])->name('user.resume.download');
