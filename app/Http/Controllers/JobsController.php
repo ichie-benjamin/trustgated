@@ -301,7 +301,7 @@ if(!$companies){
         $job = Session::get('job');
 
             $jobs = Job::where('tags', 'LIKE', '%' . $job->tags . '%')
-                ->where('locations', 'LIKE', '%' . $job->locations . '%')
+//                ->where('locations', 'LIKE', '%' . $job->locations . '%')
                 ->orWhere('functional_area', $job->functional_area)->orWhere('industry_id', $job->industry_id)
                 ->latest()->paginate(10);
 
