@@ -35,6 +35,23 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/pages-style.css') }}">
 
+
+    <style>
+        .banner-top {
+            background-color: #222845;
+        }
+        #footer {
+            padding: 30px 0 0px;
+            background-color: #222845;
+            color: #d7d7d7;
+        }
+        #footer-bottom {
+            padding: 10px 0;
+            background-color: #222845;
+            color: #d7d7d7;
+        }
+    </style>
+
     <!--===============================================================================================-->
 </head>
 <body>
@@ -129,6 +146,154 @@
 
 @yield('content')
 
+
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div id="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2">
+
+                    <div class="widget widget-contact">
+                        <h4 class="widget-title">Information</h4>
+                        <ul>
+                            <li><a href="{{ route('about') }}" > About Us </a> </li>
+                            <li><a href="{{ route('terms') }}" > Terms & Conditions </a></li>
+                            <li><a href="{{ route('privacy') }}" > Privacy Policy </a></li>
+                            <li><a href="{{ route('contactus') }}" > Contact Us </a></li>
+                            <li><a href="{{ route('faq') }}" > Help / FAQ </a></li>
+
+                        </ul>
+
+                    </div><!-- widget-contact -->
+
+                </div><!-- col -->
+                <div class="col-sm-2">
+
+                    <div class="widget widget-contact">
+                        @guest()
+                            <h4 class="widget-title">Jobseekers </h4>
+                            <ul>
+                                <li><a href="{{ route('jobseeker.login') }}" > Login/Register </a> </li>
+                            </ul>
+                        @endguest
+
+                        <h4 class="widget-title"> Recruiters </h4>
+                        <ul>
+                            <li><a href="{{ route('recruiters') }}" > Browse All Recruiters </a> </li>
+
+                            <!--<li><a href="recruiter-listing.html" > Go to OwoRecruiters </a></li>-->
+                            <!--<li><a href="#" > Report a Problem </a></li>-->
+                        </ul>
+                    </div><!-- widget-contact -->
+
+                </div><!-- col -->
+                <div class="col-sm-2">
+
+                    <div class="widget widget-contact">
+
+                        <h4 class="widget-title">Browse Jobs</h4>
+
+                        <ul>
+                            <li><a href="{{ route('all_jobs') }}" > Browse All Jobs </a> </li>
+                            <!--<li><a href="#" > Premium MBA Jobs </a></li>
+                            <li><a href="#" > Premium Engineering Jobs </a></li>-->
+                            {{--                                <li><a href="jobsearch_all.html?sch=1" > Govt. Jobs </a></li>--}}
+                            {{--                                <li><a href="jobsearch_all.html?sch=2" > International Jobs </a></li>--}}
+                            <li><a href="{{ route('category_job') }}" > Jobs by Company </a> </li>
+                            <li><a href="{{ route('company_job') }}" > Jobs by Category </a></li>
+                            <li><a href="{{ route('job_by_area') }}" > Jobs by Location </a></li>
+                        </ul>
+
+                    </div><!-- widget-contact -->
+
+                </div><!-- col -->
+                <div class="col-sm-2">
+
+                    <div class="widget widget-contact">
+                        {{--                            <h4 class="widget-title">GOVT. JOBS</h4>--}}
+                        {{--                            <ul>--}}
+                        {{--                                <li><a href="job_by_location.html?loc=1" > Location </a></li>--}}
+                        {{--                            </ul>--}}
+
+                        {{--                            <h4 class="widget-title"> Oversea jobs</h4>--}}
+                        {{--                            <ul>--}}
+                        {{--                                <li><a href="job_by_location.html?loc=2" > All Countries </a> </li>--}}
+                        {{--                            </ul>--}}
+
+                        <h4 class="widget-title"> Employers</h4>
+                        <ul>
+                            <li><a href="{{ route('jobs.create') }}" > Post Jobs </a> </li>
+                            <!--<li><a href="#" > Search Resumes</a> </li>-->
+                        </ul>
+
+
+
+                    </div><!-- widget-contact -->
+
+
+                </div><!-- col -->
+                <div class="col-sm-2">
+
+                    <!--	<div class="widget widget-contact">
+                            <h4 class="widget-title">SERVICES</h4>
+
+                            <ul>
+                                <li><a href="#" > In-house Consultants </a> </li>
+                                <li><a href="#" > Resume Writing </a></li>
+                                <li><a href="#" > Featured Resume </a></li>
+                                <li><a href="#" > Priority Applicant </a></li>
+                                <li><a href="#" > Recruiters Connent </a></li>
+                            </ul>
+
+                        </div>--><!-- widget-contact -->
+
+                    <div class="widget widget-social">
+                        <h4 class="widget-title">FOLLOW US</h4>
+
+                        <div class="social-media">
+
+                            <a class="facebook" href="{{ setting('facebook_link') }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a class="twitter" href="{{ setting('twitter_link') }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a class="google" href="{{ setting('google_link') }}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            <a class="linkedin" href="{{ setting('linkedin_link') }}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        </div><!-- social-media -->
+                    </div><!-- widget-social -->
+                </div><!-- col -->
+                <div class="col-sm-1"> </div>
+            </div><!-- row -->
+        </div><!-- container -->
+
+    </div><!-- footer -->
+
+    <div id="footer-bottom">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <div class="widget widget-text">
+
+                        <div  class="copy-right"><p></p>
+                            <p>All rights reserved &copy; {{ date('Y') }} {{ setting('site_name') }}</p>
+                        </div>
+
+                    </div><!-- widget-text -->
+
+                </div><!-- col -->
+            </div><!-- row -->
+        </div><!-- container -->
+
+    </div><!-- footer-bottom -->
+
+</footer>
+<!-- FOOTER -->
 
 <div id="dropDownSelect1"></div>
 
