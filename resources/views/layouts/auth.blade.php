@@ -50,6 +50,24 @@
             background-color: #222845;
             color: #d7d7d7;
         }
+
+        .p-b-53{
+            padding-bottom : 5px
+        }
+        .m-b-20 {
+             margin-bottom: 0px;
+        }
+
+        .btn-face, .btn-google {
+            height: 50px!important;
+        }
+
+
+
+        .container-login100 {
+
+            min-height: 100%;
+        }
     </style>
 
     <!--===============================================================================================-->
