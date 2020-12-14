@@ -19,7 +19,8 @@
                         @include('layouts.partials.job-sidebar')
                     </div>
 
-                @else
+                @endif
+                    @if (auth()->user()->hasRole('employer'))
                     @include('employer.partials.sidebar')
                 @endif
 

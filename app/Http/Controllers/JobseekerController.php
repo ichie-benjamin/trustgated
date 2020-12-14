@@ -74,7 +74,7 @@ class JobseekerController extends Controller
 
     public function editEmployee($id)
     {
-        $employer = Employer::findOrFail($id);
+    $employer = Employer::findOrFail($id);
     	 return view('pages.edit_emp', compact('employer'));
     }
 
@@ -94,8 +94,8 @@ class JobseekerController extends Controller
         return view('pages.moredetails', compact('user'));
     }
 
-    public function editResume()
-    {
+    public function editResume(){
+
     	 return view('pages.edit_resume_det');
     }
 
