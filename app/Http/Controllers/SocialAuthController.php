@@ -53,7 +53,7 @@ class SocialAuthController extends Controller
                 $url = $this->redirectTo();
                 return redirect()->to($url);
             }else{
-                return $s_role;
+                return redirect()->route('login');
             }
 
         }
