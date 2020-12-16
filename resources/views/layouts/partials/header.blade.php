@@ -17,14 +17,14 @@
                         @auth()
 
                         <ul >
-                            <div class="dropdown2">
-                                <li><a href="{{ auth()->user()->url() }}" class="dropbtn2"><i class="fa fa-lock"></i> <strong> {{ auth()->user()->username }}</strong></a></li>
-                                <div class="dropdown-content2">
-                                    <a href="#">Edit Profile</a>
-                                    <a href="#">Saved Jobs</a>
-                                    <a href="#">Change Password</a>
+                            <div class="dropdown2" >
+                                <li style="margin-right: 4px"><a href="{{ auth()->user()->url() }}" class="dropbtn2"><i class="fa fa-lock"></i> <strong> {{ auth()->user()->username }}</strong></a></li>
+{{--                                <div class="dropdown-content2">--}}
+{{--                                    <a href="#">Edit Profile</a>--}}
+{{--                                    <a href="#">Saved Jobs</a>--}}
+{{--                                    <a href="#">Change Password</a>--}}
 
-                                </div>
+{{--                                </div>--}}
                             </div>
                             <li>
 
