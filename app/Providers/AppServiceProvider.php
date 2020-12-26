@@ -47,5 +47,6 @@ class AppServiceProvider extends ServiceProvider
         });
         Schema::defaultStringLength(191);
         View::share(['f_companies' => $f_companies, 'ad_job_right' => $ad_job_right, 'ad_job_left' => $ad_job_left,'f_areas' => $f_areas,'industries' => $industries]);
+
     }
 }

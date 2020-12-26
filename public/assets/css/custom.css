@@ -519,6 +519,9 @@
 
 	}
 @media(max-width:480px) {
+    .padno{
+        display: none;
+    }
 	.recru-name dd{font-size: 13px;    margin-left:0px !important;}
 	.eform {padding: 10px 10px !important;}
 	.mentopfor{ margin-top:67px;}
@@ -551,12 +554,14 @@
 
 	.hometom {
     margin-top: 70px;
-    background: #0D7BC0 none repeat scroll 0% 0%;
-    padding-top: 20px;
+    /*background: #0D7BC0 none repeat scroll 0% 0%;*/
+        background: #f2f2f2 none repeat scroll 0% 0%;
+        padding-top: 20px;
 }
 	.hea{
     background-color:#333 !important ;
    }
+
    .sss li a{ background-color: transparent; }
    .sss li a:hover{ background-color:#F1F6FA ; }
 .psteps_circle_titles .step-line { width:5%; }

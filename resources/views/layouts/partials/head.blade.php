@@ -62,6 +62,7 @@
 
     @yield('css')
     @yield('style')
+    <link rel="stylesheet" href="{{ asset('assets/css/extra.css') }}">
 
     <style>
 
@@ -112,6 +113,27 @@
             line-height: 60px;
             color: #fff; }*/
 
+    </style>
+
+    <style>
+        .hometom {
+            margin-top: 5px!important;
+            padding-top: 50px;
+        }
+        .avd a {
+            color: #3c763d!important;
+        }
+        .form-inline {
+            text-align: center!important;
+        }
+        #header-bottom {
+            /*position: relative;*/
+            /*margin-top: 25px;*/
+            background-color: #222845!important;
+        }
+        .banner-top {
+            background-color: #f2f2f2!important;
+        }
     </style>
 
 </head>
