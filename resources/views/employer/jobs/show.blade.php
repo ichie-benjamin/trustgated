@@ -58,7 +58,7 @@
                                         <td width="74%">
                                             {{ optional($job->industry)->category }}	</td>
                                     </tr>
-                                   
+
                                     <tr>
                                         <td width="25%">
                                             State
@@ -80,7 +80,7 @@
                                             Functional Area
                                         </td>
                                         <td width="74%">
-                                          {{ $job->functional->category_functional_area}}			</td>
+                                          {{ optional($job->functional)->category_functional_area}}			</td>
                                     </tr>
                                     <tr>
                                         <td width="25%">
@@ -110,7 +110,7 @@
                                         <td width="74%">
                                             {{ $job->company->name }}				</td>
                                     </tr>
-                                   
+
                                     <tr>
                                         <td width="25%">
                                             Website
