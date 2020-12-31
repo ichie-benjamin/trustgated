@@ -165,6 +165,8 @@ Route::group(['prefix' => 'employer','middleware' => ['verified','auth','role:em
     Route::post('/jobs/force/delete/{id}', [JobsController::class, 'forceDelete'])->name('jobs.delete');
 
     Route::post('/user/update', [UsersController::class, 'updateProfile'])->name('user.update');
+    Route::post('/user/store/sub', [UsersController::class, 'storeSubUser'])->name('user.sub.store');
+
     Route::resources([
         'jobs' => JobsController::class,
         'companies' => CompaniesController::class,

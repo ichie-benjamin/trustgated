@@ -17,112 +17,49 @@
                 @include('employer.partials.sidebar')
 
 
-                <div class="col-md-9" ><a href="{{ route('employer.add_sub_user') }}" style="float:right; padding:5px;" class="btn-blue">ADD</a>
+                <div class="col-md-9" ><a href="{{ route('employer.add_sub_user') }}" style="float:right; padding:5px;" class="btn btn-success">ADD</a>
                     <div class="top-emp-center">
                         <h4>Sub user Management</h4>
                     </div> <!--top-emp-center-->
-                    <div style="color:#009900; padding:5px; font-family:'Times New Roman', Times, serif; font-style:italic;"> 					</div>
-                    <table cellpadding="0" cellspacing="0" border="0" style="border:1px solid #a6d6f4; border-bottom: 1px solid #a6d6f4"  width="100%" align="center">
-                        <tr>
-                            <td valign="middle" colspan="10" height="1"  bgcolor="#FFFFFF"></td>
-                        </tr>
-                        <tr style="background-color: #E0EEF7;">
-                            <td valign="middle"align="center" width="50"><b>S.No</b></td>
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                            <td valign="middle"height="35" align="center"  width="150"><b>User Name</b></td>
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
 
-                            <td valign="middle"align="center" width="75"><b>BLOCK</b></td>
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                            <td valign="middle"align="center" width="75"><b>EDIT</b></td>
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                            <td valign="middle"align="center" width="75"><b>DELETE</b></td>
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                            <!--<td valign="middle"align="center" width="75"><b>REFRESH</b></td>-->
-                        </tr>
-                        <tr>
-                            <td valign="middle" colspan="10" height="1" style="background-color:#a6d6f4;"></td>
-                        </tr>
-                        <tr>
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>Successful!</strong> {{ session('success') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
 
 
-                            <td valign="middle"height="35" align="center"> 1 </td>
-
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                            <td valign="middle"align="center"> &nbsp; Ahmad  </td>
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-
-                            <td valign="middle"height="35" align="center">
-
-
-                                <a href="javascript:void(0);" class="search-link" onClick="save_userstatus('12','0'); return false;">
-                                    <span class="fa fa-check" aria-hidden="true"></span></a>
-
-
-
-                            </td>
-
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                            <td valign="middle"height="35" align="center">
-                                <a href="#">
-                                    <span class="fa fa-edit" aria-hidden="true" title="Edit User"></span></a>
-                            </td>
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                            <td valign="middle"align="center">
-
-                                <a href="#" onClick="if(confirm('Do You Want Delet This User !!!')){return true ;}else{return false;}" >
-                                    <span class="fa fa-remove" title="Remove User" aria-hidden="true"></span>
-                                </a>
-                                <!--<a href="delete_suser.php?id=12">
-                                <img src="images/delete-11.png" border="0" title="Delete" />
-                                </a>-->
-                            </td>
-
-                            <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                            <!--<td valign="middle"align="center" width="40">
-                            <a href="javascript:location.reload(true)">
-                            <img src="images/refresh.png" border="0px" title="Refresh"/> </a>
-                            </td>-->
-                        </tr>
-
-
-                        <td valign="middle"height="35" align="center"> 2 </td>
-
-                        <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                        <td valign="middle"align="center"> &nbsp; benny  </td>
-                        <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-
-                        <td valign="middle"height="35" align="center">
-
-
-                            <a href="javascript:void(0);" class="search-link" onClick="save_userstatus('13','0'); return false;">
-                                <span class="fa fa-check" aria-hidden="true"></span></a>
-
-
-
-                        </td>
-
-                        <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                        <td valign="middle"height="35" align="center">
-                            <a href="#">
-                                <span class="fa fa-edit" aria-hidden="true" title="Edit User"></span></a>
-                        </td>
-                        <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-                        <td valign="middle"align="center">
-
-                            <a href="#" onClick="if(confirm('Do You Want Delet This User !!!')){return true ;}else{return false;}" >
-                                <span class="fa fa-remove" title="Remove User" aria-hidden="true"></span>
-                            </a>
-                            <!--<a href="delete_suser.php?id=12">
-                            <img src="images/delete-11.png" border="0" title="Delete" />
-                            </a>-->
-                        </td>
-
-                        <td valign="middle" align="left" width="1" bgcolor="#FFFFFF"></td>
-
-                        </tr>
-
-                    </table>
+                    @if (count($users) > 0)
+                        <table class="table table-responsive table-bordered">
+                            <thead>
+                            <tr style="background-color: #E0EEF7;">
+                                <td><b>S.No</b></td>
+                                <td><b>User Name</b></td>
+                                <td><b>Email</b></td>
+                                <td><b>First Name</b></td>
+                                <td><b>Last Name</b></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($users as $user)
+                            <tr>
+                                <td> {{$loop->iteration}}</td>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->first_name }}</td>
+                                <td>{{ $user->last_name }}</td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <div class="alert alert-warning">
+                            <h3>No Sub User, create a sub user account</h3>
+                        </div>
+                    @endif
                 </div><!--col-sm-9-->
             </div><!--row-->
         </div><!-- container -->

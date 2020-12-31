@@ -14,6 +14,9 @@ class EmployerController extends Controller
     public function profile(){
         $user = Auth::user();
         $company = Company::whereUserId($user->id)->first();
+        if($user->parent_id > 0){
+            $company = Company::whereUserId($user->parent_id)->first();
+        }
         if(auth()->user()->hasRole('admin')){
             $company = Company::latest()->first();
         }elseif(!$company){
@@ -57,7 +60,8 @@ class EmployerController extends Controller
     }
 
     public function subUsers(){
-        return view('employer.sub_user_list');
+        $users = User::whereParentId(auth()->id())->get();
+        return view('employer.sub_user_list', compact('users'));
     }
 
     public function TransactionPayment($type, $id){

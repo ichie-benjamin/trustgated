@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DatabaseProduct;
 use App\Models\Employer;
+use App\Models\EmployerAccess;
+use App\Models\EmployerProduct;
+use App\Models\Products;
 use App\Models\ResumeDownload;
 use App\Models\ResumeView;
+use App\Models\Role;
 use App\Models\User;
 
 use App\Rules\MatchOldPassword;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -221,6 +227,8 @@ class UsersController extends Controller
         return redirect()->back()->with('success', 'Resume Successfully update');
 
     }
+
+
     public function updateItskills(Request $request)
     {
         $user = User::findOrFail(Auth::id());
@@ -350,6 +358,31 @@ class UsersController extends Controller
         return redirect()->back()->with('success','Profile successfully updated');
     }
 
+    public function storeSubUser(Request $request){
+        $role = Role::where('name','employer')->first();
+
+        $data = $this->getSubData($request);
+
+        $user = User::create([
+            'username' => $data['username'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'parent_id' => $data['parent_id'],
+            'password' => Hash::make($data['password']),
+        ]);
+        $user->attachRole($role);
+
+        $product = Products::whereName('Free')->first();
+        $access =  DatabaseProduct::whereName('Free')->first();
+
+        EmployerProduct::create(['user_id' => $user->id, 'product_id' => $product->id,'expired_at' => Carbon::now()->addDay($product->no_of_days), 'paid' => true]);
+
+        EmployerAccess::create(['user_id' => $user->id, 'access_id' => $access->id, 'expired_at' => Carbon::now()->addDay($access->no_of_days), 'paid' => true]);
+
+        return redirect()->route('employer.sub_users')->with('success','Sub user successfully created');
+    }
+
     public function store(Request $request){
         Validator::make($request, [
             'name' => ['required', 'string', 'max:255'],
@@ -375,6 +408,20 @@ class UsersController extends Controller
         ];
         $data = $request->validate($rules);
         $data['user_id'] = auth()->id();
+        return $data;
+    }
+
+    protected function getSubData(Request $request)
+    {
+        $rules = [
+            'first_name' => 'required | string | max:255',
+            'last_name' => 'nullable',
+            'username' => 'required | string | max:255 | unique:users',
+            'email' => 'required | string | email | max:255 | unique:users',
+            'password' => 'required | min:8',
+        ];
+        $data = $request->validate($rules);
+        $data['parent_id'] = auth()->id();
         return $data;
     }
 }

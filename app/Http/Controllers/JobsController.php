@@ -189,7 +189,7 @@ class JobsController extends Controller
     public function index()
     {
         $title = 'Successfully Job Posted!';
-        $jobs = Job::with('user','type','category','company')->whereUserId(auth()->user()->id)->latest()->paginate(25);
+        $jobs = Job::with('user','type','category','company')->whereUserId(auth()->user()->id)->orWhere('user_id',auth()->user()->parent_id)->latest()->paginate(25);
 
         return view('employer.jobs.index', compact('jobs','title'));
     }
@@ -229,10 +229,14 @@ $categories = JobCategory::pluck('name','id')->all();
 $locations = Country::pluck('id','id')->all();
 $companies = Company::where('user_id',auth()->user()->id)->pluck('name','id')->all();
 
+if(auth()->user()->parent_id > 0){
+    $companies = Company::where('user_id',auth()->user()->parent_id)->pluck('name','id')->all();
+}
+
 if(!$companies){
     $request->session()->flash('message', 'You need to register a company before you can post jobs');
     $request->session()->flash('message-type', 'success');
-    return redirect()->route('companies.company.create');
+    return redirect()->back();
 }
 
         return view('employer.jobs.create', compact('types','categories','locations','companies','job'));
@@ -334,6 +338,11 @@ if(!$companies){
     {
 
         $job = Job::findBySlugOrFail($slug);
+
+        if($job->user_id != auth()->id() && $job->user_id  != auth()->user()->parent_id){
+            return redirect()->back();
+        }
+
 //$types = Type::pluck('name','id')->all();
 //$categories = JobCategory::pluck('name','id')->all();
 //$locations = Location::pluck('name','id')->all();
@@ -457,7 +466,11 @@ $companies = Company::pluck('name','id')->all();
         $data['category_id'] = $data['industry_id'];
 //        $data['location_id'] = $data['industry_id'];
         $data['type_id'] = 1;
-        $data['user_id'] = auth()->user()->id;
+        if(auth()->user()->parent_id > 0){
+            $data['user_id'] = auth()->user()->parent_id;
+        }else {
+            $data['user_id'] = auth()->user()->id;
+        }
         $data['is_apply_here'] = true;
 
         return $data;

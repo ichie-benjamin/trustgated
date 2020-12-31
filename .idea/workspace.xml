@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6e378c0-b0e4-4f17-8e8a-9ed25dee3fd4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employer/jobs/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employer/jobs/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employer/add_sub_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employer/add_sub_user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employer/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employer/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/employer/sub_user_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employer/sub_user_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +185,7 @@
       <updated>1608916553761</updated>
       <workItem from="1608916555205" duration="8738000" />
       <workItem from="1609229672490" duration="522000" />
-      <workItem from="1609362262833" duration="935000" />
+      <workItem from="1609362262833" duration="9106000" />
     </task>
     <servers />
   </component>
